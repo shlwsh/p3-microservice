@@ -464,6 +464,49 @@ def check_version_files(changes_raw: str) -> bool:
     return any(vf in changed for vf in VERSION_FILES for changed in changed_files)
 
 
+def has_unpushed_commits() -> bool:
+    output = run_command("git cherry -v", check=False) or ""
+    return bool(output.strip())
+
+
+def push_to_remote(proxy_url: str | None, github_token: str | None) -> None:
+    print("🚀 正在推送到远程仓库...")
+    branch = run_command("git rev-parse --abbrev-ref HEAD") or "main"
+    remote = run_command(f"git config branch.{branch}.remote") or "origin"
+    has_upstream = bool(run_command(f"git config branch.{branch}.merge"))
+
+    git_bin = git_executable_for_push()
+    if git_bin != "git":
+        print("🔐 使用 Windows Git 推送（复用 Windows 凭据，推荐 WSL 环境）")
+    elif github_token:
+        print("🔐 使用 GITHUB_TOKEN 推送")
+    else:
+        print("⚠️  未配置 GITHUB_TOKEN；将尝试 Windows Git / GCM 桥接")
+
+    push_env, extra_git_args = build_git_push_env(os.environ, proxy_url, github_token)
+    push_cmd = [git_bin, *extra_git_args]
+    if has_upstream:
+        push_cmd += ["push", "--no-verify"]
+        print(f"📡 远程仓库: {remote}, 分支: {branch}")
+    else:
+        push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
+        print(f"📡 远程仓库: {remote}, 分支: {branch} (首次推送)")
+
+    result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
+    if result.returncode != 0:
+        err = (result.stderr or result.stdout).strip()
+        print(f"\n❌ 推送失败: {err}")
+        print("本地提交已保留。可尝试：")
+        print("  1) 在 .env.local 添加 GITHUB_TOKEN=<GitHub PAT>")
+        print("  2) 手动执行: '/mnt/c/Program Files/Git/cmd/git.exe' push")
+        sys.exit(1)
+
+    out = (result.stdout or result.stderr).strip()
+    if out:
+        print(out)
+    print("\n✨ 推送成功！")
+
+
 def main() -> None:
     print("🚀 AI Git 提交工具启动 (p3-microservice)")
 
@@ -498,16 +541,24 @@ def main() -> None:
     print("📝 正在检查代码变更...")
     status_output = run_command("git status --porcelain") or ""
     if not status_output:
-        print("✅ 没有检测到代码变更")
-        sys.exit(0)
+        if has_unpushed_commits():
+            print("ℹ️  工作区无变更，但检测到本地有尚未推送的提交，正在同步推送...\n")
+            push_to_remote(proxy_url, github_token)
+            return
+        print("✅ 工作区是干净的，且本地提交已与远程仓库完全同步。")
+        return
 
     status = parse_git_status(status_output)
     if not status.has_changes:
+        if has_unpushed_commits():
+            print("ℹ️  暂无可提交变更，但检测到本地有尚未推送的提交，正在同步推送...\n")
+            push_to_remote(proxy_url, github_token)
+            return
         if status.excluded:
             print("✅ 没有可提交的代码变更（已排除构建/索引目录）")
         else:
-            print("✅ 没有检测到代码变更")
-        sys.exit(0)
+            print("✅ 工作区是干净的，且本地提交已与远程仓库完全同步。")
+        return
 
     print(f"\n发现 {len(status.all_files)} 个文件变更：")
     for line in status_output.splitlines():
@@ -621,41 +672,8 @@ def main() -> None:
         if os.path.exists(msg_file):
             os.remove(msg_file)
 
-    print("🚀 正在推送到远程仓库...")
-    branch = run_command("git rev-parse --abbrev-ref HEAD") or "main"
-    remote = run_command(f"git config branch.{branch}.remote") or "origin"
-    has_upstream = bool(run_command(f"git config branch.{branch}.merge"))
-
-    git_bin = git_executable_for_push()
-    if git_bin != "git":
-        print("🔐 使用 Windows Git 推送（复用 Windows 凭据，推荐 WSL 环境）")
-    elif github_token:
-        print("🔐 使用 GITHUB_TOKEN 推送")
-    else:
-        print("⚠️  未配置 GITHUB_TOKEN；将尝试 Windows Git / GCM 桥接")
-
-    push_env, extra_git_args = build_git_push_env(os.environ, proxy_url, github_token)
-    push_cmd = [git_bin, *extra_git_args]
-    if has_upstream:
-        push_cmd += ["push", "--no-verify"]
-        print(f"📡 远程仓库: {remote}, 分支: {branch}")
-    else:
-        push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
-        print(f"📡 远程仓库: {remote}, 分支: {branch} (首次推送)")
-
-    result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
-    if result.returncode != 0:
-        err = (result.stderr or result.stdout).strip()
-        print(f"\n❌ 推送失败: {err}")
-        print("本地提交已保留。可尝试：")
-        print("  1) 在 .env.local 添加 GITHUB_TOKEN=<GitHub PAT>")
-        print("  2) 手动执行: '/mnt/c/Program Files/Git/cmd/git.exe' push")
-        sys.exit(1)
-
-    out = (result.stdout or result.stderr).strip()
-    if out:
-        print(out)
-    print("\n✨ 提交并推送成功！")
+    push_to_remote(proxy_url, github_token)
+    print("✨ 提交并推送成功！")
 
 
 if __name__ == "__main__":
