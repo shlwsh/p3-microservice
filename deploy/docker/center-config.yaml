@@ -1,0 +1,43 @@
+# Center 配置（Docker Compose / WSL 环境）
+# 服务名作为主机名，在 lognet 网络内互通
+
+server:
+  http_port: 8080
+  grpc_port: 9090
+
+redis:
+  address: "redis:6379"
+  password: ""
+  db: 0
+  pool_size: 20
+
+loki:
+  push_url: "http://loki:3100/loki/api/v1/push"
+  query_url: "http://loki:3100/loki/api/v1/query_range"
+  tenant_id: ""
+  batch_size: 100
+  batch_wait_ms: 1000
+  push_timeout: 10s
+  max_retries: 3
+
+strategy:
+  response_time_threshold_ms: 1000
+  error_codes: [500, 502, 503, 504]
+  error_rate_threshold: 0.05
+  generation_interval_sec: 30
+  attention_list_ttl_sec: 300
+  top_k: 50
+  time_window_sec: 60
+
+url_cluster:
+  enable_numeric_replace: true
+  enable_uuid_replace: true
+  similarity_threshold: 0.8
+
+secondary_filter:
+  enabled: true
+  dedup_window_sec: 60
+
+logging:
+  level: "info"
+  format: "json"

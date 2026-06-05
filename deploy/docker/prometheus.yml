@@ -1,0 +1,18 @@
+# Prometheus 采集配置（WSL / Docker Compose 环境）
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Center /metrics 端点待实现后可取消注释
+  # - job_name: center
+  #   static_configs:
+  #     - targets: ["center:8080"]
+
+  - job_name: gateway-agent
+    static_configs:
+      - targets: ["gateway:9100"]

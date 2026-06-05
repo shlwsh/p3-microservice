@@ -1,0 +1,18 @@
+# Windows 用户目录下的 .wslconfig 示例
+# 路径: C:\Users\<用户名>\.wslconfig
+# 修改后执行: wsl --shutdown，再重新打开 WSL
+
+[wsl2]
+# 建议为 Docker 集群分配至少 6GB 内存
+memory=8GB
+processors=4
+
+# 启用嵌套虚拟化（部分 Docker 场景需要）
+nestedVirtualization=true
+
+# 限制 swap，避免磁盘 I/O 拖慢容器
+swap=2GB
+
+[experimental]
+# 自动回收 WSL 内存（Windows 11 22H2+）
+autoMemoryReclaim=gradual

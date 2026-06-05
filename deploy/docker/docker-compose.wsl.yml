@@ -1,0 +1,33 @@
+# WSL2 资源优化覆盖配置
+# 用法：docker compose -f docker-compose.yml -f docker-compose.wsl.yml up -d
+#
+# 适用于内存 ≤ 8GB 的 WSL 环境，降低基础设施资源占用
+# 注：mem_limit 在 docker compose up 下生效（deploy.resources 仅 Swarm 模式有效）
+
+version: '3.8'
+
+services:
+  loki:
+    mem_limit: 512m
+
+  grafana:
+    mem_limit: 256m
+
+  redis:
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
+    mem_limit: 192m
+
+  prometheus:
+    mem_limit: 256m
+
+  center:
+    mem_limit: 256m
+
+  gateway-agent:
+    mem_limit: 128m
+
+  service-1-agent:
+    mem_limit: 128m
+
+  service-2-agent:
+    mem_limit: 128m

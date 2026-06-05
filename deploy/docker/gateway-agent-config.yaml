@@ -1,0 +1,48 @@
+# Gateway Agent 配置（Sidecar，与 gateway 容器共享网络栈）
+
+server:
+  center_address: "center:9090"
+  agent_id: "gateway-agent"
+  service_name: "gateway"
+
+cache:
+  max_size_bytes: 67108864   # 64MB（WSL 资源友好）
+  max_entries: 50000
+  flush_threshold_percent: 80
+  flush_interval_ms: 5000
+  enable_compression: true
+
+retry:
+  base_delay: 200ms
+  multiplier: 2.0
+  max_delay: 30s
+  max_retries: 6
+  jitter: 0.3
+
+matcher:
+  pull_interval: 10s
+  min_log_level: "INFO"
+
+monitor:
+  sample_interval: 5s
+  cpu_high_threshold: 0.80
+  memory_high_threshold: 0.85
+
+local_persist:
+  db_path: "/var/lib/agent/fallback.db"
+  max_size_bytes: 268435456  # 256MB
+
+nginx:
+  enabled: true
+  shared_memory_path: "/dev/shm/nginx_log"
+  read_interval: 1s
+
+metrics:
+  enabled: true
+  port: 9100
+  path: "/metrics"
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
