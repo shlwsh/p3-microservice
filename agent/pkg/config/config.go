@@ -45,8 +45,9 @@ type RetryConfig struct {
 }
 
 type MatcherConfig struct {
-	PullInterval time.Duration `yaml:"pull_interval"`
-	MinLogLevel  string        `yaml:"min_log_level"`
+	PullInterval   time.Duration `yaml:"pull_interval"`
+	MinLogLevel    string        `yaml:"min_log_level"`
+	CollectionMode string        `yaml:"collection_mode"` // directed | full
 }
 
 type MonitorConfig struct {
@@ -62,6 +63,7 @@ type LocalPersistConfig struct {
 
 type NginxConfig struct {
 	Enabled          bool          `yaml:"enabled"`
+	PullURL          string        `yaml:"pull_url"`
 	SharedMemoryPath string        `yaml:"shared_memory_path"`
 	ReadInterval     time.Duration `yaml:"read_interval"`
 }
@@ -132,6 +134,12 @@ func (c *AgentConfig) applyDefaults() {
 	}
 	if c.Matcher.PullInterval == 0 {
 		c.Matcher.PullInterval = 10 * time.Second
+	}
+	if c.Matcher.CollectionMode == "" {
+		c.Matcher.CollectionMode = "directed"
+	}
+	if c.Nginx.PullURL == "" {
+		c.Nginx.PullURL = "http://127.0.0.1/_agent/logs"
 	}
 	if c.Monitor.SampleInterval == 0 {
 		c.Monitor.SampleInterval = 5 * time.Second

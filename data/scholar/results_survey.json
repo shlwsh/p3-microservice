@@ -1,0 +1,295 @@
+[
+  {
+    "title": "Blockchain technology in the energy sector: A systematic review of challenges and opportunities",
+    "authors": [
+      "Merlinda Andoni",
+      "Valentin Robu",
+      "David Flynn",
+      "Simone Abram",
+      "Dale Geach",
+      "David Jenkins",
+      "Peter McCallum",
+      "Andrew Peacock"
+    ],
+    "year": 2018,
+    "citations": 2337,
+    "abstract": "Blockchains or distributed ledgers are an emerging technology that has drawn considerable interest from energy supply firms, startups, technology developers, financial institutions, national governments and the academic community. Numerous sources coming from these backgrounds identify blockchains as having the potential to bring significant benefits and innovation. Blockchains promise transparent, tamper-proof and secure systems that can enable novel business solutions, especially when combined",
+    "doi": "10.1016/j.rser.2018.10.014",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.1016/j.rser.2018.10.014",
+    "url": "https://openalex.org/W2899357412",
+    "source": "openalex",
+    "_relevance_score": 8.1,
+    "_matched_keywords": [
+      "log",
+      "distributed"
+    ]
+  },
+  {
+    "title": "Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications",
+    "authors": [
+      "Ala Al‐Fuqaha",
+      "Mohsen Guizani",
+      "Mehdi Mohammadi",
+      "Mohammed Aledhari",
+      "Moussa Ayyash"
+    ],
+    "year": 2015,
+    "citations": 8287,
+    "abstract": "This paper provides an overview of the Internet of Things (IoT) with emphasis on enabling technologies, protocols, and application issues. The IoT is enabled by the latest developments in RFID, smart sensors, communication technologies, and Internet protocols. The basic premise is to have smart sensors collaborate directly without human involvement to deliver a new class of applications. The current revolution in Internet, mobile, and machine-to-machine (M2M) technologies can be seen as the firs",
+    "doi": "10.1109/comst.2015.2444095",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/9739/7331734/07123563.pdf",
+    "url": "https://openalex.org/W2134295053",
+    "source": "openalex",
+    "_relevance_score": 7.9,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "A Survey of 5G Network: Architecture and Emerging Technologies",
+    "authors": [
+      "Akhil Gupta",
+      "Rakesh Kumar Jha"
+    ],
+    "year": 2015,
+    "citations": 2387,
+    "abstract": "In the near future, i.e., beyond 4G, some of the prime objectives or demands that need to be addressed are increased capacity, improved data rate, decreased latency, and better quality of service. To meet these demands, drastic improvements need to be made in cellular network architecture. This paper presents the results of a detailed survey on the fifth generation (5G) cellular network architecture and some of the key emerging technologies that are helpful in improving the architecture and meet",
+    "doi": "10.1109/access.2015.2461602",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07169508.pdf",
+    "url": "https://openalex.org/W2128145324",
+    "source": "openalex",
+    "_relevance_score": 7.1,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Unmanned Aerial Vehicles (UAVs): A Survey on Civil Applications and Key Research Challenges",
+    "authors": [
+      "Hazim Shakhatreh",
+      "Ahmad Sawalmeh",
+      "Ala Al‐Fuqaha",
+      "Zuochao Dou",
+      "Eyad Almaita",
+      "Issa Khalil",
+      "Noor Shamsiah Othman",
+      "Abdallah Khreishah",
+      "Mohsen Guizani"
+    ],
+    "year": 2019,
+    "citations": 2217,
+    "abstract": "The use of unmanned aerial vehicles (UAVs) is growing rapidly across many civil application domains, including real-time monitoring, providing wireless coverage, remote sensing, search and rescue, delivery of goods, security and surveillance, precision agriculture, and civil infrastructure inspection. Smart UAVs are the next big revolution in the UAV technology promising to provide new opportunities in different applications, especially in civil infrastructure in terms of reduced risks and lower",
+    "doi": "10.1109/access.2019.2909530",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08682048.pdf",
+    "url": "https://openalex.org/W4213147678",
+    "source": "openalex",
+    "_relevance_score": 7.0,
+    "_matched_keywords": [
+      "log",
+      "monitoring"
+    ]
+  },
+  {
+    "title": "ImageJ2: ImageJ for the next generation of scientific image data",
+    "authors": [
+      "Curtis Rueden",
+      "Johannes Schindelin",
+      "Mark Hiner",
+      "Barry E. DeZonia",
+      "Alison E. Walter",
+      "Ellen T. Arena",
+      "Kevin W. Eliceiri"
+    ],
+    "year": 2017,
+    "citations": 6216,
+    "abstract": "BACKGROUND: ImageJ is an image analysis program extensively used in the biological sciences and beyond. Due to its ease of use, recordable macro language, and extensible plug-in architecture, ImageJ enjoys contributions from non-programmers, amateur programmers, and professional developers alike. Enabling such a diversity of contributors has resulted in a large community that spans the biological and physical sciences. However, a rapidly growing user base, diverging plugin suites, and technical ",
+    "doi": "10.1186/s12859-017-1934-z",
+    "arxiv_id": "",
+    "pdf_url": "https://bmcbioinformatics.biomedcentral.com/track/pdf/10.1186/s12859-017-1934-z",
+    "url": "https://openalex.org/W2580035316",
+    "source": "openalex",
+    "_relevance_score": 6.7,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "The Internet of Things for Health Care: A Comprehensive Survey",
+    "authors": [
+      "S. M. Riazul Islam",
+      "Daehan Kwak",
+      "Md. Humaun Kabir",
+      "Mahmud Hossain",
+      "Kyung-Sup Kwak"
+    ],
+    "year": 2015,
+    "citations": 2999,
+    "abstract": "The Internet of Things (IoT) makes smart objects the ultimate building blocks in the development of cyber-physical smart pervasive frameworks. The IoT has a variety of application domains, including health care. The IoT revolution is redesigning modern health care with promising technological, economic, and social prospects. This paper surveys advances in IoT-based health care technologies and reviews the state-of-the-art network architectures/platforms, applications, and industrial trends in Io",
+    "doi": "10.1109/access.2015.2437951",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07113786.pdf",
+    "url": "https://openalex.org/W1943579973",
+    "source": "openalex",
+    "_relevance_score": 6.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Intelligent Reflecting Surface-Aided Wireless Communications: A Tutorial",
+    "authors": [
+      "Qingqing Wu",
+      "Shuowen Zhang",
+      "Beixiong Zheng",
+      "Changsheng You",
+      "Rui Zhang"
+    ],
+    "year": 2021,
+    "citations": 2840,
+    "abstract": "Intelligent reflecting surface (IRS) is an enabling technology to engineer the radio signal propagation in wireless networks. By smartly tuning the signal reflection via a large number of low-cost passive reflecting elements, IRS is capable of dynamically altering wireless channels to enhance the communication performance. It is thus expected that the new IRS-aided hybrid wireless network comprising both active and passive components will be highly promising to achieve a sustainable capacity gro",
+    "doi": "10.1109/tcomm.2021.3051897",
+    "arxiv_id": "",
+    "pdf_url": "http://ira.lib.polyu.edu.hk/bitstream/10397/107100/1/Zhang_Intelligent_Reflecting_Surface.pdf",
+    "url": "https://openalex.org/W3129486236",
+    "source": "openalex",
+    "_relevance_score": 6.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+    "authors": [
+      "Alejandro Barredo Arrieta",
+      "Natalia Díaz-Rodríguez",
+      "Javier Del Ser",
+      "Adrien Bennetot",
+      "Siham Tabik",
+      "Alberto Barbado",
+      "Salvador García",
+      "Sergio Gil-López",
+      "Daniel Molina",
+      "Richard Benjamins",
+      "Raja Chatila",
+      "Francisco Herrera"
+    ],
+    "year": 2019,
+    "citations": 8873,
+    "abstract": "",
+    "doi": "10.1016/j.inffus.2019.12.012",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/1910.10045",
+    "url": "https://openalex.org/W2981731882",
+    "source": "openalex",
+    "_relevance_score": 5.9,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Climate Change 2014 - Synthesis Report",
+    "authors": [
+      "Watson, R. T.",
+      "Albritton, D. L.",
+      "Barker, T.",
+      "Bashmakov, I. A.",
+      "Canziani, O.",
+      "Christ, R.",
+      "Cubasch, U.",
+      "Davidson, O.",
+      "Gitay, H.",
+      "Griggs, D.",
+      "Houghton, J.",
+      "House, J.",
+      "Kundzewicz, Z.",
+      "Lal, M.",
+      "Leary, N.",
+      "Magadza, C.",
+      "McCarthy, J. J.",
+      "Mitchell, J. F. B.",
+      "Moreira, J. R.",
+      "Munasinghe, M.",
+      "Noble, I.",
+      "Pachuri, R.",
+      "Pittock, B.",
+      "Prather, M.",
+      "Richels, R. G.",
+      "Robinson, R. B.",
+      "Sathaye, J.",
+      "Schneider, S.",
+      "Scholes, R.",
+      "Stocker, T.",
+      "Sundararaman, N.",
+      "Swart, R.",
+      "Taniguchi, T.",
+      "Zhou, D."
+    ],
+    "year": 2015,
+    "citations": 5312,
+    "abstract": "The Synthesis Report (SYR) distils and integrates the findings of the three Working Group contributions to the Fifth Assessment Report (AR5) of the Intergovernmental Panel on Climate Change (IPCC), the most comprehensive assessment of climate change undertaken thus far by the IPCC: Climate Change 2013: The Physical Science Basis; Climate Change 2014: Impacts, Adaptation, and Vulnerability; and Climate Change 2014: Mitigation of Climate Change. The SYR also incorporates the findings of two Specia",
+    "doi": "10.59327/ipcc/ar5-9789291691432",
+    "arxiv_id": "",
+    "pdf_url": "https://www.ipcc.ch/site/assets/uploads/2018/02/SYR_AR5_FINAL_full.pdf",
+    "url": "https://openalex.org/W2513922847",
+    "source": "openalex",
+    "_relevance_score": 5.6,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Advances and Open Problems in Federated Learning",
+    "authors": [
+      "Peter Kairouz",
+      "H. Brendan McMahan"
+    ],
+    "year": 2020,
+    "citations": 4657,
+    "abstract": "Federated learning (FL) is a machine learning setting where many clients (e.g., mobile devices or whole organizations) collaboratively train a model under the orchestration of a central server (e.g., service provider), while keeping the training data decentralized. FL embodies the principles of focused data collection and minimization, and can mitigate many of the systemic privacy risks and costs resulting from traditional, centralized machine learning and data science approaches. Motivated by t",
+    "doi": "10.1561/2200000083",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/1912.04977",
+    "url": "https://openalex.org/W2995022099",
+    "source": "openalex",
+    "_relevance_score": 5.5,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Integrated Sensing and Communications: Toward Dual-Functional Wireless Networks for 6G and Beyond",
+    "authors": [
+      "Fan Liu",
+      "Yuanhao Cui",
+      "Christos Masouros",
+      "Jie Xu",
+      "Tony Xiao Han",
+      "Yonina C. Eldar",
+      "Stefano Buzzi"
+    ],
+    "year": 2022,
+    "citations": 3033,
+    "abstract": "As the standardization of 5G solidifies, researchers are speculating what 6G will be. The integration of sensing functionality is emerging as a key feature of the 6G Radio Access Network (RAN), allowing for the exploitation of dense cell infrastructures to construct a perceptive network. In this IEEE Journal on Selected Areas in Communications (JSAC) Special Issue overview, we provide a comprehensive review on the background, range of key applications and state-of-the-art approaches of Integrate",
+    "doi": "10.1109/jsac.2022.3156632",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/49/9776000/09737357.pdf",
+    "url": "https://openalex.org/W3194620979",
+    "source": "openalex",
+    "_relevance_score": 5.2,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Dilemma not Trilemma: The Global Financial Cycle and Monetary Policy Independence",
+    "authors": [
+      "Hélène Rey"
+    ],
+    "year": 2015,
+    "citations": 1915,
+    "abstract": "There is a global financial cycle in capital flows, asset prices and in credit growth. This cycle co moves with the VIX, a measure of uncertainty and risk aversion of the markets. Asset markets in countries with more credit inflows are more sensitive to the global cycle. The global financial cycle is not aligned with countries' specific macroeconomic conditions. Symptoms can go from benign to large asset price bubbles and excess credit creation, which are among the best predictors of financial c",
+    "doi": "10.3386/w21162",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.3386/w21162",
+    "url": "https://openalex.org/W1954685264",
+    "source": "openalex",
+    "_relevance_score": 4.9,
+    "_matched_keywords": []
+  }
+]

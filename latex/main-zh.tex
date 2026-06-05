@@ -1,0 +1,62 @@
+% 计算机学报风格中文初稿（双语摘要版）
+% 编译：./scripts/build_pdf.sh  或  xelatex main-zh.tex（需 ctex）
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\title{微服务架构下分布式定向日志采集组件的设计与实现}
+\author{（作者待填）\\
+\small （单位待填，邮政编码\,100000）\\
+\small E-mail: author@example.edu.cn}
+\date{}
+
+\begin{document}
+\maketitle
+
+% ---------- 中文摘要 ----------
+\begin{abstract}
+针对微服务分布式系统中日志分散、格式异构与海量数据导致的节点资源消耗高、网络带宽占用大及集中存储压力大等问题，本文提出一种分布式定向日志采集组件。该组件采用主从式架构，由部署于网关节点与微服务节点的日志采集器，以及集中式日志中心组成。日志中心基于网关流量日志动态生成关注清单，并驱动各节点按清单定向采集应用日志；节点侧采用固定缓存块算法与压力感知指数退避机制；通过定向策略三次转换算法贯通网关预筛选、节点过滤与中心二次入库全链路。本文基于 Go 语言与 Grafana Loki 完成原型实现，在 WSL/Docker 八节点集群上开展对比实验（180\,s、并发 50、每模式重复 3 次）、策略仿真消融与算法微基准测试。实验结果表明，相较同架构全量采集模式，定向采集在 Loki 入库日志量、Agent 平均 CPU 与内存方面分别降低 98.4\%、37.5\% 与 2.0\%（入库均值 72 条 vs 4388 条）；端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通。
+\end{abstract}
+
+\noindent\textbf{关键词：}微服务；分布式日志采集；定向过滤；动态策略；指数退避；Loki
+
+\noindent\textbf{中图法分类号：}TP393 \quad \textbf{文献标识码：}A
+
+\vspace{1em}
+\hrule
+\vspace{0.8em}
+
+% ---------- 英文标题与摘要（学报双语体例）----------
+{\centering\bfseries Design and Implementation of a Distributed Directed Log Collection Component in Microservice Architecture\par}
+\vspace{0.6em}
+
+\noindent\textbf{Abstract:}
+In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection component with a master--worker architecture: gateway and microservice sidecar agents, plus a centralized log center. The center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints. A triple strategy transformation links gateway pre-filtering, node-level filtering, and center-side secondary ingestion. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode). Compared with full collection in the same architecture, directed collection reduces Loki ingested log volume, average agent CPU, and memory by 98.4\%, 37.5\%, and 2.0\% respectively (mean ingested logs: 72 vs.\ 4388). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments.
+
+\vspace{0.5em}
+\noindent\textbf{Key words:} microservice; distributed log collection; directed filtering; dynamic policy; exponential backoff; Loki
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\input{sections/zh/01_intro.tex}
+\input{sections/zh/02_related.tex}
+\input{sections/zh/03_system.tex}
+\input{sections/zh/04_algorithms.tex}
+\input{sections/zh/05_implementation.tex}
+\input{sections/zh/06_experiments.tex}
+\input{sections/zh/07_conclusion.tex}
+
+\section*{声明}
+本文撰写与实验脚本生成过程中使用了大语言模型辅助，作者对全部内容与数据负责。
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

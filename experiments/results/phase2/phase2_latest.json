@@ -1,0 +1,138 @@
+{
+  "phase": "phase2",
+  "directed_run": {
+    "mode": "directed",
+    "center_before": {
+      "gateway_logs_redis": 36,
+      "loki_stored": 42,
+      "received": 42,
+      "filtered": 0
+    },
+    "center_after": {
+      "gateway_logs_redis": 1975,
+      "loki_stored": 93,
+      "received": 93,
+      "filtered": 0
+    },
+    "delta_loki_stored": 51,
+    "delta_gateway_redis": 1939,
+    "attention_list_items": 2,
+    "docker_stats": {
+      "gateway-agent": {
+        "cpu_percent": 0.05,
+        "memory": "11.38MiB / 128MiB"
+      },
+      "service-1-agent": {
+        "cpu_percent": 0.0,
+        "memory": "9.887MiB / 128MiB"
+      },
+      "service-2-agent": {
+        "cpu_percent": 0.0,
+        "memory": "10.14MiB / 128MiB"
+      },
+      "log-center": {
+        "cpu_percent": 0.03,
+        "memory": "8.621MiB / 256MiB"
+      }
+    },
+    "avg_agent_cpu_percent": 0.02
+  },
+  "full_run": {
+    "mode": "full",
+    "center_before": {
+      "gateway_logs_redis": 1975,
+      "loki_stored": 124,
+      "received": 124,
+      "filtered": 0
+    },
+    "center_after": {
+      "gateway_logs_redis": 4007,
+      "loki_stored": 198,
+      "received": 198,
+      "filtered": 0
+    },
+    "delta_loki_stored": 74,
+    "delta_gateway_redis": 2032,
+    "attention_list_items": 2,
+    "docker_stats": {
+      "gateway-agent": {
+        "cpu_percent": 0.44,
+        "memory": "12.3MiB / 128MiB"
+      },
+      "service-1-agent": {
+        "cpu_percent": 0.02,
+        "memory": "10.2MiB / 128MiB"
+      },
+      "service-2-agent": {
+        "cpu_percent": 0.45,
+        "memory": "11.5MiB / 128MiB"
+      },
+      "log-center": {
+        "cpu_percent": 0.03,
+        "memory": "11MiB / 256MiB"
+      }
+    },
+    "avg_agent_cpu_percent": 0.3
+  },
+  "comparison": {
+    "directed": {
+      "log_volume_k": 0.051,
+      "cpu_percent": 0.02,
+      "memory_mb": 31.41,
+      "bandwidth_mbps": 25.5
+    },
+    "full_collect": {
+      "log_volume_k": 0.074,
+      "cpu_percent": 0.3,
+      "memory_mb": 34.0,
+      "bandwidth_mbps": 37.0
+    },
+    "reduction_percent": {
+      "log_volume": 31.1,
+      "cpu": 93.3,
+      "memory": 7.6,
+      "bandwidth": 31.1
+    },
+    "methodology": "measured_wsl_docker_phase2"
+  },
+  "ablation": {
+    "methodology": "analytical_model_phase1",
+    "groups": [
+      {
+        "name": "完整方案",
+        "key": "baseline",
+        "log_k": 32.0,
+        "cpu": 15.2,
+        "loss_rate": 0.1
+      },
+      {
+        "name": "无动态清单",
+        "key": "no_attn",
+        "log_k": 150.0,
+        "cpu": 16.1,
+        "loss_rate": 0.1
+      },
+      {
+        "name": "无固定缓存",
+        "key": "no_cache",
+        "log_k": 32.0,
+        "cpu": 44.8,
+        "loss_rate": 2.5
+      },
+      {
+        "name": "无指数退避",
+        "key": "no_backoff",
+        "log_k": 32.0,
+        "cpu": 15.2,
+        "loss_rate": 5.8
+      },
+      {
+        "name": "无压力感知",
+        "key": "no_pressure",
+        "log_k": 32.0,
+        "cpu": 21.6,
+        "loss_rate": 1.2
+      }
+    ]
+  }
+}

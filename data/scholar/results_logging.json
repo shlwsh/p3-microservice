@@ -1,0 +1,386 @@
+[
+  {
+    "title": "Microservices Architecture",
+    "authors": [
+      "Dmitry Namiot",
+      "Manfred Sneps-Sneppe"
+    ],
+    "year": 2025,
+    "citations": 249,
+    "abstract": "This paper provides a comprehensive overview of microservices architecture, focusing on its implementation.We discuss the core principles, key components, deployment considerations, challenges, and best practices for building robust and scalable microservices-based applications with C#.The paper emphasizes the benefits of adopting microservices, such as improved scalability, agility, and maintainability, while also addressing common challenges like distributed system complexity and data manageme",
+    "doi": "10.56726/irjmets66464",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.56726/irjmets66464",
+    "url": "https://openalex.org/W1572499759",
+    "source": "openalex",
+    "_relevance_score": 6.6,
+    "_matched_keywords": [
+      "microservice",
+      "distributed"
+    ]
+  },
+  {
+    "title": "Technology readiness levels for machine learning systems",
+    "authors": [
+      "Alexander Lavin",
+      "Ciarán Lee",
+      "Alessya Visnjic",
+      "Siddha Ganju",
+      "Dava Newman",
+      "S. Ganguly",
+      "Danny B. Lange",
+      "Atılım Güneş Baydin",
+      "Amit Sharma",
+      "Adam Gibson",
+      "Stephan Zheng",
+      "Eric P. Xing",
+      "Chris A. Mattmann",
+      "James F. Parr",
+      "Yarin Gal"
+    ],
+    "year": 2022,
+    "citations": 160,
+    "abstract": "The development and deployment of machine learning systems can be executed easily with modern tools, but the process is typically rushed and means-to-an-end. Lack of diligence can lead to technical debt, scope creep and misaligned objectives, model misuse and failures, and expensive consequences. Engineering systems, on the other hand, follow well-defined processes and testing standards to streamline development for high-quality, reliable results. The extreme is spacecraft systems, with mission ",
+    "doi": "10.1038/s41467-022-33128-9",
+    "arxiv_id": "",
+    "pdf_url": "https://www.nature.com/articles/s41467-022-33128-9.pdf",
+    "url": "https://openalex.org/W4287391859",
+    "source": "openalex",
+    "_relevance_score": 5.3,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Graph-based root cause analysis for service-oriented and microservice architectures",
+    "authors": [
+      "Álvaro Brandón",
+      "Marc Solé",
+      "Alberto Huélamo",
+      "David Solans",
+      "Marı́a S. Pérez",
+      "Víctor Muntés-Mulero"
+    ],
+    "year": 2019,
+    "citations": 114,
+    "abstract": "",
+    "doi": "10.1016/j.jss.2019.110432",
+    "arxiv_id": "",
+    "pdf_url": "https://oa.upm.es/78365/1/jss-2020.pdf",
+    "url": "https://openalex.org/W2980932398",
+    "source": "openalex",
+    "_relevance_score": 5.1,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Survey on Multi-Access Edge Computing Security and Privacy",
+    "authors": [
+      "Pasika Ranaweera",
+      "Anca Delia Jurcut",
+      "Madhusanka Liyanage"
+    ],
+    "year": 2021,
+    "citations": 338,
+    "abstract": "The European Telecommunications Standards Institute (ETSI) has introduced the paradigm of Multi-Access Edge Computing (MEC) to enable efficient and fast data processing in mobile networks. Among other technological requirements, security and privacy are significant factors in the realization of MEC deployments. In this paper, we analyse the security and privacy of the MEC system. We introduce a thorough investigation of the identification and the analysis of threat vectors in the ETSI standardiz",
+    "doi": "10.1109/comst.2021.3062546",
+    "arxiv_id": "",
+    "pdf_url": "http://hdl.handle.net/10197/12082",
+    "url": "https://openalex.org/W3135497297",
+    "source": "openalex",
+    "_relevance_score": 4.8,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Securing modern power systems: Implementing comprehensive strategies to enhance resilience and reliability against cyber-attacks",
+    "authors": [
+      "Sobhy M. Abdelkader",
+      "Jeremiah Amissah",
+      "Sammy Kinga",
+      "Geofrey Mugerwa",
+      "Ebinyu Emmanuel",
+      "Diaa‐Eldin A. Mansour",
+      "Mohit Bajaj",
+      "Vojtěch Blažek",
+      "Lukáš Prokop"
+    ],
+    "year": 2024,
+    "citations": 160,
+    "abstract": "Recent technological advancements in the energy sector, such as the proliferation of electric vehicles, and smart power electronic devices, have substantially increased the demand for reliable and quality power supply. This surge in energy consumption has posed significant concerns for traditional power systems regarding the systems’ resilience and reliability. To address these challenges, power system engineers and researchers have proposed the digitalization of power systems, resulting in remo",
+    "doi": "10.1016/j.rineng.2024.102647",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.1016/j.rineng.2024.102647",
+    "url": "https://openalex.org/W4401117567",
+    "source": "openalex",
+    "_relevance_score": 4.3,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Zero Trust Architecture",
+    "authors": [
+      "Scott Rose",
+      "Oliver Borchert",
+      "Stu Mitchell",
+      "Sean Connelly"
+    ],
+    "year": 2019,
+    "citations": 137,
+    "abstract": "The Information Technology Laboratory (ITL) at the National Institute of Standards and Technology (NIST) promotes the U.S. economy and public welfare by providing technical leadership for the Nation's measurement and standards infrastructure. ITL develops tests, test methods, reference data, proof of concept implementations, and technical analyses to advance the development and productive use of information technology. ITL's responsibilities include the",
+    "doi": "10.6028/nist.sp.800-207-draft",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.6028/nist.sp.800-207-draft",
+    "url": "https://openalex.org/W4252307542",
+    "source": "openalex",
+    "_relevance_score": 4.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Artificial intelligence-based predictive maintenance, time-sensitive networking, and big data-driven algorithmic decision-making in the economics of Industrial Internet of Things",
+    "authors": [
+      "Tomáš Klieštik",
+      "Elvira Nica",
+      "Pavol Ďurana",
+      "Gheorghe H. Popescu"
+    ],
+    "year": 2023,
+    "citations": 129,
+    "abstract": "Research background: The article explores the integration of Artificial Intelligence (AI) in predictive maintenance (PM) within Industrial Internet of Things (IIoT) context. It addresses the increasing importance of leveraging advanced technologies to enhance maintenance practices in industrial settings. Purpose of the article: The primary objective of the article is to investigate and demonstrate the application of AI-driven PM in the IIoT. The authors aim to shed light on the potential benefit",
+    "doi": "10.24136/oc.2023.033",
+    "arxiv_id": "",
+    "pdf_url": "https://journals.economic-research.pl/oc/article/download/2845/2154",
+    "url": "https://openalex.org/W4390672874",
+    "source": "openalex",
+    "_relevance_score": 4.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "NanoSolveIT Project: Driving nanoinformatics research to develop innovative and integrated tools for <i>in silico</i> nanosafety assessment",
+    "authors": [
+      "Antreas Afantitis",
+      "Georgia Melagraki",
+      "Panagiotis Isigonis",
+      "Andreas Tsoumanis",
+      "Dimitra‐Danai Varsou",
+      "Eugenia Valsami‐Jones",
+      "Anastasios G. Papadiamantis",
+      "Laura‐Jayne A. Ellis",
+      "Haralambos Sarimveis",
+      "Philip Doganis",
+      "Pantelis Karatzas",
+      "Periklis Tsiros",
+      "Irene Liampa",
+      "Vladimir Lobaskin",
+      "Dario Greco",
+      "Angela Serra",
+      "Pia Kinaret",
+      "Laura Aliisa Saarimäki",
+      "Roland Grafström",
+      "Pekka Kohonen",
+      "Penny Nymark",
+      "Egon Willighagen",
+      "Tomasz Puzyn",
+      "Anna Rybińska‐Fryca",
+      "Alexander P. Lyubartsev",
+      "Keld Alstrup Jensen",
+      "Jan Gerit Brandenburg",
+      "Stephen Lofts",
+      "Claus Svendsen",
+      "S. Harrison",
+      "Dieter Maier",
+      "Kaido Tämm",
+      "Jaak Jänes",
+      "Lauri Sikk",
+      "Mária Dušinská",
+      "Eleonora Longhin",
+      "Elise Rundén‐Pran",
+      "Espen Mariussen",
+      "Naouale El Yamani",
+      "Wolfgang E. S. Unger",
+      "Jörg Radnik",
+      "Alexander Tropsha",
+      "Yoram Cohen",
+      "Jerzy Leszczyński",
+      "Christine Ogilvie Hendren",
+      "Mark R. Wiesner",
+      "David A. Winkler",
+      "Noriyuki Suzuki",
+      "Tae Hyun Yoon",
+      "Jang-Sik Choi",
+      "Natasha Sanabria",
+      "Mary Gulumian",
+      "Iseult Lynch"
+    ],
+    "year": 2020,
+    "citations": 126,
+    "abstract": "Nanotechnology has enabled the discovery of a multitude of novel materials exhibiting unique physicochemical (PChem) properties compared to their bulk analogues. These properties have led to a rapidly increasing range of commercial applications; this, however, may come at a cost, if an association to long-term health and environmental risks is discovered or even just perceived. Many nanomaterials (NMs) have not yet had their potential adverse biological effects fully assessed, due to costs and t",
+    "doi": "10.1016/j.csbj.2020.02.023",
+    "arxiv_id": "",
+    "pdf_url": "http://www.csbj.org/article/S2001037019305112/pdf",
+    "url": "https://openalex.org/W3010108950",
+    "source": "openalex",
+    "_relevance_score": 4.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Zero Trust Architecture (ZTA): A Comprehensive Survey",
+    "authors": [
+      "Naeem Syed",
+      "Syed Wajid Ali Shah",
+      "Arash Shaghaghi",
+      "Adnan Anwar",
+      "Zubair Baig",
+      "Robin Doss"
+    ],
+    "year": 2022,
+    "citations": 304,
+    "abstract": "We present a detailed survey of the Zero Trust (ZT) security paradigm which has a growing number of advocates in the critical infrastructure risk management space. The article employs a descriptive approach to present the fundamental tenets of ZT and provides a review of numerous potential options available for successful realization of this paradigm. We describe the role of authentication and access control in Zero Trust Architectures (ZTA) and present an in-depth discussion of state-of-the-art",
+    "doi": "10.1109/access.2022.3174679",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/09773102.pdf",
+    "url": "https://openalex.org/W4285205927",
+    "source": "openalex",
+    "_relevance_score": 3.7,
+    "_matched_keywords": []
+  },
+  {
+    "title": "A systematic literature review on the use of artificial intelligence in energy self-management in smart buildings",
+    "authors": [
+      "José Aguilar",
+      "Alberto Garcés-Jiménez",
+      "María D. R‐Moreno",
+      "Rodrigo García"
+    ],
+    "year": 2021,
+    "citations": 257,
+    "abstract": "Buildings are one of the main consumers of energy in cities, which is why a lot of research has been generated around this problem. Especially, the buildings energy management systems must improve in the next years. Artificial intelligence techniques are playing and will play a fundamental role in these improvements. This work presents a systematic review of the literature on researches that have been done in recent years to improve energy management systems for smart building using artificial i",
+    "doi": "10.1016/j.rser.2021.111530",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.1016/j.rser.2021.111530",
+    "url": "https://openalex.org/W3195585048",
+    "source": "openalex",
+    "_relevance_score": 3.6,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Survey on serverless computing",
+    "authors": [
+      "Hassan B. Hassan",
+      "Saman Barakat",
+      "Qusay Idrees Sarhan"
+    ],
+    "year": 2021,
+    "citations": 164,
+    "abstract": "Abstract Serverless computing has gained importance over the last decade as an exciting new field, owing to its large influence in reducing costs, decreasing latency, improving scalability, and eliminating server-side management, to name a few. However, to date there is a lack of in-depth survey that would help developers and researchers better understand the significance of serverless computing in different contexts. Thus, it is essential to present research evidence that has been published in ",
+    "doi": "10.1186/s13677-021-00253-7",
+    "arxiv_id": "",
+    "pdf_url": "https://journalofcloudcomputing.springeropen.com/track/pdf/10.1186/s13677-021-00253-7",
+    "url": "https://openalex.org/W3178064249",
+    "source": "openalex",
+    "_relevance_score": 3.3,
+    "_matched_keywords": []
+  },
+  {
+    "title": "A Review of Anomaly Detection Strategies to Detect Threats to Cyber-Physical Systems",
+    "authors": [
+      "Nicholas Jeffrey",
+      "Qing Tan",
+      "José R. Villar"
+    ],
+    "year": 2023,
+    "citations": 143,
+    "abstract": "Cyber-Physical Systems (CPS) are integrated systems that combine software and physical components. CPS has experienced rapid growth over the past decade in fields as disparate as telemedicine, smart manufacturing, autonomous vehicles, the Internet of Things, industrial control systems, smart power grids, remote laboratory environments, and many more. With the widespread integration of Cyber-Physical Systems (CPS) in various aspects of contemporary society, the frequency of malicious assaults car",
+    "doi": "10.3390/electronics12153283",
+    "arxiv_id": "",
+    "pdf_url": "https://www.mdpi.com/2079-9292/12/15/3283/pdf?version=1690785380",
+    "url": "https://openalex.org/W4385423342",
+    "source": "openalex",
+    "_relevance_score": 3.2,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Overview of AI and communication for 6G network: fundamentals, challenges, and future research opportunities",
+    "authors": [
+      "Qimei Cui",
+      "Xiaohu You",
+      "Wei Ni",
+      "Guoshun Nan",
+      "Xuefei Zhang",
+      "Jianhua Zhang",
+      "Xinchen Lyu",
+      "Ming Ai",
+      "Xiaofeng Tao",
+      "Zhiyong Feng",
+      "Ping Zhang",
+      "Qingqing Wu",
+      "Meixia Tao",
+      "Yong‐Ming Huang",
+      "Chongwen Huang",
+      "Guangyi Liu",
+      "Chenghui Peng",
+      "Zhiwen Pan",
+      "Tao Sun",
+      "Dusit Niyato",
+      "Tao Chen",
+      "Muhammad Khurram Khan",
+      "Abbas Jamalipour",
+      "Mohsen Guizani",
+      "Chau Yuen"
+    ],
+    "year": 2025,
+    "citations": 123,
+    "abstract": "Abstract With the growing demand for seamless connectivity and intelligent communication, the integration of artificial intelligence (AI) and sixth-generation (6G) communication networks has emerged as a transformative paradigm. By embedding AI capabilities across various network layers, this integration enables optimized resource allocation, improved efficiency, and enhanced system robust performance. This paper presents a comprehensive overview of AI and communication for 6G networks, with a f",
+    "doi": "10.1007/s11432-024-4337-1",
+    "arxiv_id": "",
+    "pdf_url": "https://link.springer.com/content/pdf/10.1007/s11432-024-4337-1.pdf",
+    "url": "https://openalex.org/W4409190069",
+    "source": "openalex",
+    "_relevance_score": 3.1,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Execution of UML models: a systematic review of research and practice",
+    "authors": [
+      "Federico Ciccozzi",
+      "Ivano Malavolta",
+      "Bran Selić"
+    ],
+    "year": 2018,
+    "citations": 122,
+    "abstract": "Several research efforts from different areas have focused on the execution of UML models, resulting in a diverse and complex scientific body of knowledge. With this work, we aim at identifying, classifying, and evaluating existing solutions for the execution of UML models. We conducted a systematic review in which we selected 63 research studies and 19 tools among over 5400 entries by applying a systematic search and selection process. We defined a classification framework for characterizing so",
+    "doi": "10.1007/s10270-018-0675-4",
+    "arxiv_id": "",
+    "pdf_url": "https://link.springer.com/content/pdf/10.1007%2Fs10270-018-0675-4.pdf",
+    "url": "https://openalex.org/W2798066811",
+    "source": "openalex",
+    "_relevance_score": 3.1,
+    "_matched_keywords": []
+  },
+  {
+    "title": "An exploration of IoT platform development",
+    "authors": [
+      "Mahdi Fahmideh",
+      "Didar Zowghi"
+    ],
+    "year": 2019,
+    "citations": 118,
+    "abstract": "",
+    "doi": "10.1016/j.is.2019.06.005",
+    "arxiv_id": "",
+    "pdf_url": "https://www.sciencedirect.com/science/article/pii/S0306437919302728",
+    "url": "https://openalex.org/W2955481530",
+    "source": "openalex",
+    "_relevance_score": 3.1,
+    "_matched_keywords": []
+  }
+]

@@ -21,8 +21,9 @@ import (
 
 // Config 规则匹配器配置。
 type Config struct {
-	PullInterval time.Duration // 关注清单拉取间隔
-	MinLogLevel  string        // 默认最低日志级别
+	PullInterval   time.Duration // 关注清单拉取间隔
+	MinLogLevel    string        // 默认最低日志级别
+	CollectionMode string        // directed | full
 }
 
 // AttentionListItem 关注清单条目。
@@ -73,6 +74,9 @@ func NewRuleMatcher(cfg Config) *RuleMatcher {
 // Match 判断日志条目是否匹配当前关注清单中的任一规则。
 // 返回 true 表示该日志应被采集。
 func (m *RuleMatcher) Match(entry *cache.LogEntry) bool {
+	if m.config.CollectionMode == "full" {
+		return true
+	}
 	// 日志级别过滤（ERROR/FATAL 级别始终采集）
 	entryLevel := parseLogLevel(entry.Level)
 	if entryLevel >= logLevelError {
@@ -84,8 +88,8 @@ func (m *RuleMatcher) Match(entry *cache.LogEntry) bool {
 
 	list := m.currentList.Load().(*AttentionList)
 	if list == nil || len(list.Items) == 0 {
-		// 无关注清单时，按最低级别过滤
-		return entryLevel >= m.minLogLevel
+		// 无关注清单时仅采集 ERROR+，避免退化为全量
+		return entryLevel >= logLevelError
 	}
 
 	// 遍历清单（已按权重排序，高优先级优先匹配）

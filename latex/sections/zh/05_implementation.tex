@@ -1,0 +1,29 @@
+\section{系统实现}
+
+\subsection{技术选型}
+\begin{table}[htbp]
+  \centering
+  \caption{技术选型}
+  \label{tab:tech}
+  \begin{tabular}{ll}
+    \toprule
+    模块 & 技术 \\
+    \midrule
+    Agent / Center & Go 1.22 \\
+    通信 & gRPC + Protobuf \\
+    缓存 & Redis \\
+    存储 & Grafana Loki \\
+    网关采集 & OpenResty + Lua \\
+    本地兜底 & BoltDB \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{模块划分}
+\textbf{Agent}（\texttt{agent/pkg/}）：\texttt{collector} 采集、\texttt{matcher} 规则匹配、\texttt{cache} 固定缓存块、\texttt{retry} 退避、\texttt{uploader} gRPC 上传、\texttt{monitor} 资源监控。\\
+\textbf{Center}（\texttt{center/pkg/}）：\texttt{strategy} 清单生成与三次转换、\texttt{receiver} 二次过滤、\texttt{storage/loki} 批量推送、\texttt{dispatch} 规则下发。
+
+\subsection{部署配置}
+Docker Compose 定义完整集群：Loki、Grafana、Redis、Prometheus、Center、OpenResty 网关、httpbin 模拟微服务及 9 个 Agent Sidecar（1 网关 + 8 微服务）。微服务侧 \texttt{AppCollector} 生成 Apache Combined 风格应用日志，URL 与网关 \texttt{location} 前缀一致。无关注清单时 Agent 仅采集 ERROR 及以上级别，避免退化为全量。WSL 环境通过 \texttt{docker-compose.wsl.yml} 限制容器内存；\texttt{docker-compose.scale.yml} 扩展至 8 微服务节点。
+
+\textbf{对照实验配置说明}：定向模式下应用日志发射间隔为 2\,s；全量基线模式为 400\,ms（更高吞吐），以模拟``尽可能多采''的工业全量场景。对比时两模式共享同一网关压测负载与硬件环境。

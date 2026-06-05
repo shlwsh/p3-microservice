@@ -1,0 +1,33 @@
+# 首期科研实验配置（WSL Docker 原型验证）
+name: phase1_quick
+description: 算法验证 + 原型集群压测 + 图表数据生成
+
+cluster:
+  gateway_url: http://localhost:8088
+  center_url: http://localhost:8080
+  prometheus_url: http://localhost:9090
+  loki_url: http://localhost:3100
+
+load:
+  duration_sec: 60
+  concurrency: 20
+  endpoints:
+    - /api/service1/get
+    - /api/service1/status/200
+    - /api/service2/get
+    - /api/service2/status/500
+    - /api/service2/delay/2
+
+simulation:
+  # 定向采集仿真参数（基于高价值过滤策略）
+  total_requests: 10000
+  error_ratio: 0.08
+  slow_ratio: 0.12
+  slow_threshold_ms: 1000
+  attention_top_k: 50
+  full_collect_ratio: 1.0
+  directed_collect_ratio: 0.32   # 首期仿真：异常+慢请求+Top-K 上下文
+
+output:
+  results_dir: experiments/results/phase1
+  figures_dir: figures

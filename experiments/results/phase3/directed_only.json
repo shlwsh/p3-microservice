@@ -1,0 +1,153 @@
+{
+  "directed": {
+    "runs": [
+      {
+        "mode": "directed",
+        "repeat": 1,
+        "delta_loki_stored": 72,
+        "delta_gateway_redis": 19974,
+        "attention_list_items": 16,
+        "docker_stats": {
+          "gateway-agent": {
+            "cpu_percent": 0.28,
+            "memory": "10.58MiB / 128MiB"
+          },
+          "service-1-agent": {
+            "cpu_percent": 0.02,
+            "memory": "9.805MiB / 128MiB"
+          },
+          "service-2-agent": {
+            "cpu_percent": 0.02,
+            "memory": "9.23MiB / 128MiB"
+          },
+          "service-3-agent": {
+            "cpu_percent": 0.01,
+            "memory": "10.24MiB / 128MiB"
+          },
+          "service-4-agent": {
+            "cpu_percent": 0.01,
+            "memory": "10.11MiB / 128MiB"
+          },
+          "service-5-agent": {
+            "cpu_percent": 0.0,
+            "memory": "9.773MiB / 128MiB"
+          },
+          "service-6-agent": {
+            "cpu_percent": 0.0,
+            "memory": "10.04MiB / 128MiB"
+          },
+          "service-7-agent": {
+            "cpu_percent": 0.08,
+            "memory": "10.83MiB / 128MiB"
+          },
+          "service-8-agent": {
+            "cpu_percent": 0.0,
+            "memory": "10.1MiB / 128MiB"
+          }
+        },
+        "avg_agent_cpu_percent": 0.05,
+        "total_agent_memory_mb": 90.71
+      },
+      {
+        "mode": "directed",
+        "repeat": 2,
+        "delta_loki_stored": 72,
+        "delta_gateway_redis": 19498,
+        "attention_list_items": 16,
+        "docker_stats": {
+          "gateway-agent": {
+            "cpu_percent": 0.14,
+            "memory": "11.77MiB / 128MiB"
+          },
+          "service-1-agent": {
+            "cpu_percent": 0.15,
+            "memory": "10.56MiB / 128MiB"
+          },
+          "service-2-agent": {
+            "cpu_percent": 0.03,
+            "memory": "10.46MiB / 128MiB"
+          },
+          "service-3-agent": {
+            "cpu_percent": 0.02,
+            "memory": "10.87MiB / 128MiB"
+          },
+          "service-4-agent": {
+            "cpu_percent": 0.02,
+            "memory": "10.98MiB / 128MiB"
+          },
+          "service-5-agent": {
+            "cpu_percent": 0.01,
+            "memory": "10.46MiB / 128MiB"
+          },
+          "service-6-agent": {
+            "cpu_percent": 0.07,
+            "memory": "10.67MiB / 128MiB"
+          },
+          "service-7-agent": {
+            "cpu_percent": 0.02,
+            "memory": "11.09MiB / 128MiB"
+          },
+          "service-8-agent": {
+            "cpu_percent": 0.01,
+            "memory": "11.1MiB / 128MiB"
+          }
+        },
+        "avg_agent_cpu_percent": 0.05,
+        "total_agent_memory_mb": 97.96
+      },
+      {
+        "mode": "directed",
+        "repeat": 3,
+        "delta_loki_stored": 72,
+        "delta_gateway_redis": 19679,
+        "attention_list_items": 16,
+        "docker_stats": {
+          "gateway-agent": {
+            "cpu_percent": 0.04,
+            "memory": "11.31MiB / 128MiB"
+          },
+          "service-1-agent": {
+            "cpu_percent": 0.05,
+            "memory": "10.64MiB / 128MiB"
+          },
+          "service-2-agent": {
+            "cpu_percent": 0.02,
+            "memory": "10.91MiB / 128MiB"
+          },
+          "service-3-agent": {
+            "cpu_percent": 0.04,
+            "memory": "11.14MiB / 128MiB"
+          },
+          "service-4-agent": {
+            "cpu_percent": 0.02,
+            "memory": "10.45MiB / 128MiB"
+          },
+          "service-5-agent": {
+            "cpu_percent": 0.02,
+            "memory": "10.7MiB / 128MiB"
+          },
+          "service-6-agent": {
+            "cpu_percent": 0.1,
+            "memory": "10.7MiB / 128MiB"
+          },
+          "service-7-agent": {
+            "cpu_percent": 0.03,
+            "memory": "11.43MiB / 128MiB"
+          },
+          "service-8-agent": {
+            "cpu_percent": 0.01,
+            "memory": "10.86MiB / 128MiB"
+          }
+        },
+        "avg_agent_cpu_percent": 0.04,
+        "total_agent_memory_mb": 98.14
+      }
+    ],
+    "loki_stored_mean": 72,
+    "loki_stored_stdev": 0.0,
+    "cpu_mean": 0.05,
+    "cpu_stdev": 0.01,
+    "memory_mb_mean": 95.6,
+    "memory_mb_stdev": 4.24
+  }
+}

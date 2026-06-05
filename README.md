@@ -1,6 +1,7 @@
 # 分布式定向日志采集组件
 
-> Distributed Directed Log Collector for Microservice Architecture
+> Distributed Directed Log Collector for Microservice Architecture  
+> 投稿目标：《计算机学报》
 
 [![Go](https://img.shields.io/badge/Go-1.22-blue.svg)](https://go.dev/)
 [![Loki](https://img.shields.io/badge/Loki-2.9-orange.svg)](https://grafana.com/oss/loki/)
@@ -16,43 +17,71 @@
 - **定向策略三次转换** — 从流量监控到精细化日志过滤的完整链路
 - **指数退避重试** — 压力感知的可靠传输机制
 
-## 架构
+## 项目结构
 
 ```
-网关节点 → 中心规则控制器 → 关注清单生成与下发 → 微服务节点匹配与采集
-    → 固定缓存 + 指数退避上传 → 中心二次过滤 → Loki 存储
+p3-microservice/
+├── docs/              # 设计文档、科研计划、论文初稿
+├── experiments/       # 实验配置、脚本、结果（L0）
+├── figures/           # 论文图表（图1–6）
+├── latex/             # LaTeX 源稿
+├── scripts/           # 科研/部署流水线
+├── agent/ center/     # Go 工程代码
+└── deploy/            # Docker / WSL 部署
 ```
 
-## 快速启动
+## 快速启动（部署）
 
 ```bash
-# WSL 一键启动（推荐）
-./deploy/wsl/setup.sh start
-
-# 或手动启动
-cd deploy/docker
-docker compose -f docker-compose.yml -f docker-compose.wsl.yml up -d --build
-
-# 健康检查
-./deploy/wsl/verify.sh
-
-# 访问
-# Grafana:  http://localhost:3000 (admin/admin)
-# Gateway:  http://localhost:8088/health
-# Center:   http://localhost:8080/api/v1/health
-# Loki:     http://localhost:3100/ready
+./deploy/wsl/setup.sh start    # 启动集群
+./deploy/wsl/verify.sh         # 健康检查
 ```
 
-## 文档
+详见 [部署说明](docs/部署说明.md)。
 
-- [设计方案](docs/v1-设计方案.md)
-- [实现方案](docs/v2-实现方案.md)
+## 科研工作流
+
+```bash
+# 首期：架构图 + 算法微基准
+bash scripts/p3_run_phase1.sh
+
+# 二期：gRPC 全链路实测 + 定向 vs 全量对比
+bash scripts/p3_run_phase2.sh
+```
+
+产出：
+- `experiments/results/phase1/phase1_latest.json` — 实验数据
+- `figures/fig1_*.pdf` … `fig6_*.pdf` — 论文图表
+- `docs/验证结果_首期.md` — 结果摘要
+
+## 文档索引
+
+| 文档 | 说明 |
+|------|------|
+| [科研计划](docs/科研计划.md) | 阶段规划、贡献、行动清单 |
+| [实验方案](docs/v3-实验方案.md) | E1–E4 对比、A1–A4 消融 |
+| [论文初稿](docs/v4-论文稿件.md) | 《计算机学报》首期稿件 |
+| [验证结果（首期）](docs/验证结果_首期.md) | 自动生成实验摘要 |
+| [部署说明](docs/部署说明.md) | WSL 环境配置与运维 |
+| [设计方案](docs/v1-设计方案.md) | 论文级系统设计 |
+| [实现方案](docs/v2-实现方案.md) | 技术选型与模块地图 |
+| [学习手册](docs/study/README.md) | 论文全景与定位 |
+
+## 访问地址（集群运行中）
+
+| 服务 | 地址 |
+|------|------|
+| Gateway | http://localhost:8088/health |
+| Center API | http://localhost:8080/api/v1/health |
+| Grafana | http://localhost:3000 (admin/admin) |
+| Prometheus | http://localhost:9090 |
+| Loki | http://localhost:3100/ready |
 
 ## 技术栈
 
-- **Go 1.22** — Agent + Center 全栈
+- **Go 1.22** — Agent + Center
 - **gRPC + Protobuf** — 高性能通信
 - **Grafana Loki** — 日志存储
 - **Redis** — 高速缓存
 - **OpenResty + Lua** — 网关流量采集
-- **Docker + Kubernetes** — 容器化部署
+- **Docker Compose** — WSL 本地部署

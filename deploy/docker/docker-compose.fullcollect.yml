@@ -1,0 +1,17 @@
+# 全量采集基线 profile（对比实验用）
+# 用法：docker compose -f docker-compose.yml -f docker-compose.wsl.yml -f docker-compose.fullcollect.yml up -d
+
+version: '3.8'
+
+services:
+  gateway-agent:
+    environment:
+      - COLLECTION_MODE=full
+
+  service-1-agent:
+    environment:
+      - COLLECTION_MODE=full
+
+  service-2-agent:
+    environment:
+      - COLLECTION_MODE=full

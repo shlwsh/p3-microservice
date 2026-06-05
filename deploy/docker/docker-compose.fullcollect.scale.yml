@@ -1,0 +1,32 @@
+# 全量采集基线（8 节点扩展）
+version: '3.8'
+
+services:
+  gateway-agent:
+    environment:
+      - COLLECTION_MODE=full
+
+  service-1-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-2-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-3-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-4-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-5-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-6-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-7-agent:
+    environment:
+      - COLLECTION_MODE=full
+  service-8-agent:
+    environment:
+      - COLLECTION_MODE=full

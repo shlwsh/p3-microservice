@@ -32,6 +32,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("[Agent] 配置加载失败: %v", err)
 	}
+	if mode := os.Getenv("COLLECTION_MODE"); mode != "" {
+		cfg.Matcher.CollectionMode = mode
+	}
 	log.Printf("[Agent] 配置加载成功, agentId=%s, service=%s", cfg.Server.AgentID, cfg.Server.ServiceName)
 
 	// ========================================
@@ -82,24 +85,28 @@ func main() {
 
 	// 2.5 规则匹配器
 	ruleMatcher := matcher.NewRuleMatcher(matcher.Config{
-		PullInterval: cfg.Matcher.PullInterval,
-		MinLogLevel:  cfg.Matcher.MinLogLevel,
+		PullInterval:   cfg.Matcher.PullInterval,
+		MinLogLevel:    cfg.Matcher.MinLogLevel,
+		CollectionMode: cfg.Matcher.CollectionMode,
 	})
 
 	// 2.6 日志采集器
 	appCollector := collector.NewAppCollector(collector.Config{
-		ServiceName: cfg.Server.ServiceName,
-		Matcher:     ruleMatcher,
-		Cache:       cacheBlock,
+		ServiceName:    cfg.Server.ServiceName,
+		Matcher:        ruleMatcher,
+		Cache:          cacheBlock,
+		CollectionMode: cfg.Matcher.CollectionMode,
+		LogInterval:    2 * time.Second,
 	})
 
 	// 2.7 Nginx 采集器（仅网关节点）
 	var nginxCollector *collector.NginxCollector
 	if cfg.Nginx.Enabled {
 		nginxCollector = collector.NewNginxCollector(collector.NginxConfig{
-			SharedMemoryPath: cfg.Nginx.SharedMemoryPath,
-			ReadInterval:     cfg.Nginx.ReadInterval,
-			Cache:            cacheBlock,
+			PullURL:      cfg.Nginx.PullURL,
+			ReadInterval: cfg.Nginx.ReadInterval,
+			Cache:        cacheBlock,
+			ServiceName:  cfg.Server.ServiceName,
 		})
 	}
 

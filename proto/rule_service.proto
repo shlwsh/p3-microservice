@@ -6,6 +6,7 @@ option go_package = "github.com/p3-microservice/proto/logpb";
 // Java options removed - Go-only architecture
 
 import "google/protobuf/timestamp.proto";
+import "log_service.proto";
 
 // ============================================================
 // 规则下发服务 - Center → Agent
@@ -123,24 +124,6 @@ message CollectionRule {
   repeated string keywords = 5;    // 内容关键词
   double sampling_rate = 6;        // 采样率 (0.0-1.0, 1.0=全采)
   int32 priority = 7;
-}
-
-// 复用 log_service.proto 中的枚举
-enum PatternType {
-  PATTERN_TYPE_UNSPECIFIED = 0;
-  EXACT = 1;
-  PREFIX = 2;
-  REGEX = 3;
-  WILDCARD = 4;
-}
-
-enum LogLevel {
-  LOG_LEVEL_UNSPECIFIED = 0;
-  DEBUG = 1;
-  INFO = 2;
-  WARN = 3;
-  ERROR = 4;
-  FATAL = 5;
 }
 
 message FilterRule {

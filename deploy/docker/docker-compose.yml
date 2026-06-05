@@ -127,7 +127,7 @@ services:
     environment:
       - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
     volumes:
-      - ./service-agent-config.yaml:/etc/agent/agent.yaml
+      - ./agents/service-1-agent.yaml:/etc/agent/agent.yaml
     depends_on:
       - center
     network_mode: "service:service-1"
@@ -146,7 +146,7 @@ services:
     environment:
       - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
     volumes:
-      - ./service-agent-config.yaml:/etc/agent/agent.yaml
+      - ./agents/service-2-agent.yaml:/etc/agent/agent.yaml
     depends_on:
       - center
     network_mode: "service:service-2"

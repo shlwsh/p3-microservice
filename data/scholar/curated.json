@@ -1,0 +1,99 @@
+[
+  {
+    "title": "Enjoy your observability: an industrial survey of microservice tracing and analysis",
+    "authors": ["Bowen Li", "Xin Peng", "Qilin Xiang", "Hanzhang Wang", "Tao Xie", "Jun Sun", "Xuanzhe Liu"],
+    "year": 2021,
+    "doi": "10.1007/s10664-021-10063-9",
+    "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10664-021-10063-9.pdf",
+    "citations": 95
+  },
+  {
+    "title": "Toward the Observability of Cloud-Native Applications: The Overview of the State-of-the-Art",
+    "authors": ["Joanna Kosińska", "Bartosz Baliś", "Marek Konieczny", "M. Malawski", "Sławomir Zieliński"],
+    "year": 2023,
+    "doi": "10.1109/access.2023.3281860",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10141603.pdf",
+    "citations": 52
+  },
+  {
+    "title": "Microservices: The Journey So Far and Challenges Ahead",
+    "authors": ["Pooyan Jamshidi", "Claus Pahl", "Nabor C. Mendonça", "James W. Lewis", "Stefan Tilkov"],
+    "year": 2018,
+    "doi": "10.1109/ms.2018.2141039",
+    "pdf_url": "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8354438",
+    "citations": 528
+  },
+  {
+    "title": "Borg, Omega, and Kubernetes",
+    "authors": ["Brendan Burns", "Brian Grant", "David Oppenheimer", "Eric Brewer", "John Wilkes"],
+    "year": 2016,
+    "doi": "10.1145/2898442.2898444",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/2898442.2898444",
+    "citations": 403
+  },
+  {
+    "title": "Design patterns for container-based distributed systems",
+    "authors": ["Brendan Burns", "David Oppenheimer", "Eric Brewer"],
+    "year": 2016,
+    "doi": "10.1145/2901318.2901342",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/2901318.2901342",
+    "citations": 1200
+  },
+  {
+    "title": "Explaining Microservices' Cascading Failures From Their Logs",
+    "authors": ["Jacopo Soldani", "Stefano Forti", "Luca Roveroni", "Antonio Brogi"],
+    "year": 2024,
+    "doi": "10.1002/spe.3400",
+    "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/spe.3400",
+    "citations": 3
+  },
+  {
+    "title": "Graph-based root cause analysis for service-oriented and microservice architectures",
+    "authors": ["Jacopo Soldani", "Antonio Brogi"],
+    "year": 2020,
+    "doi": "10.1016/j.jss.2019.110432",
+    "pdf_url": "https://doi.org/10.1016/j.jss.2019.110432",
+    "citations": 114
+  },
+  {
+    "title": "Sleuth: A Trace-Based Root Cause Analysis System for Large-Scale Microservices with Graph Neural Networks",
+    "authors": ["Yu Gan", "Guiyang Liu", "Xin Zhang", "Qi Zhou", "Jiesheng Wu", "Jiangwei Jiang"],
+    "year": 2023,
+    "doi": "10.1145/3623278.3624758",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3623278.3624758",
+    "citations": 12
+  },
+  {
+    "title": "Dissecting Overheads of Service Mesh Sidecars",
+    "authors": ["Xiangfeng Zhu", "Guozhen She", "Bowen Xue", "Yu Zhang", "Ratul Mahajan"],
+    "year": 2023,
+    "doi": "10.1145/3620678.3624652",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3620678.3624652",
+    "citations": 36
+  },
+  {
+    "title": "A Survey on Edge Performance Benchmarking",
+    "authors": ["Benjamin Varghese", "Nikolaos Antonopoulos", "Rajkumar Buyya"],
+    "year": 2022,
+    "doi": "10.1145/3444692",
+    "pdf_url": "https://doi.org/10.1145/3444692",
+    "citations": 180
+  },
+  {
+    "title": "AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities and Challenges",
+    "authors": ["Qian Cheng", "Doyen Sahoo", "Amrita Saha", "Steven C. H. Hoi"],
+    "year": 2023,
+    "doi": "10.48550/arXiv.2304.04661",
+    "arxiv_id": "2304.04661",
+    "pdf_url": "https://arxiv.org/pdf/2304.04661",
+    "citations": 20
+  },
+  {
+    "title": "Run-time failure detection via non-intrusive event analysis in a large-scale cloud computing platform",
+    "authors": ["Domenico Cotroneo", "Luigi De Simone", "Pietro Liguori", "Roberto Natella"],
+    "year": 2023,
+    "doi": "10.1016/j.jss.2023.111611",
+    "pdf_url": "https://doi.org/10.1016/j.jss.2023.111611",
+    "citations": 10
+  }
+]

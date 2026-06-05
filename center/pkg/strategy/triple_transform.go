@@ -25,6 +25,7 @@ import (
 
 	"github.com/p3-microservice/center/pkg/dispatch"
 	"github.com/p3-microservice/center/pkg/receiver"
+	"github.com/p3-microservice/center/pkg/redisstore"
 )
 
 // TripleTransformConfig 三次转换配置。
@@ -32,6 +33,9 @@ type TripleTransformConfig struct {
 	ListGenerator *AttentionListGenerator
 	Dispatcher    *dispatch.RuleDispatcher
 	Receiver      *receiver.LogReceiver
+	GatewayStore  *redisstore.GatewayLogStore
+	TimeWindowSec int64
+	Strategy      *DirectedStrategy
 }
 
 // TripleTransformer 三次转换引擎。
@@ -204,14 +208,27 @@ func (t *TripleTransformer) RunPeriodicGeneration(ctx context.Context, interval 
 func (t *TripleTransformer) executeOneRound() {
 	log.Println("[TripleTransform] ========== 开始新一轮转换 ==========")
 
-	// TODO: 从 Redis 读取网关流量日志
-	// gatewayLogs := readGatewayLogsFromRedis(timeWindow)
-	gatewayLogs := []GatewayLog{} // 占位
+	var gatewayLogs []GatewayLog
+	if t.config.GatewayStore != nil {
+		window := t.config.TimeWindowSec
+		if window <= 0 {
+			window = 60
+		}
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		logs, err := t.config.GatewayStore.FetchWindow(ctx, window)
+		cancel()
+		if err != nil {
+			log.Printf("[TripleTransform] 读取 Redis 网关日志失败: %v", err)
+			return
+		}
+		gatewayLogs = logs
+	}
 
 	if len(gatewayLogs) == 0 {
 		log.Println("[TripleTransform] 无网关流量日志，跳过本轮")
 		return
 	}
+	log.Printf("[TripleTransform] 读取网关流量日志 %d 条", len(gatewayLogs))
 
 	// 第二次转换
 	t.SecondTransform(gatewayLogs)

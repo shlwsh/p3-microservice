@@ -1,0 +1,90 @@
+\begin{thebibliography}{10}
+
+\bibitem{aws_backoff}
+{Amazon Web Services}.
+\newblock Exponential backoff and jitter.
+\newblock AWS Architecture Blog, 2015.
+
+\bibitem{beyer2016sre}
+Betsy Beyer, Chris Jones, Jennifer Petoff, and Niall~Richard Murphy.
+\newblock {\em Site Reliability Engineering}.
+\newblock O'Reilly, 2016.
+
+\bibitem{burns2016borg}
+Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
+\newblock Borg, omega, and kubernetes.
+\newblock {\em Communications of the ACM}, 59(5):50--57, 2016.
+
+\bibitem{burns2016patterns}
+Brendan Burns, David Oppenheimer, and Eric Brewer.
+\newblock Design patterns for container-based distributed systems.
+\newblock In {\em Proceedings of the 7th Workshop on Hot Topics in Cloud
+  Computing (HotCloud)}. ACM, 2016.
+
+\bibitem{loki2019}
+{Grafana Labs}.
+\newblock Grafana loki: Like prometheus, but for logs.
+\newblock KubeCon Presentation, 2019.
+
+\bibitem{jamshidi2018microservices}
+Pooyan Jamshidi, Claus Pahl, Nabor~C. Mendon{\c{c}}a, James~W. Lewis, and
+  Stefan Tilkov.
+\newblock Microservices: The journey so far and challenges ahead.
+\newblock {\em IEEE Software}, 35(3):6--9, 2018.
+
+\bibitem{li2021observability}
+Bowen Li, Xin Peng, Qilin Xiang, Hanzhang Wang, Tao Xie, Jun Sun, and Xuanzhe
+  Liu.
+\newblock Enjoy your observability: An industrial survey of microservice
+  tracing and analysis.
+\newblock {\em Empirical Software Engineering}, 27(2), 2021.
+
+\bibitem{otel_tail}
+{OpenTelemetry}.
+\newblock Tail sampling.
+\newblock \url{https://opentelemetry.io/docs/concepts/sampling/}, 2024.
+
+\bibitem{soldani2020graphrca}
+Jacopo Soldani and Antonio Brogi.
+\newblock Graph-based root cause analysis for service-oriented and microservice
+  architectures.
+\newblock {\em Journal of Systems and Software}, 159:110432, 2020.
+
+\bibitem{soldani2024logs}
+Jacopo Soldani, Stefano Forti, Luca Roveroni, and Antonio Brogi.
+\newblock Explaining microservices' cascading failures from their logs.
+\newblock {\em Software: Practice and Experience}, 2024.
+
+\bibitem{turnbull2014monitoring}
+James Turnbull.
+\newblock {\em The Art of Monitoring}.
+\newblock Leanpub, 2014.
+
+\bibitem{wang2024rca}
+Tingting Wang and Guilin Qi.
+\newblock A comprehensive survey on root cause analysis in (micro) services:
+  Methodologies, challenges, and trends.
+\newblock {\em arXiv preprint arXiv:2408.00803}, 2024.
+
+\bibitem{zhang2023multimodal}
+Shenglin Zhang, Pengxiang Jin, Zihan Lin, Yongqian Sun, et~al.
+\newblock Robust failure diagnosis of microservice system through multimodal
+  data.
+\newblock {\em arXiv preprint arXiv:2302.10512}, 2023.
+
+\bibitem{zhu2023sidecar}
+Xiangfeng Zhu, Guozhen She, Bowen Xue, Yu~Zhang, and Ratul Mahajan.
+\newblock Dissecting overheads of service mesh sidecars.
+\newblock 2023.
+
+\bibitem{zhangjianxun2020microservice}
+张建勋, 王进兵, 贾统, and 李影.
+\newblock 微服务架构研究进展.
+\newblock {\em 计算机学报}, 43(2):233--254, 2020.
+
+\bibitem{limingshu2019logmgmt}
+李明树, 张艳, 王涛, and 刘俊.
+\newblock 大规模分布式系统日志管理技术综述.
+\newblock {\em 软件学报}, 30(7):1959--1979, 2019.
+
+\end{thebibliography}

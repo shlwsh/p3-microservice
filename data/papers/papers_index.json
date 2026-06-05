@@ -1,0 +1,109 @@
+{
+  "papers": {
+    "10.48550/arxiv.2302.10512": {
+      "title": "Robust Failure Diagnosis of Microservice System through Multimodal Data",
+      "authors": [
+        "Shenglin Zhang",
+        "Pengxiang Jin",
+        "Zihan Lin",
+        "Yongqian Sun",
+        "Bicheng Zhang",
+        "Sibo Xia",
+        "Zhengdan Li",
+        "Zhenyu Zhong",
+        "Minghua Ma",
+        "Wa Jin",
+        "Dai Zhang",
+        "Zhenyu Zhu",
+        "Dan Pei"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arxiv.2302.10512",
+      "filename": "2023_Zhang_Robust_Failure_Diagnosis_of_Microservice_System_th.pdf",
+      "downloaded_at": "2026-06-05T21:34:10"
+    },
+    "10.48550/arxiv.2203.05471": {
+      "title": "A Full Dive into Realizing the Edge-enabled Metaverse: Visions, Enabling Technologies,and Challenges",
+      "authors": [
+        "Minrui Xu",
+        "Wei Chong Ng",
+        "Wei Yang Bryan Lim",
+        "Jiawen Kang",
+        "Zehui Xiong",
+        "Dusit Niyato",
+        "Qiang Yang",
+        "Xuemin Shen",
+        "Chunyan Miao"
+      ],
+      "year": 2022,
+      "doi": "10.48550/arxiv.2203.05471",
+      "filename": "2022_Xu_A_Full_Dive_into_Realizing_the_Edge-enabled_Metave.pdf",
+      "downloaded_at": "2026-06-05T21:34:13"
+    },
+    "10.48550/arxiv.2408.00803": {
+      "title": "A Comprehensive Survey on Root Cause Analysis in (Micro) Services: Methodologies, Challenges, and Trends",
+      "authors": [
+        "Tingting Wang",
+        "Guilin Qi"
+      ],
+      "year": 2024,
+      "doi": "10.48550/arxiv.2408.00803",
+      "filename": "2024_Wang_A_Comprehensive_Survey_on_Root_Cause_Analysis_in_M.pdf",
+      "downloaded_at": "2026-06-05T21:34:16"
+    },
+    "10.48550/arxiv.2303.14620": {
+      "title": "PBScaler: A Bottleneck-aware Autoscaling Framework for Microservice-based Applications",
+      "authors": [
+        "Shuaiyu Xie",
+        "Jian Wang",
+        "Bing Li",
+        "Zekun Zhang",
+        "Duantengchuan Li",
+        "Patrick C. K. H"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arxiv.2303.14620",
+      "filename": "2023_Xie_PBScaler_A_Bottleneck-aware_Autoscaling_Framework.pdf",
+      "downloaded_at": "2026-06-05T21:34:19"
+    },
+    "10.48550/arxiv.2207.02776": {
+      "title": "Using Microservice Telemetry Data for System Dynamic Analysis",
+      "authors": [
+        "Abdullah Al Maruf",
+        "Alexander Bakhtin",
+        "Cerny, Tomas",
+        "Davide Taibi"
+      ],
+      "year": 2022,
+      "doi": "10.48550/arxiv.2207.02776",
+      "filename": "2022_Maruf_Using_Microservice_Telemetry_Data_for_System_Dynam.pdf",
+      "downloaded_at": "2026-06-05T21:34:21"
+    },
+    "10.48550/arxiv.2201.03598": {
+      "title": "Designing Microservice Systems Using Patterns: An Empirical Study on Quality Trade-Offs",
+      "authors": [
+        "Guilherme Vale",
+        "Filipe Figueiredo Correia",
+        "Eduardo Guerra",
+        "Thatiane de Oliveira Rosa",
+        "Jonas Fritzsch",
+        "Justus Bogner"
+      ],
+      "year": 2022,
+      "doi": "10.48550/arxiv.2201.03598",
+      "filename": "2022_Vale_Designing_Microservice_Systems_Using_Patterns_An_E.pdf",
+      "downloaded_at": "2026-06-05T21:34:24"
+    },
+    "10.48550/arXiv.2304.04661": {
+      "title": "AI for IT Operations (AIOps) on Cloud Platforms",
+      "authors": [
+        "Qian Cheng"
+      ],
+      "year": 2023,
+      "doi": "10.48550/arXiv.2304.04661",
+      "filename": "2023_Cheng_AI_for_IT_Operations_AIOps_on_Cloud_Platforms_Revi.pdf",
+      "downloaded_at": "2026-06-05T21:34:28"
+    }
+  },
+  "total_count": 7
+}

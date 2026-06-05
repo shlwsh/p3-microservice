@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Enjoy your observability: an industrial survey of microservice tracing and analysis",
+    "authors": [
+      "Bowen Li",
+      "Xin Peng",
+      "Qilin Xiang",
+      "Hanzhang Wang",
+      "Tao Xie",
+      "Jun Sun",
+      "Xuanzhe Liu"
+    ],
+    "year": 2021,
+    "citations": 95,
+    "abstract": "",
+    "doi": "10.1007/s10664-021-10063-9",
+    "arxiv_id": "",
+    "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10664-021-10063-9.pdf",
+    "url": "https://openalex.org/W3216137074",
+    "source": "openalex"
+  },
+  {
+    "title": "Toward the Observability of Cloud-Native Applications: The Overview of the State-of-the-Art",
+    "authors": [
+      "Joanna Kosińska",
+      "Bartosz Baliś",
+      "Marek Konieczny",
+      "M. Malawski",
+      "Sławomir Zieliński"
+    ],
+    "year": 2023,
+    "citations": 52,
+    "abstract": "The Cloud-native model, established to enhance the Twelve-Factor patterns, is an approach to developing and deploying applications according to DevOps concepts, Continuous Integration/Continuous Delivery, containers, and microservices. The notion of observability can help us cope with the complexity of such applications. We present a Systematic Mapping Study (SMS) in the observability of Cloud-native applications. We have chosen 56 studies published between 2018 and 2022. The selected studies we",
+    "doi": "10.1109/access.2023.3281860",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/10141603.pdf",
+    "url": "https://openalex.org/W4378976234",
+    "source": "openalex"
+  },
+  {
+    "title": "From static code analysis to visual models of microservice architecture",
+    "authors": [
+      "Tomas Cerny",
+      "Amr S. Abdelfattah",
+      "Jorge Yero",
+      "Davide Taibi"
+    ],
+    "year": 2024,
+    "citations": 18,
+    "abstract": "",
+    "doi": "10.1007/s10586-024-04394-7",
+    "arxiv_id": "",
+    "pdf_url": "https://repository.arizona.edu/bitstream/10150/672722/1/SOSE_Extension___Cloud_Cluster%20%281%29.pdf",
+    "url": "https://openalex.org/W4395068764",
+    "source": "openalex"
+  },
+  {
+    "title": "An empirical study of challenges in machine learning asset management",
+    "authors": [
+      "Zhimin Zhao",
+      "Yihao Chen",
+      "Abdul Ali Bangash",
+      "Bram Adams",
+      "Ahmed E. Hassan"
+    ],
+    "year": 2024,
+    "citations": 14,
+    "abstract": "",
+    "doi": "10.1007/s10664-024-10474-4",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2402.15990",
+    "url": "https://openalex.org/W4392224127",
+    "source": "openalex"
+  },
+  {
+    "title": "Run-time failure detection via non-intrusive event analysis in a large-scale cloud computing platform",
+    "authors": [
+      "Domenico Cotroneo",
+      "Luigi De Simone",
+      "Pietro Liguori",
+      "Roberto Natella"
+    ],
+    "year": 2023,
+    "citations": 10,
+    "abstract": "Cloud computing systems fail in complex and unforeseen ways due to unexpected combinations of events and interactions among hardware and software components. These failures are especially problematic when they are silent, i.e., not accompanied by any explicit failure notification, hindering the timely detection and recovery. In this work, we propose an approach to run-time failure detection tailored for monitoring multi-tenant and concurrent cloud computing systems. The approach uses a non-intru",
+    "doi": "10.1016/j.jss.2023.111611",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.1016/j.jss.2023.111611",
+    "url": "https://openalex.org/W4313650003",
+    "source": "openalex"
+  }
+]

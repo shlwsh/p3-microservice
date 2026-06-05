@@ -1,0 +1,355 @@
+[
+  {
+    "title": "Robust Failure Diagnosis of Microservice System through Multimodal Data",
+    "authors": [
+      "Shenglin Zhang",
+      "Pengxiang Jin",
+      "Zihan Lin",
+      "Yongqian Sun",
+      "Bicheng Zhang",
+      "Sibo Xia",
+      "Zhengdan Li",
+      "Zhenyu Zhong",
+      "Minghua Ma",
+      "Wa Jin",
+      "Dai Zhang",
+      "Zhenyu Zhu",
+      "Dan Pei"
+    ],
+    "year": 2023,
+    "citations": 3,
+    "abstract": "Automatic failure diagnosis is crucial for large microservice systems. Currently, most failure diagnosis methods rely solely on single-modal data (i.e., using either metrics, logs, or traces). In this study, we conduct an empirical study using real-world failure cases to show that combining these sources of data (multimodal data) leads to a more accurate diagnosis. However, effectively representing these data and addressing imbalanced failures remain challenging. To tackle these issues, we propo",
+    "doi": "10.48550/arxiv.2302.10512",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2302.10512",
+    "url": "https://openalex.org/W4321593319",
+    "source": "openalex",
+    "_relevance_score": 4.7,
+    "_matched_keywords": [
+      "microservice",
+      "log",
+      "trace"
+    ]
+  },
+  {
+    "title": "A Full Dive into Realizing the Edge-enabled Metaverse: Visions, Enabling Technologies,and Challenges",
+    "authors": [
+      "Minrui Xu",
+      "Wei Chong Ng",
+      "Wei Yang Bryan Lim",
+      "Jiawen Kang",
+      "Zehui Xiong",
+      "Dusit Niyato",
+      "Qiang Yang",
+      "Xuemin Shen",
+      "Chunyan Miao"
+    ],
+    "year": 2022,
+    "citations": 57,
+    "abstract": "Dubbed \"the successor to the mobile Internet\", the concept of the Metaverse has grown in popularity. While there exist lite versions of the Metaverse today, they are still far from realizing the full vision of an immersive, embodied, and interoperable Metaverse. Without addressing the issues of implementation from the communication and networking, as well as computation perspectives, the Metaverse is difficult to succeed the Internet, especially in terms of its accessibility to billions of users",
+    "doi": "10.48550/arxiv.2203.05471",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2203.05471",
+    "url": "https://openalex.org/W4221139187",
+    "source": "openalex",
+    "_relevance_score": 4.6,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "A Comprehensive Survey on Root Cause Analysis in (Micro) Services: Methodologies, Challenges, and Trends",
+    "authors": [
+      "Tingting Wang",
+      "Guilin Qi"
+    ],
+    "year": 2024,
+    "citations": 2,
+    "abstract": "The complex dependencies and propagative faults inherent in microservices, characterized by a dense network of interconnected services, pose significant challenges in identifying the underlying causes of issues. Prompt identification and resolution of disruptive problems are crucial to ensure rapid recovery and maintain system stability. Numerous methodologies have emerged to address this challenge, primarily focusing on diagnosing failures through symptomatic data. This survey aims to provide a",
+    "doi": "10.48550/arxiv.2408.00803",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2408.00803",
+    "url": "https://openalex.org/W4401978518",
+    "source": "openalex",
+    "_relevance_score": 3.5,
+    "_matched_keywords": [
+      "microservice",
+      "log"
+    ]
+  },
+  {
+    "title": "PBScaler: A Bottleneck-aware Autoscaling Framework for Microservice-based Applications",
+    "authors": [
+      "Shuaiyu Xie",
+      "Jian Wang",
+      "Bing Li",
+      "Zekun Zhang",
+      "Duantengchuan Li",
+      "Patrick C. K. H"
+    ],
+    "year": 2023,
+    "citations": 2,
+    "abstract": "Autoscaling is critical for ensuring optimal performance and resource utilization in cloud applications with dynamic workloads. However, traditional autoscaling technologies are typically no longer applicable in microservice-based applications due to the diverse workload patterns and complex interactions between microservices. Specifically, the propagation of performance anomalies through interactions leads to a high number of abnormal microservices, making it difficult to identify the root perf",
+    "doi": "10.48550/arxiv.2303.14620",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2303.14620",
+    "url": "https://openalex.org/W4361193315",
+    "source": "openalex",
+    "_relevance_score": 3.5,
+    "_matched_keywords": [
+      "microservice",
+      "log"
+    ]
+  },
+  {
+    "title": "Using Microservice Telemetry Data for System Dynamic Analysis",
+    "authors": [
+      "Abdullah Al Maruf",
+      "Alexander Bakhtin",
+      "Cerny, Tomas",
+      "Davide Taibi"
+    ],
+    "year": 2022,
+    "citations": 6,
+    "abstract": "Microservices bring various benefits to software systems. They also bring decentralization and lose coupling across self-contained system parts. Since these systems likely evolve in a decentralized manner, they need to be monitored to identify when possibly poorly designed extensions deteriorate the overall system quality. For monolith systems, such tasks have been commonly addressed through static analysis. However, given the decentralization and possible language diversity across microservices",
+    "doi": "10.48550/arxiv.2207.02776",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2207.02776",
+    "url": "https://openalex.org/W4284897578",
+    "source": "openalex",
+    "_relevance_score": 3.2,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Designing Microservice Systems Using Patterns: An Empirical Study on Quality Trade-Offs",
+    "authors": [
+      "Guilherme Vale",
+      "Filipe Figueiredo Correia",
+      "Eduardo Guerra",
+      "Thatiane de Oliveira Rosa",
+      "Jonas Fritzsch",
+      "Justus Bogner"
+    ],
+    "year": 2022,
+    "citations": 5,
+    "abstract": "The promise of increased agility, autonomy, scalability, and reusability has made the microservices architecture a \\textit{de facto} standard for the development of large-scale and cloud-native commercial applications. Software patterns are an important design tool, and often they are selected and combined with the goal of obtaining a set of desired quality attributes. However, from a research standpoint, many patterns have not been widely validated against industry practice, making them not muc",
+    "doi": "10.48550/arxiv.2201.03598",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2201.03598",
+    "url": "https://openalex.org/W4221145699",
+    "source": "openalex",
+    "_relevance_score": 3.0,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Failure Diagnosis in Microservice Systems: A Comprehensive Survey and Analysis",
+    "authors": [
+      "Shenglin Zhang",
+      "Sibo Xia",
+      "Wenzhao Fan",
+      "Binpeng Shi",
+      "Xiong Xiao",
+      "Zhenyu Zhong",
+      "Minghua Ma",
+      "Yongqian Sun",
+      "Dan Pei"
+    ],
+    "year": 2024,
+    "citations": 2,
+    "abstract": "Widely adopted for their scalability and flexibility, modern microservice systems present unique failure diagnosis challenges due to their independent deployment and dynamic interactions. This complexity can lead to cascading failures that negatively impact operational efficiency and user experience. Recognizing the critical role of fault diagnosis in improving the stability and reliability of microservice systems, researchers have conducted extensive studies and achieved a number of significant",
+    "doi": "10.48550/arxiv.2407.01710",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2407.01710",
+    "url": "https://openalex.org/W4400377685",
+    "source": "openalex",
+    "_relevance_score": 2.5,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Rise of the Planet of Serverless Computing: A Systematic Review",
+    "authors": [
+      "Jinfeng Wen",
+      "Zhenpeng Chen",
+      "Xin Jin",
+      "Xuanzhe Liu"
+    ],
+    "year": 2022,
+    "citations": 7,
+    "abstract": "Serverless computing is an emerging cloud computing paradigm, being adopted to develop a wide range of software applications. It allows developers to focus on the application logic in the granularity of function, thereby freeing developers from tedious and error-prone infrastructure management. Meanwhile, its unique characteristic poses new challenges to the development and deployment of serverless-based applications. To tackle these challenges, enormous research efforts have been devoted. This ",
+    "doi": "10.48550/arxiv.2206.12275",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2206.12275",
+    "url": "https://openalex.org/W4311991054",
+    "source": "openalex",
+    "_relevance_score": 2.3,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities and Challenges",
+    "authors": [
+      "Qian Cheng",
+      "Doyen Sahoo",
+      "Amrita Saha",
+      "Wenzhuo Yang",
+      "Chenghao Liu",
+      "Gerald Woo",
+      "Manpreet Singh",
+      "Silvio Saverese",
+      "Steven C. H. Hoi"
+    ],
+    "year": 2023,
+    "citations": 20,
+    "abstract": "Artificial Intelligence for IT operations (AIOps) aims to combine the power of AI with the big data generated by IT Operations processes, particularly in cloud infrastructures, to provide actionable insights with the primary goal of maximizing availability. There are a wide variety of problems to address, and multiple use-cases, where AI capabilities can be leveraged to enhance operational efficiency. Here we provide a review of the AIOps vision, trends challenges and opportunities, specifically",
+    "doi": "10.48550/arxiv.2304.04661",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2304.04661",
+    "url": "https://openalex.org/W4364387555",
+    "source": "openalex",
+    "_relevance_score": 2.0,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Groot: An Event-graph-based Approach for Root Cause Analysis in Industrial Settings",
+    "authors": [
+      "Hanzhang Wang",
+      "Zhengkai Wu",
+      "Huai Jiang",
+      "Yichao Huang",
+      "Jiamu Wang",
+      "Selçuk Köprü",
+      "Tao Xie"
+    ],
+    "year": 2021,
+    "citations": 3,
+    "abstract": "For large-scale distributed systems, it's crucial to efficiently diagnose the root causes of incidents to maintain high system availability. The recent development of microservice architecture brings three major challenges (i.e., operation, system scale, and monitoring complexities) to root cause analysis (RCA) in industrial settings. To tackle these challenges, in this paper, we present Groot, an event-graph-based approach for RCA. Groot constructs a real-time causality graph based on events th",
+    "doi": "10.48550/arxiv.2108.00344",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2108.00344",
+    "url": "https://openalex.org/W4300946175",
+    "source": "openalex",
+    "_relevance_score": 1.7,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Overview of AI and Communication for 6G Network: Fundamentals, Challenges, and Future Research Opportunities",
+    "authors": [
+      "Qimei Cui",
+      "Xiaohu You",
+      "Wei Ni",
+      "Guoshun Nan",
+      "Xuefei Zhang",
+      "Jianhua Zhang",
+      "Xinchen Lyu",
+      "Ming Ai",
+      "Xiaofeng Tao",
+      "Zhiyong Feng",
+      "Ping Zhang",
+      "Qingqing Wu",
+      "Meixia Tao",
+      "Yong‐Ming Huang",
+      "Chongwen Huang",
+      "Guangyi Liu",
+      "Chenghui Peng",
+      "Zhiwen Pan",
+      "Tao Sun",
+      "Dusit Niyato",
+      "Tao Chen",
+      "Muhammad Khurram Khan",
+      "Abbas Jamalipour",
+      "Mohsen Guizani",
+      "Chau Yuen"
+    ],
+    "year": 2024,
+    "citations": 4,
+    "abstract": "With the growing demand for seamless connectivity and intelligent communication, the integration of artificial intelligence (AI) and sixth-generation (6G) communication networks has emerged as a transformative paradigm. By embedding AI capabilities across various network layers, this integration enables optimized resource allocation, improved efficiency, and enhanced system robust performance, particularly in intricate and dynamic environments. This paper presents a comprehensive overview of AI ",
+    "doi": "10.48550/arxiv.2412.14538",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2412.14538",
+    "url": "https://openalex.org/W4405627649",
+    "source": "openalex",
+    "_relevance_score": 0.9,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Cyber Deception: State of the art, Trends and Open challenges",
+    "authors": [
+      "Pedro Beltrán López",
+      "Manuel Gil Pérez",
+      "Pantaleone Nespoli"
+    ],
+    "year": 2024,
+    "citations": 4,
+    "abstract": "The growing interest in cybersecurity has significantly increased articles designing and implementing various Cyber Deception (CYDEC) mechanisms. This trend reflects the urgent need for new strategies to address cyber threats effectively. Since its emergence, CYDEC has established itself as an innovative defense against attackers, thanks to its proactive and reactive capabilities, finding applications in numerous real-life scenarios. Despite the considerable work devoted to CYDEC, the literature",
+    "doi": "10.48550/arxiv.2409.07194",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2409.07194",
+    "url": "https://openalex.org/W4403621806",
+    "source": "openalex",
+    "_relevance_score": 0.9,
+    "_matched_keywords": []
+  },
+  {
+    "title": "LLMSat: A Large Language Model-Based Goal-Oriented Agent for Autonomous Space Exploration",
+    "authors": [
+      "David Maranto"
+    ],
+    "year": 2024,
+    "citations": 3,
+    "abstract": "As spacecraft journey further from Earth with more complex missions, systems of greater autonomy and onboard intelligence are called for. Reducing reliance on human-based mission control becomes increasingly critical if we are to increase our rate of solar-system-wide exploration. Recent work has explored AI-based goal-oriented systems to increase the level of autonomy in mission execution. These systems make use of symbolic reasoning managers to make inferences from the state of a spacecraft an",
+    "doi": "10.48550/arxiv.2405.01392",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2405.01392",
+    "url": "https://openalex.org/W4396649061",
+    "source": "openalex",
+    "_relevance_score": 0.7,
+    "_matched_keywords": []
+  },
+  {
+    "title": "A Reference Architecture for Governance of Cloud Native Applications",
+    "authors": [
+      "William Pourmajidi",
+      "Lei Zhang",
+      "John Steinbacher",
+      "Tony Erwin",
+      "Andriy Miranskyy"
+    ],
+    "year": 2023,
+    "citations": 3,
+    "abstract": "The evolution of cloud computing has given rise to Cloud Native Applications (CNAs), presenting new challenges in governance, particularly when faced with strict compliance requirements. This work explores the unique characteristics of CNAs and their impact on governance. We introduce a comprehensive reference architecture designed to streamline governance across CNAs, along with a sample implementation, offering insights for both single and multi-cloud environments. Our architecture seamlessly ",
+    "doi": "10.48550/arxiv.2302.11617",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2302.11617",
+    "url": "https://openalex.org/W4321853764",
+    "source": "openalex",
+    "_relevance_score": 0.7,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Ares II: Tracing the Flaws of a (Storage) God",
+    "authors": [
+      "Chryssis Georgiou",
+      "Nicolas Nicolaou",
+      "Andria Trigeorgi"
+    ],
+    "year": 2024,
+    "citations": 2,
+    "abstract": "Ares is a modular framework, designed to implement dynamic, reconfigurable, fault-tolerant, read/write and strongly consistent distributed shared memory objects. Recent enhancements of the framework have realized the efficient implementation of large objects, by introducing versioning and data striping techniques. In this work, we identify performance bottlenecks of the Ares's variants by utilizing distributed tracing, a popular technique for monitoring and profiling distributed systems. We then",
+    "doi": "10.48550/arxiv.2407.00881",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2407.00881",
+    "url": "https://openalex.org/W4400331339",
+    "source": "openalex",
+    "_relevance_score": 0.5,
+    "_matched_keywords": []
+  }
+]

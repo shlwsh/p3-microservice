@@ -1,0 +1,353 @@
+[
+  {
+    "title": "Sleuth: A Trace-Based Root Cause Analysis System for Large-Scale Microservices with Graph Neural Networks",
+    "authors": [
+      "Yu Gan",
+      "Guiyang Liu",
+      "Xin Zhang",
+      "Qi Zhou",
+      "Jiesheng Wu",
+      "Jiangwei Jiang"
+    ],
+    "year": 2023,
+    "citations": 12,
+    "abstract": "Cloud microservices are being scaled up due to the rising demand for new features and the convenience of cloud-native technologies. However, the growing scale of microservices complicates the remote procedure call (RPC) dependency graph, exacerbates the tail-of-scale effect, and makes many of the empirical rules for detecting the root cause of end-to-end performance issues unreliable. Additionally, existing open-source microservice benchmarks are too small to evaluate performance debugging algor",
+    "doi": "10.1145/3623278.3624758",
+    "arxiv_id": "",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3623278.3624758",
+    "url": "https://openalex.org/W4391623917",
+    "source": "openalex",
+    "_relevance_score": 5.6,
+    "_matched_keywords": [
+      "tail",
+      "trace",
+      "log"
+    ]
+  },
+  {
+    "title": "Blockchain technology in the energy sector: A systematic review of challenges and opportunities",
+    "authors": [
+      "Merlinda Andoni",
+      "Valentin Robu",
+      "David Flynn",
+      "Simone Abram",
+      "Dale Geach",
+      "David Jenkins",
+      "Peter McCallum",
+      "Andrew Peacock"
+    ],
+    "year": 2018,
+    "citations": 2337,
+    "abstract": "Blockchains or distributed ledgers are an emerging technology that has drawn considerable interest from energy supply firms, startups, technology developers, financial institutions, national governments and the academic community. Numerous sources coming from these backgrounds identify blockchains as having the potential to bring significant benefits and innovation. Blockchains promise transparent, tamper-proof and secure systems that can enable novel business solutions, especially when combined",
+    "doi": "10.1016/j.rser.2018.10.014",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.1016/j.rser.2018.10.014",
+    "url": "https://openalex.org/W2899357412",
+    "source": "openalex",
+    "_relevance_score": 8.1,
+    "_matched_keywords": [
+      "log",
+      "distributed"
+    ]
+  },
+  {
+    "title": "Internet of Things: A Survey on Enabling Technologies, Protocols, and Applications",
+    "authors": [
+      "Ala Al‐Fuqaha",
+      "Mohsen Guizani",
+      "Mehdi Mohammadi",
+      "Mohammed Aledhari",
+      "Moussa Ayyash"
+    ],
+    "year": 2015,
+    "citations": 8287,
+    "abstract": "This paper provides an overview of the Internet of Things (IoT) with emphasis on enabling technologies, protocols, and application issues. The IoT is enabled by the latest developments in RFID, smart sensors, communication technologies, and Internet protocols. The basic premise is to have smart sensors collaborate directly without human involvement to deliver a new class of applications. The current revolution in Internet, mobile, and machine-to-machine (M2M) technologies can be seen as the firs",
+    "doi": "10.1109/comst.2015.2444095",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/9739/7331734/07123563.pdf",
+    "url": "https://openalex.org/W2134295053",
+    "source": "openalex",
+    "_relevance_score": 7.9,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Microservices Architecture",
+    "authors": [
+      "Dmitry Namiot",
+      "Manfred Sneps-Sneppe"
+    ],
+    "year": 2025,
+    "citations": 249,
+    "abstract": "This paper provides a comprehensive overview of microservices architecture, focusing on its implementation.We discuss the core principles, key components, deployment considerations, challenges, and best practices for building robust and scalable microservices-based applications with C#.The paper emphasizes the benefits of adopting microservices, such as improved scalability, agility, and maintainability, while also addressing common challenges like distributed system complexity and data manageme",
+    "doi": "10.56726/irjmets66464",
+    "arxiv_id": "",
+    "pdf_url": "https://doi.org/10.56726/irjmets66464",
+    "url": "https://openalex.org/W1572499759",
+    "source": "openalex",
+    "_relevance_score": 6.6,
+    "_matched_keywords": [
+      "microservice",
+      "distributed"
+    ]
+  },
+  {
+    "title": "Microservices: The Journey So Far and Challenges Ahead",
+    "authors": [
+      "Pooyan Jamshidi",
+      "Claus Pahl",
+      "Nabor C. Mendonça",
+      "James W. Lewis",
+      "Stefan Tilkov"
+    ],
+    "year": 2018,
+    "citations": 528,
+    "abstract": "Microservices are an architectural approach emerging out of service-oriented architecture, emphasizing self-management and lightweightness as the means to improve software agility, scalability, and autonomy. This article examines microservice evolution from the technological and architectural perspectives and discusses key challenges facing future microservice developments.",
+    "doi": "10.1109/ms.2018.2141039",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/52/8354413/08354433.pdf",
+    "url": "https://openalex.org/W2799310732",
+    "source": "openalex",
+    "_relevance_score": 6.1,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "A Survey of 5G Network: Architecture and Emerging Technologies",
+    "authors": [
+      "Akhil Gupta",
+      "Rakesh Kumar Jha"
+    ],
+    "year": 2015,
+    "citations": 2387,
+    "abstract": "In the near future, i.e., beyond 4G, some of the prime objectives or demands that need to be addressed are increased capacity, improved data rate, decreased latency, and better quality of service. To meet these demands, drastic improvements need to be made in cellular network architecture. This paper presents the results of a detailed survey on the fifth generation (5G) cellular network architecture and some of the key emerging technologies that are helpful in improving the architecture and meet",
+    "doi": "10.1109/access.2015.2461602",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07169508.pdf",
+    "url": "https://openalex.org/W2128145324",
+    "source": "openalex",
+    "_relevance_score": 7.1,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Unmanned Aerial Vehicles (UAVs): A Survey on Civil Applications and Key Research Challenges",
+    "authors": [
+      "Hazim Shakhatreh",
+      "Ahmad Sawalmeh",
+      "Ala Al‐Fuqaha",
+      "Zuochao Dou",
+      "Eyad Almaita",
+      "Issa Khalil",
+      "Noor Shamsiah Othman",
+      "Abdallah Khreishah",
+      "Mohsen Guizani"
+    ],
+    "year": 2019,
+    "citations": 2217,
+    "abstract": "The use of unmanned aerial vehicles (UAVs) is growing rapidly across many civil application domains, including real-time monitoring, providing wireless coverage, remote sensing, search and rescue, delivery of goods, security and surveillance, precision agriculture, and civil infrastructure inspection. Smart UAVs are the next big revolution in the UAV technology promising to provide new opportunities in different applications, especially in civil infrastructure in terms of reduced risks and lower",
+    "doi": "10.1109/access.2019.2909530",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/8600701/08682048.pdf",
+    "url": "https://openalex.org/W4213147678",
+    "source": "openalex",
+    "_relevance_score": 7.0,
+    "_matched_keywords": [
+      "log",
+      "monitoring"
+    ]
+  },
+  {
+    "title": "Enjoy your observability: an industrial survey of microservice tracing and analysis",
+    "authors": [
+      "Bowen Li",
+      "Xin Peng",
+      "Qilin Xiang",
+      "Hanzhang Wang",
+      "Tao Xie",
+      "Jun Sun",
+      "Xuanzhe Liu"
+    ],
+    "year": 2021,
+    "citations": 95,
+    "abstract": "",
+    "doi": "10.1007/s10664-021-10063-9",
+    "arxiv_id": "",
+    "pdf_url": "https://link.springer.com/content/pdf/10.1007/s10664-021-10063-9.pdf",
+    "url": "https://openalex.org/W3216137074",
+    "source": "openalex",
+    "_relevance_score": 5.0,
+    "_matched_keywords": [
+      "observability"
+    ]
+  },
+  {
+    "title": "ImageJ2: ImageJ for the next generation of scientific image data",
+    "authors": [
+      "Curtis Rueden",
+      "Johannes Schindelin",
+      "Mark Hiner",
+      "Barry E. DeZonia",
+      "Alison E. Walter",
+      "Ellen T. Arena",
+      "Kevin W. Eliceiri"
+    ],
+    "year": 2017,
+    "citations": 6216,
+    "abstract": "BACKGROUND: ImageJ is an image analysis program extensively used in the biological sciences and beyond. Due to its ease of use, recordable macro language, and extensible plug-in architecture, ImageJ enjoys contributions from non-programmers, amateur programmers, and professional developers alike. Enabling such a diversity of contributors has resulted in a large community that spans the biological and physical sciences. However, a rapidly growing user base, diverging plugin suites, and technical ",
+    "doi": "10.1186/s12859-017-1934-z",
+    "arxiv_id": "",
+    "pdf_url": "https://bmcbioinformatics.biomedcentral.com/track/pdf/10.1186/s12859-017-1934-z",
+    "url": "https://openalex.org/W2580035316",
+    "source": "openalex",
+    "_relevance_score": 6.7,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Technology readiness levels for machine learning systems",
+    "authors": [
+      "Alexander Lavin",
+      "Ciarán Lee",
+      "Alessya Visnjic",
+      "Siddha Ganju",
+      "Dava Newman",
+      "S. Ganguly",
+      "Danny B. Lange",
+      "Atılım Güneş Baydin",
+      "Amit Sharma",
+      "Adam Gibson",
+      "Stephan Zheng",
+      "Eric P. Xing",
+      "Chris A. Mattmann",
+      "James F. Parr",
+      "Yarin Gal"
+    ],
+    "year": 2022,
+    "citations": 160,
+    "abstract": "The development and deployment of machine learning systems can be executed easily with modern tools, but the process is typically rushed and means-to-an-end. Lack of diligence can lead to technical debt, scope creep and misaligned objectives, model misuse and failures, and expensive consequences. Engineering systems, on the other hand, follow well-defined processes and testing standards to streamline development for high-quality, reliable results. The extreme is spacecraft systems, with mission ",
+    "doi": "10.1038/s41467-022-33128-9",
+    "arxiv_id": "",
+    "pdf_url": "https://www.nature.com/articles/s41467-022-33128-9.pdf",
+    "url": "https://openalex.org/W4287391859",
+    "source": "openalex",
+    "_relevance_score": 5.3,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "The Internet of Things for Health Care: A Comprehensive Survey",
+    "authors": [
+      "S. M. Riazul Islam",
+      "Daehan Kwak",
+      "Md. Humaun Kabir",
+      "Mahmud Hossain",
+      "Kyung-Sup Kwak"
+    ],
+    "year": 2015,
+    "citations": 2999,
+    "abstract": "The Internet of Things (IoT) makes smart objects the ultimate building blocks in the development of cyber-physical smart pervasive frameworks. The IoT has a variety of application domains, including health care. The IoT revolution is redesigning modern health care with promising technological, economic, and social prospects. This paper surveys advances in IoT-based health care technologies and reviews the state-of-the-art network architectures/platforms, applications, and industrial trends in Io",
+    "doi": "10.1109/access.2015.2437951",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/7042252/07113786.pdf",
+    "url": "https://openalex.org/W1943579973",
+    "source": "openalex",
+    "_relevance_score": 6.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Intelligent Reflecting Surface-Aided Wireless Communications: A Tutorial",
+    "authors": [
+      "Qingqing Wu",
+      "Shuowen Zhang",
+      "Beixiong Zheng",
+      "Changsheng You",
+      "Rui Zhang"
+    ],
+    "year": 2021,
+    "citations": 2840,
+    "abstract": "Intelligent reflecting surface (IRS) is an enabling technology to engineer the radio signal propagation in wireless networks. By smartly tuning the signal reflection via a large number of low-cost passive reflecting elements, IRS is capable of dynamically altering wireless channels to enhance the communication performance. It is thus expected that the new IRS-aided hybrid wireless network comprising both active and passive components will be highly promising to achieve a sustainable capacity gro",
+    "doi": "10.1109/tcomm.2021.3051897",
+    "arxiv_id": "",
+    "pdf_url": "http://ira.lib.polyu.edu.hk/bitstream/10397/107100/1/Zhang_Intelligent_Reflecting_Surface.pdf",
+    "url": "https://openalex.org/W3129486236",
+    "source": "openalex",
+    "_relevance_score": 6.2,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Graph-based root cause analysis for service-oriented and microservice architectures",
+    "authors": [
+      "Álvaro Brandón",
+      "Marc Solé",
+      "Alberto Huélamo",
+      "David Solans",
+      "Marı́a S. Pérez",
+      "Víctor Muntés-Mulero"
+    ],
+    "year": 2019,
+    "citations": 114,
+    "abstract": "",
+    "doi": "10.1016/j.jss.2019.110432",
+    "arxiv_id": "",
+    "pdf_url": "https://oa.upm.es/78365/1/jss-2020.pdf",
+    "url": "https://openalex.org/W2980932398",
+    "source": "openalex",
+    "_relevance_score": 5.1,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Explaining Microservices' Cascading Failures From Their Logs",
+    "authors": [
+      "Jacopo Soldani",
+      "Stefano Forti",
+      "Luca Roveroni",
+      "Antonio Brogi"
+    ],
+    "year": 2024,
+    "citations": 3,
+    "abstract": "ABSTRACT Context Identifying the possible root causes of observed failures is crucial in microservice applications, as much as explaining how such possible root failures propagated across the microservices forming an application. This can indeed help pick countermeasures avoiding observed failures to happen again, e.g., by introducing circuit breakers or bulkheads avoiding the root failures to propagate and cause those observed. Objective This paper aims at enabling to explain observed failures ",
+    "doi": "10.1002/spe.3400",
+    "arxiv_id": "",
+    "pdf_url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/spe.3400",
+    "url": "https://openalex.org/W4405477338",
+    "source": "openalex",
+    "_relevance_score": 2.7,
+    "_matched_keywords": [
+      "log"
+    ]
+  },
+  {
+    "title": "Borg, Omega, and Kubernetes",
+    "authors": [
+      "Brendan Burns",
+      "Brian Grant",
+      "David Oppenheimer",
+      "Eric Brewer",
+      "John Wilkes"
+    ],
+    "year": 2016,
+    "citations": 568,
+    "abstract": "Lessons learned from three container-management systems over a decade.",
+    "doi": "10.1145/2890784",
+    "arxiv_id": "",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/2890784?download=true",
+    "url": "https://openalex.org/W2290712622",
+    "source": "openalex",
+    "_relevance_score": 5.1,
+    "_matched_keywords": [
+      "container"
+    ]
+  }
+]

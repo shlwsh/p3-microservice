@@ -31,3 +31,16 @@ services:
 
   service-2-agent:
     mem_limit: 128m
+
+  service-3-agent:
+    mem_limit: 128m
+  service-4-agent:
+    mem_limit: 128m
+  service-5-agent:
+    mem_limit: 128m
+  service-6-agent:
+    mem_limit: 128m
+  service-7-agent:
+    mem_limit: 128m
+  service-8-agent:
+    mem_limit: 128m

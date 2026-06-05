@@ -34,7 +34,7 @@ local_persist:
 
 nginx:
   enabled: true
-  shared_memory_path: "/dev/shm/nginx_log"
+  pull_url: "http://127.0.0.1/_agent/logs"
   read_interval: 1s
 
 metrics:

@@ -4,19 +4,10 @@
 // 从网关流量日志中筛选出值得关注的记录（高延迟、错误码、高频等）。
 package strategy
 
-// GatewayLog 网关流量日志条目。
-type GatewayLog struct {
-	URL            string  `json:"url"`
-	Method         string  `json:"method"`
-	StatusCode     int     `json:"status_code"`
-	ResponseTimeMs int64   `json:"response_time_ms"`
-	ClientIP       string  `json:"client_ip"`
-	Timestamp      int64   `json:"timestamp"` // Unix 毫秒
-	RequestSize    int64   `json:"request_size"`
-	ResponseSize   int64   `json:"response_size"`
-	ServiceName    string  `json:"service_name"`
-	UpstreamAddr   string  `json:"upstream_addr"`
-}
+import "github.com/p3-microservice/center/pkg/gatewaylog"
+
+// GatewayLog 网关流量日志（别名，兼容策略包引用）。
+type GatewayLog = gatewaylog.GatewayLog
 
 // HighValueFilterConfig 高价值过滤器配置。
 type HighValueFilterConfig struct {

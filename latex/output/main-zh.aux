@@ -1,0 +1,81 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\citation{limingshu2019logmgmt}
+\citation{li2021observability}
+\citation{loki2019}
+\citation{turnbull2014monitoring}
+\citation{limingshu2019logmgmt}
+\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{2}{section.1}\protected@file@percent }
+\citation{otel_tail}
+\citation{li2021observability}
+\citation{wang2024rca}
+\citation{zhang2023multimodal}
+\citation{aws_backoff}
+\citation{beyer2016sre}
+\citation{zhu2023sidecar}
+\citation{zhangjianxun2020microservice}
+\citation{jamshidi2018microservices}
+\citation{burns2016patterns}
+\citation{burns2016borg}
+\citation{soldani2024logs}
+\citation{soldani2020graphrca}
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}集中式日志栈}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}采样与追踪关联}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}边缘采集与可靠传输}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}本文定位}{3}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}系统总体设计}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}架构概述}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 分布式定向日志采集系统总体架构}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:arch}{{1}{4}{分布式定向日志采集系统总体架构}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}工作流程}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}部署模式}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}关键算法}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}关注清单动态生成}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}固定缓存块}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}定向策略三次转换}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}压力感知指数退避}{5}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}系统实现}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}技术选型}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}模块划分}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 定向策略三次转换算法流程}}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:transform}{{2}{6}{定向策略三次转换算法流程}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 指数退避重试延迟分布}}{6}{figure.3}\protected@file@percent }
+\newlabel{fig:backoff}{{3}{6}{指数退避重试延迟分布}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 技术选型}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:tech}{{1}{6}{技术选型}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}部署配置}{7}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}实验与分析}{7}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}环境与方法}{7}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}实验结果}{7}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}}{8}{table.2}\protected@file@percent }
+\newlabel{tab:compare}{{2}{8}{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}}{8}{figure.4}\protected@file@percent }
+\newlabel{fig:compare}{{4}{8}{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 消融实验结果（\textbf  {策略仿真}，非集群实测）}}{8}{figure.5}\protected@file@percent }
+\newlabel{fig:ablation}{{5}{8}{消融实验结果（\textbf {策略仿真}，非集群实测）}{figure.5}{}}
+\bibstyle{plain}
+\bibdata{references}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 关注清单生成算法微基准}}{9}{figure.6}\protected@file@percent }
+\newlabel{fig:attention}{{6}{9}{关注清单生成算法微基准}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}讨论}{9}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}结束语}{9}{section.7}\protected@file@percent }
+\bibcite{aws_backoff}{1}
+\bibcite{beyer2016sre}{2}
+\bibcite{burns2016borg}{3}
+\bibcite{burns2016patterns}{4}
+\bibcite{loki2019}{5}
+\bibcite{jamshidi2018microservices}{6}
+\bibcite{li2021observability}{7}
+\bibcite{otel_tail}{8}
+\bibcite{soldani2020graphrca}{9}
+\bibcite{soldani2024logs}{10}
+\bibcite{turnbull2014monitoring}{11}
+\bibcite{wang2024rca}{12}
+\bibcite{zhang2023multimodal}{13}
+\bibcite{zhu2023sidecar}{14}
+\bibcite{zhangjianxun2020microservice}{15}
+\bibcite{limingshu2019logmgmt}{16}
+\gdef \@abspage@last{11}

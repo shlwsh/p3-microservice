@@ -1,0 +1,165 @@
+[
+  {
+    "title": "Microservices: The Journey So Far and Challenges Ahead",
+    "authors": [
+      "Pooyan Jamshidi",
+      "Claus Pahl",
+      "Nabor C. Mendonça",
+      "James W. Lewis",
+      "Stefan Tilkov"
+    ],
+    "year": 2018,
+    "citations": 528,
+    "abstract": "Microservices are an architectural approach emerging out of service-oriented architecture, emphasizing self-management and lightweightness as the means to improve software agility, scalability, and autonomy. This article examines microservice evolution from the technological and architectural perspectives and discusses key challenges facing future microservice developments.",
+    "doi": "10.1109/ms.2018.2141039",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/52/8354413/08354433.pdf",
+    "url": "https://openalex.org/W2799310732",
+    "source": "openalex",
+    "_relevance_score": 6.1,
+    "_matched_keywords": [
+      "microservice"
+    ]
+  },
+  {
+    "title": "Borg, Omega, and Kubernetes",
+    "authors": [
+      "Brendan Burns",
+      "Brian Grant",
+      "David Oppenheimer",
+      "Eric Brewer",
+      "John Wilkes"
+    ],
+    "year": 2016,
+    "citations": 568,
+    "abstract": "Lessons learned from three container-management systems over a decade.",
+    "doi": "10.1145/2890784",
+    "arxiv_id": "",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/2890784?download=true",
+    "url": "https://openalex.org/W2290712622",
+    "source": "openalex",
+    "_relevance_score": 5.1,
+    "_matched_keywords": [
+      "container"
+    ]
+  },
+  {
+    "title": "Borg, Omega, and Kubernetes",
+    "authors": [
+      "Brendan Burns",
+      "Brian Grant",
+      "David Oppenheimer",
+      "Eric Brewer",
+      "John Wilkes"
+    ],
+    "year": 2016,
+    "citations": 403,
+    "abstract": "Though widespread interest in software containers is a relatively recent phenomenon, at Google we have been managing Linux containers at scale for more than ten years and built three different container-management systems in that time. Each system was heavily influenced by its predecessors, even though they were developed for different reasons. This article describes the lessons we’ve learned from developing and operating them.",
+    "doi": "10.1145/2898442.2898444",
+    "arxiv_id": "",
+    "pdf_url": "http://dl.acm.org/ft_gateway.cfm?id=2898444&type=pdf",
+    "url": "https://openalex.org/W3136172274",
+    "source": "openalex",
+    "_relevance_score": 4.9,
+    "_matched_keywords": [
+      "container"
+    ]
+  },
+  {
+    "title": "Digital Twin in the IoT Context: A Survey on Technical Features, Scenarios, and Architectural Models",
+    "authors": [
+      "Roberto Minerva",
+      "Gyu Myoung Lee",
+      "Noël Crespi"
+    ],
+    "year": 2020,
+    "citations": 747,
+    "abstract": "Digital twin (DT) is an emerging concept that is gaining attention in various industries. It refers to the ability to clone a physical object (PO) into a software counterpart. The softwarized object, termed logical object, reflects all the important properties and characteristics of the original object within a specific application context. To fully determine the expected properties of the DT, this article surveys the state-of-the-art starting from the original definition within the manufacturin",
+    "doi": "10.1109/jproc.2020.2998530",
+    "arxiv_id": "",
+    "pdf_url": "https://researchonline.ljmu.ac.uk/id/eprint/13014/1/cDT%20version%20submitted.pdf",
+    "url": "https://openalex.org/W3036600965",
+    "source": "openalex",
+    "_relevance_score": 4.3,
+    "_matched_keywords": []
+  },
+  {
+    "title": "A Patient-Centric Healthcare Framework Reference Architecture for Better Semantic Interoperability Based on Blockchain, Cloud, and IoT",
+    "authors": [
+      "Ahmad N. Gohar",
+      "Sayed AbdelGaber AbdelMawgoud",
+      "Marwa Salah Farhan"
+    ],
+    "year": 2022,
+    "citations": 104,
+    "abstract": "Due to the distributed and non-integrated nature of the healthcare systems which results from the application-centric view it leads to a challenging task to manage healthcare data exchange (heterogeneity problem). On the other hand, Blockchain technologies are emerging as promising and cost-effective means to meet some of these requirements due to their inherent design properties, such as secure cryptography and a resilient peer-to-peer network. Likewise, Blockchain-based applications can benefi",
+    "doi": "10.1109/access.2022.3202902",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/09869824.pdf",
+    "url": "https://openalex.org/W4293499349",
+    "source": "openalex",
+    "_relevance_score": 4.0,
+    "_matched_keywords": [
+      "distributed"
+    ]
+  },
+  {
+    "title": "Toward Software-Defined Networking-Based IoT Frameworks: A Systematic Literature Review, Taxonomy, Open Challenges and Prospects",
+    "authors": [
+      "Shahbaz Siddiqui",
+      "Sufian Hameed",
+      "Syed Attique Shah",
+      "Ijaz Ahmad",
+      "Adel Aneiba",
+      "Dirk Draheim",
+      "Schahram Dustdar"
+    ],
+    "year": 2022,
+    "citations": 108,
+    "abstract": "Internet of Things (IoT) is characterized as one of the leading actors for the next evolutionary stage in the computing world. IoT-based applications have already produced a plethora of novel services and are improving the living standard by enabling innovative and smart solutions. However, along with its rapid adoption, IoT technology also creates complex challenges regarding the management of IoT networks due to its resource limitations (computational power, energy, and security). Hence, it is",
+    "doi": "10.1109/access.2022.3188311",
+    "arxiv_id": "",
+    "pdf_url": "https://ieeexplore.ieee.org/ielx7/6287639/6514899/09815064.pdf",
+    "url": "https://openalex.org/W4285167041",
+    "source": "openalex",
+    "_relevance_score": 3.1,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Introducing the new paradigm of Social Dispersed Computing: Applications, Technologies and Challenges",
+    "authors": [
+      "Marisol García‐Valls",
+      "Abhishek Dubey",
+      "Vicente Botti"
+    ],
+    "year": 2018,
+    "citations": 107,
+    "abstract": "If last decade viewed computational services as a utilitythen surely this decade has transformed computation into a commodity. Computation is now progressively integrated into the physical networks in a seamless way that enables cyber-physical systems (CPS) and the Internet of Things (IoT) meet their latency requirements. Similar to the concept of “platform as a service” or “software as a service”, both cloudlets and fog computing have found their own use cases. Edge devices (that we call end or",
+    "doi": "10.1016/j.sysarc.2018.05.007",
+    "arxiv_id": "",
+    "pdf_url": "https://www.sciencedirect.com/science/article/pii/S1383762118301036?via%3Dihub",
+    "url": "https://openalex.org/W2807091765",
+    "source": "openalex",
+    "_relevance_score": 3.0,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Towards Low-Latency Service Delivery in a Continuum of Virtual Resources: State-of-the-Art and Research Directions",
+    "authors": [
+      "José Santos",
+      "Tim Wauters",
+      "Bruno Volckaert",
+      "Filip De Turck"
+    ],
+    "year": 2021,
+    "citations": 93,
+    "abstract": "The advent of softwarized networks has enabled the deployment of chains of virtual network and service components on computational resources from the cloud up to the edge, creating a continuum of virtual resources. The next generation of low latency applications (e.g., Virtual Reality (VR), autonomous cars) adds even more stringent requirements to the infrastructure, calling for considerable advancements towards cloud-native micro-service-based architectures. This article presents a comprehensiv",
+    "doi": "10.1109/comst.2021.3095358",
+    "arxiv_id": "",
+    "pdf_url": "https://biblio.ugent.be/publication/8729523/file/8729529.pdf",
+    "url": "https://openalex.org/W3178135106",
+    "source": "openalex",
+    "_relevance_score": 3.0,
+    "_matched_keywords": []
+  }
+]

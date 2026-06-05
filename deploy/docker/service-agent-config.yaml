@@ -2,7 +2,7 @@
 
 server:
   center_address: "center:9090"
-  agent_id: ""               # 为空时自动生成
+  agent_id: "service-agent"
   service_name: "httpbin"
 
 cache:

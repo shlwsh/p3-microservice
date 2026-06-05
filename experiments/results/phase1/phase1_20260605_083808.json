@@ -1,0 +1,160 @@
+{
+  "timestamp": "20260605_083808",
+  "phase": "phase1",
+  "health": {
+    "gateway": {
+      "url": "http://localhost:8088/health",
+      "ok": true,
+      "status": 200
+    },
+    "center": {
+      "url": "http://localhost:8080/api/v1/health",
+      "ok": true,
+      "status": 200
+    },
+    "loki": {
+      "url": "http://localhost:3100/ready",
+      "ok": true,
+      "status": 200
+    },
+    "grafana": {
+      "url": "http://localhost:3000/api/health",
+      "ok": true,
+      "status": 200
+    },
+    "prometheus": {
+      "url": "http://localhost:9090/-/healthy",
+      "ok": true,
+      "status": 200
+    }
+  },
+  "load_test": {
+    "total": 2215,
+    "success": 1777,
+    "error": 438,
+    "latency_p50_ms": 2.9765659710392356,
+    "latency_p99_ms": 1005.1781550282612,
+    "latency_avg_ms": 194.55658608554015
+  },
+  "comparison": {
+    "methodology": "analytical_model_phase1",
+    "note": "首期基于高价值过滤策略的仿真对比，二期将接入 Prometheus 实测",
+    "directed": {
+      "log_volume_ratio": 0.32,
+      "log_volume_k": 3.2,
+      "cpu_percent": 14.82,
+      "memory_mb": 130.2,
+      "bandwidth_mbps": 5.04
+    },
+    "full_collect": {
+      "log_volume_ratio": 1.0,
+      "log_volume_k": 10.0,
+      "cpu_percent": 38.0,
+      "memory_mb": 310.0,
+      "bandwidth_mbps": 18.0
+    },
+    "reduction_percent": {
+      "log_volume": 68.0,
+      "cpu": 61.0,
+      "memory": 58.0,
+      "bandwidth": 72.0
+    }
+  },
+  "ablation": {
+    "methodology": "analytical_model_phase1",
+    "groups": [
+      {
+        "name": "完整方案",
+        "key": "baseline",
+        "log_k": 32.0,
+        "cpu": 15.2,
+        "loss_rate": 0.1
+      },
+      {
+        "name": "无动态清单",
+        "key": "no_attn",
+        "log_k": 150.0,
+        "cpu": 16.1,
+        "loss_rate": 0.1
+      },
+      {
+        "name": "无固定缓存",
+        "key": "no_cache",
+        "log_k": 32.0,
+        "cpu": 44.8,
+        "loss_rate": 2.5
+      },
+      {
+        "name": "无指数退避",
+        "key": "no_backoff",
+        "log_k": 32.0,
+        "cpu": 15.2,
+        "loss_rate": 5.8
+      },
+      {
+        "name": "无压力感知",
+        "key": "no_pressure",
+        "log_k": 32.0,
+        "cpu": 21.6,
+        "loss_rate": 1.2
+      }
+    ]
+  },
+  "backoff_curve": [
+    {
+      "attempt": 0,
+      "base_ms": 200.0,
+      "min_ms": 200.0,
+      "max_ms": 260.0
+    },
+    {
+      "attempt": 1,
+      "base_ms": 400.0,
+      "min_ms": 400.0,
+      "max_ms": 520.0
+    },
+    {
+      "attempt": 2,
+      "base_ms": 800.0,
+      "min_ms": 800.0,
+      "max_ms": 1040.0
+    },
+    {
+      "attempt": 3,
+      "base_ms": 1600.0,
+      "min_ms": 1600.0,
+      "max_ms": 2080.0
+    },
+    {
+      "attempt": 4,
+      "base_ms": 3200.0,
+      "min_ms": 3200.0,
+      "max_ms": 4160.0
+    },
+    {
+      "attempt": 5,
+      "base_ms": 6400.0,
+      "min_ms": 6400.0,
+      "max_ms": 8320.0
+    },
+    {
+      "attempt": 6,
+      "base_ms": 12800.0,
+      "min_ms": 12800.0,
+      "max_ms": 16640.0
+    }
+  ],
+  "attention_list_bench": {
+    "input_logs": 5000,
+    "high_value_logs": 799,
+    "unique_patterns": 10,
+    "top_k": 10,
+    "elapsed_ms": 0.5,
+    "complexity_note": "O(N log N) 排序主导"
+  },
+  "retry_tests": {
+    "passed": true,
+    "returncode": 0,
+    "output_tail": "}\n{\"Time\":\"2026-06-05T08:38:43.114019167Z\",\"Action\":\"output\",\"Package\":\"github.com/p3-microservice/agent/pkg/retry\",\"Test\":\"TestTotalMaxDuration\",\"Output\":\"--- PASS: TestTotalMaxDuration (0.00s)\\n\"}\n{\"Time\":\"2026-06-05T08:38:43.114020441Z\",\"Action\":\"pass\",\"Package\":\"github.com/p3-microservice/agent/pkg/retry\",\"Test\":\"TestTotalMaxDuration\",\"Elapsed\":0}\n{\"Time\":\"2026-06-05T08:38:43.114022935Z\",\"Action\":\"output\",\"Package\":\"github.com/p3-microservice/agent/pkg/retry\",\"Output\":\"PASS\\n\"}\n{\"Time\":\"2026-06-05T08:38:43.114248149Z\",\"Action\":\"output\",\"Package\":\"github.com/p3-microservice/agent/pkg/retry\",\"Output\":\"ok  \\tgithub.com/p3-microservice/agent/pkg/retry\\t0.002s\\n\"}\n{\"Time\":\"2026-06-05T08:38:43.11428057Z\",\"Action\":\"pass\",\"Package\":\"github.com/p3-microservice/agent/pkg/retry\",\"Elapsed\":0.002}\n"
+  }
+}

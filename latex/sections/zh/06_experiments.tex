@@ -1,0 +1,51 @@
+\section{实验与分析}
+
+\subsection{环境与方法}
+实验在 WSL2（8\,GB 内存，4\,vCPU）Docker 原型集群上进行。集群含 1 个 OpenResty 网关、8 个 httpbin 微服务及对应 Sidecar Agent、1 个日志中心及 Loki/Redis 等基础设施。应用日志采用 Apache Combined 风格字段，URL 与网关路由一致。
+
+对比实验将定向采集与全量采集（\texttt{COLLECTION\_MODE=full}）在同一硬件环境下对照：负载为 180\,s、并发 50 的混合 HTTP 请求（含正常/500 错误/慢请求），每模式独立重复 3 次。Loki 入库增量取自 Center \texttt{/api/v1/stats}；Agent CPU/内存于每轮压测结束后对全部 9 个 Agent 容器执行 \texttt{docker stats --no-stream} 单次快照并取算术均值。每轮网关流量日志 Redis 增量约 $1.97\times10^4$ 条，关注清单稳定生成 16 条 URL 模式（含 \texttt{/status/500}、\texttt{/delay/1} 等异常/慢请求泛化模式），保障高价值请求可被定向规则覆盖。原始数据见 \texttt{experiments/results/phase3/phase3\_latest.json}。
+
+\subsection{实验结果}
+表~\ref{tab:compare} 与图~\ref{fig:compare} 给出三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上降低 37.5\%。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}；即便考虑该因素，定向模式仍将入库量控制在百条量级。图~\ref{fig:ablation} 为策略仿真消融（非集群实测）。
+
+\begin{table}[htbp]
+  \centering
+  \caption{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}
+  \label{tab:compare}
+  \begin{tabular}{lccc}
+    \toprule
+    指标 & 定向采集 & 全量采集 & 降低比例 \\
+    \midrule
+    Loki 入库 (条) & 72$\pm$0 & 4388$\pm$1 & 98.4\% \\
+    Agent CPU (\%) & 0.05$\pm$0.01 & 0.08$\pm$0.02 & 37.5\% \\
+    Agent 内存 (MB) & 95.6$\pm$4.2 & 97.5$\pm$1.7 & 2.0\% \\
+    带宽 (KB/s) & 0.20 & 12.19 & 98.4\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig3_comparison_bars.pdf}
+  \caption{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}
+  \label{fig:compare}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig4_ablation_bars.pdf}
+  \caption{消融实验结果（\textbf{策略仿真}，非集群实测）}
+  \label{fig:ablation}
+\end{figure}
+
+关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）。指数退避模块通过 Go 单元测试全部用例。端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig6_attention_bench.pdf}
+  \caption{关注清单生成算法微基准}
+  \label{fig:attention}
+\end{figure}
+
+\subsection{讨论}
+实测日志降幅受关注清单命中率、压测异常比例及日志源配置影响；仿真消融不宜与表~\ref{tab:compare} 直接对比。八节点原型与数百节点生产环境仍有差距；未与独立 Promtail 部署做端到端对照，留作后续工作。未来可在\textbf{同频率日志源}条件下复测，以 isolate 纯策略过滤收益。

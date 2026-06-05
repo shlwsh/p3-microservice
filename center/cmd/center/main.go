@@ -24,6 +24,7 @@ import (
 	"github.com/p3-microservice/center/pkg/dispatch"
 	"github.com/p3-microservice/center/pkg/grpcserver"
 	"github.com/p3-microservice/center/pkg/receiver"
+	"github.com/p3-microservice/center/pkg/redisstore"
 	"github.com/p3-microservice/center/pkg/storage"
 	"github.com/p3-microservice/center/pkg/strategy"
 
@@ -89,21 +90,37 @@ func main() {
 		Clusterer:  urlCluster,
 	})
 
-	// 2.5 规则下发管理器
+	// 2.5 Redis 网关流量日志存储
+	gatewayStore, err := redisstore.NewGatewayLogStore(cfg.Redis.Address, cfg.Redis.Password, cfg.Redis.DB)
+	if err != nil {
+		log.Fatalf("[Center] Redis 初始化失败: %v", err)
+	}
+	defer gatewayStore.Close()
+
+	// 2.6 规则下发管理器
 	dispatcher := dispatch.NewRuleDispatcher()
 
-	// 2.6 日志接收与二次过滤
+	// 2.7 日志接收与二次过滤
 	logReceiver := receiver.NewLogReceiver(receiver.Config{
 		Store:           lokiStore,
 		SecondaryFilter: cfg.SecondaryFilter.Enabled,
 		DedupWindowSec:  cfg.SecondaryFilter.DedupWindowSec,
 	})
 
-	// 2.7 三次转换引擎
+	// 2.8 三次转换引擎
 	transformer := strategy.NewTripleTransformer(strategy.TripleTransformConfig{
 		ListGenerator: listGen,
 		Dispatcher:    dispatcher,
 		Receiver:      logReceiver,
+		GatewayStore:  gatewayStore,
+		TimeWindowSec: cfg.Strategy.TimeWindowSec,
+		Strategy: &strategy.DirectedStrategy{
+			ResponseTimeThresholdMs: cfg.Strategy.ResponseTimeThresholdMs,
+			ErrorCodes:              cfg.Strategy.ErrorCodes,
+			ErrorRateThreshold:      cfg.Strategy.ErrorRateThreshold,
+			TimeWindowSec:           cfg.Strategy.TimeWindowSec,
+			Enabled:                 true,
+		},
 	})
 
 	// ========================================
@@ -116,7 +133,7 @@ func main() {
 		LogReceiver: logReceiver,
 		Dispatcher:  dispatcher,
 		ListGen:     listGen,
-	})
+	}, gatewayStore)
 
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", cfg.Server.GRPCPort))
 	if err != nil {
@@ -140,6 +157,7 @@ func main() {
 	httpMux.HandleFunc("/api/v1/health", healthHandler)
 	httpMux.HandleFunc("/api/v1/attention-list", listGen.HTTPHandler)
 	httpMux.HandleFunc("/api/v1/agents", dispatcher.HTTPAgentListHandler)
+	httpMux.HandleFunc("/api/v1/stats", statsHandler(gatewayStore, logReceiver))
 
 	httpServer := &http.Server{
 		Addr:    fmt.Sprintf(":%d", cfg.Server.HTTPPort),
@@ -195,6 +213,18 @@ func main() {
 
 	wg.Wait()
 	log.Println("[Center] 退出完毕")
+}
+
+func statsHandler(gatewayStore *redisstore.GatewayLogStore, recv *receiver.LogReceiver) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		ctx, cancel := context.WithTimeout(r.Context(), 3*time.Second)
+		defer cancel()
+		gwCount, _ := gatewayStore.Count(ctx)
+		w.Header().Set("Content-Type", "application/json")
+		st := recv.Stats()
+		fmt.Fprintf(w, `{"gateway_logs_redis":%d,"loki_stored":%d,"received":%d,"filtered":%d}`,
+			gwCount, st.StoredCount, st.ReceivedCount, st.FilteredCount)
+	}
 }
 
 func healthHandler(w http.ResponseWriter, r *http.Request) {

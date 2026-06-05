@@ -1,0 +1,13 @@
+\section{相关工作}
+
+\subsection{集中式日志栈}
+ELK/EFK 以 Elasticsearch 为核心，检索能力强但索引成本高。Grafana Loki 采用标签索引，配合 Promtail 或 Fluent Bit 做节点推送，默认策略为全量或基于日志级别的静态过滤\cite{loki2019,turnbull2014monitoring}。李明树等\cite{limingshu2019logmgmt}综述了大规模分布式系统日志管理技术，指出全量汇聚在规模化场景下面临存储与检索双重压力。
+
+\subsection{采样与追踪关联}
+OpenTelemetry 尾部采样（Tail-based Sampling）依赖分布式追踪上下文，在请求完成后决定是否保留关联日志，实现复杂度高\cite{otel_tail}。Li 等\cite{li2021observability}对工业界微服务追踪实践进行系统调查；Wang 等\cite{wang2024rca}与 Zhang 等\cite{zhang2023multimodal}进一步从根因分析与多模态（指标、日志、追踪）角度讨论微服务可观测性。本文关注清单可视为\textbf{由网关流量驱动的动态关联过滤}：先由网关 access log 识别异常 URL 模式，再触发相关服务节点采集上下文日志。
+
+\subsection{边缘采集与可靠传输}
+Fluent Bit 等轻量采集器强调低内存；云厂商建议指数退避与抖动以应对中心不可达\cite{aws_backoff,beyer2016sre}。Zhu 等\cite{zhu2023sidecar}量化 Service Mesh Sidecar 开销，为本文 Sidecar 部署场景提供对照背景。本文在 Sidecar 中引入固定上限缓存块与压力感知退避，并辅以 BoltDB 本地兜底。
+
+\subsection{本文定位}
+张建勋等\cite{zhangjianxun2020microservice}与 Jamshidi 等\cite{jamshidi2018microservices}系统总结了微服务架构演进与挑战；Burns 等\cite{burns2016patterns,burns2016borg}给出容器化分布式系统设计模式。现有方案较少将\textbf{网关 access log}作为策略输入，动态下发至各微服务节点做应用日志定向采集。Soldani 等\cite{soldani2024logs,soldani2020graphrca}虽利用微服务日志做故障传播分析，但侧重事后解释而非采集阶段减量。本文通过关注清单、三次策略转换与可复现 Docker 原型填补该工程空白。

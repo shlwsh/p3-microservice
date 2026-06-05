@@ -1,0 +1,37 @@
+{
+  "mode": "directed",
+  "center_before": {
+    "gateway_logs_redis": 36,
+    "loki_stored": 42,
+    "received": 42,
+    "filtered": 0
+  },
+  "center_after": {
+    "gateway_logs_redis": 1975,
+    "loki_stored": 93,
+    "received": 93,
+    "filtered": 0
+  },
+  "delta_loki_stored": 51,
+  "delta_gateway_redis": 1939,
+  "attention_list_items": 2,
+  "docker_stats": {
+    "gateway-agent": {
+      "cpu_percent": 0.05,
+      "memory": "11.38MiB / 128MiB"
+    },
+    "service-1-agent": {
+      "cpu_percent": 0.0,
+      "memory": "9.887MiB / 128MiB"
+    },
+    "service-2-agent": {
+      "cpu_percent": 0.0,
+      "memory": "10.14MiB / 128MiB"
+    },
+    "log-center": {
+      "cpu_percent": 0.03,
+      "memory": "8.621MiB / 256MiB"
+    }
+  },
+  "avg_agent_cpu_percent": 0.02
+}
