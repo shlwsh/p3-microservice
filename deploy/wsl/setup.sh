@@ -23,6 +23,17 @@ check_wsl() {
   fi
 }
 
+fix_docker_credentials() {
+  local cfg="${HOME}/.docker/config.json"
+  if [[ -f "${cfg}" ]] && grep -q 'docker-credential-desktop' "${cfg}" 2>/dev/null; then
+    warn "修复 WSL 下 Docker 凭证助手兼容问题"
+    printf '%s\n' '{"auths":{},"credsStore":""}' > "${cfg}"
+  elif [[ ! -f "${cfg}" ]] || grep -q '"credsStore": "desktop' "${cfg}" 2>/dev/null; then
+    mkdir -p "${HOME}/.docker"
+    printf '%s\n' '{"auths":{},"credsStore":""}' > "${cfg}"
+  fi
+}
+
 check_docker() {
   if ! command -v docker &>/dev/null; then
     error "未找到 docker 命令"
@@ -56,7 +67,7 @@ check_project_path() {
 }
 
 check_ports() {
-  local ports=(80 3000 3100 6379 8080 9090 9091)
+  local ports=(8088 3000 3100 6379 8080 9090 9091)
   local busy=()
   for p in "${ports[@]}"; do
     if ss -tln 2>/dev/null | grep -q ":${p} " || netstat -tln 2>/dev/null | grep -q ":${p} "; then
@@ -120,6 +131,7 @@ case "${cmd}" in
     ;;
   start)
     check_wsl
+    fix_docker_credentials
     check_docker
     check_compose
     check_project_path
@@ -128,6 +140,7 @@ case "${cmd}" in
     ;;
   start-full)
     check_wsl
+    fix_docker_credentials
     check_docker
     check_compose
     start_stack false

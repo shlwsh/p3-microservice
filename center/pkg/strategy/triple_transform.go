@@ -142,18 +142,6 @@ func (t *TripleTransformer) SecondTransform(gatewayLogs []GatewayLog) *AgentFilt
 // 第三次转换：服务日志 → 存储规则
 // ========================================
 
-// StorageRule 存储规则（写入 Loki 的最终条件）。
-type StorageRule struct {
-	// 标签（Loki labels）
-	Labels map[string]string `json:"labels"`
-	// 是否保留原始内容
-	KeepRawContent bool `json:"keep_raw_content"`
-	// 结构化字段提取
-	ExtractFields []string `json:"extract_fields"`
-	// 去重窗口
-	DedupWindowSec int64 `json:"dedup_window_sec"`
-}
-
 // ThirdTransform 执行第三次转换：关注清单 + 服务日志 → 存储规则。
 //
 // Center 接收到 Agent 上传的日志后，执行二次过滤：
@@ -161,8 +149,8 @@ type StorageRule struct {
 // 2. 去重（同一 TraceID 的日志只保留一次）
 // 3. 结构化转换（提取关键字段为 Loki labels）
 // 4. 写入 Loki
-func (t *TripleTransformer) ThirdTransform(currentList *AttentionList) *StorageRule {
-	rule := &StorageRule{
+func (t *TripleTransformer) ThirdTransform(currentList *AttentionList) *receiver.StorageRule {
+	rule := &receiver.StorageRule{
 		Labels: map[string]string{
 			"job":     "directed-log-collector",
 			"version": currentList.Version,

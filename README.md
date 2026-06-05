@@ -26,12 +26,19 @@
 ## 快速启动
 
 ```bash
-# 启动完整集群（Loki + Grafana + Redis + Prometheus + Center + Agent）
+# WSL 一键启动（推荐）
+./deploy/wsl/setup.sh start
+
+# 或手动启动
 cd deploy/docker
-docker compose up -d
+docker compose -f docker-compose.yml -f docker-compose.wsl.yml up -d --build
+
+# 健康检查
+./deploy/wsl/verify.sh
 
 # 访问
 # Grafana:  http://localhost:3000 (admin/admin)
+# Gateway:  http://localhost:8088/health
 # Center:   http://localhost:8080/api/v1/health
 # Loki:     http://localhost:3100/ready
 ```
