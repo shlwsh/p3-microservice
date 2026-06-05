@@ -221,6 +221,17 @@ def is_excluded_from_auto_commit(file_path: str) -> bool:
     return any(normalized.startswith(prefix) for prefix in AUTO_COMMIT_EXCLUDE_PREFIXES)
 
 
+def parse_porcelain_path(line: str) -> tuple[str, str]:
+    """解析 git status --porcelain 行，返回 (status, path)。"""
+    if len(line) < 3:
+        return "", ""
+    status = line[:2]
+    file_path = line[2:].lstrip()
+    if " -> " in file_path:
+        file_path = file_path.split(" -> ", 1)[1].strip()
+    return status, file_path
+
+
 def parse_git_status(output: str) -> ChangeStatus:
     modified: list[str] = []
     added: list[str] = []
@@ -231,8 +242,9 @@ def parse_git_status(output: str) -> ChangeStatus:
     for line in output.splitlines():
         if not line:
             continue
-        status = line[:2]
-        file_path = line[3:].strip()
+        status, file_path = parse_porcelain_path(line)
+        if not file_path:
+            continue
         if is_excluded_from_auto_commit(file_path):
             excluded.append(file_path)
             continue
@@ -408,7 +420,16 @@ def build_staged_diff(text_files: list[str], binary_files: list[str], stat: str,
 
 def git_executable_for_push() -> str:
     if os.path.isfile(WIN_GIT):
-        return WIN_GIT
+        try:
+            probe = subprocess.run(
+                [WIN_GIT, "--version"],
+                capture_output=True,
+                timeout=5,
+            )
+            if probe.returncode == 0:
+                return WIN_GIT
+        except (OSError, subprocess.TimeoutExpired):
+            pass
     return "git"
 
 
@@ -460,7 +481,11 @@ def stage_changes(workspace: str) -> None:
 
 
 def check_version_files(changes_raw: str) -> bool:
-    changed_files = [line[3:].strip() for line in changes_raw.splitlines() if line]
+    changed_files = [
+        parse_porcelain_path(line)[1]
+        for line in changes_raw.splitlines()
+        if line
+    ]
     return any(vf in changed for vf in VERSION_FILES for changed in changed_files)
 
 
@@ -492,7 +517,28 @@ def push_to_remote(proxy_url: str | None, github_token: str | None) -> None:
         push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
         print(f"📡 远程仓库: {remote}, 分支: {branch} (首次推送)")
 
-    result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
+    try:
+        result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
+    except OSError as exc:
+        if git_bin == WIN_GIT:
+            print(f"⚠️  Windows Git 不可用 ({exc})，回退到 WSL Git")
+            push_cmd = ["git", *extra_git_args]
+            if has_upstream:
+                push_cmd += ["push", "--no-verify"]
+            else:
+                push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
+            push_env = apply_proxy_env(os.environ.copy(), proxy_url)
+            push_env["GIT_TERMINAL_PROMPT"] = "0"
+            if github_token:
+                push_env["GIT_CONFIG_COUNT"] = "1"
+                push_env["GIT_CONFIG_KEY_0"] = "credential.helper"
+                push_env["GIT_CONFIG_VALUE_0"] = (
+                    f"!f() {{ echo username=x-access-token; echo password={github_token}; }}; f"
+                )
+            result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
+        else:
+            raise
+
     if result.returncode != 0:
         err = (result.stderr or result.stdout).strip()
         print(f"\n❌ 推送失败: {err}")
@@ -564,10 +610,10 @@ def main() -> None:
     for line in status_output.splitlines():
         if not line:
             continue
-        file_path = line[3:].strip()
+        line_status, file_path = parse_porcelain_path(line)
         if file_path in status.excluded:
             continue
-        print(format_status_line(line[:2], file_path))
+        print(format_status_line(line_status, file_path))
     if status.excluded:
         print(f"  已跳过: {', '.join(status.excluded)}")
 

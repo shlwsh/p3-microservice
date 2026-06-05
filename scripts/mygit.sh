@@ -5,8 +5,6 @@ set -euo pipefail
 WORKSPACE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$WORKSPACE_DIR"
 
-echo "🚀 AI Git 提交工具启动"
-
 if ! git rev-parse --git-dir >/dev/null 2>&1; then
   echo "❌ 错误: 当前目录不是一个有效的 Git 仓库"
   exit 1
