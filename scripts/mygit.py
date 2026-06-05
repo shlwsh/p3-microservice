@@ -25,6 +25,7 @@ AUTO_COMMIT_NEVER_FILES = (".env", ".env.local")
 AUTO_COMMIT_EXCLUDE_PREFIXES = (
     ".gitnexus/",
     "experiments/results/tmp/",
+    "__pycache__/",
 )
 
 # 版本/发布相关文件（变更时提示确认）
