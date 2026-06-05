@@ -1,0 +1,162 @@
+# 分布式定向日志采集组件 - Docker Compose 集群配置
+# 包含：Center + Agent + Nginx(Gateway) + Loki + Grafana + Redis + Prometheus
+
+version: '3.8'
+
+services:
+  # ============================================================
+  # 基础设施
+  # ============================================================
+
+  # Loki - 日志存储后端
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - loki-data:/loki
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - lognet
+
+  # Grafana - 可视化
+  grafana:
+    image: grafana/grafana:10.3.3
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - loki
+      - prometheus
+    networks:
+      - lognet
+
+  # Redis - 高速缓存
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - lognet
+
+  # Prometheus - 指标采集
+  prometheus:
+    image: prom/prometheus:v2.50.1
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    networks:
+      - lognet
+
+  # ============================================================
+  # 日志中心
+  # ============================================================
+  center:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.center
+    container_name: log-center
+    ports:
+      - "8080:8080"   # HTTP API
+      - "9091:9090"   # gRPC
+    environment:
+      - CENTER_CONFIG_PATH=/etc/center/center.yaml
+    volumes:
+      - ./center-config.yaml:/etc/center/center.yaml
+    depends_on:
+      - redis
+      - loki
+    networks:
+      - lognet
+
+  # ============================================================
+  # 网关节点（Nginx + Agent Sidecar）
+  # ============================================================
+  gateway:
+    image: openresty/openresty:1.25.3.1-alpine
+    container_name: gateway
+    ports:
+      - "80:80"
+    volumes:
+      - ../nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ../nginx/lua:/usr/local/openresty/nginx/lua
+    depends_on:
+      - center
+    networks:
+      - lognet
+
+  gateway-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: gateway-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./gateway-agent-config.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:gateway"
+
+  # ============================================================
+  # 微服务节点（模拟 + Agent Sidecar）
+  # ============================================================
+  service-1:
+    image: kennethreitz/httpbin:latest
+    container_name: service-1
+    networks:
+      - lognet
+
+  service-1-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-1-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./service-agent-config.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-1"
+
+  service-2:
+    image: kennethreitz/httpbin:latest
+    container_name: service-2
+    networks:
+      - lognet
+
+  service-2-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-2-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./service-agent-config.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-2"
+
+volumes:
+  loki-data:
+  grafana-data:
+  redis-data:
+  prometheus-data:
+
+networks:
+  lognet:
+    driver: bridge

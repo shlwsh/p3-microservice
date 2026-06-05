@@ -1,0 +1,73 @@
+# 日志中心组件配置
+# distributed-directed-log-collector Center
+
+server:
+  # HTTP API 端口
+  http_port: 8080
+  # gRPC 服务端口
+  grpc_port: 9090
+
+# Redis 高速缓存（存储网关流量日志 + 关注清单）
+redis:
+  address: "localhost:6379"
+  password: ""
+  db: 0
+  pool_size: 20
+
+# Loki 存储后端
+loki:
+  # Loki Push API 地址
+  push_url: "http://localhost:3100/loki/api/v1/push"
+  # Loki Query API 地址
+  query_url: "http://localhost:3100/loki/api/v1/query_range"
+  # 租户 ID（多租户模式）
+  tenant_id: ""
+  # 批量推送配置
+  batch_size: 100
+  batch_wait_ms: 1000
+  # 推送超时
+  push_timeout: 10s
+  # 重试配置
+  max_retries: 3
+
+# 定向策略配置
+strategy:
+  # 默认响应时长阈值（毫秒）
+  response_time_threshold_ms: 1000
+  # 默认关注的错误状态码
+  error_codes:
+    - 500
+    - 502
+    - 503
+    - 504
+  # 错误率阈值
+  error_rate_threshold: 0.05
+  # 关注清单生成间隔（秒）
+  generation_interval_sec: 30
+  # 关注清单 TTL（秒）
+  attention_list_ttl_sec: 300
+  # Top-K URL 模式数量
+  top_k: 50
+  # 流量分析时间窗口（秒）
+  time_window_sec: 60
+
+# URL 聚类配置
+url_cluster:
+  # 启用数字段替换（/api/user/123 → /api/user/{id}）
+  enable_numeric_replace: true
+  # 启用 UUID 段替换
+  enable_uuid_replace: true
+  # 相似度阈值（编辑距离）
+  similarity_threshold: 0.8
+
+# 二次过滤配置
+secondary_filter:
+  # 是否启用二次过滤
+  enabled: true
+  # 去重窗口（秒）
+  dedup_window_sec: 60
+
+# 日志配置
+logging:
+  level: "info"
+  format: "json"

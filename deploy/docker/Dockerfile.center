@@ -1,0 +1,13 @@
+# Center Dockerfile
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /app
+COPY center/ ./
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -o /center ./cmd/center/
+
+FROM alpine:3.19
+RUN apk --no-cache add ca-certificates
+COPY --from=builder /center /usr/local/bin/center
+EXPOSE 8080 9090
+ENTRYPOINT ["center"]

@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+package logcollector;
+
+option go_package = "github.com/p3-microservice/proto/logpb";
+// Java options removed - Go-only architecture
+
+import "google/protobuf/timestamp.proto";
+
+// ============================================================
+// 日志上传服务 - Agent → Center
+// ============================================================
+service LogUploadService {
+  // 批量上传日志条目
+  rpc UploadLogBatch(UploadLogBatchRequest) returns (UploadLogBatchResponse);
+
+  // 流式上传（大批量场景）
+  rpc StreamUploadLog(stream LogEntry) returns (UploadLogBatchResponse);
+
+  // 拉取当前关注清单
+  rpc PullAttentionList(PullAttentionListRequest) returns (PullAttentionListResponse);
+
+  // 心跳上报（含节点资源状态）
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+}
+
+// ============================================================
+// 日志条目
+// ============================================================
+message LogEntry {
+  string log_id = 1;                          // 全局唯一日志 ID
+  string service_name = 2;                    // 服务名称
+  string instance_id = 3;                     // 实例 ID
+  google.protobuf.Timestamp timestamp = 4;    // 日志产生时间
+  LogLevel level = 5;                         // 日志级别
+  string url = 6;                             // 请求 URL（若有）
+  string method = 7;                          // HTTP 方法
+  int32 status_code = 8;                      // HTTP 状态码
+  int64 response_time_ms = 9;                 // 响应时长（毫秒）
+  string trace_id = 10;                       // 分布式追踪 ID
+  string span_id = 11;                        // Span ID
+  string content = 12;                        // 日志正文内容
+  string client_ip = 13;                      // 客户端 IP
+  LogSource source = 14;                      // 日志来源类型
+  map<string, string> metadata = 15;          // 扩展元数据
+}
+
+enum LogLevel {
+  LOG_LEVEL_UNSPECIFIED = 0;
+  DEBUG = 1;
+  INFO = 2;
+  WARN = 3;
+  ERROR = 4;
+  FATAL = 5;
+}
+
+enum LogSource {
+  LOG_SOURCE_UNSPECIFIED = 0;
+  GATEWAY = 1;       // 网关流量日志
+  APPLICATION = 2;   // 应用业务日志
+  SYSTEM = 3;        // 系统日志
+}
+
+// ============================================================
+// 批量上传
+// ============================================================
+message UploadLogBatchRequest {
+  string batch_id = 1;              // 批次 ID（幂等去重）
+  string agent_id = 2;             // Agent 节点标识
+  repeated LogEntry entries = 3;    // 日志条目列表
+  bool compressed = 4;             // 是否 gzip 压缩
+  bytes compressed_data = 5;       // 压缩后的数据（compressed=true 时使用）
+}
+
+message UploadLogBatchResponse {
+  bool success = 1;
+  string message = 2;
+  int32 accepted_count = 3;        // 接受的条目数
+  int32 rejected_count = 4;        // 拒绝的条目数（重复等）
+}
+
+// ============================================================
+// 关注清单拉取
+// ============================================================
+message PullAttentionListRequest {
+  string agent_id = 1;
+  string current_version = 2;      // 当前持有的清单版本（增量更新）
+}
+
+message PullAttentionListResponse {
+  string version = 1;                         // 清单版本号
+  repeated AttentionListItem items = 2;       // 清单条目
+  google.protobuf.Timestamp expires_at = 3;   // 过期时间
+  bool full_update = 4;                       // 是否全量更新
+}
+
+message AttentionListItem {
+  string pattern = 1;           // URL 模式（正则或通配符）
+  PatternType pattern_type = 2; // 模式类型
+  double weight = 3;            // 权重（0.0-1.0）
+  string reason = 4;            // 关注原因
+  repeated string keywords = 5; // 关键词过滤
+  int64 ttl_seconds = 6;        // 条目有效期
+}
+
+enum PatternType {
+  PATTERN_TYPE_UNSPECIFIED = 0;
+  EXACT = 1;          // 精确匹配
+  PREFIX = 2;         // 前缀匹配
+  REGEX = 3;          // 正则匹配
+  WILDCARD = 4;       // 通配符匹配
+}
+
+// ============================================================
+// 心跳
+// ============================================================
+message HeartbeatRequest {
+  string agent_id = 1;
+  NodeStatus status = 2;
+}
+
+message NodeStatus {
+  double cpu_usage = 1;        // CPU 使用率 (0.0-1.0)
+  double memory_usage = 2;     // 内存使用率 (0.0-1.0)
+  int64 cache_used_bytes = 3;  // 缓存已用字节
+  int64 cache_total_bytes = 4; // 缓存总字节
+  int64 queued_entries = 5;    // 待上传条目数
+  int64 dropped_entries = 6;   // 已丢弃条目数
+  int32 retry_count = 7;       // 当前重试次数
+}
+
+message HeartbeatResponse {
+  bool acknowledged = 1;
+  bool force_flush = 2;        // 是否强制上传缓存
+  bool update_rules = 3;       // 是否需要更新规则
+}

@@ -1,0 +1,209 @@
+syntax = "proto3";
+
+package logcollector;
+
+option go_package = "github.com/p3-microservice/proto/logpb";
+// Java options removed - Go-only architecture
+
+import "google/protobuf/timestamp.proto";
+
+// ============================================================
+// 规则下发服务 - Center → Agent
+// ============================================================
+service RuleDispatchService {
+  // 推送规则到指定节点
+  rpc PushRules(PushRulesRequest) returns (PushRulesResponse);
+
+  // 广播规则到所有节点（Center 内部调用）
+  rpc BroadcastRules(BroadcastRulesRequest) returns (BroadcastRulesResponse);
+
+  // 订阅规则变更流（Agent 长连接）
+  rpc SubscribeRuleUpdates(SubscribeRequest) returns (stream RuleUpdate);
+
+  // 上报当前生效的规则（Agent → Center，用于一致性校验）
+  rpc ReportActiveRules(ReportActiveRulesRequest) returns (ReportActiveRulesResponse);
+}
+
+// ============================================================
+// 定向策略
+// ============================================================
+message Strategy {
+  string strategy_id = 1;
+  string name = 2;
+  string description = 3;
+
+  // 阈值配置
+  ThresholdConfig thresholds = 4;
+
+  // 策略生效条件
+  ActivationCondition activation = 5;
+
+  // 策略优先级（越高越优先）
+  int32 priority = 6;
+
+  // 创建/更新时间
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+
+  bool enabled = 9;
+}
+
+message ThresholdConfig {
+  int64 response_time_threshold_ms = 1;   // 响应时长阈值（毫秒）
+  repeated int32 error_status_codes = 2;   // 关注的错误状态码列表
+  double error_rate_threshold = 3;         // 错误率阈值 (0.0-1.0)
+  int64 request_count_threshold = 4;       // 请求次数阈值（用于热点检测）
+  repeated string keyword_patterns = 5;    // 日志关键词模式
+}
+
+message ActivationCondition {
+  // 时间窗口（秒），在此窗口内评估
+  int64 time_window_seconds = 1;
+
+  // 目标服务列表（空 = 所有服务）
+  repeated string target_services = 2;
+
+  // 排除服务列表
+  repeated string exclude_services = 3;
+
+  // 生效时段（cron 表达式）
+  string active_schedule = 4;
+}
+
+// ============================================================
+// 规则推送
+// ============================================================
+message PushRulesRequest {
+  string target_agent_id = 1;        // 目标 Agent ID
+  RuleSet rule_set = 2;              // 规则集合
+  bool force_replace = 3;            // 是否强制替换（否则增量合并）
+}
+
+message PushRulesResponse {
+  bool success = 1;
+  string message = 2;
+  string applied_version = 3;       // Agent 应用的规则版本
+}
+
+message BroadcastRulesRequest {
+  RuleSet rule_set = 1;
+  repeated string target_agent_ids = 2;  // 空 = 广播所有
+}
+
+message BroadcastRulesResponse {
+  int32 total_agents = 1;
+  int32 success_count = 2;
+  int32 failure_count = 3;
+  repeated AgentRuleStatus agent_statuses = 4;
+}
+
+message AgentRuleStatus {
+  string agent_id = 1;
+  bool success = 2;
+  string error_message = 3;
+}
+
+// ============================================================
+// 规则集合
+// ============================================================
+message RuleSet {
+  string version = 1;                               // 规则版本
+  google.protobuf.Timestamp generated_at = 2;        // 生成时间
+  repeated CollectionRule collection_rules = 3;       // 采集规则
+  repeated FilterRule filter_rules = 4;               // 过滤规则
+  CacheConfig cache_config = 5;                       // 缓存配置
+  RetryConfig retry_config = 6;                       // 重试配置
+}
+
+message CollectionRule {
+  string rule_id = 1;
+  string url_pattern = 2;           // URL 匹配模式
+  PatternType pattern_type = 3;
+  LogLevel min_level = 4;          // 最低日志级别
+  repeated string keywords = 5;    // 内容关键词
+  double sampling_rate = 6;        // 采样率 (0.0-1.0, 1.0=全采)
+  int32 priority = 7;
+}
+
+// 复用 log_service.proto 中的枚举
+enum PatternType {
+  PATTERN_TYPE_UNSPECIFIED = 0;
+  EXACT = 1;
+  PREFIX = 2;
+  REGEX = 3;
+  WILDCARD = 4;
+}
+
+enum LogLevel {
+  LOG_LEVEL_UNSPECIFIED = 0;
+  DEBUG = 1;
+  INFO = 2;
+  WARN = 3;
+  ERROR = 4;
+  FATAL = 5;
+}
+
+message FilterRule {
+  string rule_id = 1;
+  FilterAction action = 2;
+  string field = 3;            // 目标字段（url, content, level 等）
+  string operator = 4;         // 操作符（eq, ne, contains, regex, gt, lt）
+  string value = 5;            // 匹配值
+}
+
+enum FilterAction {
+  FILTER_ACTION_UNSPECIFIED = 0;
+  INCLUDE = 1;    // 包含（白名单）
+  EXCLUDE = 2;    // 排除（黑名单）
+}
+
+message CacheConfig {
+  int64 max_size_bytes = 1;          // 缓存块最大字节数
+  int32 max_entries = 2;             // 缓存最大条目数
+  int32 flush_threshold_percent = 3; // 触发上传的阈值百分比
+  int64 flush_interval_ms = 4;      // 定时上传间隔（毫秒）
+  bool enable_compression = 5;      // 是否启用压缩
+}
+
+message RetryConfig {
+  int64 base_delay_ms = 1;      // 基础延迟（毫秒）
+  double multiplier = 2;         // 退避乘数
+  int64 max_delay_ms = 3;       // 最大延迟（毫秒）
+  int32 max_retries = 4;        // 最大重试次数
+  double jitter = 5;             // 抖动因子 (0.0-1.0)
+}
+
+// ============================================================
+// 规则订阅（流式推送）
+// ============================================================
+message SubscribeRequest {
+  string agent_id = 1;
+  string current_rule_version = 2;
+}
+
+message RuleUpdate {
+  UpdateType type = 1;
+  RuleSet rule_set = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
+
+enum UpdateType {
+  UPDATE_TYPE_UNSPECIFIED = 0;
+  FULL = 1;         // 全量更新
+  INCREMENTAL = 2;  // 增量更新
+  REVOKE = 3;       // 撤销规则
+}
+
+// ============================================================
+// 规则上报（一致性校验）
+// ============================================================
+message ReportActiveRulesRequest {
+  string agent_id = 1;
+  string active_rule_version = 2;
+  int32 active_rule_count = 3;
+}
+
+message ReportActiveRulesResponse {
+  bool consistent = 1;         // 是否与 Center 一致
+  bool need_resync = 2;        // 是否需要重新同步
+}

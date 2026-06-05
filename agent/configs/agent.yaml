@@ -1,0 +1,80 @@
+# 日志节点采集器配置
+# distributed-directed-log-collector Agent
+
+server:
+  # 日志中心 gRPC 地址
+  center_address: "localhost:9090"
+  # Agent 节点 ID（为空时自动生成）
+  agent_id: ""
+  # 服务名称（标识当前微服务）
+  service_name: "demo-service"
+
+# 固定缓存块配置
+cache:
+  # 缓存块最大大小（字节）: 64MB / 128MB / 256MB
+  max_size_bytes: 134217728  # 128MB
+  # 缓存最大条目数
+  max_entries: 100000
+  # 触发上传的容量阈值（百分比）
+  flush_threshold_percent: 80
+  # 定时上传间隔（毫秒）
+  flush_interval_ms: 5000
+  # 是否启用 gzip 压缩
+  enable_compression: true
+
+# 指数退避重试配置
+retry:
+  # 基础延迟
+  base_delay: 200ms
+  # 退避乘数
+  multiplier: 2.0
+  # 最大延迟
+  max_delay: 30s
+  # 最大重试次数
+  max_retries: 6
+  # 抖动因子 (0.0-1.0)
+  jitter: 0.3
+
+# 规则匹配配置
+matcher:
+  # 关注清单拉取间隔
+  pull_interval: 10s
+  # 默认最低日志级别
+  min_log_level: "INFO"
+
+# 资源监控配置
+monitor:
+  # 采样间隔
+  sample_interval: 5s
+  # CPU 使用率高压阈值
+  cpu_high_threshold: 0.80
+  # 内存使用率高压阈值
+  memory_high_threshold: 0.85
+
+# 本地兜底存储（BoltDB）
+local_persist:
+  # 数据库文件路径
+  db_path: "/var/lib/agent/fallback.db"
+  # 最大兜底数据量（字节）
+  max_size_bytes: 536870912  # 512MB
+
+# Nginx 流量采集配置（仅网关节点启用）
+nginx:
+  # 是否启用 Nginx 流量日志采集
+  enabled: false
+  # Nginx 共享内存读取路径
+  shared_memory_path: "/dev/shm/nginx_log"
+  # 读取间隔
+  read_interval: 1s
+
+# 指标上报（Prometheus）
+metrics:
+  enabled: true
+  port: 9100
+  path: "/metrics"
+
+# 日志配置
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
