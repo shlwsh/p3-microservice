@@ -39,6 +39,16 @@ p3-microservice/
 
 详见 [部署说明](docs/部署说明.md)。
 
+## 论文编译
+
+| 版本 | 命令 | 产出 |
+|------|------|------|
+| 计算机学报体例（ctexart 近似） | `./scripts/build_pdf.sh` | `latex/main-zh.pdf` |
+| **软件学报体例（rjthesis）** | `./scripts/build_pdf_jos.sh` | `docs/v4-论文稿件-jos.pdf` |
+| 期刊模板库（含计算机学报官方 + Overleaf 版） | `./scripts/update_latex_models.sh` | `docs/latex-models/` |
+
+模板说明见 [docs/latex-models/README.md](docs/latex-models/README.md)。
+
 ## 科研工作流
 
 ```bash

@@ -1,0 +1,18 @@
+# 本地密钥
+.env
+.env.local
+.env copy.mygit
+
+# Python
+__pycache__/
+*.pyc
+
+# GitNexus 索引
+.gitnexus/
+
+# LaTeX 编译中间产物
+latex/output/
+
+# 编辑器
+*.swp
+*~

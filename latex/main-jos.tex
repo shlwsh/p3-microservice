@@ -1,0 +1,46 @@
+% 《软件学报》排版稿 — 基于 docs/latex-models/software-journal/rjthesis.cls
+% 编译：./scripts/build_pdf_jos.sh
+\documentclass{rjthesis}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+% ---------- 元数据（投稿前请替换作者信息）----------
+\rjhead{石\hspace{1em}洪\hspace{1em}雷:分布式定向日志采集组件}
+
+\rjtitle{微服务架构下分布式定向日志采集组件的设计与实现\textsuperscript{*}}
+\rjauthor{石\hspace{1em}洪\hspace{1em}雷}
+\rjinfor{（太原理工大学，山西 太原  030024）\\
+通讯作者: 石洪雷, E-mail: shihonglei0042@link.tyut.edu.cn
+}
+
+\begin{document}
+
+\rjmaketitle
+
+\begin{rjabstract}
+针对微服务分布式系统中日志分散、格式异构与海量数据导致的节点资源消耗高、网络带宽占用大及集中存储压力大等问题，本文提出一种分布式定向日志采集组件。该组件采用主从式架构，由部署于网关节点与微服务节点的日志采集器，以及集中式日志中心组成。日志中心基于网关流量日志动态生成关注清单，并驱动各节点按清单定向采集应用日志；节点侧采用固定缓存块算法与压力感知指数退避机制，在资源受限条件下保障传输可靠性；通过定向策略三次转换算法，贯通网关预筛选、节点过滤与中心二次入库全链路。本文基于 Go 语言与 Grafana Loki 完成原型实现，在 WSL/Docker 八节点集群上开展对比实验（180\,s、并发 50、每模式重复 3 次）、策略仿真消融与算法微基准测试。应用日志采用 Apache Combined 风格并与网关 URL 对齐。实验结果表明，在八节点集群压测下，相较同架构全量采集模式，定向采集在 Loki 入库日志量、Agent 平均 CPU 与内存方面分别降低 98.4\%、37.5\% 与 2.0\%（Loki 入库均值 72 条 vs 4388$\pm$1 条）；端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通；关注清单生成算法在 5000 条流量日志规模下耗时约 15\,ms；指数退避机制通过全部单元测试验证。
+\end{rjabstract}
+\rjkeywords{微服务;分布式日志采集;定向过滤;动态策略;指数退避;Grafana Loki}
+
+% ---------- 正文（与计算机学报版共用章节源文件）----------
+\input{sections/zh/01_intro.tex}
+\input{sections/zh/02_related.tex}
+\input{sections/zh/03_system.tex}
+\input{sections/zh/04_algorithms.tex}
+\input{sections/zh/05_implementation.tex}
+\input{sections/zh/06_experiments.tex}
+\input{sections/zh/07_conclusion.tex}
+
+\vspace{1em}
+\noindent{\xiaowuhao\song
+\textsuperscript{*} 基金项目：待填（软件学报要求标注基金资助时填写）。\\
+本文撰写与实验脚本生成过程中使用了大语言模型辅助，作者对全部内容与数据负责。}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

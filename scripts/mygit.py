@@ -26,7 +26,11 @@ AUTO_COMMIT_EXCLUDE_PREFIXES = (
     ".gitnexus/",
     "experiments/results/tmp/",
     "__pycache__/",
+    "latex/output/",
 )
+
+# LaTeX / 编译中间文件（不参与 diff 文本）
+LATEX_AUX_SUFFIXES = (".log", ".aux", ".bbl", ".blg", ".out", ".toc", ".fls", ".fdb_latexmk")
 
 # 版本/发布相关文件（变更时提示确认）
 VERSION_FILES = (
@@ -100,12 +104,13 @@ def run_command(command: str, check: bool = True, env: dict | None = None) -> st
         command,
         shell=True,
         capture_output=True,
-        text=True,
         env=env,
     )
     if check and result.returncode != 0:
         return None
-    return result.stdout.strip()
+    if not result.stdout:
+        return ""
+    return result.stdout.decode("utf-8", errors="replace").strip()
 
 
 def load_env_file(path: str) -> dict[str, str]:
@@ -210,7 +215,7 @@ def clean_env_for_windows_git() -> dict[str, str]:
 
 def is_binary_artifact(file_path: str) -> bool:
     lower = file_path.replace("\\", "/").lower()
-    return lower.endswith(BINARY_SUFFIXES)
+    return lower.endswith(BINARY_SUFFIXES) or lower.endswith(LATEX_AUX_SUFFIXES)
 
 
 def is_wsl_linux() -> bool:
@@ -242,6 +247,8 @@ def is_excluded_from_auto_commit(file_path: str) -> bool:
     ):
         return True
     if normalized.startswith(".env copy") or "/.env copy" in normalized:
+        return True
+    if normalized.endswith(".pyc") or "/__pycache__/" in normalized:
         return True
     return any(normalized.startswith(prefix) for prefix in AUTO_COMMIT_EXCLUDE_PREFIXES)
 
@@ -427,6 +434,26 @@ def should_use_ai(status: ChangeStatus, config: dict[str, str]) -> tuple[bool, s
     if any(is_binary_artifact(f) for f in files) and config.get("MYGIT_FORCE_AI") != "1":
         return False, "binary-mixed"
     return True, "ai"
+
+
+def get_staged_diff_for_files(text_files: list[str]) -> str:
+    """逐文件获取暂存区 diff，跳过二进制与解码失败内容。"""
+    if not text_files:
+        return ""
+    parts: list[str] = []
+    for file_path in text_files:
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--no-ext-diff", "--", file_path],
+            capture_output=True,
+        )
+        if not result.stdout:
+            continue
+        chunk = result.stdout.decode("utf-8", errors="replace")
+        if "Binary files" in chunk or "GIT binary patch" in chunk:
+            parts.append(f"# 二进制/不可文本 diff: {file_path}")
+            continue
+        parts.append(chunk)
+    return "\n".join(parts)
 
 
 def build_staged_diff(text_files: list[str], binary_files: list[str], stat: str, diff: str) -> str:
@@ -698,7 +725,7 @@ def main() -> None:
     text_files = [f for f in staged_names if f and not is_binary_artifact(f)]
     binary_files = [f for f in staged_names if f and is_binary_artifact(f)]
     stat = run_command("git diff --cached --stat", check=False) or ""
-    diff_content = run_command("git diff --cached -- " + " ".join(f'"{f}"' for f in text_files), check=False) or ""
+    diff_content = get_staged_diff_for_files(text_files)
     if len(diff_content) > 15000:
         diff_content = diff_content[:15000] + "\n... (Diff truncated)"
 
