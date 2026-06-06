@@ -4,7 +4,28 @@
 \textbf{输入}：时间窗口内网关流量日志集合 $L=\{l_1,\ldots,l_N\}$；定向策略 $S$（响应时延阈值 $T$、错误码集合 $E$）。\\
 \textbf{输出}：关注清单 $A=\{(p_i,w_i)\}$，$p_i$ 为泛化 URL 模式，$w_i$ 为权重。
 
-步骤：（1）高价值过滤：保留 $\mathrm{rt}(l)>T$ 或 $\mathrm{status}(l)\in E$ 的记录；（2）URL 聚类泛化：数字段 $\rightarrow\{id\}$，UUID $\rightarrow\{uuid\}$；（3）权重计算 $w=\alpha\cdot\mathrm{count}+\beta\cdot\mathrm{severity}$；（4）Top-$K$ 筛选并附加 TTL。排序主导复杂度，为 $O(N\log N)$。微基准在 5000 条合成日志上耗时约 15\,ms（图~\ref{fig:attention}）。
+\begin{algorithm}[htbp]
+\caption{关注清单动态生成}
+\label{alg:attention}
+\KwIn{流量日志集合 $L$，策略 $S=(T,E,K,\mathrm{TTL})$}
+\KwOut{关注清单 $A$}
+$H \leftarrow \emptyset$\;
+\ForEach{$l \in L$}{
+  \If{$\mathrm{rt}(l) > T$ \textbf{or} $\mathrm{status}(l) \in E$}{
+    $p \leftarrow \mathrm{Generalize}(l.\mathrm{url})$ \tcp*{数字→\{id\}，UUID→\{uuid\}}
+    $H[p].\mathrm{count} \leftarrow H[p].\mathrm{count} + 1$\;
+    $H[p].\mathrm{severity} \leftarrow \max(H[p].\mathrm{severity},\, \mathrm{Sev}(l))$\;
+  }
+}
+\ForEach{$p \in H$}{
+  $w_p \leftarrow \alpha \cdot H[p].\mathrm{count} + \beta \cdot H[p].\mathrm{severity}$\;
+}
+$A \leftarrow \mathrm{TopK}(H, K)$ \tcp*{按 $w_p$ 降序取前 $K$ 项}
+\ForEach{$(p_i, w_i) \in A$}{附加 TTL\;}
+\Return{$A$}\;
+\end{algorithm}
+
+排序主导复杂度，为 $O(N\log N)$。微基准在 5000 条合成日志上耗时约 15\,ms（图~\ref{fig:attention}）。相较 Promtail 依赖静态标签配置，本算法以网关 access log 为策略输入，动态识别高价值 URL 模式。
 
 \subsection{固定缓存块}
 每节点预分配固定大小内存块 $B$（默认 64--128\,MB），内部为环形队列，双重约束条目数与字节数。占用率超过阈值 $\theta$（默认 80\%）或定时器触发时异步 gzip 上传；队列满则 FIFO 淘汰，保障内存有界。

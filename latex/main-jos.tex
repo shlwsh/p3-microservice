@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
 % ---------- 元数据 ----------
 \rjhead{石\hspace{1em}洪\hspace{1em}雷:分布式定向日志采集组件}
@@ -33,10 +34,11 @@ In microservice systems, dispersed and heterogeneous logs impose high overhead o
 }
 
 \vspace{0.6em}
-{\hei Key words:}\hspace{1em}{\kai microservice; distributed log collection; directed filtering; dynamic policy; exponential backoff; Grafana Loki}
+{\hei Key words:}\hspace{1em}{\kai microservice; distributed log collection; directed log collection; dynamic policy; exponential backoff; Grafana Loki}
 \end{flushleft}
 
 % ---------- 正文（与计算机学报版共用章节源文件）----------
+\input{sections/zh/01_intro.tex}
 \input{sections/zh/02_related.tex}
 \input{sections/zh/03_system.tex}
 \input{sections/zh/04_algorithms.tex}
