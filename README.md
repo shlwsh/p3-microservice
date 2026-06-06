@@ -1,7 +1,8 @@
 # 分布式定向日志采集组件
 
 > Distributed Directed Log Collector for Microservice Architecture  
-> 投稿目标：《计算机学报》
+> 投稿目标：《计算机学报》（备选：《软件学报》）  
+> **作者**：石洪雷 · 太原理工大学 · [shihonglei0042@link.tyut.edu.cn](mailto:shihonglei0042@link.tyut.edu.cn)
 
 [![Go](https://img.shields.io/badge/Go-1.22-blue.svg)](https://go.dev/)
 [![Loki](https://img.shields.io/badge/Loki-2.9-orange.svg)](https://grafana.com/oss/loki/)

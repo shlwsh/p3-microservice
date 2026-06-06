@@ -2,6 +2,7 @@
 
 > **维护技能**：Cursor `@paper1-study-handbook`（`.agent/skills/paper1-study-handbook/`）  
 > **最后更新**：2026-06-06  
+> **作者**：石洪雷 · 太原理工大学 · shihonglei0042@link.tyut.edu.cn  
 > **投稿状态**：Minor Revision（7.8/10 改稿后预期，见 `reviews/20260605-213848/`）
 
 本目录提供**叙事性解读**与**答辩速查**，**不重复维护实验数字**。所有定量结论以 L0/L1 为准。
