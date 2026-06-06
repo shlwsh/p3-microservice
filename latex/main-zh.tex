@@ -5,6 +5,7 @@
 \graphicspath{{../figures/}}
 \usepackage{amsmath}
 \usepackage{booktabs}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{hyperref}
 \usepackage{geometry}
 \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
@@ -19,7 +20,7 @@
 
 % ---------- 中文摘要 ----------
 \begin{abstract}
-针对微服务分布式系统中日志分散、格式异构与海量数据导致的节点资源消耗高、网络带宽占用大及集中存储压力大等问题，本文提出一种分布式定向日志采集组件。该组件采用主从式架构，由部署于网关节点与微服务节点的日志采集器，以及集中式日志中心组成。日志中心基于网关流量日志动态生成关注清单，并驱动各节点按清单定向采集应用日志；节点侧采用固定缓存块算法与压力感知指数退避机制；通过定向策略三次转换算法贯通网关预筛选、节点过滤与中心二次入库全链路。本文基于 Go 语言与 Grafana Loki 完成原型实现，在 WSL/Docker 八节点集群上开展对比实验（180\,s、并发 50、每模式重复 3 次）、策略仿真消融与算法微基准测试。实验结果表明，相较同架构全量采集模式，定向采集在 Loki 入库日志量、Agent 平均 CPU 与内存方面分别降低 98.4\%、37.5\% 与 2.0\%（入库均值 72 条 vs 4388 条）；端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通。
+针对微服务分布式系统中日志分散、格式异构与海量数据导致的节点资源消耗高、网络带宽占用大及集中存储压力大等问题，本文提出一种分布式定向日志采集框架与原型组件。该框架由网关预筛选、节点定向采集和中心二次过滤三层组成：日志中心基于网关流量日志动态生成关注清单，并驱动各节点按清单定向采集应用日志；节点侧采用固定缓存块算法与压力感知指数退避机制；通过定向策略三次转换算法贯通三层策略语义。本文基于 Go 语言与 Grafana Loki 完成原型实现，在 WSL/Docker 八节点集群上开展对比实验（180\,s、并发 50、每模式重复 3 次）、策略仿真消融与算法微基准测试。实验结果表明，相较同架构全量采集模式，定向采集在 Loki 入库日志量、Agent 平均 CPU 与内存方面分别降低 98.4\%、37.5\% 与 2.0\%（入库均值 72 条 vs 4388$\pm$1 条）；端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通。
 \end{abstract}
 
 \noindent\textbf{关键词：}微服务；分布式日志采集；定向过滤；动态策略；指数退避；Loki
@@ -35,10 +36,10 @@
 \vspace{0.6em}
 
 \noindent\textbf{Abstract:}
-In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection component with a master--worker architecture: gateway and microservice sidecar agents, plus a centralized log center. The center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints. A triple strategy transformation links gateway pre-filtering, node-level filtering, and center-side secondary ingestion. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode). Compared with full collection in the same architecture, directed collection reduces Loki ingested log volume, average agent CPU, and memory by 98.4\%, 37.5\%, and 2.0\% respectively (mean ingested logs: 72 vs.\ 4388). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments.
+In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection framework and prototype component. The framework consists of three layers: gateway pre-filtering, node-side directed collection, and center-side secondary filtering. The log center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints, while a triple strategy transformation preserves policy semantics across the three layers. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode). Compared with full collection in the same architecture, distributed directed log collection reduces Loki ingested log volume, average agent CPU, and memory by 98.4\%, 37.5\%, and 2.0\% respectively (mean ingested logs: 72 vs.\ 4388$\pm$1). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments.
 
 \vspace{0.5em}
-\noindent\textbf{Key words:} microservice; distributed log collection; directed filtering; dynamic policy; exponential backoff; Loki
+\noindent\textbf{Key words:} microservice; distributed directed log collection; attention list; dynamic policy; exponential backoff; Loki
 
 \vspace{0.4em}
 \noindent\textbf{Author:} Honglei Shi (Corresponding author), Taiyuan University of Technology, Taiyuan 030024, China. E-mail: shihonglei0042@link.tyut.edu.cn

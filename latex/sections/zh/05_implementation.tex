@@ -21,9 +21,15 @@
 
 \subsection{模块划分}
 \textbf{Agent}（\texttt{agent/pkg/}）：\texttt{collector} 采集、\texttt{matcher} 规则匹配、\texttt{cache} 固定缓存块、\texttt{retry} 退避、\texttt{uploader} gRPC 上传、\texttt{monitor} 资源监控。\\
-\textbf{Center}（\texttt{center/pkg/}）：\texttt{strategy} 清单生成与三次转换、\texttt{receiver} 二次过滤、\texttt{storage/loki} 批量推送、\texttt{dispatch} 规则下发。
+\textbf{Center}（\texttt{center/pkg/}）：\texttt{strategy} 清单生成与三次转换、\texttt{receiver} 二次过滤、\texttt{storage} Loki 批量推送、\texttt{dispatch} 规则下发。
+
+\subsection{关键数据结构与匹配实现}
+关注清单在 Redis 中按版本存储，核心键包括当前版本指针、按服务分组的 URL 模式集合以及 TTL 元数据。Center 生成新清单后先写入版本化键，再原子更新当前版本指针，Agent 拉取时携带本地版本号，仅在版本变化或 TTL 即将过期时更新规则。节点侧匹配器将 URL 模式编译为前缀/通配匹配规则，并按服务名分桶，单条日志匹配复杂度近似为 $O(R_s)$，其中 $R_s$ 为该服务当前关注规则数；在 Top-$K$ 限制下，$R_s$ 通常远小于全局规则数。应用日志采用 Apache Combined 风格字段，至少包含时间戳、方法、URL、状态码与响应字节数；非兼容格式需要通过解析适配器转换为统一字段后再进入匹配器。
 
 \subsection{部署配置}
 Docker Compose 定义完整集群：Loki、Grafana、Redis、Prometheus、Center、OpenResty 网关、httpbin 模拟微服务及 9 个 Agent Sidecar（1 网关 + 8 微服务）。微服务侧 \texttt{AppCollector} 生成 Apache Combined 风格应用日志，URL 与网关 \texttt{location} 前缀一致。无关注清单时 Agent 仅采集 ERROR 及以上级别，避免退化为全量。WSL 环境通过 \texttt{docker-compose.wsl.yml} 限制容器内存；\texttt{docker-compose.scale.yml} 扩展至 8 微服务节点。
 
 \textbf{对照实验配置说明}：定向模式下应用日志发射间隔为 2\,s；全量基线模式为 400\,ms（更高吞吐），以模拟``尽可能多采''的工业全量场景。对比时两模式共享同一网关压测负载与硬件环境。
+
+\subsection{生产部署与标准化接口}
+在 Kubernetes 环境中，网关 Agent 可部署为 Sidecar 或 DaemonSet，微服务 Agent 优先以 Sidecar 方式与业务容器共享网络命名空间；对日志文件路径统一的集群，也可采用 DaemonSet 降低实例数。生产部署需启用 gRPC TLS、Agent 身份认证和租户隔离，关注清单键空间按租户、命名空间和服务名分层，避免跨租户规则泄露。标准化方面，关注清单可公开为包含 \texttt{version}、\texttt{ttl}、\texttt{service}、\texttt{pattern}、\texttt{weight} 与 \texttt{reason} 字段的 JSON 规范，并与 OpenTelemetry Collector 的过滤处理器、Loki 标签模型对接。按 AIOps-OSA 的能力划分，本文组件承担数据采集层的动态减量和场景实现层的异常/慢请求上下文保留，为后续日志解析、异常检测和根因定位提供更小但更高价值的输入。

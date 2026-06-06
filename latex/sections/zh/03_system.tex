@@ -3,6 +3,26 @@
 \subsection{架构概述}
 系统由\textbf{日志节点采集器（Agent）}与\textbf{日志中心（Center）}组成。Agent 分为网关节点实例与微服务节点实例：前者通过 OpenResty Lua 采集 HTTP 流量日志；后者采集应用访问日志。Center 负责接收 Agent 上传、生成关注清单、下发规则、执行二次过滤并写入 Loki。图~\ref{fig:arch} 给出总体架构。
 
+从能力边界看，本文框架可抽象为\textbf{网关预筛选、节点定向采集、中心二次过滤}三层，如表~\ref{tab:framework_layers} 所示。三层分别对应运行时流量感知、本地日志减量与中心入库控制，输入/输出均可独立审计，也便于与 AIOps 平台的数据采集能力对接。
+
+\begin{table*}[htbp]
+  \centering
+  \caption{分布式定向日志采集框架的三层输入/输出}
+  \label{tab:framework_layers}
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{p{2.2cm}p{3.0cm}p{3.0cm}p{4.5cm}}
+    \toprule
+    层级 & 输入 & 输出 & 作用 \\
+    \midrule
+    网关预筛选 & HTTP access log、状态码、响应时延 & 高价值流量日志与 URL 模式候选 & 从入口流量识别错误、慢请求和热点异常模式 \\
+    节点定向采集 & 关注清单、本地 Apache Combined 风格应用日志 & 命中关注清单的应用日志批次 & 在 Sidecar 内完成采集前端减量，降低上传量 \\
+    中心二次过滤 & 节点上传批次、关注清单版本、去重状态 & Loki 入库日志与可查询标签 & 统一策略语义，过滤过期或重复日志，保留高价值上下文 \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table*}
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{fig1_system_overview.pdf}

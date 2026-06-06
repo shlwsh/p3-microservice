@@ -3,7 +3,7 @@
 \subsection{环境与方法}
 实验在 WSL2（8\,GB 内存，4\,vCPU）Docker 原型集群上进行。集群含 1 个 OpenResty 网关、8 个 httpbin 微服务及对应 Sidecar Agent、1 个日志中心及 Loki/Redis 等基础设施。应用日志采用 Apache Combined 风格字段，URL 与网关路由一致。
 
-对比实验将定向采集与全量采集（\texttt{COLLECTION\_MODE=full}）在同一硬件环境下对照：负载为 180\,s、并发 50 的混合 HTTP 请求（含正常/500 错误/慢请求），每模式独立重复 3 次。Loki 入库增量取自 Center \texttt{/api/v1/stats}；Agent CPU/内存于每轮压测结束后对全部 9 个 Agent 容器执行 \texttt{docker stats --no-stream} 单次快照并取算术均值。每轮网关流量日志 Redis 增量约 $1.97\times10^4$ 条，关注清单稳定生成 16 条 URL 模式（含 \texttt{/status/500}、\texttt{/delay/1} 等异常/慢请求泛化模式），保障高价值请求可被定向规则覆盖。原始数据见 \texttt{experiments/results/phase3/phase3\_latest.json}。
+对比实验将定向采集与全量采集（\texttt{COLLECTION\_MODE=full}）在同一硬件环境下对照：负载为 180\,s、并发 50 的混合 HTTP 请求（含正常/500 错误/慢请求），每模式独立重复 3 次。Loki 入库增量取自 Center 统计接口；Agent CPU/内存于每轮压测结束后对全部 9 个 Agent 容器执行 \texttt{docker stats} 单次快照并取算术均值。每轮网关流量日志 Redis 增量约 $1.97\times10^4$ 条，关注清单稳定生成 16 条 URL 模式（含 \texttt{/status/500}、\texttt{/delay/1} 等异常/慢请求泛化模式），保障高价值请求可被定向规则覆盖。原始数据见 phase3 结果 JSON。
 
 \subsection{实验结果}
 表~\ref{tab:compare} 与图~\ref{fig:compare} 给出三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上降低 37.5\%。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}；即便考虑该因素，定向模式仍将入库量控制在百条量级。图~\ref{fig:ablation} 为策略仿真消融（非集群实测）。
@@ -47,5 +47,16 @@
   \label{fig:attention}
 \end{figure}
 
-\subsection{讨论}
-实测日志降幅受关注清单命中率、压测异常比例及日志源配置影响；仿真消融不宜与表~\ref{tab:compare} 直接对比。八节点原型与数百节点生产环境仍有差距；未与独立 Promtail 部署做端到端对照，留作后续工作。未来可在\textbf{同频率日志源}条件下复测，以 isolate 纯策略过滤收益。
+\subsection{可复现性与效度威胁}
+实验脚本、Docker Compose 配置与原始 JSON 结果保存在 \texttt{experiments/} 及 phase3 结果目录，图~\ref{fig:compare}、表~\ref{tab:compare} 均由该 JSON 派生。当前结果仍存在以下效度威胁。
+
+\textbf{规模效度}：实验集群为 WSL/Docker 八节点原型，能够验证端到端链路和采集前端减量效果，但不能直接外推至数百节点生产环境。后续需在 32--64 节点云环境中复测网络带宽、Loki 写入压力和 Center 调度开销。
+
+\textbf{基线效度}：本文已提供同架构全量采集基线，但尚未部署 Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 采集方案做端到端对照。表~\ref{tab:related_compare} 中相关方案仅用于机制比较，未作为已完成实验结果陈述。
+
+\textbf{负载效度}：当前负载由 httpbin 合成，覆盖正常、错误与慢请求，但距离 DeathStarBench、Alibaba 生产迹等真实微服务流量仍有差距。后续应引入真实调用图、长尾延迟和突发流量，以评估关注清单在异常稀疏或突发场景中的稳定性。
+
+\textbf{统计效度}：每模式重复 3 次，实验时长 180\,s，适合作为原型探索性验证；端到端采集延迟、高价值日志漏报率和故障后恢复时间尚未形成完整统计。图~\ref{fig:ablation} 为策略仿真消融，不能与表~\ref{tab:compare} 的集群实测直接比较。
+
+\subsection{后续实验计划}
+为达到正式投稿的更高证据强度，后续实验将按三类扩展：第一，规模扩展，在 4/8/16/32/64 节点上测量日志入库量、网络带宽、Center CPU 与 Loki 写入延迟；第二，基线扩展，加入 Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 采集链路，统一负载与日志源频率；第三，消融扩展，将动态关注清单、固定缓存块和压力感知退避从仿真消融迁移到集群实测，并补充高价值日志漏报率、端到端采集延迟和中心故障恢复时间。上述计划不替代本文已有实测结果，而用于进一步验证框架在生产级场景中的普适性。

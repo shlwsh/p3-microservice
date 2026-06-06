@@ -6,7 +6,8 @@ description: >-
   cross-examination, PI synthesis, writes reports under reviews/{run_id}/.
   Self-contained skill pack. Use when the user asks to review the p3 paper,
   run multi-agent paper review, 执行论文多角色审核, 软件学报投稿前审核,
-  论文审核, or simulate peer reviewers.
+  论文审核, compare against benchmark JOS papers, run major-revision closure,
+  or simulate peer reviewers.
 disable-model-invocation: false
 ---
 
@@ -22,13 +23,16 @@ disable-model-invocation: false
 3. [软件学报投稿要点.md](软件学报投稿要点.md) — **JOS 初审/退稿高发区（JOS 时必读）**  
 4. [参考文献归档细则.md](参考文献归档细则.md) — **C6 文献核实与 `papers/` 归档**  
 5. [已知问题清单.md](已知问题清单.md) — C1–C6 + **J1–J7**  
-5. [论文领域要点.md](论文领域要点.md) — SQ、基线、国内文献方向  
-6. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责  
+6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — **论文 A/B 八维度对照、重大修改、二次评审、版本化编译**
+7. [论文领域要点.md](论文领域要点.md) — SQ、基线、国内文献方向
+8. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
 
 ## 使用时机
 
 - **执行 p3 论文多角色审核** / **软件学报投稿前审核** / **模拟审稿人**
 - 投稿《软件学报》（默认）或《计算机学报》前要 P0/P1/P2 行动清单
+- 对照基准论文 A（包航宇等，2023）与论文 B（贾统等，2020）做重大修改闭环
+- 根据评审意见生成 `docs/YYYYMMDD-HHMMSS-*.md` 方案、修改主稿、编译版本化 PDF、二次评审
 - **默认不改 `.tex`**（改稿见 [改稿衔接.md](改稿衔接.md)）
 
 ## 路径（来自 config.md）
@@ -40,6 +44,8 @@ disable-model-invocation: false
 | 主稿 Markdown | `docs/v4-论文稿件.md` |
 | L0 真相 | `experiments/results/phase3/phase3_latest.json` |
 | 输出 | `reviews/{run_id}/` |
+| 改稿方案/二评 | `docs/{timestamp}-*.md` |
+| 版本化文稿 | `docs/v{N}-论文稿件-jos-{timestamp}.pdf` |
 
 ## 执行承诺
 
@@ -93,7 +99,11 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 - [ ] **C10** 创新量化与三贡献贯穿已评估  
 - [ ] **（JOS）** J2/J3 国内对比与中文文献已评估  
 - [ ] **（JOS）** J8 最新前沿文献覆盖已评估  
-- [ ] **（JOS）** J9 英文 Abstract 术语一致性已核查  
+- [ ] **（JOS）** J9 英文 Abstract 术语一致性已核查
+- [ ] **（JOS）** J11 基准论文 A/B 八维度对照已评估
+- [ ] **改稿闭环** 方案文档已输出到 `docs/` 且文件名带时间戳
+- [ ] **改稿闭环** 编译稿件已带版本号与时间戳，历史稿未删除
+- [ ] **改稿闭环** 修改后已形成二次评审报告
 - [ ] 对话已交付执行摘要  
 
 ## 快捷命令（p3）
@@ -127,6 +137,7 @@ python3 scripts/verify_cited_papers.py --download
 | [审核细则.md](审核细则.md) | **各角色高效勾选清单** |
 | [参考文献归档细则.md](参考文献归档细则.md) | **C6 文献核实与 papers/ 归档** |
 | [软件学报投稿要点.md](软件学报投稿要点.md) | **JOS 官网投稿与敬告作者** |
+| [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) | **论文 A/B 对比、重大修改闭环、二次评审** |
 | [README.md](README.md) | 复制到其他项目 |
 | [设计方案.md](设计方案.md) | 完整 Phase 流程 |
 | [reference.md](reference.md) | 模板速查 |
