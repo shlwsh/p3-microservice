@@ -41,3 +41,18 @@ This project is indexed by GitNexus as **p3-microservice** (2375 symbols, 5109 r
 | Index, status, clean, wiki CLI commands | `.claude/skills/gitnexus/gitnexus-cli/SKILL.md` |
 
 <!-- gitnexus:end -->
+
+## Project Agent Skills
+
+技能源目录 `.agent/skills/`；Cursor 通过 `.cursor/skills/` 符号链接自动发现（维护：`bash scripts/link_cursor_skills.sh`）。
+
+| Task | Skill |
+|------|-------|
+| 文献搜索 / 下载 / 引用核实 | `.cursor/skills/scholar-search/SKILL.md` |
+| 论文多角色审核 / 投稿前审核 | `.cursor/skills/paper1-multi-agent-review/SKILL.md` |
+| 学习手册更新 | `.cursor/skills/paper1-study-handbook/SKILL.md` |
+| 智能 Git 提交 | `.cursor/skills/mygit/SKILL.md` |
+| 新建技能 | `.cursor/skills/makeskill/SKILL.md` |
+| GitNexus MCP 安装 | `.cursor/skills/gitnexus-cursor-mcp-setup/SKILL.md` |
+
+匹配上述场景时先读对应 `SKILL.md`；可用 `@技能名` 显式触发。索引见 `.cursor/rules/project-skills.mdc`。

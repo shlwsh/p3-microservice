@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<base href="/">
+
+<meta charset="utf-8">
+
+<title>移动社交网络中矩阵混淆加密交友隐私保护策略</title>
+<meta http-equiv="Content-Language" content="zh-cn"> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="keywords" content="移动社交网络;隐私匹配;混淆矩阵;隐私保护;机会计算"/> <meta name="description" content="随着移动设备和在线社交网络的快速发展，通过用户的个人属性配置文件匹配，能够帮助用户在邻近的社交网络中迅速找到和自己共同特征的朋友.然而，交友匹配很有可能泄漏用户的敏感信息，因此用户隐私得不到保障.提出一种移动社交网络中交友匹配过程中的隐私保护协议，用户利用混淆矩阵变换算法和内积计算实现交友过程中的隐私安全和高效的匹配；用户可以细粒度定义自己特征属性的特征权重，从而使匹配结果更精确.此外，利用机会分析模型模拟真实交友场景来保证交友的有效性.安全性分析表明，提出的方法更具有隐私性、可用性和更低的通信和计算开销.通过结合真实的社会网络数据进行测试和评估，对比结果显示，比现有解决方案更有效."/> <meta name="HW.ad-path" content="http://www.jos.org.cn/jos/article/abstract/5601"/> <meta name="HW.identifier" content="http://www.jos.org.cn/jos/article/abstract/5601"/> <meta name="DC.Format" content="text/html"/> <meta name="DC.Language" content="cn"/> <meta name="DC.Title" content="移动社交网络中矩阵混淆加密交友隐私保护策略"/> <meta name="DC.Identifier" content="10.13328/j.cnki.jos.005601"/> <meta name="DC.Contributor" content="罗恩韬"/> <meta name="DC.Contributor" content="王国军"/> <meta name="DC.Contributor" content="刘琴"/> <meta name="DC.Contributor" content="孟大程"/> <meta name="DC.Contributor" content="唐雅媛"/> <meta name="DC.Date" content="2019-01-23"/> <meta name="citation_journal_title" content="软件学报"/> <meta name="citation_journal_abbrev" content="软件学报"/> <meta name="citation_issn" content="1000-9825"/> <meta name="citation_cn" content="11-2560/TP"/> <meta name="citation_authors" xml:lang="cn" content="罗恩韬,王国军,刘琴,孟大程,唐雅媛"/> <meta name="citation_title" xml:lang="cn" content="移动社交网络中矩阵混淆加密交友隐私保护策略"/> <meta name="DC.Keywords" xml:lang="cn" content="移动社交网络;隐私匹配;混淆矩阵;隐私保护;机会计算"/> <meta name="citation_date" content="2019-01-23"/> <meta name="citation_volume" content="30"/> <meta name="citation_issue" content="12"/> <meta name="citation_firstpage" content="3798"/> <meta name="citation_lastpage" content="3814"/> <meta name="citation_id" content="5601"/> <meta name="citation_doi" content="10.13328/j.cnki.jos.005601"/> <meta name="citation_authors" xml:lang="en" content="LUO En-Tao, WANG Guo-Jun, LIU Qin, MENG Da-Cheng and TANG Ya-Yuan"/> <meta name="citation_title" xml:lang="en" content="Privacy Preserving Friend Discovery of Matrix Confusion Encryption in Mobile Social Networks"/> <meta name="DC.Keywords" xml:lang="en" content="mobile social networks (MSNs);profile matching;confusion matrix;privacy-preserving;opportunity calculation"/> <meta name="citation_abstract_html_url" content="http://www.jos.org.cn/jos/article/abstract/5601"/> <meta name="citation_pdf_url" content="http://www.jos.org.cn/jos/article/pdf/5601"/> <meta name="citation_public_url" content="http://www.jos.org.cn/jos/article/abstract/5601"/>
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_h5.css" media="all and (min-width: 1201px)">
+ -->
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_h5.css" >
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_1000px_h5.css" media="all and (max-width: 1200px)">
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/right_footer_notice.css">
+<link rel="stylesheet" type="text/css" href="template/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/AIreading.css">
+<script type="text/javascript" src="template/js/jquery.min.js"></script>
+<script type="text/javascript" src="template/js/jquery.SuperSlide.2.1.3.js"></script>
+<script type="text/javascript" src="template/js/checkform.js"></script>
+<script type="text/javascript" src="template/011_csa/js/Tony_Tab.js"></script>
+<script type="text/javascript" src="template/011_csa/js/baguettebox.min.js"></script>
+<script type="text/javascript" src="template/js/et_website.js"></script>
+<script type="text/javascript" src="/template/011_csa/js/AIreding12.js?v=12"></script>
+
+
+<style>
+.tr { width:810px !important; }
+.cat { clear:both; } 
+.slideTxtBox .hd ul li { margin-right: 20px !important;
+    font-size: 14px; }
+
+.slideTxtBox_list{overflow: initial;}
+</style>
+
+
+</head>
+
+<body>
+
+<div class="site_container">
+  <div class="index_m m-c">
+    
+     
+    <div class="navExt">
+      
+      <div class="index_lg">
+     <!-- <div class="index_left">
+         
+        <div class="top_logo"><img src="" width="500" height="80"></div>
+        <div class="top_txt">主办：中国科学院软件研究所 <br >                 中国计算机学会</div>
+        </div>-->
+        <div class="index_right">
+        <div class="index_wm">
+		<div class="wm_img" style="float: left;">      
+        <div class="twmImg"><img src="/template/011_csa/images/wxxcx.jpg" width="70%"></div>
+          <h2 style="background-color:transparent">微信小程序</h2>
+      </div>
+
+        <div class="wm_img">      
+        <div class="twmImg"><img src="/template/011_csa/images/fuwuhao.jpg" width="70%"></div>
+          <h2 style="background-color:transparent">微信服务号</h2>
+      </div>
+          <div class="wm_img">
+        
+        <div class="twmImg"><img src="/template/011_csa/images/dingyuehao.jpg" width="70px" style=""></div>
+        <h2 style="background-color:transparent">微信订阅号</h2>
+      </div>
+      
+          </div>
+        </div>
+      </div>
+     
+
+    
+      <div class="nav">
+          
+      <div class=" time">
+	  <script>
+    var   CalendarData=new   Array(20);
+    var   madd=new Array(12);
+    var   TheDate=new Date();
+    var   tgString="甲乙丙丁戊己庚辛壬癸";
+    var   dzString="子丑寅卯辰巳午未申酉戌亥";
+    var   numString="一二三四五六七八九十";
+    var   monString="正二三四五六七八九十冬腊";
+    var   weekString="日一二三四五六";
+    var   sx="鼠牛虎兔龙蛇马羊猴鸡狗猪";
+    var   cYear;
+    var   cMonth;
+    var   cDay;
+    var   cHour;
+    var   cDateString;
+    var   DateString;
+    var   Browser=navigator.appName; 
+    function   init()
+    {
+        CalendarData[0]=0x41A95;
+        CalendarData[1]=0xD4A;
+        CalendarData[2]=0xDA5;
+        CalendarData[3]=0x20B55;
+        CalendarData[4]=0x56A;
+        CalendarData[5]=0x7155B;
+        CalendarData[6]=0x25D;
+        CalendarData[7]=0x92D;
+        CalendarData[8]=0x5192B;
+        CalendarData[9]=0xA95;
+        CalendarData[10]=0xB4A;
+        CalendarData[11]=0x416AA;
+        CalendarData[12]=0xAD5;
+        CalendarData[13]=0x90AB5;
+        CalendarData[14]=0x4BA;
+        CalendarData[15]=0xA5B;
+        CalendarData[16]=0x60A57;
+        CalendarData[17]=0x52B;
+        CalendarData[18]=0xA93;
+        CalendarData[19]=0x40E95;
+        madd[0]=0;
+        madd[1]=31;
+        madd[2]=59;
+        madd[3]=90;
+        madd[4]=120;
+        madd[5]=151;
+        madd[6]=181;
+        madd[7]=212;
+        madd[8]=243;
+        madd[9]=273;
+        madd[10]=304;
+        madd[11]=334;
+    }
+    function   GetBit(m,n)
+    {
+        return   (m>>n)&1;
+    }
+
+    function   e2c()
+    {
+        var   totalmnk;
+        var   isEnd=false;
+        var   tmp=TheDate.getYear();
+        if   (tmp<1900)     tmp+=1900;
+        total=(tmp-2001)*365
+                +Math.floor((tmp-2001)/4)
+                +madd[TheDate.getMonth()]
+                +TheDate.getDate()
+                -23;
+        if   (TheDate.getYear()%4==0&&TheDate.getMonth()>1)
+            total++;
+        for(m=0;;m++)
+        {
+            k=(CalendarData[m]<0xfff)?11:12;
+            for(n=k;n>=0;n--)
+            {
+                if(total<=29+GetBit(CalendarData[m],n))
+                {
+                    isEnd=true;
+                    break;
+                }
+                total=total-29-GetBit(CalendarData[m],n);
+            }
+            if(isEnd)break;
+        }
+        cYear=2001   +   m;
+        cMonth=k-n+1;
+        cDay=total;
+        if(k==12)
+        {
+            if(cMonth==Math.floor(CalendarData[m]/0x10000)+1)
+                cMonth=1-cMonth;
+            if(cMonth>Math.floor(CalendarData[m]/0x10000)+1)
+                cMonth--;
+        }
+        cHour=Math.floor((TheDate.getHours()+3)/2);
+    }
+
+    function   GetcDateString()
+    {   var   tmp="";
+        tmp+=tgString.charAt((cYear-4)%10);       //年干
+        tmp+=dzString.charAt((cYear-4)%12);       //年支
+        tmp+="年(";
+        tmp+=sx.charAt((cYear-4)%12);
+        tmp+=")   ";
+        if(cMonth<1)
+        {
+            tmp+="闰";
+            tmp+=monString.charAt(-cMonth-1);
+        }
+        else
+            tmp+=monString.charAt(cMonth-1);
+        tmp+="月";
+        tmp+=(cDay<11)?"初":((cDay<20)?"十":((cDay<30)?"廿":"卅"));
+        if(cDay%10!=0||cDay==10)
+            tmp+=numString.charAt((cDay-1)%10);
+        tmp+="    ";
+        if(cHour==13)tmp+="夜";
+        tmp+=dzString.charAt((cHour-1)%12);
+        tmp+="时";
+        cDateString=tmp;
+        return   tmp;
+    }
+
+    function   GetDateString()
+    {
+        var   tmp="";
+        var   t1=TheDate.getYear();
+        if   (t1<1900){
+				t1+=1900;
+		}
+		
+		tmp+=t1
+		+"年"
+		+(TheDate.getMonth()+1)+"月"
+		+TheDate.getDate()+"日   "
+		+TheDate.getHours()+":"
+		+((TheDate.getMinutes()<10)?"0":"")
+		+TheDate.getMinutes()
+		+" 星期"+weekString.charAt(TheDate.getDay());
+		
+
+
+        DateString=tmp;
+        return   tmp;
+    }
+
+    init();
+    e2c();
+    GetDateString();
+    GetcDateString();
+    document.write(DateString);
+</script></div>
+        <ul>
+   
+           <li><A href='/jos/home?id=20210909102755001&name=主页'>主页<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155225001?id=20071206155225001&name=期刊介绍'>期刊介绍<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155306001?id=20071206155306001&name=编委会'>编委会<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20210909105053001?id=20210909105053001&name=服务介绍'>服务介绍<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20210909102616001?id=20210909102616001&name=投稿指南'>投稿指南<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20171218034556834?id=20171218034556834&name=出版道德'>出版道德<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155334001?id=20071206155334001&name=联系我们'>联系我们<i class='navBotLine'></i></A></li><li><A href='/jos/action/toc_alert?id=20210909102914001&name=E-mail Alert'>E-mail Alert<i class='navBotLine'></i></A></li><li><A href='https://www.jos.org.cn/josen/home?id=20210909102939001&name=English'>English<i class='navBotLine'></i></A></li>
+        </ul>
+       <!-- <div class="share">
+<div class="bshare-custom"><a title="分享到QQ好友" class="bshare-qqim"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到电子邮件" class="bshare-email"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/bshareC0.js"></script>
+      </div>-->  </div>
+      
+    </div>
+    
+
+  
+    <div class="index_c">
+<!--data_type:json-->
+<script type="text/javascript" src="template/js/mootools-core.js"></script>
+<script type="text/javascript" src="template/js/mediabox.js"></script>
+<script type="text/javascript" src="template/js/echarts.min.js"></script>
+<script type="text/javascript" src="template/js/swiper.min.js"></script>
+<script type="text/javascript" src="template/common/js/jquey-bigic.js"></script>
+<link rel="stylesheet" type="text/css" href="template/css/swiper.min.css">
+<link type="text/css" href="template/common3/css/article_abstract_h5.css" rel="stylesheet">
+<script type="text/javascript" src="template/common002/js/clipboard.js"></script>
+<div class="nav_position">
+    <a href="jos/home">首页</a> &gt;    
+    <span id='all_issue_position'><a href="jos/issue/browser">过刊浏览</a>&gt;<a href="jos/article/issue/2019_30_12">2019年第30卷第12期</a> &gt;3798-3814. DOI:10.13328/j.cnki.jos.005601</span>
+    <span id='online_first_position' style='display:none'><a href="jos/article/online_first">优先出版</span>
+</div>
+<div class="article_abstract_main m-row">
+    <div class="article_abstract_left m-fl">
+        <div class="p1 m-cell-hd">
+            <a class="pt1" id='PdfUrl' href="jos/article/pdf/5601">PDF</a>
+            <a class="pt2" id='HtmlUrl' href="jos/article/html/5601">HTML阅读</a>
+	    <a class="pt3" id='XmlUrl' href="jos/article/export/5601?action_type=export&export_type=xml&include_content=2">XML下载</a>
+	    <a class="pt4" id='ExportUrl' href="jos/article/export/5601">导出引用</a>
+	    <a class="pt5" id='ReminderUrl' href="jos/article/reminder/5601">引用提醒</a>
+        </div>
+        <div class="p2">
+            <div class="zh">
+                <div class="title">移动社交网络中矩阵混淆加密交友隐私保护策略</div>
+                <div class="line m-row" id='DOI'>
+                    <span class="tl">DOI:</span>
+                    <div class="tr">
+                        <span><a href="http://dx.doi.org/10.13328/j.cnki.jos.005601" id="DOIValue">10.13328/j.cnki.jos.005601</a></span>
+                    </div>
+                </div>
+                <div class="line m-row" id='CSTR'>
+                    <span class="tl">CSTR:</span>
+                    <div class="tr">
+                        <span><a href="https://cstr.cn/" id="CSTRValue"></a></span>
+                    </div>
+                </div>
+                <div class="line m-row">
+                    <span class="tl">作者:</span>
+                    <div class="tr">
+                        <ul id="CnAuthorList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="line m-row" id="DisplayCnInstitution">
+                    <span class="tl">作者单位:</span>
+                    <div class="tr">
+                        <p id="DisplayCnInstitutionValue"></p>
+                    </div>
+                </div>
+                <div class="line m-row" id="AuthorResume">
+                    <span class="tl">作者简介:</span>
+                    <div class="tr">
+                        <p id="AuthorResumeValue">罗恩韬(1978-),男,湖南永州人,博士,教授,主要研究领域为移动社交网络隐私保护,云安全,大数据聚类分析;王国军(1970-),男,博士,教授,博士生导师,主要研究领域为可信计算,净室安全计算,网络空间安全;刘琴(1982-),女,博士,副教授,主要研究领域为云安全,信息安全,隐私保护;孟大程(1994-),男,硕士,主要研究领域为移动医疗网络隐私保护,大数据安全;唐雅媛(1982-),女,博士,副教授,主要研究领域为网络计算,人工智能,信息安全.</p>
+                    </div>
+                </div>
+                <div class="line m-row" id="ContactAuthor">
+                    <span class="tl">通讯作者:</span>
+                    <div class="tr">
+                        <p id="ContactAuthorValue">唐雅媛,E-mail:tangyayuan_huse@126.com</p>
+                    </div>
+                </div>
+                <div class="line m-row" id="ClcNumber">
+                    <span class="tl">中图分类号:</span>
+                    <div class="tr">
+                        <p id="ClcNumberValue">TP393</p>
+                    </div>
+                </div>   
+                <div class="line m-row" id="CnFundProject">
+                    <span class="tl">基金项目:</span>
+                    <div class="tr">
+                        <p id="CnFundProjectValue">国家自然科学基金（61632009，61472451，61402543，61272151，61502163）；湖南省自然科学基金（2018JJ2147，2018JJ3203）；湖南省教育厅项目（2015C0589，17C0679）；湖南科技学院计算机应用特色学科项目</p>
+                    </div>
+                </div>    
+            </div>
+            <div class="en" id="EnTitle">
+		<br>
+		<div class="title" id="EnTitleValue">Privacy Preserving Friend Discovery of Matrix Confusion Encryption in Mobile Social Networks</div>
+                <div class="line m-row">
+                    <span class="tl">Author:</span>
+                    <div class="tr">
+                        <ul id="EnAuthorList">
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="line m-row" id="DisplayEnInstitution">
+                    <span class="tl">Affiliation:</span>
+                    <div class="tr">
+                        <p id="DisplayEnInstitutionValue"></p>
+                    </div>
+                </div>
+                <div class="line m-row" id="EnFundProject">
+                    <span class="tl">Fund Project:</span>
+                    <div class="tr">
+                        <p id="EnFundProjectValue">National Natural Science Foundation of China (61632009, 61472451, 61402543, 61272151, 61502163); Natural Science Foundation of Hu'nan Province of China (2018JJ2147, 2018JJ3203); Hu'nan Provincial Education Department of China (2015C0589, 17C0679); Construct Program of Applied Characteristic Discipline in Hu'nan University of Science and Engineering</p>
+                    </div>
+                </div> 
+		
+            </div>
+        </div>
+        <div class="cat">
+            <div class="slideTxtBox">
+                <div class="hd">
+                    <ul>
+                        <li class="fst">摘要</li>
+                        <span class="m-fl">|</span>
+                        <li id='FiguresTab'>图/表</li>
+                        <span class="m-fl">|</span>
+                        <li>访问统计</li>
+                        <span class="m-fl">|</span>
+                        <li id='ReferenceTab'>参考文献</li>
+                        <span class="m-fl">|</span>
+			<li id='RelatedTab'>相似文献</li>
+                        <span class="m-fl">|</span>
+			 <li id='CitedByTab'>引证文献</li>
+                        <span class="m-fl">|</span>
+                        <li id='MaterialsTab'>资源附件</li>
+			<span class="m-fl">|</span>
+                        <li id='AppraiseTab'>文章评论</li>
+                       
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <div class="zy">
+                            <div class="zh" id="CnAbstract">
+                                <div class="zy1">
+                                    <span>摘要:</span><p id="CnAbstractValue">随着移动设备和在线社交网络的快速发展，通过用户的个人属性配置文件匹配，能够帮助用户在邻近的社交网络中迅速找到和自己共同特征的朋友.然而，交友匹配很有可能泄漏用户的敏感信息，因此用户隐私得不到保障.提出一种移动社交网络中交友匹配过程中的隐私保护协议，用户利用混淆矩阵变换算法和内积计算实现交友过程中的隐私安全和高效的匹配；用户可以细粒度定义自己特征属性的特征权重，从而使匹配结果更精确.此外，利用机会分析模型模拟真实交友场景来保证交友的有效性.安全性分析表明，提出的方法更具有隐私性、可用性和更低的通信和计算开销.通过结合真实的社会网络数据进行测试和评估，对比结果显示，比现有解决方案更有效.</p>
+                                </div>
+                                <div class="zy2" id="CnKeyWord">
+                                    
+                                </div>
+                            </div>
+                            <div class="en" id="EnAbstract">
+                                <div class="zy1">
+                                    <span>Abstract:</span><p id="EnAbstractValue">With the rapid developments of mobile devices and online social networks, users of mobile social networks (MSNs) can easily discover and make new social interactions with others by profiles matching. However, personal profiles usually contain sensitive information of individuals, while the emerging requirement of profile matching in proximity mobile social networks may occasionally leak the sensitive information and hence violate people's privacy. A profile matching protocol in MSNs is proposed, users utilize the confusion matrix transformation algorithm and dot product to achieve secure and efficient matching results; at the same time, users can customize the matching metrics to involve their own matching preference and to make the matching results more precise. In addition, opportunistic computing is adopted to simulate the real friend making senario to guarantee the effectiveness. Security analysis shows that the proposed scheme possesses higher privacy, serviceability, and lower computation and communication cost. Assessed by real social network data, the results demonstrate that the proposed scheme is superior to the existing works.</p>
+                                </div>
+                                <div class="zy2" id="EnKeyWord">
+                                   
+                                </div>
+                            </div>
+			    <!--trend md div标签-->
+			    <div id="trendmd-suggestions"></div>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div class="zyfj">
+					<div class="swiper_xq photos-demo" id="photosDemo">
+						  <div class="swiper-wrapper" id="ImagesList">
+						 
+						  </div>
+					  <!-- Add Arrows -->
+					  <div class="swiper-button-next"></div>
+					  <div class="swiper-button-prev"></div>
+					</div>
+					<!-- Initialize Swiper -->
+					<script>
+					    var swiper = new Swiper('.swiper_xq', {
+						navigation: {
+						    nextEl: '.swiper-button-next',
+						    prevEl: '.swiper-button-prev',
+						},
+					    });
+					</script>
+					<script type="text/javascript">
+					    $(function(){
+						$('img').bigic();
+					    });
+					</script>
+			</div>
+                    </ul>
+                    <ul>
+                        <div class="fwtj">
+                            <div id="ArticleAnnualMetrics" style="width: 800px;height:400px;margin-top:15px;"></div>
+                            <div id="ArticleTotalMetrics" style="width: 800px;height:400px;"></div>
+			    <div id="ArticleProvinceMetrics" style="width: 800px;height:400px;"></div>
+                        </div>
+                    </ul>
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">参考文献</div>
+                            <div class="list" id="ReferenceList">
+                            </div>
+                        </div>
+                    </ul>
+
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">相似文献</div>
+                            <div class="list" id="RelateArticleList">
+
+                            </div>
+                        </div>
+                    </ul>
+
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">引证文献</div>
+                            <div class="list" id="WasReferencedList">
+				
+                            </div>
+                        </div>
+                    </ul>
+
+                    <ul>
+                        <div class="zyfj">
+                            <div class="list" id="AttacheList">
+                                                      
+                            </div>
+                        </div>
+                    </ul>
+
+		     <ul>
+                        <div class="zyfj" id="CommentList">
+                           
+                        </div>
+                    </ul>
+                    
+                </div>
+            </div>
+            <script type="text/javascript">jQuery(".slideTxtBox").slide({ trigger: "click" });</script>
+        </div>
+    </div>
+    <div class="article_abstract_right m-fl">
+        <div class="p3">
+            <h5 class="tt">引用本文</h5>
+            <div class="copy">
+                <p id="cp-cont">
+                    罗恩韬,王国军,刘琴,孟大程,唐雅媛.移动社交网络中矩阵混淆加密交友隐私保护策略.软件学报,2019,30(12):3798-3814
+                </p>
+                <a href="javascript:;" class="btn" data-clipboard-target="#cp-cont">复制</a>
+            </div>
+        </div>
+
+	<div class="p4"  id="VideoContainer">
+            <h5 class="tt">相关视频</h5>
+            <div class="m-row">
+                <p id="video_list">
+                    
+                </p>
+            </div>
+        </div>
+	<div class="p5" style="margin-top:10px;"><img src="/template/011_csa/images/xssqzy.jpg" width="100%"></div>
+         <div class="p5">
+            <h5 class="tt">分享</h5>
+	       <link rel="stylesheet" type="text/css" href="/template/css/share.min.css">
+				 <script src="/template/js/jquery.share.min.js"></script>
+
+
+
+          <div id="share-2"></div>
+<script>
+$('#share-2').share({sites: ['qzone', 'qq', 'weibo','wechat']});
+</script>
+   
+        </div>
+        <div class="p6">
+            <h5 class="tt">文章指标</h5>
+            <div class="m-row">
+               <div class="p5-l m-fl" style='display:none'>
+                    <div style="padding-top:40px;" data-badge-type="donut" data-doi="10.13328/j.cnki.jos.005601" data-hide-no-mentions="false" class="altmetric-embed"></div>
+		    <div style="padding-top:5px;" class='altmetric-embed' data-badge-popover='left' data-doi='10.13328/j.cnki.jos.005601'></div>	
+                </div>
+                <div class="p5-r m-fl">
+		    <ul>
+			    <li>点击次数:<span id='ClickNum'></span></li>
+			    <li>下载次数: <span id="PdfClickNum"></span></li>
+			    <li>HTML阅读次数: <span id='HtmlClickNum'></span></li>
+			    <li style='display:none'>引用次数: <span id='CnkiCitedNum'></span></li>
+		    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="p7">
+            <h5 class="tt">历史</h5>
+            <div class="his">
+                <ul>
+		    <li id="SendTime">收稿日期:<span id='SendTimeValue'>2016-09-04</span></li>
+		    <li id="LastModifyTime">最后修改日期:<span id='LastModifyTimeValue'>2018-03-18</span></li>
+                    <li id="AdoptTime">录用日期:<span id='AdoptTimeValue'></span></li>
+                    <li id="PublishTime">在线发布日期: <span id='PublishTimeValue'>2019-01-23</span></li>
+                    <li id="BookPublishedTime">出版日期: <span id='BookPublishedTimeValue'></span></li>
+                </ul>
+            </div>
+        </div>
+<div class="p8"><h5 class="tt">文章二维码</h5><img style="margin-top:5px;" src="uploadfile/two_dimensional_code_img/jos/2019/12/5601_wechat_qr.png"></div>
+    </div>
+</div>
+<input type="hidden" id="was_referenced_current_page" name="was_referenced_current_page">
+<input type="hidden" id="reference_current_page" name="reference_current_page">
+<input type="hidden" id="AttacheListCount" name="AttacheListCount" value="0">
+<input type="hidden" id="ImagesListCount" name="ImagesListCount" value="0">
+
+<!--trend md 代码-->
+
+<script language="javascript">
+   
+
+    //获取当期的基本信息
+    function GetCurrentIssue() {
+        var strUrl = "jos/issue/get_current_issue_info";
+        if (strUrl != "") {
+            $.get(strUrl, function (strIssueXml) {
+                var strYearID = GetXmlValue(strIssueXml, "year_id");
+                var strIssueID = GetXmlValue(strIssueXml, "quarter_id");
+                var strVolume = GetXmlValue(strIssueXml, "book_no");
+                var strIssueEnName = GetXmlValue(strIssueXml, "quarter_en_name");
+                var strEnPublishDate = GetXmlValue(strIssueXml, "en_publish_date");
+                var strIssueSmallCoverURL = GetXmlValue(strIssueXml, "image_url");
+                $("#current_small_cover_id").html("<a href='[current_issue_url]'><img src='" + strIssueSmallCoverURL + "' width='150' height='200'></a>");
+                $("#current_publish_date_id").html(strEnPublishDate);
+                $("#current_volume_id").html(strVolume);
+                $("#current_issue_id").html(strIssueID);
+            });
+        }
+    }
+
+ //从归智平台获取相关视频
+    function GetVideoList() {
+	    var strUrl = "jos/article/resources_list?file_no=5601&aid=1AA1J8C5&doi=e2553d22df795e502151bc1dd7a46e811c7b932e6003a041aa11b3a38af57faa";
+	    if (strUrl == "") {
+		return;
+	    }
+	    $.get(strUrl, function (videoArray) {             
+		let strVideoList="";
+		for (let i = 0; i < videoArray.length; i++) {
+		  let strID=videoArray[i].id;
+		  let strCoverURL=videoArray[i].cover_url;
+		  let strSharesCount=videoArray[i].shares_count;
+		  let strLikeCount=videoArray[i].like_count;
+		  let strFeedViewCount=videoArray[i].feed_view_count;
+		  strVideoList=strVideoList+"<a href='https://user.aipub.cn/videoDetail?id="+strID+"' style='position: relative;'><img src='"+strCoverURL+"'><img style='width: 45px;height: 45px;position: absolute;transform: translate(-50%, -200%);left: 52%;top:14px;bottom: 0px;' src='/template/images/bf.png'></a>";
+		}
+		if(strVideoList!=""){
+			$("#video_list").html(strVideoList);
+		}else{
+			$("#VideoContainer").hide();
+		}
+	    });
+    }
+
+    function GetMetrics() {
+        var strUrl = "jos/article/metrics/5601";
+        if (strUrl != "") {
+            $.get(strUrl, function (strReturnScript) {               
+                eval(strReturnScript);
+            });
+        }
+    }
+
+    function GetRelatedArticle() {
+        var strUrl = "jos/article/related/2019_12_5601";
+        if (strUrl != "") {
+            $.get(strUrl, function (strReturn) {
+                if (strReturn != "") {
+                    $("#RelateArticleList").html(strReturn);
+		    var RCount=$("#RelateArticleList dl").children().length;
+
+		    $('#RelatedTab').text($('#RelatedTab').text()+' ['+RCount+']')
+
+                } else {
+                    $("#RelatedTab").hide();
+                    $("#RelatedContainer").hide();
+                }
+            });
+        } else {
+            $("#RelatedTab").hide();
+            $("#RelatedContainer").hide();
+        }
+    }
+
+    function GetReferenceList(strPage) {
+        $("#reference_current_page").prop("value", strPage);
+        var strUrl = "jos/article/reference/2019$12$5601";
+        if (strUrl != "") {
+            strUrl = strUrl + "?cp=" + strPage;
+            $.get(strUrl, function (strReturn) {
+              
+                if (strReturn != "") {
+                    $("#ReferenceList").append(strReturn);
+                    var intReferenceNum = $("div#ReferenceList dd").length;
+                    if (intReferenceNum % 20 != 0) {
+                        $("#MoreReferenceContainer").hide();
+                    }
+
+		    
+		    var RCount=$("#ReferenceList dl").children().length;
+
+		    $('#ReferenceTab').text($('#ReferenceTab').text()+' ['+RCount+']')
+                } else {
+                    if (strPage != "") {
+                        var intPage = parseInt(strPage);
+                        if (intPage == 1) {
+                            $("#ReferenceTab").hide();
+                            $("#ReferenceContainer").hide();
+                        } else {
+                            $("#MoreReferenceContainer").hide();
+                        }
+                    }
+                }
+            });
+        } else {
+            $("#ReferenceTab").hide();
+            $("#ReferenceContainer").hide();
+        }
+    }
+
+    function GetWasReferencedList(strPage) {
+        $("#was_referenced_current_page").prop("value", strPage);
+        var strUrl = "jos/article/cited/2019_12_5601";
+        if (strUrl != "") {
+            strUrl = strUrl + "?cp=" + strPage;
+            $.get(strUrl, function (strReturn) {
+                if (strReturn != "") {
+                    var intWasReferencedNum = $("div#WasReferencedList dd").length;
+                    if (intWasReferencedNum != 0) {
+                        $("#MoreWasReferencedContainer").hide();
+                    }
+		     var RCount=$("#WasReferencedList dl").children().length;
+
+		    $('#WasReferencedList').text($('#CitedByTab').text()+' ['+RCount+']')
+                    $("#WasReferencedList").append(strReturn);
+                } else {
+                    if (strPage != "") {
+                        var intPage = parseInt(strPage);
+                        if (intPage == 1) {
+                            $("#CitedByTab").hide();
+                            $("#CitedByContainer").hide();
+                        } else {
+                            $("#MoreWasReferencedContainer").hide();
+                        }
+                    }
+                }
+            });
+        } else {
+            $("#CitedByTab").hide();
+            $("#CitedByContainer").hide();
+            $("#MoreWasReferencedContainer").hide();
+        }
+    }
+    function MoreWasReferenced() {
+        var strWasReferencedCurrentPage = $("#was_referenced_current_page").val();
+        var intWasReferencedCurrentPage = parseInt(strWasReferencedCurrentPage);
+        intWasReferencedCurrentPage = intWasReferencedCurrentPage + 1;
+        GetWasReferencedList(intWasReferencedCurrentPage);
+    }
+
+    function MoreReference() {
+        var strReferenceCurrentPage = $("#reference_current_page").val();
+        var intReferenceCurrentPage = parseInt(strReferenceCurrentPage);
+        intReferenceCurrentPage = intReferenceCurrentPage;
+        GetReferenceList(intReferenceCurrentPage);
+    }
+
+    $().ready(function () {
+	 var strFlag="1";
+	 if(strFlag=="1"){
+		$("#all_issue_position").show();
+		$("#online_first_position").hide();
+	 }else{
+		$("#all_issue_position").hide();
+		$("#online_first_position").show();
+	 }
+	 //如果没有html，自动隐藏
+	 var strHtmlUrl=$("#HtmlUrl").prop("href");
+	 if(strHtmlUrl.indexOf("/html/")<0){
+		$("#HtmlUrl").hide();
+	 }
+	 var strDOI=$("#DOIValue").html();
+	 if(strDOI==""){
+		$("#DOI").hide();
+	 }
+	 var strCSTR=$("#CSTRValue").html();
+	 if(strCSTR==""){
+		$("#CSTR").hide();
+	 }
+
+	 var strDisplayCnInstitution=$("#DisplayCnInstitutionValue").html();
+	 if(strDisplayCnInstitution==""){
+		$("#DisplayCnInstitution").hide();
+	 }
+
+	  var strDisplayEnInstitution=$("#DisplayEnInstitutionValue").html();
+	 if(strDisplayEnInstitution==""){
+		$("#DisplayEnInstitution").hide();
+	 }
+
+	 var strAuthorResume=$("#AuthorResumeValue").html();
+	 if(strAuthorResume==""){
+		$("#AuthorResume").hide();
+	 }
+
+	 var strContactAuthor=$("#ContactAuthorValue").html();
+	 if(strContactAuthor==""){
+		$("#ContactAuthor").hide();
+	 }
+
+	 var strClcNumber=$("#ClcNumberValue").html();
+	 if(strClcNumber==""){
+		$("#ClcNumber").hide();
+	 }
+
+	 var strCnFundProject=$("#CnFundProjectValue").html();
+	 if(strCnFundProject==""){
+		$("#CnFundProject").hide();
+	 }
+
+	 var strEnFundProject=$("#EnFundProjectValue").html();
+	 if(strEnFundProject==""){
+		$("#EnFundProject").hide();
+	 }
+
+	 var strEnTitle=$("#EnTitleValue").html();
+	 if(strEnTitle==""){
+		$("#EnTitle").hide();
+	 }
+
+	 var strEnAbstract=$("#EnAbstractValue").html();
+	 if(strEnAbstract==""){
+		$("#EnAbstract").hide();
+	 }
+
+	 var strSendTime=$("#SendTimeValue").html();
+	 if(strSendTime==""){
+		$("#SendTime").hide();
+	 }
+	 
+	 var strLastModifyTime=$("#LastModifyTimeValue").html();
+	 if(strLastModifyTime==""){
+		$("#LastModifyTime").hide();
+	 }
+
+	 var strAdoptTime=$("#AdoptTimeValue").html();
+	 if(strAdoptTime==""){
+		$("#AdoptTime").hide();
+	 }
+
+	 var strPublishTime=$("#PublishTimeValue").html();
+	 if(strPublishTime==""){
+		$("#PublishTime").hide();
+	 }
+
+	 var strBookPublishedTime=$("#BookPublishedTimeValue").html();
+	 if(strBookPublishedTime==""){
+		$("#BookPublishedTime").hide();
+	 }
+
+	 var strCnKeyWord="移动社交网络;隐私匹配;混淆矩阵;隐私保护;机会计算";
+	 var strCnKeyWordList="<span>关键词:</span>";
+	 if(strCnKeyWord!=""){
+		var CnKeyWordArray=strCnKeyWord.split(";");
+		for(var i=0;i<CnKeyWordArray.length;i++){
+			var strKeyWord=CnKeyWordArray[i];
+			if(i>0){
+				strCnKeyWordList=strCnKeyWordList+"<span>;</span>";
+			}
+			strCnKeyWordList=strCnKeyWordList+"<a href='jos/article/search?jid=jos&field=key_word&key="+strKeyWord+"' target='_blank'>"+strKeyWord+"</a>";
+		}
+		$("#CnKeyWord").html(strCnKeyWordList);
+	 }			       
+				     
+	  var strEnKeyWord="mobile social networks (MSNs);profile matching;confusion matrix;privacy-preserving;opportunity calculation";
+	  var strEnKeyWordList="<span>Key words:</span>";
+	  if(strEnKeyWord!=""){
+		var EnKeyWordArray=strEnKeyWord.split(";");
+		for(var i=0;i<EnKeyWordArray.length;i++){
+			var strKeyWord=EnKeyWordArray[i];
+			if(i>0){
+				strEnKeyWordList=strEnKeyWordList+"<span>;</span>";
+			}
+			strEnKeyWordList=strEnKeyWordList+"<a href='jos/article/search?jid=jos&field=en_key_word&key="+strKeyWord+"' target='_blank'>"+strKeyWord+"</a>";
+		}
+		$("#EnKeyWord").html(strEnKeyWordList);
+	 }
+
+	var strImagesJson="";
+	 if(strImagesJson!=""){
+	        var imagesJson = jQuery.parseJSON(strImagesJson);
+	        var strImagesList="";
+		var intLength=imagesJson.images.length;
+		for(var i=0;i<intLength;i++){				
+			var strCnLabel=imagesJson.images[i].cn_label;
+			var strEnLabel=imagesJson.images[i].en_label;
+			var strCnTitle=imagesJson.images[i].cn_title;
+			var strEnTitle=imagesJson.images[i].en_title;
+			var strSmallImageUrl=imagesJson.images[i].small_image_url;
+			strImagesList=strImagesList+"<div class='swiper-slide'><img width='800' src='"+strSmallImageUrl+"'><div class='swiper_slide_div'><div class='swiper_slide_title'><span class='swiper_title_cn'>"+strCnLabel+" "+strCnTitle+"</span><span class='swiper_title_en'>"+strEnLabel+" "+strEnTitle+"</span></div></div></div>";
+		}
+		$("#ImagesList").html(strImagesList);
+	  }
+	  var strAttachmentsJson="";
+	  if(strAttachmentsJson!=""){
+		 var strAttachmentsList="";
+		 var attachmentsJson = jQuery.parseJSON(strAttachmentsJson);
+		 var intLength=attachmentsJson.attachments.length;
+		 for(var i=0;i<intLength;i++){				
+			var strAttacheName=attachmentsJson.attachments[i].attache_name;
+			var strAttacheUrl=attachmentsJson.attachments[i].url;
+			var strAttacheTypeIcon=attachmentsJson.attachments[i].type_icon;
+			strAttachmentsList=strAttachmentsList+"<dl><span><a href='"+strAttacheUrl+"' target='_blank'>"+strAttacheName+"</a></span><font><a href='"+strAttacheUrl+"' target='_blank'>下 载</a></font></dl>";
+		 }
+		 $("#AttacheList").html(strAttachmentsList);
+	  
+	  }
+	  
+	  var strCnAuthorsList="";
+	  var strEnAuthorsList="";
+	  var strAuthorsJson="{\"authors\":[{\"cn_name\":\"罗恩韬\",\"en_name\":\"LUO En-Tao\",\"cn_institution\":\"湖南科技学院 电子与信息工程学院, 湖南 永州 425199\",\"en_institution\":\"School of Electronics and Information Engineering, Hunan University of Science and Engineering, Yongzhou 425199, China\",\"email\":\"\",\"is_first_author\":\"1\",\"is_contact_author\":\"\",\"sequence\":\"1\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"王国军\",\"en_name\":\"WANG Guo-Jun\",\"cn_institution\":\"中南大学 信息科学与工程学院, 湖南 长沙 410083\",\"en_institution\":\"School of Information Science and Engineering, Central South University, Changsha 410083, China\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"2\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"刘琴\",\"en_name\":\"LIU Qin\",\"cn_institution\":\"湖南大学 信息科学与工程学院, 湖南 长沙 410082\",\"en_institution\":\"College of Computer Science and Electronic Engineering, Hunan University, Changsha 410082, China\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"3\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"孟大程\",\"en_name\":\"MENG Da-Cheng\",\"cn_institution\":\"中南大学 信息科学与工程学院, 湖南 长沙 410083\",\"en_institution\":\"School of Information Science and Engineering, Central South University, Changsha 410083, China\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"4\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"唐雅媛\",\"en_name\":\"TANG Ya-Yuan\",\"cn_institution\":\"湖南科技学院 电子与信息工程学院, 湖南 永州 425199\",\"en_institution\":\"School of Electronics and Information Engineering, Hunan University of Science and Engineering, Yongzhou 425199, China\",\"email\":\"tangyayuan_huse@126.com\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"5\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"}]}";
+	  if(strAuthorsJson!=""){
+		 var authorsJson = jQuery.parseJSON(strAuthorsJson);
+		 var intLength=authorsJson.authors.length;
+		 for(var i=0;i<intLength;i++){				
+			var cn_name=authorsJson.authors[i].cn_name;			
+			var en_name=authorsJson.authors[i].en_name;
+			var cn_institution=authorsJson.authors[i].cn_institution;
+			var en_institution=authorsJson.authors[i].en_institution;
+			var email=authorsJson.authors[i].email;
+			var is_first_author=authorsJson.authors[i].is_first_author;
+			var is_contact_author=authorsJson.authors[i].is_contact_author;
+			var sequence=authorsJson.authors[i].sequence;
+			var resume=authorsJson.authors[i].resume;
+			var institute_superscript=authorsJson.authors[i].institute_superscript;
+			//中文部分
+			strCnAuthorsList=strCnAuthorsList+"<li><a class='nn' href='javascript:;'>"+cn_name+"</a> <sup>"+institute_superscript+"</sup>";
+			strCnAuthorsList=strCnAuthorsList+" <sup>";
+			if(is_contact_author==""){
+				strCnAuthorsList=strCnAuthorsList+"<a class='tx' href='javascript:;' title='通讯作者:"+cn_name+",Email: "+email+"'></a>";
+			}
+			if(email.indexOf("@")>0){
+				strCnAuthorsList=strCnAuthorsList+"<a class='email' href='mailto:"+email+"' title='"+email+"'></a>";
+			}				
+			strCnAuthorsList=strCnAuthorsList+"</sup>";
+                        strCnAuthorsList=strCnAuthorsList+"<div class='fudong_ycc'>";
+                        strCnAuthorsList=strCnAuthorsList+"<p>"+cn_name+"</p>";
+                        strCnAuthorsList=strCnAuthorsList+cn_institution+"<br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='http://it.alljournals.cn/search.aspx?encoding=utf8&subject=industry_technology&major=zdhjsjsjjs&orderby=referenced&field=author_name&q="+cn_name+"' target='_blank'>在期刊界中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='https://xueshu.baidu.com/s?wd="+cn_name+"' target='_blank'>在百度中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='jos/article/search/?jid=jos&field=user_real_name&key="+cn_name+"' target='_blank'>在本站中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"</div><div class='fudong_ycc_bj'></div></li>";
+
+			
+			//英文部分
+			strEnAuthorsList=strEnAuthorsList+"<li><a class='nn' href='javascript:;'>"+en_name+"</a> <sup>"+institute_superscript+"</sup>";
+			strEnAuthorsList=strEnAuthorsList+" <sup>";
+			if(is_contact_author==""){
+				strEnAuthorsList=strEnAuthorsList+"<a class='tx' href='' title='Contact author:"+en_name+",Email: "+email+"'></a>";
+			}
+			if(email.indexOf("@")>0){
+				strEnAuthorsList=strEnAuthorsList+"<a class='email' href='mailto:"+email+"' title='"+email+"'></a>";
+			}				
+			strEnAuthorsList=strEnAuthorsList+"</sup>";
+                        strEnAuthorsList=strEnAuthorsList+"<div class='fudong_ycc'>";
+                        strEnAuthorsList=strEnAuthorsList+"<p>"+en_name+"</p>";
+                        strEnAuthorsList=strEnAuthorsList+en_institution+"<br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='http://it.alljournals.cn/search.aspx?encoding=utf8&subject=industry_technology&major=zdhjsjsjjs&orderby=referenced&field=author_name&q="+en_name+"' target='_blank'>在期刊界中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='https://xueshu.baidu.com/s?wd="+en_name+"' target='_blank'>在百度中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='jos/article/search/?jid=jos&field=user_real_name&key="+en_name+"' target='_blank'>在本站中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"</div><div class='fudong_ycc_bj'></div></li>";
+			
+		 }
+		 $("#CnAuthorList").html(strCnAuthorsList);
+		 $("#EnAuthorList").html(strEnAuthorsList);
+	  }	
+
+	  $("#CommentList").load("template/common/et_article_comment.aspx?file_no=5601&journal_id=jos&is_mobile=0&year_id=2019&return_url=jos/article/abstract/5601&issue=12&flag=1");
+	
+	
+        var strAttacheListCount = $("#AttacheListCount").val();
+        if (strAttacheListCount == "0") {//隐藏附件
+            $("#MaterialsTab").hide();
+        }
+        var strImagesListCount = $("#ImagesListCount").val();
+        if (strImagesListCount == "0") {//隐藏图片
+            $("#FiguresTab").hide();
+        }
+        GetMetrics();
+        GetRelatedArticle();
+        GetReferenceList("1");
+        GetWasReferencedList("1");
+	GetVideoList();
+    });
+</script>
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+<script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function (e) {
+        alert('复制成功');
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        e.clearSelection();
+    });
+</script>
+<style>
+.index_c{
+
+padding-left: 40px;
+}
+	.article_abstract_left .cat .slideTxtBox .bd ul .zy .zy1 p{
+		word-break: break-all;
+	}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+i,em {
+    font-style: italic;
+}
+
+</style>
+
+
+
+<script>
+    const referConfig = {
+        vendor: "qy",
+        column_num: 2,
+        column_css: 1,
+        page_name: 'abstract',
+       
+         
+            "pcid": "11118c97064381af4e885e0237db14b2b44b2e1ba90a6b5ec83049e15eb7fd78",
+            "cid": "d02e979dd9f667acaab8e21a72dada14",
+            "jid": "f32d92ecd005f7606db19dae7306d59a"
+      
+    }
+
+    if(referConfig.pcid!=""){
+	$('.zy').append("<div id='et_extend' > </div>")
+     }	
+
+</script>
+<script src="https://recommend.aipub.cn/file/aipub.ad.js"></script>
+               
+
+			</div>
+		<div class="clear"></div>
+  </div>
+
+  <!--底部开始-->
+  <div class="footer">
+      <span>友情链接:</span><span><a href='http://www.iscas.ac.cn/' target='_blak'>中国科学院软件研究所</a></span><span><a href='https://www.ccf.org.cn/' target='_blak'>中国计算机学会</a></span><span><a href='http://www.cas.cn/' target='_blak'>中国科学院</a></span><span><a href='http://www.nsfc.gov.cn/' target='_blak'>国家自然科学基金委员会</a></span><span><a href='https://dl.ccf.org.cn/index.html?_ack=1' target='_blak'>CCF数字图书馆</a></span><span><a href='http://www.ijsi.org' target='_blak'>Int'l J of Softw Info</a></span><span><a href='http://www.c-s-a.org.cn' target='_blak'>计算机系统应用</a></span>    
+       <div class="clear"></div>
+  </div>
+  <div class="foot">
+    您是第<b><span id="WebSiteTotalCount"></span></b>位访问者<br>
+		版权所有：中国科学院软件研究所    <a href="https://beian.miit.gov.cn/">京ICP备05046678号-3</a><br /> 
+地址：北京市海淀区中关村南四街4号,邮政编码：100190<br />
+电话：010-62562563 传真：010-62562533  Email：jos@iscas.ac.cn<br />
+技术支持：<a href="http://www.e-tiller.com" target="_blank">北京勤云科技发展有限公司</a><br />
+<div style="width:406px;margin:0 auto; padding:10px 0;">
+         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040202500063" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/jos/ch/ext_images/batb.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11040202500063号</p></a>
+       </div>
+   
+       <div class="clear"></div>
+  </div>
+   <style>
+.social-share .icon-wechat .wechat-qrcode {top: 0px; }
+ .et-py-10 .icon{margin: 0;}
+  </style>
+  <!--底部结束-->
+  <link rel="stylesheet" type="text/css" href="template/011_2/css/1000and1200.css">
+<!--  悬浮广告左边-->
+<!--1-->
+
+<!--  悬浮广告右边-->
+
+<!--弹出窗口-->
+
+<style>
+
+    .slideTxtBox_list_zy bb_1 {
+        display:block;
+    }
+    .slideTxtBox_list_shuffling bb_2 {
+        display:block;
+    }
+	#Content a{
+	
+	text-decoration: underline;
+	color: blue;
+	}
+	.search_ext_list_body .search_ext_list_body_container .search_ext_keyword_result .search_ext_article_list li{
+	
+	clear: both;
+	}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd .article_list li {
+    overflow: initial;
+    height: 100px;
+}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd ul {
+   overflow: initial;
+}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd .article_list .article_line{
+ overflow: initial;
+}
+</style>
+</body>
+</html>
+<script language="javascript">
+$().ready(function() {
+	//不管页面上有没有统计数字，都要加这个语句，用来刷新访问统计
+	 var strURL="jos/site/get_access_and_today_count";
+	 $.get(strURL,function(strScript){			 
+		eval(strScript);
+	});
+    });
+   
+   
+   
+
+    setTimeout(() => {
+        //alert($(".YYSS").length);
+        //alert($(".slideTxtBox_list_zy bb_1").length);
+        // $(".slideTxtBox_list_shuffling bb_2").css("display", "block");
+    },5000)
+</script>
+<script style="display:none;">
+//获取所有图片元素
+var currentUrl = window.location.href.toLowerCase();
+    if (currentUrl.indexOf('login') !== -1 && currentUrl.indexOf('html') !== -1) {
+const images = document.querySelectorAll('img');
+var image_news = document.getElementById('slideBox');
+var _images = "";
+if(image_news != "" && image_news != "null" && image_news != null){
+	_images = image_news.querySelectorAll('img');
+}
+// 遍历所有图片，并添加data-src属性
+images.forEach(image => {
+  image.setAttribute('data-src', image.src);
+});
+// 替换所有图片默认加载
+images.forEach(image => {
+  image.setAttribute('src', "http://www.e-tiller.com/uploadfile/loading.gif");
+});
+try{
+  // 图片新闻默认不懒加载
+  _images.forEach(image => {
+     image.setAttribute('src', image.dataset.src);
+  });
+}catch(e){}
+//监听页面滚动事件
+window.addEventListener('scroll', loadImages);
+//定义 loadImages 函数来加载图片
+
+function loadImages() {
+  for (let i = 0; i < images.length; i++) {
+    // 获取图片源和位置信息
+    let imgSrc = images[i].dataset.src;
+    let imgRect = images[i].getBoundingClientRect();
+    
+    if (imgRect.top < window.innerHeight && imgRect.left < window.innerWidth
+     && imgRect.right > 0 && imgRect.bottom > 0) {  
+      // 图片进入视口,加载真实图片源
+      images[i].src = imgSrc;  
+      images[i].addEventListener('load', () => { 
+        images[i].style.opacity = 1;  // 淡入效果
+      });
+    } 
+  }
+}
+//页面初始化时调用一次 loadImages，防止某些图片已进入视口但未加载
+loadImages();
+}
+</script>

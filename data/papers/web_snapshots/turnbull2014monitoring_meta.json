@@ -1,0 +1,11 @@
+{
+  "key": "turnbull2014monitoring",
+  "entry_type": "book",
+  "title": "The Art of Monitoring",
+  "author": "Turnbull, James",
+  "year": "2014",
+  "doi": "",
+  "url": "https://www.jamesturnbull.net/books/",
+  "journal": "",
+  "raw": "@book{turnbull2014monitoring,\n  title     = {The Art of Monitoring},\n  author    = {Turnbull, James},\n  year      = {2014},\n  publisher = {Leanpub},\n  url       = {https://www.jamesturnbull.net/books/}\n}"
+}

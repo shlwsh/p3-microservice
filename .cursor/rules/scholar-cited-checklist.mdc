@@ -1,0 +1,38 @@
+---
+description: 正文引用文献核实与归档检查清单（C6 门禁）
+globs: latex/references.bib,latex/sections/**/*.tex,data/papers/**
+alwaysApply: false
+---
+
+# 引用文献检查清单
+
+编辑 `references.bib`、正文 `\cite{}` 或 `data/papers/` 时，完成下列项后方可视为可投稿：
+
+- [ ] 新文献 DOI 经 **CrossRef** 或 **CHNDOI** 验证（加入 bib 前；勿手写记忆 DOI）
+- [ ] 正文 `\cite{key}` 与 `references.bib` 键名一致
+- [ ] 运行 `python3 scripts/verify_cited_papers.py --download` 且 **exit 0**
+- [ ] `data/papers/cited_papers_manifest.json` 中 `summary.paywall == 0`
+- [ ] 中文期刊（JOS/CJC/CRAD）至少有 **官网 HTML 快照**（无 OA PDF 时属正常）
+- [ ] 无效 DOI 条目已删除或替换（doi.org 404 不可保留）
+- [ ] 扩展阅读与 cited 已区分：`papers_index.json` ≠ `cited_papers_manifest.json`
+
+## 必跑命令
+
+```bash
+python3 scripts/verify_cited_papers.py --download
+```
+
+## 归档合格标准
+
+| archive_status | 含义 |
+|----------------|------|
+| `ok` | 开放 PDF |
+| `snapshot` | 中文期刊 HTML、技术文档 HTML、闭源期刊 CrossRef JSON |
+| `paywall` | **不合格** — 修 DOI/换文献 |
+
+## 双流水线
+
+- **调研**：`scholar-search` → `download_papers.py`（扩展阅读）
+- **门禁**：`verify_cited_papers.py`（仅正文已 `\cite` 条目）
+
+完整说明：`.agent/skills/scholar-search/实战技巧.md`

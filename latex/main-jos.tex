@@ -26,8 +26,17 @@
 \end{rjabstract}
 \rjkeywords{微服务;分布式日志采集;定向过滤;动态策略;指数退避;Grafana Loki}
 
+\begin{flushleft}
+\xiaowuhao
+{\hei Abstract:}\hspace{1em}{\kai
+In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection component with a master--worker architecture: gateway and microservice sidecar agents, plus a centralized log center. The center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints. A triple strategy transformation links gateway pre-filtering, node-level filtering, and center-side secondary ingestion. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode). Compared with full collection in the same architecture, directed collection reduces Loki ingested log volume, average agent CPU, and memory by 98.4\%, 37.5\%, and 2.0\% respectively (mean ingested logs: 72 vs.\ 4388$\pm$1). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments; attention-list generation takes about 15\,ms on 5000 traffic logs; exponential backoff passes all unit tests.
+}
+
+\vspace{0.6em}
+{\hei Key words:}\hspace{1em}{\kai microservice; distributed log collection; directed filtering; dynamic policy; exponential backoff; Grafana Loki}
+\end{flushleft}
+
 % ---------- 正文（与计算机学报版共用章节源文件）----------
-\input{sections/zh/01_intro.tex}
 \input{sections/zh/02_related.tex}
 \input{sections/zh/03_system.tex}
 \input{sections/zh/04_algorithms.tex}

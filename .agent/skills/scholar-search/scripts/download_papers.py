@@ -38,7 +38,7 @@ if _ENV_FILE.exists():
     load_dotenv(_ENV_FILE)
 
 _DEFAULT_OUTPUT_DIR = _PROJECT_ROOT / os.environ.get(
-    'SCHOLAR_PAPERS_DIR', 'doctor/paper1/data/papers'
+    'SCHOLAR_PAPERS_DIR', 'data/papers'
 )
 
 # Unpaywall 需要一个邮箱来标识请求者（免费，无需 Key）

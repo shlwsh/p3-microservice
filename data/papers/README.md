@@ -1,31 +1,56 @@
-# 参考文献 PDF 归档
+# 参考文献 PDF / 快照归档
 
-> 由 `scholar-search` 技能检索并下载。索引见 `papers_index.json`。
+> **符号链接**：仓库根 `papers/` → `data/papers/`  
+> **门禁脚本**：`python3 scripts/verify_cited_papers.py --download`  
+> **清单**：[`cited_papers_manifest.json`](cited_papers_manifest.json)（正文 `\cite{}` 全部条目）
 
-## 已下载（开放获取 / arXiv）
+## 当前状态（正文引用 18 篇）
 
-| 文件 | DOI | 与本文关联 |
-|------|-----|-----------|
-| `2023_Zhang_Robust_Failure_Diagnosis_...pdf` | 10.48550/arXiv.2302.10512 | 微服务多模态（日志+追踪）故障诊断 |
-| `2024_Wang_A_Comprehensive_Survey_on_Root_Cause_...pdf` | 10.48550/arXiv.2408.00803 | 微服务根因分析综述 |
-| `2024_Zhang_Failure_Diagnosis_in_Microservice_Systems.pdf` | 10.48550/arXiv.2407.01710 | 微服务故障诊断综述 |
-| `2022_Maruf_Using_Microservice_Telemetry_Data_...pdf` | 10.48550/arXiv.2207.02776 | 微服务遥测（含日志）动态分析 |
-| `2022_Vale_Designing_Microservice_Systems_Using_Patterns_...pdf` | 10.48550/arXiv.2201.03598 | 微服务模式与质量权衡 |
-| `2023_Cheng_AI_for_IT_Operations_AIOps_...pdf` | 10.48550/arXiv.2304.04661 | 云原生 AIOps 与运维可观测性 |
-| `2023_Xie_PBScaler_...pdf` | 10.48550/arXiv.2303.14620 | 微服务性能瓶颈（辅助背景） |
-| `2022_Xu_A_Full_Dive_into_Realizing_the_Edge-enabled_Metave.pdf` | 10.48550/arXiv.2203.05471 | 边缘计算背景（弱相关，可替换） |
+| 类型 | 数量 | 说明 |
+|------|------|------|
+| PDF (`ok`) | 4 | arXiv + Unpaywall 开放获取 |
+| 快照 (`snapshot`) | 14 | 软件学报 HTML、CrossRef JSON、技术文档 HTML 等 |
+| 待人工 (`paywall`) | 0 | — |
 
-## 已录入 DOI、待机构订阅获取 PDF
+运行 `python3 scripts/verify_cited_papers.py --download` 后应为 **exit 0**。
 
-见 `data/scholar/curated.json`：`li2021observability`、`burns2016patterns`、`jamshidi2018microservices`、`soldani2024logs`、`zhu2023sidecar`、`varghese2022edge` 等。
+## 目录结构
 
-## 复现下载
+```
+data/papers/
+├── cited_papers_manifest.json   # ★ 审核门禁清单
+├── papers_index.json            # scholar-search 历史索引
+├── *.pdf                        # 开放 PDF
+├── web_snapshots/               # HTML / CrossRef JSON 快照
+└── pending/                     # 应为空（有则未通过门禁）
+```
+
+## PDF 示例（开放获取）
+
+| 文件 | cite key | DOI |
+|------|----------|-----|
+| `2024_Tingting_wang2024rca.pdf` | `wang2024rca` | 10.48550/arXiv.2408.00803 |
+| `2023_Shenglin_zhang2023multimodal.pdf` | `zhang2023multimodal` | 10.48550/arXiv.2302.10512 |
+| `2020_Jacopo_soldani2020graphrca.pdf` | `soldani2020graphrca` | 10.1016/j.jss.2019.110432 |
+| `2024_Wang_...` | （历史 run，未 cited 可保留） | — |
+
+## 中文期刊快照
+
+软件学报等闭源 PDF 以 **官网摘要页 HTML** 归档，例如：
+
+- `web_snapshots/limingshu2019logmgmt.html`
+- `web_snapshots/jiatong2020logdiag.html`
+
+## 复现
 
 ```bash
-python .agent/skills/scholar-search/scripts/scholar_search.py \
-  --query "microservice log observability" --backend openalex --arxiv-only --num 15 \
-  --output data/scholar/results_arxiv.json
+python3 scripts/verify_cited_papers.py --download
 
+# 扩展检索（非 cited 门禁）
 python .agent/skills/scholar-search/scripts/download_papers.py \
-  --input data/scholar/curated.json --output-dir data/papers --max-downloads 12
+  --input data/scholar/curated.json --output-dir data/papers
 ```
+
+## 审核技能
+
+见 [`.agent/skills/paper1-multi-agent-review/参考文献归档细则.md`](../.agent/skills/paper1-multi-agent-review/参考文献归档细则.md)。

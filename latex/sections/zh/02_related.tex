@@ -1,13 +1,38 @@
 \section{相关工作}
 
 \subsection{集中式日志栈}
-ELK/EFK 以 Elasticsearch 为核心，检索能力强但索引成本高。Grafana Loki 采用标签索引，配合 Promtail 或 Fluent Bit 做节点推送，默认策略为全量或基于日志级别的静态过滤\cite{loki2019,turnbull2014monitoring}。李明树等\cite{limingshu2019logmgmt}综述了大规模分布式系统日志管理技术，指出全量汇聚在规模化场景下面临存储与检索双重压力。
+ELK/EFK 以 Elasticsearch 为核心，检索能力强但索引成本高。Grafana Loki 采用标签索引，配合 Promtail 或 Fluent Bit 做节点推送，默认策略为全量或基于日志级别的静态过滤\cite{loki2019,turnbull2014monitoring}。李明树等\cite{limingshu2019logmgmt}综述了大规模分布式系统日志管理技术，指出全量汇聚在规模化场景下面临存储与检索双重压力；贾统等\cite{jiatong2020logdiag}进一步从 AIOps 视角梳理了基于日志的故障诊断链路，强调\textbf{采集—存储—分析}各阶段均存在降本需求，但现有工作多假设日志已全量入库，对\textbf{采集阶段}的定向减量关注不足。
 
 \subsection{采样与追踪关联}
-OpenTelemetry 尾部采样（Tail-based Sampling）依赖分布式追踪上下文，在请求完成后决定是否保留关联日志，实现复杂度高\cite{otel_tail}。Li 等\cite{li2021observability}对工业界微服务追踪实践进行系统调查；Wang 等\cite{wang2024rca}与 Zhang 等\cite{zhang2023multimodal}进一步从根因分析与多模态（指标、日志、追踪）角度讨论微服务可观测性。本文关注清单可视为\textbf{由网关流量驱动的动态关联过滤}：先由网关 access log 识别异常 URL 模式，再触发相关服务节点采集上下文日志。
+OpenTelemetry 尾部采样（Tail-based Sampling）依赖分布式追踪上下文，在请求完成后决定是否保留关联日志，实现复杂度高\cite{otel_tail}。Li 等\cite{li2021observability}对工业界微服务追踪实践进行系统调查；Wang 等\cite{wang2024rca}与 Zhang 等\cite{zhang2023multimodal}从根因分析与多模态可观测性角度讨论微服务运维。于庆洋等\cite{yuqingyang2022trace}基于调用链控制流分析实现微服务性能异常定位，但其输入为\textbf{已有调用链日志}，而非在 Sidecar 层按动态策略裁剪应用日志上传量。本文关注清单可视为\textbf{由网关流量驱动的动态关联过滤}：先由网关 access log 识别异常 URL 模式，再触发相关服务节点采集上下文日志。
 
 \subsection{边缘采集与可靠传输}
 Fluent Bit 等轻量采集器强调低内存；云厂商建议指数退避与抖动以应对中心不可达\cite{aws_backoff,beyer2016sre}。Zhu 等\cite{zhu2023sidecar}量化 Service Mesh Sidecar 开销，为本文 Sidecar 部署场景提供对照背景。本文在 Sidecar 中引入固定上限缓存块与压力感知退避，并辅以 BoltDB 本地兜底。
 
+\subsection{国内微服务与智能运维}
+梅御东等\cite{meiyudong2020logcnn}与冯志勇等\cite{feng2020microservice}分别从国内日志智能分析与微服务技术综述角度讨论分布式系统可观测性，指出日志分析、调用链与运维智能化是核心挑战。包航宇等\cite{bao2023aiops}与谢冰等\cite{xiebing2018intelligentdev}梳理了智能运维（AIOps）的标准化与数据驱动运维趋势，但侧重\textbf{事后分析}与平台建设，较少涉及网关驱动的\textbf{采集前过滤}。
+
+\subsection{与代表性方案对比}
+表~\ref{tab:related_compare} 从策略输入、节点级定向采集、动态清单与实测验证等维度对比本文与国内外代表性方案。相较 Promtail/Loki 默认全量推送与 OpenTelemetry 尾部采样，本文以网关 access log 为策略源，经 Redis 下发 URL 模式清单，在 Agent 侧完成应用日志定向匹配；三期八节点 Docker 压测给出了可复现的入库量与资源对比数据。
+
+\begin{table}[htbp]
+  \centering
+  \caption{与代表性日志采集/可观测性方案对比}
+  \label{tab:related_compare}
+  \small
+  \begin{tabular}{p{2.2cm}p{1.6cm}p{1.5cm}p{1.4cm}p{1.5cm}p{1.6cm}}
+    \toprule
+    方案 & 策略驱动源 & 节点定向采集 & 动态清单 & 传输可靠性机制 & 本文关系 \\
+    \midrule
+    ELK/EFK 全量 & 静态配置 & 否（汇聚） & 否 & 队列缓冲 & 存储成本高 \\
+    Loki+Promtail & 标签/级别 & 否（全量推送） & 否 & 客户端批传 & 表~\ref{tab:compare} 全量基线 \\
+    OTel 尾部采样 & Trace 上下文 & 间接 & 请求级 & 采集器链 & 实现复杂、依赖追踪 \\
+    日志故障诊断综述\cite{jiatong2020logdiag} & 已入库日志 & 否 & 否 & --- & 侧重分析阶段 \\
+    调用链异常定位\cite{yuqingyang2022trace} & 调用链 & 否 & 否 & --- & 侧重事后定位 \\
+    \textbf{本文} & \textbf{网关流量} & \textbf{是（Sidecar）} & \textbf{是（Top-$K$ URL）} & \textbf{缓存块+退避} & 采集阶段减量 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \subsection{本文定位}
-张建勋等\cite{zhangjianxun2020microservice}与 Jamshidi 等\cite{jamshidi2018microservices}系统总结了微服务架构演进与挑战；Burns 等\cite{burns2016patterns,burns2016borg}给出容器化分布式系统设计模式。现有方案较少将\textbf{网关 access log}作为策略输入，动态下发至各微服务节点做应用日志定向采集。Soldani 等\cite{soldani2024logs,soldani2020graphrca}虽利用微服务日志做故障传播分析，但侧重事后解释而非采集阶段减量。本文通过关注清单、三次策略转换与可复现 Docker 原型填补该工程空白。
+Soldani 等\cite{soldani2024logs,soldani2020graphrca}利用微服务日志做故障传播分析，侧重事后解释而非采集阶段减量。现有方案较少将\textbf{网关 access log}作为策略输入，动态下发至各微服务节点做应用日志定向采集。本文通过关注清单、三次策略转换与可复现 Docker 原型，在采集阶段实现日志入库量数量级下降，并与全量 Sidecar 架构进行对照实测。

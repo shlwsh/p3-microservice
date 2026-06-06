@@ -4,6 +4,7 @@
   "description": "分布式定向日志采集组件",
   "scripts": {
     "mygit": "bash scripts/mygit.sh",
-    "mygit:check": "bash .agent/skills/mygit/scripts/setup-check.sh"
+    "mygit:check": "bash .agent/skills/mygit/scripts/setup-check.sh",
+    "skills:link": "bash scripts/link_cursor_skills.sh"
   }
 }
