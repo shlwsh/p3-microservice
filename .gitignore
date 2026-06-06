@@ -16,3 +16,4 @@ latex/output/
 # 编辑器
 *.swp
 *~
+.vscode/settings.json
