@@ -213,11 +213,35 @@ def is_binary_artifact(file_path: str) -> bool:
     return lower.endswith(BINARY_SUFFIXES)
 
 
+def is_wsl_linux() -> bool:
+    try:
+        with open("/proc/version", encoding="utf-8") as f:
+            return "microsoft" in f.read().lower()
+    except OSError:
+        return False
+
+
+def win_git_available() -> bool:
+    if not os.path.isfile(WIN_GIT):
+        return False
+    try:
+        probe = subprocess.run(
+            [WIN_GIT, "--version"],
+            capture_output=True,
+            timeout=5,
+        )
+        return probe.returncode == 0
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+
 def is_excluded_from_auto_commit(file_path: str) -> bool:
     normalized = file_path.replace("\\", "/")
     if normalized in AUTO_COMMIT_NEVER_FILES or normalized.endswith(
         tuple(f"/{f}" for f in AUTO_COMMIT_NEVER_FILES)
     ):
+        return True
+    if normalized.startswith(".env copy") or "/.env copy" in normalized:
         return True
     return any(normalized.startswith(prefix) for prefix in AUTO_COMMIT_EXCLUDE_PREFIXES)
 
@@ -420,17 +444,11 @@ def build_staged_diff(text_files: list[str], binary_files: list[str], stat: str,
 
 
 def git_executable_for_push() -> str:
-    if os.path.isfile(WIN_GIT):
-        try:
-            probe = subprocess.run(
-                [WIN_GIT, "--version"],
-                capture_output=True,
-                timeout=5,
-            )
-            if probe.returncode == 0:
-                return WIN_GIT
-        except (OSError, subprocess.TimeoutExpired):
-            pass
+    # WSL 下 GitHub 推送优先 WSL Git + 代理，Windows Git 无代理易 Connection reset
+    if is_wsl_linux():
+        return "git"
+    if win_git_available():
+        return WIN_GIT
     return "git"
 
 
@@ -438,25 +456,55 @@ def build_git_push_env(
     base_env: dict[str, str],
     proxy_url: str | None,
     github_token: str | None,
+    *,
+    use_proxy: bool = True,
 ) -> tuple[dict[str, str], list[str]]:
     env = base_env.copy()
+    extra: list[str] = []
+
     if github_token:
-        apply_proxy_env(env, proxy_url)
+        if use_proxy:
+            apply_proxy_env(env, proxy_url)
         env["GIT_TERMINAL_PROMPT"] = "0"
         helper = (
             f"!f() {{ echo username=x-access-token; echo password={github_token}; }}; f"
         )
-        return env, ["-c", f"credential.helper={helper}"]
+        extra.extend(["-c", f"credential.helper={helper}"])
+        return env, extra
 
-    if os.path.isfile(WIN_GIT):
-        return clean_env_for_windows_git(), []
-
-    apply_proxy_env(env, proxy_url)
+    if use_proxy:
+        apply_proxy_env(env, proxy_url)
     env["GIT_TERMINAL_PROMPT"] = "0"
-    extra = ["-c", "http.version=HTTP/1.1"]
+    extra.append("-c")
+    extra.append("http.version=HTTP/1.1")
     if os.path.isfile(GCM_WRAPPER):
         extra.extend(["-c", f"credential.helper=!{GCM_WRAPPER}"])
     return env, extra
+
+
+def build_push_command(
+    git_bin: str,
+    extra_git_args: list[str],
+    has_upstream: bool,
+    remote: str,
+    branch: str,
+    proxy_url: str | None,
+) -> list[str]:
+    cmd = [git_bin, *extra_git_args]
+    if proxy_url:
+        cmd.extend(
+            [
+                "-c",
+                f"http.proxy={proxy_url}",
+                "-c",
+                f"https.proxy={proxy_url}",
+            ]
+        )
+    if has_upstream:
+        cmd.extend(["push", "--no-verify"])
+    else:
+        cmd.extend(["push", "--set-upstream", remote, branch, "--no-verify"])
+    return cmd
 
 
 def run_git(args: list[str], env: dict | None = None, check: bool = True) -> subprocess.CompletedProcess:
@@ -499,59 +547,73 @@ def push_to_remote(proxy_url: str | None, github_token: str | None) -> None:
     print("🚀 正在推送到远程仓库...")
     branch = run_command("git rev-parse --abbrev-ref HEAD") or "main"
     remote = run_command(f"git config branch.{branch}.remote") or "origin"
+    remote_url = run_command(f"git remote get-url {remote}") or ""
     has_upstream = bool(run_command(f"git config branch.{branch}.merge"))
+    is_github = "github.com" in remote_url.lower()
 
-    git_bin = git_executable_for_push()
-    if git_bin != "git":
-        print("🔐 使用 Windows Git 推送（复用 Windows 凭据，推荐 WSL 环境）")
-    elif github_token:
-        print("🔐 使用 GITHUB_TOKEN 推送")
-    else:
-        print("⚠️  未配置 GITHUB_TOKEN；将尝试 Windows Git / GCM 桥接")
+    print(f"📡 远程仓库: {remote}, 分支: {branch}")
 
-    push_env, extra_git_args = build_git_push_env(os.environ, proxy_url, github_token)
-    push_cmd = [git_bin, *extra_git_args]
-    if has_upstream:
-        push_cmd += ["push", "--no-verify"]
-        print(f"📡 远程仓库: {remote}, 分支: {branch}")
-    else:
-        push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
-        print(f"📡 远程仓库: {remote}, 分支: {branch} (首次推送)")
+    strategies: list[tuple[str, str, dict[str, str], list[str]]] = []
 
-    try:
-        result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
-    except OSError as exc:
-        if git_bin == WIN_GIT:
-            print(f"⚠️  Windows Git 不可用 ({exc})，回退到 WSL Git")
-            push_cmd = ["git", *extra_git_args]
-            if has_upstream:
-                push_cmd += ["push", "--no-verify"]
-            else:
-                push_cmd += ["push", "--set-upstream", remote, branch, "--no-verify"]
-            push_env = apply_proxy_env(os.environ.copy(), proxy_url)
-            push_env["GIT_TERMINAL_PROMPT"] = "0"
-            if github_token:
-                push_env["GIT_CONFIG_COUNT"] = "1"
-                push_env["GIT_CONFIG_KEY_0"] = "credential.helper"
-                push_env["GIT_CONFIG_VALUE_0"] = (
-                    f"!f() {{ echo username=x-access-token; echo password={github_token}; }}; f"
-                )
-            result = subprocess.run(push_cmd, env=push_env, text=True, capture_output=True)
-        else:
-            raise
+    if github_token:
+        env, extra = build_git_push_env(
+            os.environ, proxy_url, github_token, use_proxy=True
+        )
+        strategies.append(("WSL Git + GITHUB_TOKEN + 代理", "git", env, extra))
 
-    if result.returncode != 0:
-        err = (result.stderr or result.stdout).strip()
-        print(f"\n❌ 推送失败: {err}")
-        print("本地提交已保留。可尝试：")
-        print("  1) 在 .env.local 添加 GITHUB_TOKEN=<GitHub PAT>")
-        print("  2) 手动执行: '/mnt/c/Program Files/Git/cmd/git.exe' push")
-        sys.exit(1)
+    env, extra = build_git_push_env(os.environ, proxy_url, None, use_proxy=True)
+    strategies.append(("WSL Git + 代理", "git", env, extra))
 
-    out = (result.stdout or result.stderr).strip()
-    if out:
-        print(out)
-    print("\n✨ 推送成功！")
+    if is_wsl_linux() and win_git_available() and not is_github:
+        strategies.append(
+            (
+                "Windows Git（内网远程）",
+                WIN_GIT,
+                clean_env_for_windows_git(),
+                [],
+            )
+        )
+    elif is_wsl_linux() and win_git_available() and is_github:
+        strategies.append(
+            (
+                "Windows Git（无代理，备选）",
+                WIN_GIT,
+                clean_env_for_windows_git(),
+                [],
+            )
+        )
+
+    last_error = ""
+    for label, git_bin, push_env, extra_git_args in strategies:
+        push_cmd = build_push_command(
+            git_bin, extra_git_args, has_upstream, remote, branch, proxy_url
+        )
+        print(f"🔐 尝试: {label}")
+        try:
+            result = subprocess.run(
+                push_cmd, env=push_env, text=True, capture_output=True
+            )
+        except OSError as exc:
+            last_error = str(exc)
+            print(f"⚠️  {label} 不可用: {exc}")
+            continue
+
+        if result.returncode == 0:
+            out = (result.stdout or result.stderr).strip()
+            if out:
+                print(out)
+            print("\n✨ 推送成功！")
+            return
+
+        last_error = (result.stderr or result.stdout).strip()
+        print(f"⚠️  {label} 失败: {last_error.splitlines()[-1] if last_error else 'unknown'}")
+
+    print(f"\n❌ 推送失败: {last_error}")
+    print("本地提交已保留。可尝试：")
+    print("  1) 在 .env.local 添加 GITHUB_TOKEN=<GitHub PAT>")
+    print("  2) 确认 Clash/V2Ray 代理端口与 .env.mygit 中 MYGIT_HTTP_PROXY 一致")
+    print("  3) 手动执行: HTTPS_PROXY=http://127.0.0.1:7890 git push")
+    sys.exit(1)
 
 
 def main() -> None:
