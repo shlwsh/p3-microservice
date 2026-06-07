@@ -1,0 +1,11 @@
+{
+  "key": "usman2022observability",
+  "entry_type": "article",
+  "title": "A Survey on Observability of Distributed Edge and Container-Based Microservices",
+  "author": "Usman, Muhammad and Ferlin, Simone and Brunstrom, Anna and Taheri, Javid",
+  "year": "2022",
+  "doi": "10.1109/ACCESS.2022.3193102",
+  "url": "",
+  "journal": "IEEE Access",
+  "raw": "@article{usman2022observability,\n  title   = {A Survey on Observability of Distributed Edge and Container-Based Microservices},\n  author  = {Usman, Muhammad and Ferlin, Simone and Brunstrom, Anna and Taheri, Javid},\n  journal = {IEEE Access},\n  volume  = {10},\n  pages   = {86904--86919},\n  year    = {2022},\n  doi     = {10.1109/ACCESS.2022.3193102}\n}"
+}

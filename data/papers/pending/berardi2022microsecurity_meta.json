@@ -1,0 +1,11 @@
+{
+  "key": "berardi2022microsecurity",
+  "entry_type": "article",
+  "title": "Microservices Security: A Systematic Literature Review",
+  "author": "Berardi, Davide and Callegati, Franco and Melis, Andrea",
+  "year": "2022",
+  "doi": "10.7717/peerj-cs.779",
+  "url": "",
+  "journal": "PeerJ Computer Science",
+  "raw": "@article{berardi2022microsecurity,\n  title   = {Microservices Security: A Systematic Literature Review},\n  author  = {Berardi, Davide and Callegati, Franco and Melis, Andrea},\n  journal = {PeerJ Computer Science},\n  volume  = {8},\n  pages   = {e779},\n  year    = {2022},\n  doi     = {10.7717/peerj-cs.779}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "seshagiri2022sok",
+  "entry_type": "article",
+  "title": "[SoK] Identifying Mismatches Between Microservice Testbeds and Industrial Perceptions of Microservices",
+  "author": "Seshagiri, Vishwanath and Huye, Darby and Liu, Lan and Wildani, Avani and Sambasivan, Raja R.",
+  "year": "2022",
+  "doi": "10.5070/SR32157839",
+  "url": "",
+  "journal": "Systems Research",
+  "raw": "@article{seshagiri2022sok,\n  title   = {[SoK] Identifying Mismatches Between Microservice Testbeds and Industrial Perceptions of Microservices},\n  author  = {Seshagiri, Vishwanath and Huye, Darby and Liu, Lan and Wildani, Avani and Sambasivan, Raja R.},\n  journal = {Systems Research},\n  volume  = {1},\n  number  = {1},\n  year    = {2022},\n  doi     = {10.5070/SR32157839}\n}"
+}

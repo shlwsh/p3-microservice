@@ -1,0 +1,11 @@
+{
+  "key": "khan2022logtemplate",
+  "entry_type": "article",
+  "title": "Guidelines for Assessing the Accuracy of Log Message Template Identification Techniques",
+  "author": "Khan, Zanis Ali and Shin, Donghwan and Bianculli, Domenico and Briand, Lionel",
+  "year": "2022",
+  "doi": "10.1145/3510003.3510101",
+  "url": "",
+  "journal": "ACM Transactions on Software Engineering and Methodology",
+  "raw": "@article{khan2022logtemplate,\n  title   = {Guidelines for Assessing the Accuracy of Log Message Template Identification Techniques},\n  author  = {Khan, Zanis Ali and Shin, Donghwan and Bianculli, Domenico and Briand, Lionel},\n  journal = {ACM Transactions on Software Engineering and Methodology},\n  volume  = {31},\n  number  = {3},\n  pages   = {1--33},\n  year    = {2022},\n  doi     = {10.1145/3510003.3510101}\n}"
+}

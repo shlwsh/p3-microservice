@@ -1,0 +1,11 @@
+{
+  "key": "diaz2023mlopsaiops",
+  "entry_type": "article",
+  "title": "A Joint Study of the Challenges, Opportunities, and Roadmap of MLOps and AIOps: A Systematic Survey",
+  "author": "Diaz-de-Arcaya, Josu and Torre-Bastida, Ana I. and Zarate, Gorka and Minon, Raul and Almeida, Aitor",
+  "year": "2023",
+  "doi": "10.1145/3625289",
+  "url": "",
+  "journal": "ACM Computing Surveys",
+  "raw": "@article{diaz2023mlopsaiops,\n  title   = {A Joint Study of the Challenges, Opportunities, and Roadmap of MLOps and AIOps: A Systematic Survey},\n  author  = {Diaz-de-Arcaya, Josu and Torre-Bastida, Ana I. and Zarate, Gorka and Minon, Raul and Almeida, Aitor},\n  journal = {ACM Computing Surveys},\n  volume  = {56},\n  number  = {4},\n  pages   = {1--30},\n  year    = {2023},\n  doi     = {10.1145/3625289}\n}"
+}

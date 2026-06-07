@@ -5,7 +5,7 @@
   "author": "Turnbull, James",
   "year": "2014",
   "doi": "",
-  "url": "https://www.jamesturnbull.net/books/",
+  "url": "https://openlibrary.org/works/OL27309078W",
   "journal": "",
-  "raw": "@book{turnbull2014monitoring,\n  title     = {The Art of Monitoring},\n  author    = {Turnbull, James},\n  year      = {2014},\n  publisher = {Leanpub},\n  url       = {https://www.jamesturnbull.net/books/}\n}"
+  "raw": "@book{turnbull2014monitoring,\n  title     = {The Art of Monitoring},\n  author    = {Turnbull, James},\n  year      = {2014},\n  publisher = {Leanpub},\n  url       = {https://openlibrary.org/works/OL27309078W}\n}"
 }

@@ -1,0 +1,11 @@
+{
+  "key": "wang2017tracefault",
+  "entry_type": "article",
+  "title": "一种基于执行轨迹监测的微服务故障诊断方法",
+  "author": "王智宇 and 王涛 and 张文博 and 陈宁江 and 左春",
+  "year": "2017",
+  "doi": "10.13328/j.cnki.jos.005223",
+  "url": "https://www.jos.org.cn/1000-9825/5223.htm",
+  "journal": "软件学报",
+  "raw": "@article{wang2017tracefault,\n  title   = {一种基于执行轨迹监测的微服务故障诊断方法},\n  author  = {王智宇 and 王涛 and 张文博 and 陈宁江 and 左春},\n  journal = {软件学报},\n  volume  = {28},\n  number  = {6},\n  pages   = {1435--1454},\n  year    = {2017},\n  doi     = {10.13328/j.cnki.jos.005223},\n  url     = {https://www.jos.org.cn/1000-9825/5223.htm}\n}"
+}

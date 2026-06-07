@@ -1,0 +1,11 @@
+{
+  "key": "aws_backoff",
+  "entry_type": "misc",
+  "title": "Exponential Backoff and Jitter",
+  "author": "{Amazon Web Services",
+  "year": "2015",
+  "doi": "",
+  "url": "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/",
+  "journal": "",
+  "raw": "@misc{aws_backoff,\n  title        = {Exponential Backoff and Jitter},\n  author       = {{Amazon Web Services}},\n  year         = {2015},\n  howpublished = {AWS Architecture Blog},\n  url          = {https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/}\n}"
+}

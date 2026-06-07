@@ -1,0 +1,11 @@
+{
+  "key": "zhu2023sidecar",
+  "entry_type": "inproceedings",
+  "title": "Dissecting Overheads of Service Mesh Sidecars",
+  "author": "Zhu, Xiangfeng and She, Guozhen and Xue, Bowen and Zhang, Yu and Mahajan, Ratul",
+  "year": "2023",
+  "doi": "10.1145/3620678.3624652",
+  "url": "",
+  "journal": "Proceedings of the ACM Symposium on Cloud Computing",
+  "raw": "@inproceedings{zhu2023sidecar,\n  title   = {Dissecting Overheads of Service Mesh Sidecars},\n  author  = {Zhu, Xiangfeng and She, Guozhen and Xue, Bowen and Zhang, Yu and Mahajan, Ratul},\n  booktitle = {Proceedings of the ACM Symposium on Cloud Computing},\n  year    = {2023},\n  doi     = {10.1145/3620678.3624652}\n}"
+}

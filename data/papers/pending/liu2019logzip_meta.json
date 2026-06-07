@@ -1,0 +1,11 @@
+{
+  "key": "liu2019logzip",
+  "entry_type": "inproceedings",
+  "title": "Logzip: Extracting Hidden Structures via Iterative Clustering for Log Compression",
+  "author": "Liu, Jinyang and Zhu, Jieming and He, Shilin and He, Pinjia and Zheng, Zibin and Lyu, Michael R.",
+  "year": "2019",
+  "doi": "10.1109/ASE.2019.00085",
+  "url": "",
+  "journal": "Proceedings of the 34th IEEE/ACM International Conference on Automated Software Engineering",
+  "raw": "@inproceedings{liu2019logzip,\n  title     = {Logzip: Extracting Hidden Structures via Iterative Clustering for Log Compression},\n  author    = {Liu, Jinyang and Zhu, Jieming and He, Shilin and He, Pinjia and Zheng, Zibin and Lyu, Michael R.},\n  booktitle = {Proceedings of the 34th IEEE/ACM International Conference on Automated Software Engineering},\n  pages     = {863--875},\n  year      = {2019},\n  doi       = {10.1109/ASE.2019.00085}\n}"
+}

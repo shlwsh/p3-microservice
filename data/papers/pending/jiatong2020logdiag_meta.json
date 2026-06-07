@@ -1,0 +1,11 @@
+{
+  "key": "jiatong2020logdiag",
+  "entry_type": "article",
+  "title": "基于日志数据的分布式软件系统故障诊断综述",
+  "author": "贾统 and 李影 and 吴中海",
+  "year": "2020",
+  "doi": "10.13328/j.cnki.jos.006045",
+  "url": "",
+  "journal": "软件学报",
+  "raw": "@article{jiatong2020logdiag,\n  title   = {基于日志数据的分布式软件系统故障诊断综述},\n  author  = {贾统 and 李影 and 吴中海},\n  journal = {软件学报},\n  volume  = {31},\n  number  = {7},\n  pages   = {1997--2018},\n  year    = {2020},\n  doi     = {10.13328/j.cnki.jos.006045}\n}"
+}

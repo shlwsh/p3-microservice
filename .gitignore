@@ -6,6 +6,7 @@
 # Python
 __pycache__/
 *.pyc
+.venv-scholar/
 
 # GitNexus 索引
 .gitnexus/

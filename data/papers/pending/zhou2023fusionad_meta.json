@@ -1,0 +1,11 @@
+{
+  "key": "zhou2023fusionad",
+  "entry_type": "article",
+  "title": "基于融合学习的无监督多维时间序列异常检测",
+  "author": "周小晖 and 王意洁 and 徐鸿祚 and 刘铭宇",
+  "year": "2023",
+  "doi": "10.7544/issn1000-1239.202220490",
+  "url": "https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.202220490.pdf",
+  "journal": "计算机研究与发展",
+  "raw": "@article{zhou2023fusionad,\n  title   = {基于融合学习的无监督多维时间序列异常检测},\n  author  = {周小晖 and 王意洁 and 徐鸿祚 and 刘铭宇},\n  journal = {计算机研究与发展},\n  volume  = {60},\n  number  = {3},\n  pages   = {496--508},\n  year    = {2023},\n  doi     = {10.7544/issn1000-1239.202220490},\n  url     = {https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.202220490.pdf}\n}"
+}

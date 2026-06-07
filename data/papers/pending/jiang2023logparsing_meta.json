@@ -1,0 +1,11 @@
+{
+  "key": "jiang2023logparsing",
+  "entry_type": "article",
+  "title": "A Large-Scale Evaluation for Log Parsing Techniques: How Far Are We?",
+  "author": "Jiang, Zhihan and Liu, Jinyang and Huang, Junjie and Li, Yichen and Huo, Yintong and others",
+  "year": "2023",
+  "doi": "10.48550/arXiv.2308.10828",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2308.10828",
+  "raw": "@article{jiang2023logparsing,\n  title   = {A Large-Scale Evaluation for Log Parsing Techniques: How Far Are We?},\n  author  = {Jiang, Zhihan and Liu, Jinyang and Huang, Junjie and Li, Yichen and Huo, Yintong and others},\n  journal = {arXiv preprint arXiv:2308.10828},\n  year    = {2023},\n  doi     = {10.48550/arXiv.2308.10828}\n}"
+}

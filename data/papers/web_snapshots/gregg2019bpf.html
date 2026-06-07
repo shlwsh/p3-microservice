@@ -1,0 +1,462 @@
+<html>
+<head>
+<title>BPF Performance Tools (Book)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Brendan Gregg">
+<meta name="GENERATOR" content="Vim">
+<meta name="keywords" content="BPF,eBPF,book,performance,Linux observability,BPF Performance Tools,BPF Performance Tools: Linux System and Application Observability,analysis,tools">
+<meta name="description" content="Homepage for the book BPF Performance Tools: Linux System and Application Observability, by Brendan Gregg, published by Addison Wesley.">
+<meta name="viewport" content="">
+<style type="text/css">
+li { padding-bottom:5px; }
+</style>
+<link rel="stylesheet" href="page.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYD11KXST1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SYD11KXST1');
+</script>
+
+</head>
+<body>
+
+<div class="page">
+<div class="nav">
+<p class="navhdr">Brendan's site:</p>
+<a href="/overview.html">Start Here</a><br>
+<a href="/index.html">Homepage</a><br>
+<a href="/blog/index.html">Blog</a><br>
+<!-- <a href="/sitemap.html">Full Site Map</a><br> -->
+<a href="/systems-performance-2nd-edition-book.html">Sys Perf book</a><br>
+<a href="/bpf-performance-tools-book.html">BPF Perf book</a><br>
+<a href="/linuxperf.html">Linux Perf</a><br>
+<a href="/ebpf.html">eBPF Tools</a><br>
+<a href="/perf.html">perf Examples</a><br>
+<a href="/methodology.html">Perf Methods</a><br>
+<a href="/usemethod.html">USE Method</a><br>
+<a href="/tsamethod.html">TSA Method</a><br>
+<a href="/offcpuanalysis.html">Off-CPU Analysis</a><br>
+<a href="/activebenchmarking.html">Active Bench.</a><br>
+<a href="/wss.html">WSS Estimation</a><br>
+<a href="/flamegraphs.html">Flame Graphs</a><br>
+<a href="/flamescope.html">Flame Scope</a><br>
+<a href="/heatmaps.html">Heat Maps</a><br>
+<a href="/frequencytrails.html">Frequency Trails</a><br>
+<a href="/colonygraphs.html">Colony Graphs</a><br>
+<a href="/dtrace.html">DTrace Tools</a><br>
+<a href="/dtracetoolkit.html">DTraceToolkit</a><br>
+<a href="/dtkshdemos.html">DtkshDemos</a><br>
+<a href="/guessinggame.html">Guessing Game</a><br>
+<a href="/specials.html">Specials</a><br>
+<a href="/books.html">Books</a><br>
+<a href="/sites.html">Other Sites</a><br>
+
+</div>
+<!-- remove
+<br>
+<p class="navhdr">This Page:</p>
+<a href="bpf-performance-tools-book.html">BPF book</a><br>
+&nbsp; <a href="#BPF">BPF</a><br>
+&nbsp; <a href="#OSes">OSes</a><br>
+&nbsp; <a href="#audience">Audience</a><br>
+&nbsp; <a href="#Tools">Tools</a><br>
+&nbsp; <a href="#TOC">TOC</a><br>
+&nbsp; <a href="#related">Related</a><br>
+&nbsp; <a href="#errata">Errata</a><br>
+&nbsp; <a href="#updates">Updates</a><br>
+</div>
+-->
+
+<div class="recent">
+<!-- (this is for /index.html etc) recent books: -->
+<!-- <center><a href="https://informit.com/sale/booksgiving"><img border=0 width=180 src="/Images/booksgiving2021.jpg"></center><br><b>Book sale until Dec 1, 2021: 55% off for 2 or more</b></a><br><br> -->
+<center><a href="/systems-performance-2nd-edition-book.html"><img src="/Images/sysperf2nd_bookcover_360.jpg" width=180></a><br><font size=-2><i><a href="/systems-performance-2nd-edition-book.html">Systems Performance 2nd Ed.</a></i></font></center><br><br>
+
+<center><a href="/bpf-performance-tools-book.html"><img src="/Images/bpfperftools_bookcover_360.jpg" width=180></a><br><font size=-2><i><a href="/bpf-performance-tools-book.html">BPF Performance Tools book</a></i></font></center>
+<!--
+<br><center><a href="https://www.portal.reinvent.awsevents.com/connect/search.ww?#loadSearch-searchPhrase=OPN303&searchType=session&tc=0&sortBy=abbreviationSort&p="><img src="/Images/Speaker/reInvent2019_200.jpg" width=180" border=0></a><br><font size=-2><i>I'm speaking at <a href="https://www.portal.reinvent.awsevents.com/connect/search.ww?#loadSearch-searchPhrase=OPN303&searchType=session&tc=0&sortBy=abbreviationSort&p=">AWS re:Invent 2019</a></i></font></center>
+-->
+<br>
+
+Recent posts:<br>
+<ul style="padding-left:18px">
+  
+	   <li class="recent">07 Feb 2026 &raquo;<br>
+	   <a href="/blog/2026-02-07/why-i-joined-openai.html">  
+	   Why I joined OpenAI</a></li>
+  
+	   <li class="recent">05 Dec 2025 &raquo;<br>
+	   <a href="/blog/2025-12-05/leaving-intel.html">  
+	   Leaving Intel</a></li>
+  
+	   <li class="recent">28 Nov 2025 &raquo;<br>
+	   <a href="/blog/2025-11-28/ai-virtual-brendans.html">  
+	   On "AI Brendans" or "Virtual Brendans"</a></li>
+  
+	   <li class="recent">22 Nov 2025 &raquo;<br>
+	   <a href="/blog/2025-11-22/intel-is-listening.html">  
+	   Intel is listening, don't waste your shot</a></li>
+  
+	   <li class="recent">17 Nov 2025 &raquo;<br>
+	   <a href="/blog/2025-11-17/third-stage-engineering.html">  
+	   Third Stage Engineering</a></li>
+  
+	   <li class="recent">04 Aug 2025 &raquo;<br>
+	   <a href="/blog/2025-08-04/when-to-hire-a-computer-performance-engineering-team-2025-part1.html">  
+	   When to Hire a Computer Performance Engineering Team (2025) part 1 of 2</a></li>
+  
+	   <li class="recent">22 May 2025 &raquo;<br>
+	   <a href="/blog/2025-05-22/3-years-of-extremely-remote-work.html">  
+	   3 Years of Extremely Remote Work</a></li>
+  
+	   <li class="recent">01 May 2025 &raquo;<br>
+	   <a href="/blog/2025-05-01/doom-gpu-flame-graphs.html">  
+	   Doom GPU Flame Graphs</a></li>
+  
+	   <li class="recent">29 Oct 2024 &raquo;<br>
+	   <a href="/blog/2024-10-29/ai-flame-graphs.html">  
+	   AI Flame Graphs</a></li>
+  
+	   <li class="recent">22 Jul 2024 &raquo;<br>
+	   <a href="/blog/2024-07-22/no-more-blue-fridays.html">  
+	   No More Blue Fridays</a></li>
+  
+	   <li class="recent">24 Mar 2024 &raquo;<br>
+	   <a href="/blog/2024-03-24/linux-crisis-tools.html">  
+	   Linux Crisis Tools</a></li>
+  
+	   <li class="recent">17 Mar 2024 &raquo;<br>
+	   <a href="/blog/2024-03-17/the-return-of-the-frame-pointers.html">  
+	   The Return of the Frame Pointers</a></li>
+  
+	   <li class="recent">10 Mar 2024 &raquo;<br>
+	   <a href="/blog/2024-03-10/ebpf-documentary.html">  
+	   eBPF Documentary</a></li>
+  
+	   <li class="recent">28 Apr 2023 &raquo;<br>
+	   <a href="/blog/2023-04-28/ebpf-security-issues.html">  
+	   eBPF Observability Tools Are Not Security Tools</a></li>
+  
+	   <li class="recent">01 Mar 2023 &raquo;<br>
+	   <a href="/blog/2023-03-01/computer-performance-future-2022.html">  
+	   USENIX SREcon APAC 2022: Computing Performance: What's on the Horizon</a></li>
+  
+	   <li class="recent">17 Feb 2023 &raquo;<br>
+	   <a href="/blog/2023-02-17/srecon-apac-2023.html">  
+	   USENIX SREcon APAC 2023: CFP</a></li>
+  
+	   <li class="recent">02 May 2022 &raquo;<br>
+	   <a href="/blog/2022-05-02/brendan-at-intel.html">  
+	   Brendan@Intel.com</a></li>
+  
+	   <li class="recent">15 Apr 2022 &raquo;<br>
+	   <a href="/blog/2022-04-15/netflix-farewell-1.html">  
+	   Netflix End of Series 1</a></li>
+  
+	   <li class="recent">09 Apr 2022 &raquo;<br>
+	   <a href="/blog/2022-04-09/tensorflow-library-performance.html">  
+	   TensorFlow Library Performance</a></li>
+  
+	   <li class="recent">19 Mar 2022 &raquo;<br>
+	   <a href="/blog/2022-03-19/why-dont-you-use.html">  
+	   Why Don't You Use ...</a></li>
+  
+</ul>
+<a href="/blog/index.html">Blog index</a><br>
+<a href="/blog/about.html">About</a><br>
+<a href="/blog/rss.xml">RSS</a><br>
+<!-- also edit _layouts/default.html -->
+<!--
+<br><a href="https://www.usenix.org/conference/lisa18"><img src="https://www.usenix.org/sites/default/files/lisa18_banner_join-me.png" width=180></a><br><font size=-2><i>I am program co-chair for LISA 2018</i></font>
+-->
+
+</div>
+
+<div class="content">
+<h1>BPF Performance Tools (book)</h1>
+
+<div style="float:right;padding-left:30px;padding-right:10px;padding-bottom:2px">
+<a href="Images/bpfperftools_bookcover_1348.png"><img style="border:1px solid black" src="Images/bpfperftools_bookcover_1348.png" width="250"></a><br><br>
+<a href="BPF/bpf_performance_tools_book.png"><img style="border:1px solid black" src="BPF/bpf_performance_tools.png" alt="" title="BPF Performance Tools" width="250" /></a><br>
+<center><font size=-1><i>New tools developed for<br>this book colored <font color="red">red</font>.</i></font></center><br>
+<!-- <a href="BPF/bpf-book-draft.jpg"><img style="border:1px solid black" src="BPF/bpf-book-draft.jpg" alt="" title="BPF Performance Tools draft copy" width="250" /></a><br>
+<center><font size=-1><i>Draft copy</i></font></center><br> -->
+<a href="https://www.amazon.com/gp/reader/0136554822"><img style="border:1px solid black" src="Images/bpfperftools_amazon_preview_500.png" alt="" title="BPF Performance Tools preview" width="250" /></a><br>
+<center><font size=-1><i>eBook preview <a href="https://www.amazon.com/gp/reader/0136554822">first 100 pages</a></i></font></center><br>
+<!-- https://item.jd.com/12769029.html#crumb-wrap -->
+<img style="border:0px solid black" src="Images/bpfperftools_bookcover_chinese1_660.jpg" width="250"><br><center><i><font size=-1>Chinese edition</font></i></center><br>
+<img style="border:0px solid black" src="Images/bpfperftools_bookcover_chinese2_800.jpg" width="250"><br><center><i><font size=-1>Chinese/English edition</font></i></center><br>
+</div>
+<p>This is the official site for the book BPF Performance Tools: Linux System and Application Observability, published by Addison Wesley (2019). This book can help you get the most out of your systems and applications, helping you improve performance, reduce costs, and solve software issues. Here I'll describe the book, link to related content, and list errata and updates.</p>
+
+<!-- Also see the preface for a detailed description of the book, which is included in the <a href="">sample chapter</a> from the <a href="">InformIT</a> site.</p>-->
+
+<p>The book is available on <a href="https://amzn.to/2OWoQQX">Amazon.com</a> (<a href="https://amzn.to/2OWoQQX">paperback</a>, <a href="https://amzn.to/2DqKdEM">kindle</a>), <a href="http://bit.ly/34EJ6xf">InformIT</a> (paperback, PDF, etc), and Safari (<a href="https://search.safaribooksonline.com/book/operating-systems-and-server-administration/linux/9780136588870">here</a> and <a href="https://www.oreilly.com/library/view/bpf-performance-tools/9780136588870/">here</a>). The paper book was released in December 2019 but sold out immediately. ISBN-13: 9780136554820. <font size=-1><i>(If you purchase through the Amazon or InformIT links, the book's technical editor earns a commission.)</i></font></p>
+<!-- <a href="https://www.amazon.com/dp/0136554822">Amazon.com</a>-->
+
+<p>The Amazon Kindle preview shows the <a href="https://www.amazon.com/gp/reader/0136554822">first 100 pages</a> out of this 880 page book.</p>
+
+<p>There is also a companion book, <a href="/systems-performance-2nd-edition-book.html">Systems Performance: 2nd Edition (2020)</a>, that provides balanced coverage of performance analysis and methodologies using all tool types.</p>
+
+<!--
+It is available for pre-order on <a href="">Amazon</a>, <a href="http://www.informit.com/title/9780136554820">InformIT</a>, and <a href="https://www.oreilly.com/library/view/bpf-performance-tools/9780136554820">Safari</a>. My favorite ebook format is the PDF version, which is on the <a href="http://www.informit.com/title/9780136554820">InformIT</a> site. ISBN-13: 9780136554820.</p>
+-->
+
+<p>On this page:
+<a href="#BPF">BPF</a>,
+<a href="#Screenshots">Screenshots</a>,
+<a href="#OSes">OSes</a>,
+<a href="#audience">Audience</a>,
+<a href="#Tools">Tools</a>,
+<a href="#TOC">TOC</a>,
+<a href="#related">Related</a>,
+<a href="#errata">Errata</a>,
+<a href="#updates">Updates</a>.
+</p>
+
+<!-- <p><b><a href="https://informit.com/sale/booksgiving">There is a book sale until Dec 1, 2021, where you can get this book and others at 55% off when buying 2 or more.</a></b></p> -->
+
+<a name="BPF"></a>
+<h2>What is BPF?</h2>
+
+<p>Berkeley Packet Filter (BPF) is an in-kernel execution engine that processes a virtual instruction set, and has been extended recently (aka eBPF) for providing a safe way to extend kernel functionality. In some ways, eBPF does to the kernel what JavaScript does to websites: it allows all sorts of new applications to be created. BPF is now used for software defined networking, observability (this book), security enforcement, and more. The main front-ends for BPF performance tools are <a href="https://github.com/iovisor/bcc">BCC</a> and <a href="https://github.com/iovisor/bpftrace">bpftrace</a>. BPF itself is also becoming a technology name, and no longer an abbreviation.</p>
+
+<a name="Screenshots"></a>
+<h2>Screenshots</h2>
+
+<p>As an example new tool from the book, readahead.bt provides a new view of file system read ahead performance: the age of read-ahead pages when they are finally referenced, and unused read-ahead pages while tracing:
+
+<div style="max-width:92%;overflow-x:auto">
+<pre>
+# <b>readahead.bt</b>
+Attaching 5 probes...
+^C
+Readahead unused pages: 128
+
+Readahead used page age (ms):
+@age_ms: 
+[1]             2455 |@@@@@@@@@@@@@@@                                     |
+[2, 4)          8424 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|
+[4, 8)          4417 |@@@@@@@@@@@@@@@@@@@@@@@@@@@                         |
+[8, 16)         7680 |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     |
+[16, 32)        4352 |@@@@@@@@@@@@@@@@@@@@@@@@@@                          |
+[32, 64)           0 |                                                    |
+[64, 128)          0 |                                                    |
+[128, 256)       384 |@@                                                  |
+</pre>
+</div>
+
+<p>The book covers many of the existing tools as well, for example, tcplife for efficiently logging TCP session details:</p>
+
+<div style="max-width:92%;overflow-x:auto">
+<pre>
+# <b>tcplife</b>
+PID   COMM   LADDR          LPORT RADDR          RPORT TX_KB RX_KB MS
+4169  java   100.1.111.231  40158 100.2.116.192  6001      7    33 3590.91
+4169  java   100.1.111.231  56940 100.5.177.31   6101      0     0 2.48
+4169  java   100.1.111.231  6001  100.2.176.45   49482     0     0 17.94
+4169  java   100.1.111.231  18926 100.5.102.250  6101      0     0 0.90
+4169  java   100.1.111.231  44530 100.2.31.140   6001      0     0 2.64
+4169  java   100.1.111.231  44406 100.2.8.109    6001     11    28 3982.11
+34781 sshd   100.1.111.231  22    100.2.17.121   41566     5     7 2317.30
+[...]
+</pre>
+</div>
+
+<p>Apart from kernel resources, applications are also analyzed. The following book tool counts Java JNI usage by stack trace:</p>
+
+<pre style="max-width:92%;overflow-x:auto">
+# <b>bpftrace --unsafe jnistacks.bt</b>
+Tracing jni_NewObject* calls... Ctrl-C to end.
+^C
+Running /usr/local/bin/jmaps to create Java symbol files in /tmp...
+Fetching maps for all java processes...
+Mapping PID 25522 (user bgregg):
+wc(1):   8350  26012 518729 /tmp/perf-25522.map
+
+[...]
+@[
+    jni_NewObject+0
+    Lsun/awt/X11GraphicsConfig;::pGetBounds+171
+    Ljava/awt/MouseInfo;::getPointerInfo+2048
+    Lnet/sf/freecol/client/gui/plaf/FreeColButtonUI;::paint+1648
+    Ljavax/swing/plaf/metal/MetalButtonUI;::update+232
+    Ljavax/swing/JComponent;::paintComponent+672
+    Ljavax/swing/JComponent;::paint+2208
+[...]
+    Ljavax/swing/RepaintManager;::prePaintDirtyRegions+1556
+    Ljavax/swing/RepaintManager$ProcessingRunnable;::run+572
+    Ljava/awt/EventQueue$4;::run+1100
+    call_stub+138
+    JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, Th...
+]: 232
+</pre>
+
+<p>This book doesn't just show the tools, it also explains caveats and gotchas. In this case jnistacks.bt is a simple tool, but getting it to work in production can mean fixing stack traces and symbols. These real-world gotchas are explained with recommended fixes and workarounds.</p>
+
+<p>The book explains these and over 150 other BPF tools, as well as summarizing over 30 traditional performance analysis tools (top, vmstat, iostat, perf, Ftrace, etc) so that you can use the right tool for the job.</p>
+
+<a name="OSes"></a>
+<h2>Operating Systems</h2>
+
+<p>Extended BPF is a built-in Linux kernel technology, added in parts since 3.18. At least Linux 4.9 is necessary to utilize the tools in this book. All Linux distributions can use the BPF tools (Ubuntu, CentOS, Fedora, Red Hat, etc): although the status of BCC and bpftrace varies for each distribution. Some have packages, others still require a build from source. See the install instructions for <a href="https://github.com/iovisor/bcc/blob/master/INSTALL.md">BCC</a> and <a href="https://github.com/iovisor/bpftrace/blob/master/INSTALL.md">bpftrace</a>.</p>
+
+<p>Other operating systems including BSD (where BPF originated) are not covered in this book. As extended BPF is being ported elsewhere, a future edition of this book may cover more than Linux.</p>
+
+<a name="audience"></a>
+<h2>Audience</h2>
+
+<p>This book is primarily for engineers, developers, and support staff in enterprise and cloud environments. No programming is required, unless you want to, as you can use this book as either:</p>
+
+<ul>
+<li>A reference of ready-to-run performance analysis and debugging tools.</li>
+<li>A guide for learning how to develop new tools.</li>
+</ul>
+
+<p>This book is also useful for students as a way to learn system internals in an interactive way: you can run and develop tools to examine the workings of the system.</p>
+
+<a name="Tools"></a>
+<h2>Tools</h2>
+
+<p>Over 150 BPF tools are covered in the book, for performance analysis, troubleshooting, and other uses (e.g., security forensics). These tools provide observability for CPUs, memory, disks, file systems, networking, languages, applications, containers, hypervisors, security, and the Linux kernel. To explain how to analyze different languages, three types of execution are studied: compiled, JIT-compiled, and interpreted, using C, Java, and the bash shell as examples. The same approaches can be applied to other languages, and a summary for Node.js, C++, and Golang are included.</p>
+
+<p>To cover all these targets, many new tools needed to be developed for this book. The diagram on the top right shows these new tools colored red. The source to these is included in the book, and can also be found here:</p>
+
+<ul><p><a href="https://github.com/brendangregg/bpf-perf-tools-book">https://github.com/brendangregg/bpf-perf-tools-book</a></p></ul>
+
+<p>The /originals directory contains an as-is snapshot of the published tools, and /updated contains those tools plus updated versions.</p>
+
+<a name="TOC"></a>
+<h2>Table of Contents</h2>
+
+<!-- <div style="float:right;padding-left:30px;padding-right:10px;padding-bottom:2px"><a href="http://www.informit.com/content/images/9780133390094/samplepages/0133390098.pdf"><img style="border:1px solid black" src="Images/sysperf_CPUs_500.png" alt="" title="systems performance CPU chapter" width="250" height="312" /></a><br><center><i><font size=-1><a href="http://www.informit.com/content/images/9780133390094/samplepages/0133390098.pdf">sample chapter (PDF)</a></font></i></center></div> -->
+<div style="float:right;padding-left:30px;padding-right:10px;padding-bottom:2px">
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Achievement unlocked, finished chapter 1 of BPF performance tools, found and disabled several services that were spamming the system with several open/close/exec loops</p>&mdash; bsingharora (@bsingharora) <a href="https://twitter.com/bsingharora/status/1199258192523317248?ref_src=twsrc%5Etfw">November 26, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Found a misconfiguration in nginx with gzip_static being enabled via `opensnoop`, the new BPF Performance Tools book by <a href="https://twitter.com/brendangregg?ref_src=twsrc%5Etfw">@brendangregg</a> is great reading so far. We saw a 10% latency drop immediately 😮</p>&mdash; Kyle Scott Mcgill (@kylescottmcgill) <a href="https://twitter.com/kylescottmcgill/status/1200131590904352773?ref_src=twsrc%5Etfw">November 28, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<ul>
+Preface<br>
+Part I: Technologies<br>
+<ul>
+1. Intro<br>
+2. Technology Background<br>
+3. Performance Analysis<br>
+4. bcc<br>
+5. bpftrace<br>
+</ul>
+Part II: Using BPF Tools<br>
+<ul>
+6. CPUs<br>
+7. Memory<br>
+8. File Systems<br>
+9. Disk I/O<br>
+10. Networking<br>
+11. Security<br>
+12. Languages<br>
+13. Applications<br>
+14. Kernel<br>
+15. Containers<br>
+16. Hypervisors<br>
+</ul>
+Part III: Additional Topics<br>
+<ul>
+17. Other BPF Tools<br>
+18. Tips and Tricks<br>
+</ul>
+Apx.A. bpftrace One-Liners<br>
+Apx.B. bpftrace Cheat Sheet<br>
+Apx C. bcc Tool Development<br>
+Apx D. C BPF<br>
+Apx E. BPF Instructions<br>
+Glossary<br>
+Bibliography<br>
+</ul>
+
+<a name="ebook"></a>
+<h2>PDF Download eBook EPUB</h2>
+
+<p>The Safari online book store features early drafts of books for feedback, called "rough cuts." I'd never published one before, but did this time to see if it helped. It did not. This happened:</p>
+
+<ol>
+<li>I received next to no feedback from the rough cut.</li>
+<li>A badly-formatted EPUB version immediately appeared on pirate sites, months before the book was finished.</li>
+</ol>
+
+<p>This pirate version is missing bug fixes and content I later added. It is really frustrating as I've worked hard to give readers the best possible experience, but some of you may be studying this draft instead, thinking that it's the final book. There is also (obviously) no way for the publisher to ask the pirates to update their version. Please only read the finished book, preferably "second printing" or later (as the second printing should include the errata fixes, listed below). One tell-tale sign: the cover of the final book includes the text "Foreword by Alexei Starovoitov...," and the early draft versions did not.</p>
+
+</ol>
+
+<a name="related"></a>
+<h2>Related Content</h2>
+<ul>
+<li><a href="https://github.com/iovisor/bpftrace">bpftrace</a>: The BPF front-end used for code examples in the book.</li>
+<li><a href="https://github.com/iovisor/bcc">BCC</a>: The BPF front-end used for complex tools in the book.</li>
+<li><a href="ebpf.html">Linux eBPF Tracing Tools</a>: My page about BPF tracing tools for performance analysis.</li>
+<li><a href="/blog/2019-07-15/bpf-performance-tools-book.html">BPF Performance Tools (blog post)</a>: My blog post to launch this book.</li>
+</ul>
+
+<a name="errata"></a>
+<h2>Errata</h2>
+
+<h3>1st Printing</h3>
+
+<ul>
+<li>pxxvii, Preface: the footnote 1 text is somehow from chapter 6 by mistake; it should be: "The exercises include some advanced and "unsolved" problems, for which I have yet to see a working solution. It is possible that some of these problems are impossible to solve without kernel or application changes."</li>
+<li>pxxxiv, Preface: the Kindle version has a conversion error where two early page numbers are inserted into the text, appearing as "xxxivtracepoints" and "xxxvmost of whom".</li>
+<li>2.6, p45: "This figure also shows the Linux kernel versions ...": that was the <a href="http://www.brendangregg.com/eBPF/linux_ebpf_support.png">old figure</a>, but not this new one.</li>
+<li>2.10.2, p60: "The location of the probe from the previous readelf(1) output was 0x6a2."; that previous output was deleted.</li>
+<li>2.13, p64: "Linux 2.6.21" -&gt; "Linux 2.6.31".</li>
+<li>5.9.6, p154: "A a rate of 99" extra "a".</li>
+<li>6.2.3, p192: "perf list" should be "perf script" (twice).</li>
+<li>6.2.5, p196: "perf script to show the rate" should be "perf stat ..." (matching the screenshot).</li>
+<li>9.1.3, p346: the Safari version misnumbers step 2a as another step 1.</li>
+<li>9.3.2, p359: "biostoop(8)" -&gt; "biosnoop(8)".</li>
+<li>9.3.7, p370: "kprobe:blk_start_request,kprobe:blk_mq_start_request" -&gt; "kprobe:blk_account_io_done", to trace the full I/O latency (and not just OS queued time).</li>
+<li>12.5.1, p583: Javascript(Node.js): "v8 can run Java functions" Java should be JavaScript.</li>
+<li>ApxC, p749: "line 4 imports the BPF library" should be line 2.</li>
+<li>ApxC, p749: "predate his capability" typo his-&gt;this.</li>
+<li>ApxC, p767: "make $(getconf" -&gt; "make -j $(getconf" (missing -j).
+<li>ApxC, p767: "thesamples" -&gt; "the samples".</li>
+</ul>
+
+<h3>1st & 2nd Printing</h3>
+
+<ul>
+<li>ApxE, p786: Dest and Source Register are both 4-bit (not 8-bit).</li>
+</ul>
+
+<ul>
+</ul>
+
+<a name="updates"></a>
+<h2>Updates</h2>
+
+<p>These are updates to BPF and its front-ends, many of which were mentioned in the book as "planned" and have since been implemented:</p>
+
+<ul>
+<li>5.5.1 p173: bpf_probe_read_kernel() and bpf_probe_read_user() have now been <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6ae08ae3dea2cfa03dd3665a3c8475c2d429ef47">implemented</a> and may show up in Linux 5.5.</li>
+<li>5.15.2 p174: bpfrace added <a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#18-signal-send-a-signal-to-current-task">signal()</a> (thanks <a href="https://github.com/iovisor/bpftrace/pull/967">Bas Smit</a>).</li>
+<li>5.15.2 p175: bpftrace added <a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#19-strncmp-compare-first-n-characters-of-two-strings">override_return()</a> (thanks <a href="https://github.com/iovisor/bpftrace/pull/966">Bas Smit</a>).</li>
+<li>bpftrace added <a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#19-strncmp-compare-first-n-characters-of-two-strings">strncmp()</a> (thanks <a href="https://github.com/iovisor/bpftrace/pull/778">Jay Kamat</a>, Bas Smit).</li>
+<li>5.10.3, p155: bpftrace added <a href="https://github.com/iovisor/bpftrace/pull/1211">if else</a> support (thanks <a href="https://github.com/iovisor/bpftrace/pull/1211">Daniel Xu</a>).</li>
+<li>5.10.4, p155: bpftrace added <a href="https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md#12-looping-constructs">while() loops</a> (thanks <a href="https://github.com/iovisor/bpftrace/pull/1066">Bas Smit</a>).</li>
+<li>bpftrace curtask is now a task_struct if type info is available (headers or BTF).</li>
+<li>Appendix C: covered the BCC Python interface, but that is now considered deprecated as we switch to BCC libbpf C.</a>
+</ul>
+
+
+<p>Thanks to all the reviewers, and to <a href="http://www.beginningwithi.com/2013/04/27/perf-book-done/">Deirdr&eacute; Straughan</a> for editing another one of my books! </p>
+
+</div>
+</div>
+</font>
+<hr>
+Last updated: 02-May-2021<br>
+
+</body>
+</html>

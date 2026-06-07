@@ -1,0 +1,11 @@
+{
+  "key": "burns2016patterns",
+  "entry_type": "inproceedings",
+  "title": "Design Patterns for Container-Based Distributed Systems",
+  "author": "Burns, Brendan and Oppenheimer, David and Brewer, Eric",
+  "year": "2016",
+  "doi": "10.1145/2901318.2901342",
+  "url": "",
+  "journal": "Proceedings of the 7th Workshop on Hot Topics in Cloud Computing (HotCloud)",
+  "raw": "@inproceedings{burns2016patterns,\n  title     = {Design Patterns for Container-Based Distributed Systems},\n  author    = {Burns, Brendan and Oppenheimer, David and Brewer, Eric},\n  booktitle = {Proceedings of the 7th Workshop on Hot Topics in Cloud Computing (HotCloud)},\n  year      = {2016},\n  doi       = {10.1145/2901318.2901342},\n  publisher = {ACM}\n}"
+}

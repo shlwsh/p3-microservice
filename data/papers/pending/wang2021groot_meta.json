@@ -1,0 +1,11 @@
+{
+  "key": "wang2021groot",
+  "entry_type": "inproceedings",
+  "title": "Groot: An Event-graph-based Approach for Root Cause Analysis in Industrial Settings",
+  "author": "Wang, Hanzhang and Wu, Zhengkai and Jiang, Huai and Huang, Yichao and Wang, Jiamu and Kopru, Selcuk and Xie, Tao",
+  "year": "2021",
+  "doi": "10.1109/ASE51524.2021.9678708",
+  "url": "",
+  "journal": "Proceedings of the 36th IEEE/ACM International Conference on Automated Software Engineering",
+  "raw": "@inproceedings{wang2021groot,\n  title     = {Groot: An Event-graph-based Approach for Root Cause Analysis in Industrial Settings},\n  author    = {Wang, Hanzhang and Wu, Zhengkai and Jiang, Huai and Huang, Yichao and Wang, Jiamu and Kopru, Selcuk and Xie, Tao},\n  booktitle = {Proceedings of the 36th IEEE/ACM International Conference on Automated Software Engineering},\n  pages     = {419--429},\n  year      = {2021},\n  doi       = {10.1109/ASE51524.2021.9678708}\n}"
+}

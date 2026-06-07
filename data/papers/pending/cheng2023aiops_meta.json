@@ -1,0 +1,11 @@
+{
+  "key": "cheng2023aiops",
+  "entry_type": "article",
+  "title": "AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities and Challenges",
+  "author": "Cheng, Qian and Sahoo, Doyen and Saha, Amrita and Yang, Wenzhuo and Liu, Chenghao and Hoi, Steven C. H.",
+  "year": "2023",
+  "doi": "10.48550/arXiv.2304.04661",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2304.04661",
+  "raw": "@article{cheng2023aiops,\n  title   = {AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities and Challenges},\n  author  = {Cheng, Qian and Sahoo, Doyen and Saha, Amrita and Yang, Wenzhuo and Liu, Chenghao and Hoi, Steven C. H.},\n  journal = {arXiv preprint arXiv:2304.04661},\n  year    = {2023},\n  doi     = {10.48550/arXiv.2304.04661}\n}"
+}

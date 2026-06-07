@@ -1,0 +1,11 @@
+{
+  "key": "candido2021logmonitoring",
+  "entry_type": "article",
+  "title": "Log-based Software Monitoring: A Systematic Mapping Study",
+  "author": "Candido, Jeanderson and Aniche, Mauricio and van Deursen, Arie",
+  "year": "2021",
+  "doi": "10.7717/peerj-cs.489",
+  "url": "",
+  "journal": "PeerJ Computer Science",
+  "raw": "@article{candido2021logmonitoring,\n  title   = {Log-based Software Monitoring: A Systematic Mapping Study},\n  author  = {Candido, Jeanderson and Aniche, Mauricio and van Deursen, Arie},\n  journal = {PeerJ Computer Science},\n  volume  = {7},\n  pages   = {e489},\n  year    = {2021},\n  doi     = {10.7717/peerj-cs.489}\n}"
+}

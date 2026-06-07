@@ -1,0 +1,11 @@
+{
+  "key": "liao2016logs",
+  "entry_type": "article",
+  "title": "大规模软件系统日志研究综述",
+  "author": "廖湘科 and 李姗姗 and 董威 and 贾周阳 and 刘晓东 and 周书林",
+  "year": "2016",
+  "doi": "10.13328/j.cnki.jos.004936",
+  "url": "https://www.jos.org.cn/1000-9825/4936.htm",
+  "journal": "软件学报",
+  "raw": "@article{liao2016logs,\n  title   = {大规模软件系统日志研究综述},\n  author  = {廖湘科 and 李姗姗 and 董威 and 贾周阳 and 刘晓东 and 周书林},\n  journal = {软件学报},\n  volume  = {27},\n  number  = {8},\n  pages   = {1934--1947},\n  year    = {2016},\n  doi     = {10.13328/j.cnki.jos.004936},\n  url     = {https://www.jos.org.cn/1000-9825/4936.htm}\n}"
+}

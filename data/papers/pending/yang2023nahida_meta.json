@@ -1,0 +1,11 @@
+{
+  "key": "yang2023nahida",
+  "entry_type": "article",
+  "title": "Nahida: In-Band Distributed Tracing with eBPF",
+  "author": "Yang, Wanqi and Chen, Pengfei and Liu, Kai and Zhang, Huxing",
+  "year": "2023",
+  "doi": "10.48550/arXiv.2311.09032",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2311.09032",
+  "raw": "@article{yang2023nahida,\n  title   = {Nahida: In-Band Distributed Tracing with eBPF},\n  author  = {Yang, Wanqi and Chen, Pengfei and Liu, Kai and Zhang, Huxing},\n  journal = {arXiv preprint arXiv:2311.09032},\n  year    = {2023},\n  doi     = {10.48550/arXiv.2311.09032}\n}"
+}

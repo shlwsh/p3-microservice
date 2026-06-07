@@ -1,0 +1,11 @@
+{
+  "key": "limingshu2019logmgmt",
+  "entry_type": "article",
+  "title": "大规模分布式系统日志管理技术综述",
+  "author": "李明树 and 张艳 and 王涛 and 刘俊",
+  "year": "2019",
+  "doi": "10.13328/j.cnki.jos.005601",
+  "url": "",
+  "journal": "软件学报",
+  "raw": "@article{limingshu2019logmgmt,\n  title   = {大规模分布式系统日志管理技术综述},\n  author  = {李明树 and 张艳 and 王涛 and 刘俊},\n  journal = {软件学报},\n  volume  = {30},\n  number  = {7},\n  pages   = {1959--1979},\n  year    = {2019},\n  doi     = {10.13328/j.cnki.jos.005601}\n}"
+}

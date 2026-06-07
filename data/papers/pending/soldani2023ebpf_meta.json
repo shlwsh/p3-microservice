@@ -1,0 +1,11 @@
+{
+  "key": "soldani2023ebpf",
+  "entry_type": "article",
+  "title": "eBPF: A New Approach to Cloud-Native Observability, Networking and Security for Current and Future Mobile Networks",
+  "author": "Soldani, David and Nahi, Petrit and Bour, Hami and Jafarizadeh, Saber and Soliman, Mohammed F. and others",
+  "year": "2023",
+  "doi": "10.1109/ACCESS.2023.3281480",
+  "url": "",
+  "journal": "IEEE Access",
+  "raw": "@article{soldani2023ebpf,\n  title   = {eBPF: A New Approach to Cloud-Native Observability, Networking and Security for Current and Future Mobile Networks},\n  author  = {Soldani, David and Nahi, Petrit and Bour, Hami and Jafarizadeh, Saber and Soliman, Mohammed F. and others},\n  journal = {IEEE Access},\n  volume  = {11},\n  pages   = {57174--57202},\n  year    = {2023},\n  doi     = {10.1109/ACCESS.2023.3281480}\n}"
+}

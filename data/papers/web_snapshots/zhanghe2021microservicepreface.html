@@ -1,0 +1,1121 @@
+
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<base href="/">
+
+<meta charset="utf-8">
+
+<title>面向持续软件工程的微服务架构技术专题前言</title>
+<meta http-equiv="Content-Language" content="zh-cn"> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <meta name="description" content="随着软件互联网化和服务化的高度发展,持续性(continuity)成为现代软件系统的基本特性之一,覆盖从商业策划、软件开发、运维、演化的所有环节,使得软件系统在持续稳定提供功能和服务的同时,软件系统的边界和内部结构始终处于不断变化、持续更新和适应之中,持续软件工程(continuous software engineering)由此被提出并迅速得到广泛的实践应用.微服务(microservice)架构作为一种全新的去中心化分布式架构,在软件架构层面成为适应持续软件工程发展的必然趋势,而领域驱动设计(domain-driven design,简称DDD)伴随着微服务架构的兴起也重新获得了业界的广泛关注,二者共同关注服务自顶向下的合理设计和分解.微服务架构与领域驱动设计共同支持实现现代软件系统的持续性特征.为了反映中国学者和实践者在求解以微服务架构为代表的持续软件工程所面临的架构难题和挑战过程中取得的理论、技术或实验方面的创新性、突破性的高水平研究成果,特设立此专题. 本专题采取公开征稿的方式,共收到19篇投稿并通过了形式审查.特约编辑邀请了20余位领域专家参与审稿,每篇稿件至少邀请2位评审专家并经过两轮审稿.共计10篇稿件通过第1轮评审,并在CCF中国软件大会上进行了报告.经过第2轮终审,最终有6篇论文入选本专题.其中, 论文“基于混沌工程的微服务韧性风险识别和分析”研究微服务架构系统的韧性风险识别问题,通过向系统引入随机环境扰动并观察服务性能的变化来寻找潜在韧性风险,向运维人员提供参考. 论文“面向微服务架构的开发组织适应性评估框架”通过系统化文献综述得出了使用微服务架构对组织产生的7个方面的影响,进一步提出了一个用于评估并提高开发组织对于微服务架构的适应性的评估框架. 论文“一种优化的数据流驱动的微服务化拆分方法”提出了一种自动化的微服务拆分与评估方法DFD-A,支持从数据收集分析、服务拆分到候选微服务架构评估的自动化设计过程,并实现了原型工具. 论文“一种监控系统的链路跟踪型日志数据的存储设计”基于开源的应用性能监控系统CAT,提出了一种针对tracing类型日志数据的存储设计方案,提升了存储效率和查询效率,并在美团点评线上系统中得到真实 应用. 论文“基于多源特征空间的微服务可维护性评估”提出了一种多源特征空间模型以统一表示软件维护过程中产生的多源数据.基于该模型提出了微服务代码可维护性度量,并实现了原型工具MicroEvaluator. 论文“多版本共存的微服务系统自适应演化方法”针对微服务系统中的多版本共存现象和用户/运维需求的变化,提出了最优化微服务系统演化方案的设计方法,实现了相应的编程框架以支持微服务系统自适应演化. 本专题面向持续软件工程和微服务架构的研究人员和工程实践人员,内容涵盖系统软件、软件工程等领域,反映了我国学者在以微服务架构为代表的持续软件工程方法、技术以及支持工具等方面的高水平研究成果.感谢《软件学报》编委会、中国计算机学会软件工程专委会与系统软件专委会对专题工作的指导和帮助,感谢专题全体评审专家及时、耐心、细致的评审工作,感谢踊跃投稿的所有作者.希望本专题能够对国内持续软件工程和微服务领域的科研工作有所促进."/> <meta name="HW.ad-path" content="http://www.jos.org.cn/jos/article/abstract/6237"/> <meta name="HW.identifier" content="http://www.jos.org.cn/jos/article/abstract/6237"/> <meta name="DC.Format" content="text/html"/> <meta name="DC.Language" content="cn"/> <meta name="DC.Title" content="面向持续软件工程的微服务架构技术专题前言"/> <meta name="DC.Identifier" content="10.13328/j.cnki.jos.006237"/> <meta name="DC.Contributor" content="张贺，王忠杰，陈连平，彭鑫"/> <meta name="DC.Date" content="2021-05-07"/> <meta name="citation_journal_title" content="软件学报"/> <meta name="citation_journal_abbrev" content="软件学报"/> <meta name="citation_issn" content="1000-9825"/> <meta name="citation_cn" content="11-2560/TP"/> <meta name="citation_authors" xml:lang="cn" content="张贺，王忠杰，陈连平，彭鑫"/> <meta name="citation_title" xml:lang="cn" content="面向持续软件工程的微服务架构技术专题前言"/> <meta name="citation_date" content="2021-05-07"/> <meta name="citation_volume" content="32"/> <meta name="citation_issue" content="5"/> <meta name="citation_firstpage" content="1229"/> <meta name="citation_lastpage" content="1230"/> <meta name="citation_id" content="6237"/> <meta name="citation_doi" content="10.13328/j.cnki.jos.006237"/> <meta name="citation_abstract_html_url" content="http://www.jos.org.cn/jos/article/abstract/6237"/> <meta name="citation_pdf_url" content="http://www.jos.org.cn/jos/article/pdf/6237"/> <meta name="citation_public_url" content="http://www.jos.org.cn/jos/article/abstract/6237"/>
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_h5.css" media="all and (min-width: 1201px)">
+ -->
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_h5.css" >
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/style_1000px_h5.css" media="all and (max-width: 1200px)">
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/right_footer_notice.css">
+<link rel="stylesheet" type="text/css" href="template/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="template/011_csa/css/AIreading.css">
+<script type="text/javascript" src="template/js/jquery.min.js"></script>
+<script type="text/javascript" src="template/js/jquery.SuperSlide.2.1.3.js"></script>
+<script type="text/javascript" src="template/js/checkform.js"></script>
+<script type="text/javascript" src="template/011_csa/js/Tony_Tab.js"></script>
+<script type="text/javascript" src="template/011_csa/js/baguettebox.min.js"></script>
+<script type="text/javascript" src="template/js/et_website.js"></script>
+<script type="text/javascript" src="/template/011_csa/js/AIreding12.js?v=12"></script>
+
+
+<style>
+.tr { width:810px !important; }
+.cat { clear:both; } 
+.slideTxtBox .hd ul li { margin-right: 20px !important;
+    font-size: 14px; }
+
+.slideTxtBox_list{overflow: initial;}
+</style>
+
+
+</head>
+
+<body>
+
+<div class="site_container">
+  <div class="index_m m-c">
+    
+     
+    <div class="navExt">
+      
+      <div class="index_lg">
+     <!-- <div class="index_left">
+         
+        <div class="top_logo"><img src="" width="500" height="80"></div>
+        <div class="top_txt">主办：中国科学院软件研究所 <br >                 中国计算机学会</div>
+        </div>-->
+        <div class="index_right">
+        <div class="index_wm">
+		<div class="wm_img" style="float: left;">      
+        <div class="twmImg"><img src="/template/011_csa/images/wxxcx.jpg" width="70%"></div>
+          <h2 style="background-color:transparent">微信小程序</h2>
+      </div>
+
+        <div class="wm_img">      
+        <div class="twmImg"><img src="/template/011_csa/images/fuwuhao.jpg" width="70%"></div>
+          <h2 style="background-color:transparent">微信服务号</h2>
+      </div>
+          <div class="wm_img">
+        
+        <div class="twmImg"><img src="/template/011_csa/images/dingyuehao.jpg" width="70px" style=""></div>
+        <h2 style="background-color:transparent">微信订阅号</h2>
+      </div>
+      
+          </div>
+        </div>
+      </div>
+     
+
+    
+      <div class="nav">
+          
+      <div class=" time">
+	  <script>
+    var   CalendarData=new   Array(20);
+    var   madd=new Array(12);
+    var   TheDate=new Date();
+    var   tgString="甲乙丙丁戊己庚辛壬癸";
+    var   dzString="子丑寅卯辰巳午未申酉戌亥";
+    var   numString="一二三四五六七八九十";
+    var   monString="正二三四五六七八九十冬腊";
+    var   weekString="日一二三四五六";
+    var   sx="鼠牛虎兔龙蛇马羊猴鸡狗猪";
+    var   cYear;
+    var   cMonth;
+    var   cDay;
+    var   cHour;
+    var   cDateString;
+    var   DateString;
+    var   Browser=navigator.appName; 
+    function   init()
+    {
+        CalendarData[0]=0x41A95;
+        CalendarData[1]=0xD4A;
+        CalendarData[2]=0xDA5;
+        CalendarData[3]=0x20B55;
+        CalendarData[4]=0x56A;
+        CalendarData[5]=0x7155B;
+        CalendarData[6]=0x25D;
+        CalendarData[7]=0x92D;
+        CalendarData[8]=0x5192B;
+        CalendarData[9]=0xA95;
+        CalendarData[10]=0xB4A;
+        CalendarData[11]=0x416AA;
+        CalendarData[12]=0xAD5;
+        CalendarData[13]=0x90AB5;
+        CalendarData[14]=0x4BA;
+        CalendarData[15]=0xA5B;
+        CalendarData[16]=0x60A57;
+        CalendarData[17]=0x52B;
+        CalendarData[18]=0xA93;
+        CalendarData[19]=0x40E95;
+        madd[0]=0;
+        madd[1]=31;
+        madd[2]=59;
+        madd[3]=90;
+        madd[4]=120;
+        madd[5]=151;
+        madd[6]=181;
+        madd[7]=212;
+        madd[8]=243;
+        madd[9]=273;
+        madd[10]=304;
+        madd[11]=334;
+    }
+    function   GetBit(m,n)
+    {
+        return   (m>>n)&1;
+    }
+
+    function   e2c()
+    {
+        var   totalmnk;
+        var   isEnd=false;
+        var   tmp=TheDate.getYear();
+        if   (tmp<1900)     tmp+=1900;
+        total=(tmp-2001)*365
+                +Math.floor((tmp-2001)/4)
+                +madd[TheDate.getMonth()]
+                +TheDate.getDate()
+                -23;
+        if   (TheDate.getYear()%4==0&&TheDate.getMonth()>1)
+            total++;
+        for(m=0;;m++)
+        {
+            k=(CalendarData[m]<0xfff)?11:12;
+            for(n=k;n>=0;n--)
+            {
+                if(total<=29+GetBit(CalendarData[m],n))
+                {
+                    isEnd=true;
+                    break;
+                }
+                total=total-29-GetBit(CalendarData[m],n);
+            }
+            if(isEnd)break;
+        }
+        cYear=2001   +   m;
+        cMonth=k-n+1;
+        cDay=total;
+        if(k==12)
+        {
+            if(cMonth==Math.floor(CalendarData[m]/0x10000)+1)
+                cMonth=1-cMonth;
+            if(cMonth>Math.floor(CalendarData[m]/0x10000)+1)
+                cMonth--;
+        }
+        cHour=Math.floor((TheDate.getHours()+3)/2);
+    }
+
+    function   GetcDateString()
+    {   var   tmp="";
+        tmp+=tgString.charAt((cYear-4)%10);       //年干
+        tmp+=dzString.charAt((cYear-4)%12);       //年支
+        tmp+="年(";
+        tmp+=sx.charAt((cYear-4)%12);
+        tmp+=")   ";
+        if(cMonth<1)
+        {
+            tmp+="闰";
+            tmp+=monString.charAt(-cMonth-1);
+        }
+        else
+            tmp+=monString.charAt(cMonth-1);
+        tmp+="月";
+        tmp+=(cDay<11)?"初":((cDay<20)?"十":((cDay<30)?"廿":"卅"));
+        if(cDay%10!=0||cDay==10)
+            tmp+=numString.charAt((cDay-1)%10);
+        tmp+="    ";
+        if(cHour==13)tmp+="夜";
+        tmp+=dzString.charAt((cHour-1)%12);
+        tmp+="时";
+        cDateString=tmp;
+        return   tmp;
+    }
+
+    function   GetDateString()
+    {
+        var   tmp="";
+        var   t1=TheDate.getYear();
+        if   (t1<1900){
+				t1+=1900;
+		}
+		
+		tmp+=t1
+		+"年"
+		+(TheDate.getMonth()+1)+"月"
+		+TheDate.getDate()+"日   "
+		+TheDate.getHours()+":"
+		+((TheDate.getMinutes()<10)?"0":"")
+		+TheDate.getMinutes()
+		+" 星期"+weekString.charAt(TheDate.getDay());
+		
+
+
+        DateString=tmp;
+        return   tmp;
+    }
+
+    init();
+    e2c();
+    GetDateString();
+    GetcDateString();
+    document.write(DateString);
+</script></div>
+        <ul>
+   
+           <li><A href='/jos/home?id=20210909102755001&name=主页'>主页<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155225001?id=20071206155225001&name=期刊介绍'>期刊介绍<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155306001?id=20071206155306001&name=编委会'>编委会<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20210909105053001?id=20210909105053001&name=服务介绍'>服务介绍<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20210909102616001?id=20210909102616001&name=投稿指南'>投稿指南<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20171218034556834?id=20171218034556834&name=出版道德'>出版道德<i class='navBotLine'></i></A></li><li><A href='jos/site/menu/20071206155334001?id=20071206155334001&name=联系我们'>联系我们<i class='navBotLine'></i></A></li><li><A href='/jos/action/toc_alert?id=20210909102914001&name=E-mail Alert'>E-mail Alert<i class='navBotLine'></i></A></li><li><A href='https://www.jos.org.cn/josen/home?id=20210909102939001&name=English'>English<i class='navBotLine'></i></A></li>
+        </ul>
+       <!-- <div class="share">
+<div class="bshare-custom"><a title="分享到QQ好友" class="bshare-qqim"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到电子邮件" class="bshare-email"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/bshareC0.js"></script>
+      </div>-->  </div>
+      
+    </div>
+    
+
+  
+    <div class="index_c">
+<!--data_type:json-->
+<script type="text/javascript" src="template/js/mootools-core.js"></script>
+<script type="text/javascript" src="template/js/mediabox.js"></script>
+<script type="text/javascript" src="template/js/echarts.min.js"></script>
+<script type="text/javascript" src="template/js/swiper.min.js"></script>
+<script type="text/javascript" src="template/common/js/jquey-bigic.js"></script>
+<link rel="stylesheet" type="text/css" href="template/css/swiper.min.css">
+<link type="text/css" href="template/common3/css/article_abstract_h5.css" rel="stylesheet">
+<script type="text/javascript" src="template/common002/js/clipboard.js"></script>
+<div class="nav_position">
+    <a href="jos/home">首页</a> &gt;    
+    <span id='all_issue_position'><a href="jos/issue/browser">过刊浏览</a>&gt;<a href="jos/article/issue/2021_32_5">2021年第32卷第5期</a> &gt;1229-1230. DOI:10.13328/j.cnki.jos.006237</span>
+    <span id='online_first_position' style='display:none'><a href="jos/article/online_first">优先出版</span>
+</div>
+<div class="article_abstract_main m-row">
+    <div class="article_abstract_left m-fl">
+        <div class="p1 m-cell-hd">
+            <a class="pt1" id='PdfUrl' href="jos/article/pdf/6237">PDF</a>
+            <a class="pt2" id='HtmlUrl' href="jos/article/html/6237">HTML阅读</a>
+	    <a class="pt3" id='XmlUrl' href="jos/article/export/6237?action_type=export&export_type=xml&include_content=2">XML下载</a>
+	    <a class="pt4" id='ExportUrl' href="jos/article/export/6237">导出引用</a>
+	    <a class="pt5" id='ReminderUrl' href="jos/article/reminder/6237">引用提醒</a>
+        </div>
+        <div class="p2">
+            <div class="zh">
+                <div class="title">面向持续软件工程的微服务架构技术专题前言</div>
+                <div class="line m-row" id='DOI'>
+                    <span class="tl">DOI:</span>
+                    <div class="tr">
+                        <span><a href="http://dx.doi.org/10.13328/j.cnki.jos.006237" id="DOIValue">10.13328/j.cnki.jos.006237</a></span>
+                    </div>
+                </div>
+                <div class="line m-row" id='CSTR'>
+                    <span class="tl">CSTR:</span>
+                    <div class="tr">
+                        <span><a href="https://cstr.cn/" id="CSTRValue"></a></span>
+                    </div>
+                </div>
+                <div class="line m-row">
+                    <span class="tl">作者:</span>
+                    <div class="tr">
+                        <ul id="CnAuthorList">
+                        </ul>
+                    </div>
+                </div>
+                <div class="line m-row" id="DisplayCnInstitution">
+                    <span class="tl">作者单位:</span>
+                    <div class="tr">
+                        <p id="DisplayCnInstitutionValue"></p>
+                    </div>
+                </div>
+                <div class="line m-row" id="AuthorResume">
+                    <span class="tl">作者简介:</span>
+                    <div class="tr">
+                        <p id="AuthorResumeValue">张贺(1971-),男,博士,南京大学教授,博士生导师,CCF专业会员,主要研究领域为软件工程,开发运维一体化,区块链.<br>王忠杰(1978-),男,博士,哈尔滨工业大学教授,博士生导师,CCF高级会员,主要研究领域为服务计算,软件架构,软件与服务生态.<br>陈连平(1981-),男,硕士,独立研究员和顾问,目前作为华为技术有限公司软件工程首席研究员为华为提供服务,主要研究领域为持续交付,单一代码仓,构建,开发运维一体化,软件需求和架构.<br>彭鑫(1979-),男,博士,复旦大学教授,博士生导师,CCF杰出会员,主要研究领域为软件开发大数据分析,智能化软件开发,云原生与智能化运维,泛在计算软件系统.</p>
+                    </div>
+                </div>
+                <div class="line m-row" id="ContactAuthor">
+                    <span class="tl">通讯作者:</span>
+                    <div class="tr">
+                        <p id="ContactAuthorValue">张贺,E-mail:hezhang@nju.edu.cn</p>
+                    </div>
+                </div>
+                <div class="line m-row" id="ClcNumber">
+                    <span class="tl">中图分类号:</span>
+                    <div class="tr">
+                        <p id="ClcNumberValue"></p>
+                    </div>
+                </div>   
+                <div class="line m-row" id="CnFundProject">
+                    <span class="tl">基金项目:</span>
+                    <div class="tr">
+                        <p id="CnFundProjectValue"></p>
+                    </div>
+                </div>    
+            </div>
+            <div class="en" id="EnTitle">
+		<br>
+		<div class="title" id="EnTitleValue"></div>
+                <div class="line m-row">
+                    <span class="tl">Author:</span>
+                    <div class="tr">
+                        <ul id="EnAuthorList">
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="line m-row" id="DisplayEnInstitution">
+                    <span class="tl">Affiliation:</span>
+                    <div class="tr">
+                        <p id="DisplayEnInstitutionValue"></p>
+                    </div>
+                </div>
+                <div class="line m-row" id="EnFundProject">
+                    <span class="tl">Fund Project:</span>
+                    <div class="tr">
+                        <p id="EnFundProjectValue"></p>
+                    </div>
+                </div> 
+		
+            </div>
+        </div>
+        <div class="cat">
+            <div class="slideTxtBox">
+                <div class="hd">
+                    <ul>
+                        <li class="fst">摘要</li>
+                        <span class="m-fl">|</span>
+                        <li id='FiguresTab'>图/表</li>
+                        <span class="m-fl">|</span>
+                        <li>访问统计</li>
+                        <span class="m-fl">|</span>
+                        <li id='ReferenceTab'>参考文献</li>
+                        <span class="m-fl">|</span>
+			<li id='RelatedTab'>相似文献</li>
+                        <span class="m-fl">|</span>
+			 <li id='CitedByTab'>引证文献</li>
+                        <span class="m-fl">|</span>
+                        <li id='MaterialsTab'>资源附件</li>
+			<span class="m-fl">|</span>
+                        <li id='AppraiseTab'>文章评论</li>
+                       
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <div class="zy">
+                            <div class="zh" id="CnAbstract">
+                                <div class="zy1">
+                                    <span>摘要:</span><p id="CnAbstractValue">随着软件互联网化和服务化的高度发展,持续性(continuity)成为现代软件系统的基本特性之一,覆盖从商业策划、软件开发、运维、演化的所有环节,使得软件系统在持续稳定提供功能和服务的同时,软件系统的边界和内部结构始终处于不断变化、持续更新和适应之中,持续软件工程(continuous software engineering)由此被提出并迅速得到广泛的实践应用.微服务(microservice)架构作为一种全新的去中心化分布式架构,在软件架构层面成为适应持续软件工程发展的必然趋势,而领域驱动设计(domain-driven design,简称DDD)伴随着微服务架构的兴起也重新获得了业界的广泛关注,二者共同关注服务自顶向下的合理设计和分解.微服务架构与领域驱动设计共同支持实现现代软件系统的持续性特征.为了反映中国学者和实践者在求解以微服务架构为代表的持续软件工程所面临的架构难题和挑战过程中取得的理论、技术或实验方面的创新性、突破性的高水平研究成果,特设立此专题. 本专题采取公开征稿的方式,共收到19篇投稿并通过了形式审查.特约编辑邀请了20余位领域专家参与审稿,每篇稿件至少邀请2位评审专家并经过两轮审稿.共计10篇稿件通过第1轮评审,并在CCF中国软件大会上进行了报告.经过第2轮终审,最终有6篇论文入选本专题.其中, 论文“基于混沌工程的微服务韧性风险识别和分析”研究微服务架构系统的韧性风险识别问题,通过向系统引入随机环境扰动并观察服务性能的变化来寻找潜在韧性风险,向运维人员提供参考. 论文“面向微服务架构的开发组织适应性评估框架”通过系统化文献综述得出了使用微服务架构对组织产生的7个方面的影响,进一步提出了一个用于评估并提高开发组织对于微服务架构的适应性的评估框架. 论文“一种优化的数据流驱动的微服务化拆分方法”提出了一种自动化的微服务拆分与评估方法DFD-A,支持从数据收集分析、服务拆分到候选微服务架构评估的自动化设计过程,并实现了原型工具. 论文“一种监控系统的链路跟踪型日志数据的存储设计”基于开源的应用性能监控系统CAT,提出了一种针对tracing类型日志数据的存储设计方案,提升了存储效率和查询效率,并在美团点评线上系统中得到真实 应用. 论文“基于多源特征空间的微服务可维护性评估”提出了一种多源特征空间模型以统一表示软件维护过程中产生的多源数据.基于该模型提出了微服务代码可维护性度量,并实现了原型工具MicroEvaluator. 论文“多版本共存的微服务系统自适应演化方法”针对微服务系统中的多版本共存现象和用户/运维需求的变化,提出了最优化微服务系统演化方案的设计方法,实现了相应的编程框架以支持微服务系统自适应演化. 本专题面向持续软件工程和微服务架构的研究人员和工程实践人员,内容涵盖系统软件、软件工程等领域,反映了我国学者在以微服务架构为代表的持续软件工程方法、技术以及支持工具等方面的高水平研究成果.感谢《软件学报》编委会、中国计算机学会软件工程专委会与系统软件专委会对专题工作的指导和帮助,感谢专题全体评审专家及时、耐心、细致的评审工作,感谢踊跃投稿的所有作者.希望本专题能够对国内持续软件工程和微服务领域的科研工作有所促进.</p>
+                                </div>
+                                <div class="zy2" id="CnKeyWord">
+                                    
+                                </div>
+                            </div>
+                            <div class="en" id="EnAbstract">
+                                <div class="zy1">
+                                    <span>Abstract:</span><p id="EnAbstractValue"></p>
+                                </div>
+                                <div class="zy2" id="EnKeyWord">
+                                   
+                                </div>
+                            </div>
+			    <!--trend md div标签-->
+			    <div id="trendmd-suggestions"></div>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div class="zyfj">
+					<div class="swiper_xq photos-demo" id="photosDemo">
+						  <div class="swiper-wrapper" id="ImagesList">
+						 
+						  </div>
+					  <!-- Add Arrows -->
+					  <div class="swiper-button-next"></div>
+					  <div class="swiper-button-prev"></div>
+					</div>
+					<!-- Initialize Swiper -->
+					<script>
+					    var swiper = new Swiper('.swiper_xq', {
+						navigation: {
+						    nextEl: '.swiper-button-next',
+						    prevEl: '.swiper-button-prev',
+						},
+					    });
+					</script>
+					<script type="text/javascript">
+					    $(function(){
+						$('img').bigic();
+					    });
+					</script>
+			</div>
+                    </ul>
+                    <ul>
+                        <div class="fwtj">
+                            <div id="ArticleAnnualMetrics" style="width: 800px;height:400px;margin-top:15px;"></div>
+                            <div id="ArticleTotalMetrics" style="width: 800px;height:400px;"></div>
+			    <div id="ArticleProvinceMetrics" style="width: 800px;height:400px;"></div>
+                        </div>
+                    </ul>
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">参考文献</div>
+                            <div class="list" id="ReferenceList">
+                            </div>
+                        </div>
+                    </ul>
+
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">相似文献</div>
+                            <div class="list" id="RelateArticleList">
+
+                            </div>
+                        </div>
+                    </ul>
+
+		    <ul>
+                        <div class="ckwx">
+			    <div class="title">引证文献</div>
+                            <div class="list" id="WasReferencedList">
+				
+                            </div>
+                        </div>
+                    </ul>
+
+                    <ul>
+                        <div class="zyfj">
+                            <div class="list" id="AttacheList">
+                                                      
+                            </div>
+                        </div>
+                    </ul>
+
+		     <ul>
+                        <div class="zyfj" id="CommentList">
+                           
+                        </div>
+                    </ul>
+                    
+                </div>
+            </div>
+            <script type="text/javascript">jQuery(".slideTxtBox").slide({ trigger: "click" });</script>
+        </div>
+    </div>
+    <div class="article_abstract_right m-fl">
+        <div class="p3">
+            <h5 class="tt">引用本文</h5>
+            <div class="copy">
+                <p id="cp-cont">
+                    张贺,王忠杰,陈连平,彭鑫.面向持续软件工程的微服务架构技术专题前言.软件学报,2021,32(5):1229-1230
+                </p>
+                <a href="javascript:;" class="btn" data-clipboard-target="#cp-cont">复制</a>
+            </div>
+        </div>
+
+	<div class="p4"  id="VideoContainer">
+            <h5 class="tt">相关视频</h5>
+            <div class="m-row">
+                <p id="video_list">
+                    
+                </p>
+            </div>
+        </div>
+	<div class="p5" style="margin-top:10px;"><img src="/template/011_csa/images/xssqzy.jpg" width="100%"></div>
+         <div class="p5">
+            <h5 class="tt">分享</h5>
+	       <link rel="stylesheet" type="text/css" href="/template/css/share.min.css">
+				 <script src="/template/js/jquery.share.min.js"></script>
+
+
+
+          <div id="share-2"></div>
+<script>
+$('#share-2').share({sites: ['qzone', 'qq', 'weibo','wechat']});
+</script>
+   
+        </div>
+        <div class="p6">
+            <h5 class="tt">文章指标</h5>
+            <div class="m-row">
+               <div class="p5-l m-fl" style='display:none'>
+                    <div style="padding-top:40px;" data-badge-type="donut" data-doi="10.13328/j.cnki.jos.006237" data-hide-no-mentions="false" class="altmetric-embed"></div>
+		    <div style="padding-top:5px;" class='altmetric-embed' data-badge-popover='left' data-doi='10.13328/j.cnki.jos.006237'></div>	
+                </div>
+                <div class="p5-r m-fl">
+		    <ul>
+			    <li>点击次数:<span id='ClickNum'></span></li>
+			    <li>下载次数: <span id="PdfClickNum"></span></li>
+			    <li>HTML阅读次数: <span id='HtmlClickNum'></span></li>
+			    <li style='display:none'>引用次数: <span id='CnkiCitedNum'></span></li>
+		    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="p7">
+            <h5 class="tt">历史</h5>
+            <div class="his">
+                <ul>
+		    <li id="SendTime">收稿日期:<span id='SendTimeValue'>2021-02-07</span></li>
+		    <li id="LastModifyTime">最后修改日期:<span id='LastModifyTimeValue'></span></li>
+                    <li id="AdoptTime">录用日期:<span id='AdoptTimeValue'></span></li>
+                    <li id="PublishTime">在线发布日期: <span id='PublishTimeValue'>2021-05-07</span></li>
+                    <li id="BookPublishedTime">出版日期: <span id='BookPublishedTimeValue'>2021-05-06</span></li>
+                </ul>
+            </div>
+        </div>
+<div class="p8"><h5 class="tt">文章二维码</h5><img style="margin-top:5px;" src="uploadfile/two_dimensional_code_img/jos/2021/5/6237_wechat_qr.png"></div>
+    </div>
+</div>
+<input type="hidden" id="was_referenced_current_page" name="was_referenced_current_page">
+<input type="hidden" id="reference_current_page" name="reference_current_page">
+<input type="hidden" id="AttacheListCount" name="AttacheListCount" value="0">
+<input type="hidden" id="ImagesListCount" name="ImagesListCount" value="0">
+
+<!--trend md 代码-->
+
+<script language="javascript">
+   
+
+    //获取当期的基本信息
+    function GetCurrentIssue() {
+        var strUrl = "jos/issue/get_current_issue_info";
+        if (strUrl != "") {
+            $.get(strUrl, function (strIssueXml) {
+                var strYearID = GetXmlValue(strIssueXml, "year_id");
+                var strIssueID = GetXmlValue(strIssueXml, "quarter_id");
+                var strVolume = GetXmlValue(strIssueXml, "book_no");
+                var strIssueEnName = GetXmlValue(strIssueXml, "quarter_en_name");
+                var strEnPublishDate = GetXmlValue(strIssueXml, "en_publish_date");
+                var strIssueSmallCoverURL = GetXmlValue(strIssueXml, "image_url");
+                $("#current_small_cover_id").html("<a href='[current_issue_url]'><img src='" + strIssueSmallCoverURL + "' width='150' height='200'></a>");
+                $("#current_publish_date_id").html(strEnPublishDate);
+                $("#current_volume_id").html(strVolume);
+                $("#current_issue_id").html(strIssueID);
+            });
+        }
+    }
+
+ //从归智平台获取相关视频
+    function GetVideoList() {
+	    var strUrl = "jos/article/resources_list?file_no=6237&aid=1AAc6aM&doi=e2553d22df795e502151bc1dd7a46e81071da974b979d94e22b9602f189ce723";
+	    if (strUrl == "") {
+		return;
+	    }
+	    $.get(strUrl, function (videoArray) {             
+		let strVideoList="";
+		for (let i = 0; i < videoArray.length; i++) {
+		  let strID=videoArray[i].id;
+		  let strCoverURL=videoArray[i].cover_url;
+		  let strSharesCount=videoArray[i].shares_count;
+		  let strLikeCount=videoArray[i].like_count;
+		  let strFeedViewCount=videoArray[i].feed_view_count;
+		  strVideoList=strVideoList+"<a href='https://user.aipub.cn/videoDetail?id="+strID+"' style='position: relative;'><img src='"+strCoverURL+"'><img style='width: 45px;height: 45px;position: absolute;transform: translate(-50%, -200%);left: 52%;top:14px;bottom: 0px;' src='/template/images/bf.png'></a>";
+		}
+		if(strVideoList!=""){
+			$("#video_list").html(strVideoList);
+		}else{
+			$("#VideoContainer").hide();
+		}
+	    });
+    }
+
+    function GetMetrics() {
+        var strUrl = "jos/article/metrics/6237";
+        if (strUrl != "") {
+            $.get(strUrl, function (strReturnScript) {               
+                eval(strReturnScript);
+            });
+        }
+    }
+
+    function GetRelatedArticle() {
+        var strUrl = "jos/article/related/2021_5_6237";
+        if (strUrl != "") {
+            $.get(strUrl, function (strReturn) {
+                if (strReturn != "") {
+                    $("#RelateArticleList").html(strReturn);
+		    var RCount=$("#RelateArticleList dl").children().length;
+
+		    $('#RelatedTab').text($('#RelatedTab').text()+' ['+RCount+']')
+
+                } else {
+                    $("#RelatedTab").hide();
+                    $("#RelatedContainer").hide();
+                }
+            });
+        } else {
+            $("#RelatedTab").hide();
+            $("#RelatedContainer").hide();
+        }
+    }
+
+    function GetReferenceList(strPage) {
+        $("#reference_current_page").prop("value", strPage);
+        var strUrl = "jos/article/reference/2021$5$6237";
+        if (strUrl != "") {
+            strUrl = strUrl + "?cp=" + strPage;
+            $.get(strUrl, function (strReturn) {
+              
+                if (strReturn != "") {
+                    $("#ReferenceList").append(strReturn);
+                    var intReferenceNum = $("div#ReferenceList dd").length;
+                    if (intReferenceNum % 20 != 0) {
+                        $("#MoreReferenceContainer").hide();
+                    }
+
+		    
+		    var RCount=$("#ReferenceList dl").children().length;
+
+		    $('#ReferenceTab').text($('#ReferenceTab').text()+' ['+RCount+']')
+                } else {
+                    if (strPage != "") {
+                        var intPage = parseInt(strPage);
+                        if (intPage == 1) {
+                            $("#ReferenceTab").hide();
+                            $("#ReferenceContainer").hide();
+                        } else {
+                            $("#MoreReferenceContainer").hide();
+                        }
+                    }
+                }
+            });
+        } else {
+            $("#ReferenceTab").hide();
+            $("#ReferenceContainer").hide();
+        }
+    }
+
+    function GetWasReferencedList(strPage) {
+        $("#was_referenced_current_page").prop("value", strPage);
+        var strUrl = "jos/article/cited/2021_5_6237";
+        if (strUrl != "") {
+            strUrl = strUrl + "?cp=" + strPage;
+            $.get(strUrl, function (strReturn) {
+                if (strReturn != "") {
+                    var intWasReferencedNum = $("div#WasReferencedList dd").length;
+                    if (intWasReferencedNum != 0) {
+                        $("#MoreWasReferencedContainer").hide();
+                    }
+		     var RCount=$("#WasReferencedList dl").children().length;
+
+		    $('#WasReferencedList').text($('#CitedByTab').text()+' ['+RCount+']')
+                    $("#WasReferencedList").append(strReturn);
+                } else {
+                    if (strPage != "") {
+                        var intPage = parseInt(strPage);
+                        if (intPage == 1) {
+                            $("#CitedByTab").hide();
+                            $("#CitedByContainer").hide();
+                        } else {
+                            $("#MoreWasReferencedContainer").hide();
+                        }
+                    }
+                }
+            });
+        } else {
+            $("#CitedByTab").hide();
+            $("#CitedByContainer").hide();
+            $("#MoreWasReferencedContainer").hide();
+        }
+    }
+    function MoreWasReferenced() {
+        var strWasReferencedCurrentPage = $("#was_referenced_current_page").val();
+        var intWasReferencedCurrentPage = parseInt(strWasReferencedCurrentPage);
+        intWasReferencedCurrentPage = intWasReferencedCurrentPage + 1;
+        GetWasReferencedList(intWasReferencedCurrentPage);
+    }
+
+    function MoreReference() {
+        var strReferenceCurrentPage = $("#reference_current_page").val();
+        var intReferenceCurrentPage = parseInt(strReferenceCurrentPage);
+        intReferenceCurrentPage = intReferenceCurrentPage;
+        GetReferenceList(intReferenceCurrentPage);
+    }
+
+    $().ready(function () {
+	 var strFlag="1";
+	 if(strFlag=="1"){
+		$("#all_issue_position").show();
+		$("#online_first_position").hide();
+	 }else{
+		$("#all_issue_position").hide();
+		$("#online_first_position").show();
+	 }
+	 //如果没有html，自动隐藏
+	 var strHtmlUrl=$("#HtmlUrl").prop("href");
+	 if(strHtmlUrl.indexOf("/html/")<0){
+		$("#HtmlUrl").hide();
+	 }
+	 var strDOI=$("#DOIValue").html();
+	 if(strDOI==""){
+		$("#DOI").hide();
+	 }
+	 var strCSTR=$("#CSTRValue").html();
+	 if(strCSTR==""){
+		$("#CSTR").hide();
+	 }
+
+	 var strDisplayCnInstitution=$("#DisplayCnInstitutionValue").html();
+	 if(strDisplayCnInstitution==""){
+		$("#DisplayCnInstitution").hide();
+	 }
+
+	  var strDisplayEnInstitution=$("#DisplayEnInstitutionValue").html();
+	 if(strDisplayEnInstitution==""){
+		$("#DisplayEnInstitution").hide();
+	 }
+
+	 var strAuthorResume=$("#AuthorResumeValue").html();
+	 if(strAuthorResume==""){
+		$("#AuthorResume").hide();
+	 }
+
+	 var strContactAuthor=$("#ContactAuthorValue").html();
+	 if(strContactAuthor==""){
+		$("#ContactAuthor").hide();
+	 }
+
+	 var strClcNumber=$("#ClcNumberValue").html();
+	 if(strClcNumber==""){
+		$("#ClcNumber").hide();
+	 }
+
+	 var strCnFundProject=$("#CnFundProjectValue").html();
+	 if(strCnFundProject==""){
+		$("#CnFundProject").hide();
+	 }
+
+	 var strEnFundProject=$("#EnFundProjectValue").html();
+	 if(strEnFundProject==""){
+		$("#EnFundProject").hide();
+	 }
+
+	 var strEnTitle=$("#EnTitleValue").html();
+	 if(strEnTitle==""){
+		$("#EnTitle").hide();
+	 }
+
+	 var strEnAbstract=$("#EnAbstractValue").html();
+	 if(strEnAbstract==""){
+		$("#EnAbstract").hide();
+	 }
+
+	 var strSendTime=$("#SendTimeValue").html();
+	 if(strSendTime==""){
+		$("#SendTime").hide();
+	 }
+	 
+	 var strLastModifyTime=$("#LastModifyTimeValue").html();
+	 if(strLastModifyTime==""){
+		$("#LastModifyTime").hide();
+	 }
+
+	 var strAdoptTime=$("#AdoptTimeValue").html();
+	 if(strAdoptTime==""){
+		$("#AdoptTime").hide();
+	 }
+
+	 var strPublishTime=$("#PublishTimeValue").html();
+	 if(strPublishTime==""){
+		$("#PublishTime").hide();
+	 }
+
+	 var strBookPublishedTime=$("#BookPublishedTimeValue").html();
+	 if(strBookPublishedTime==""){
+		$("#BookPublishedTime").hide();
+	 }
+
+	 var strCnKeyWord="";
+	 var strCnKeyWordList="<span>关键词:</span>";
+	 if(strCnKeyWord!=""){
+		var CnKeyWordArray=strCnKeyWord.split(";");
+		for(var i=0;i<CnKeyWordArray.length;i++){
+			var strKeyWord=CnKeyWordArray[i];
+			if(i>0){
+				strCnKeyWordList=strCnKeyWordList+"<span>;</span>";
+			}
+			strCnKeyWordList=strCnKeyWordList+"<a href='jos/article/search?jid=jos&field=key_word&key="+strKeyWord+"' target='_blank'>"+strKeyWord+"</a>";
+		}
+		$("#CnKeyWord").html(strCnKeyWordList);
+	 }			       
+				     
+	  var strEnKeyWord="";
+	  var strEnKeyWordList="<span>Key words:</span>";
+	  if(strEnKeyWord!=""){
+		var EnKeyWordArray=strEnKeyWord.split(";");
+		for(var i=0;i<EnKeyWordArray.length;i++){
+			var strKeyWord=EnKeyWordArray[i];
+			if(i>0){
+				strEnKeyWordList=strEnKeyWordList+"<span>;</span>";
+			}
+			strEnKeyWordList=strEnKeyWordList+"<a href='jos/article/search?jid=jos&field=en_key_word&key="+strKeyWord+"' target='_blank'>"+strKeyWord+"</a>";
+		}
+		$("#EnKeyWord").html(strEnKeyWordList);
+	 }
+
+	var strImagesJson="";
+	 if(strImagesJson!=""){
+	        var imagesJson = jQuery.parseJSON(strImagesJson);
+	        var strImagesList="";
+		var intLength=imagesJson.images.length;
+		for(var i=0;i<intLength;i++){				
+			var strCnLabel=imagesJson.images[i].cn_label;
+			var strEnLabel=imagesJson.images[i].en_label;
+			var strCnTitle=imagesJson.images[i].cn_title;
+			var strEnTitle=imagesJson.images[i].en_title;
+			var strSmallImageUrl=imagesJson.images[i].small_image_url;
+			strImagesList=strImagesList+"<div class='swiper-slide'><img width='800' src='"+strSmallImageUrl+"'><div class='swiper_slide_div'><div class='swiper_slide_title'><span class='swiper_title_cn'>"+strCnLabel+" "+strCnTitle+"</span><span class='swiper_title_en'>"+strEnLabel+" "+strEnTitle+"</span></div></div></div>";
+		}
+		$("#ImagesList").html(strImagesList);
+	  }
+	  var strAttachmentsJson="";
+	  if(strAttachmentsJson!=""){
+		 var strAttachmentsList="";
+		 var attachmentsJson = jQuery.parseJSON(strAttachmentsJson);
+		 var intLength=attachmentsJson.attachments.length;
+		 for(var i=0;i<intLength;i++){				
+			var strAttacheName=attachmentsJson.attachments[i].attache_name;
+			var strAttacheUrl=attachmentsJson.attachments[i].url;
+			var strAttacheTypeIcon=attachmentsJson.attachments[i].type_icon;
+			strAttachmentsList=strAttachmentsList+"<dl><span><a href='"+strAttacheUrl+"' target='_blank'>"+strAttacheName+"</a></span><font><a href='"+strAttacheUrl+"' target='_blank'>下 载</a></font></dl>";
+		 }
+		 $("#AttacheList").html(strAttachmentsList);
+	  
+	  }
+	  
+	  var strCnAuthorsList="";
+	  var strEnAuthorsList="";
+	  var strAuthorsJson="{\"authors\":[{\"cn_name\":\"张贺\",\"en_name\":\"\",\"cn_institution\":\"南京大学 软件学院, 江苏 南京 210093;计算机软件新技术国家重点实验室(南京大学), 江苏南京 210023\",\"en_institution\":\"\",\"email\":\"hezhang@nju.edu.cn\",\"is_first_author\":\"1\",\"is_contact_author\":\"\",\"sequence\":\"1\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"王忠杰\",\"en_name\":\"\",\"cn_institution\":\"哈尔滨工业大学 计算学部, 黑龙江 哈尔滨 150001\",\"en_institution\":\"\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"2\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"陈连平\",\"en_name\":\"\",\"cn_institution\":\"Lianping Chen Ltd., Dublin D06XD73, Ireland\",\"en_institution\":\"\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"3\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"},{\"cn_name\":\"彭鑫\",\"en_name\":\"\",\"cn_institution\":\"复旦大学 计算机科学与技术学院, 上海 200438\",\"en_institution\":\"\",\"email\":\"\",\"is_first_author\":\"0\",\"is_contact_author\":\"\",\"sequence\":\"4\",\"first_name\":\"\",\"middle_name\":\"\",\"last_name\":\"\",\"resume\":\"\",\"institute_superscript\":\"\"}]}";
+	  if(strAuthorsJson!=""){
+		 var authorsJson = jQuery.parseJSON(strAuthorsJson);
+		 var intLength=authorsJson.authors.length;
+		 for(var i=0;i<intLength;i++){				
+			var cn_name=authorsJson.authors[i].cn_name;			
+			var en_name=authorsJson.authors[i].en_name;
+			var cn_institution=authorsJson.authors[i].cn_institution;
+			var en_institution=authorsJson.authors[i].en_institution;
+			var email=authorsJson.authors[i].email;
+			var is_first_author=authorsJson.authors[i].is_first_author;
+			var is_contact_author=authorsJson.authors[i].is_contact_author;
+			var sequence=authorsJson.authors[i].sequence;
+			var resume=authorsJson.authors[i].resume;
+			var institute_superscript=authorsJson.authors[i].institute_superscript;
+			//中文部分
+			strCnAuthorsList=strCnAuthorsList+"<li><a class='nn' href='javascript:;'>"+cn_name+"</a> <sup>"+institute_superscript+"</sup>";
+			strCnAuthorsList=strCnAuthorsList+" <sup>";
+			if(is_contact_author==""){
+				strCnAuthorsList=strCnAuthorsList+"<a class='tx' href='javascript:;' title='通讯作者:"+cn_name+",Email: "+email+"'></a>";
+			}
+			if(email.indexOf("@")>0){
+				strCnAuthorsList=strCnAuthorsList+"<a class='email' href='mailto:"+email+"' title='"+email+"'></a>";
+			}				
+			strCnAuthorsList=strCnAuthorsList+"</sup>";
+                        strCnAuthorsList=strCnAuthorsList+"<div class='fudong_ycc'>";
+                        strCnAuthorsList=strCnAuthorsList+"<p>"+cn_name+"</p>";
+                        strCnAuthorsList=strCnAuthorsList+cn_institution+"<br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='http://it.alljournals.cn/search.aspx?encoding=utf8&subject=industry_technology&major=zdhjsjsjjs&orderby=referenced&field=author_name&q="+cn_name+"' target='_blank'>在期刊界中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='https://xueshu.baidu.com/s?wd="+cn_name+"' target='_blank'>在百度中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='jos/article/search/?jid=jos&field=user_real_name&key="+cn_name+"' target='_blank'>在本站中查找</a><br>";
+                        strCnAuthorsList=strCnAuthorsList+"</div><div class='fudong_ycc_bj'></div></li>";
+
+			
+			//英文部分
+			strEnAuthorsList=strEnAuthorsList+"<li><a class='nn' href='javascript:;'>"+en_name+"</a> <sup>"+institute_superscript+"</sup>";
+			strEnAuthorsList=strEnAuthorsList+" <sup>";
+			if(is_contact_author==""){
+				strEnAuthorsList=strEnAuthorsList+"<a class='tx' href='' title='Contact author:"+en_name+",Email: "+email+"'></a>";
+			}
+			if(email.indexOf("@")>0){
+				strEnAuthorsList=strEnAuthorsList+"<a class='email' href='mailto:"+email+"' title='"+email+"'></a>";
+			}				
+			strEnAuthorsList=strEnAuthorsList+"</sup>";
+                        strEnAuthorsList=strEnAuthorsList+"<div class='fudong_ycc'>";
+                        strEnAuthorsList=strEnAuthorsList+"<p>"+en_name+"</p>";
+                        strEnAuthorsList=strEnAuthorsList+en_institution+"<br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='http://it.alljournals.cn/search.aspx?encoding=utf8&subject=industry_technology&major=zdhjsjsjjs&orderby=referenced&field=author_name&q="+en_name+"' target='_blank'>在期刊界中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='https://xueshu.baidu.com/s?wd="+en_name+"' target='_blank'>在百度中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"<i class='fa fa-angle-left'></i> <a href='jos/article/search/?jid=jos&field=user_real_name&key="+en_name+"' target='_blank'>在本站中查找</a><br>";
+                        strEnAuthorsList=strEnAuthorsList+"</div><div class='fudong_ycc_bj'></div></li>";
+			
+		 }
+		 $("#CnAuthorList").html(strCnAuthorsList);
+		 $("#EnAuthorList").html(strEnAuthorsList);
+	  }	
+
+	  $("#CommentList").load("template/common/et_article_comment.aspx?file_no=6237&journal_id=jos&is_mobile=0&year_id=2021&return_url=jos/article/abstract/6237&issue=5&flag=1");
+	
+	
+        var strAttacheListCount = $("#AttacheListCount").val();
+        if (strAttacheListCount == "0") {//隐藏附件
+            $("#MaterialsTab").hide();
+        }
+        var strImagesListCount = $("#ImagesListCount").val();
+        if (strImagesListCount == "0") {//隐藏图片
+            $("#FiguresTab").hide();
+        }
+        GetMetrics();
+        GetRelatedArticle();
+        GetReferenceList("1");
+        GetWasReferencedList("1");
+	GetVideoList();
+    });
+</script>
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+<script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function (e) {
+        alert('复制成功');
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        e.clearSelection();
+    });
+</script>
+<style>
+.index_c{
+
+padding-left: 40px;
+}
+	.article_abstract_left .cat .slideTxtBox .bd ul .zy .zy1 p{
+		word-break: break-all;
+	}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+i,em {
+    font-style: italic;
+}
+
+</style>
+
+
+
+<script>
+    const referConfig = {
+        vendor: "qy",
+        column_num: 2,
+        column_css: 1,
+        page_name: 'abstract',
+       
+         
+            "pcid": "11118c97064381af4e885e0237db14b2b44b2e1ba90a6b5ec83049e15eb7fd78",
+            "cid": "d02e979dd9f667acaab8e21a72dada14",
+            "jid": "f32d92ecd005f7606db19dae7306d59a"
+      
+    }
+
+    if(referConfig.pcid!=""){
+	$('.zy').append("<div id='et_extend' > </div>")
+     }	
+
+</script>
+<script src="https://recommend.aipub.cn/file/aipub.ad.js"></script>
+               
+
+			</div>
+		<div class="clear"></div>
+  </div>
+
+  <!--底部开始-->
+  <div class="footer">
+      <span>友情链接:</span><span><a href='http://www.iscas.ac.cn/' target='_blak'>中国科学院软件研究所</a></span><span><a href='https://www.ccf.org.cn/' target='_blak'>中国计算机学会</a></span><span><a href='http://www.cas.cn/' target='_blak'>中国科学院</a></span><span><a href='http://www.nsfc.gov.cn/' target='_blak'>国家自然科学基金委员会</a></span><span><a href='https://dl.ccf.org.cn/index.html?_ack=1' target='_blak'>CCF数字图书馆</a></span><span><a href='http://www.ijsi.org' target='_blak'>Int'l J of Softw Info</a></span><span><a href='http://www.c-s-a.org.cn' target='_blak'>计算机系统应用</a></span>    
+       <div class="clear"></div>
+  </div>
+  <div class="foot">
+    您是第<b><span id="WebSiteTotalCount"></span></b>位访问者<br>
+		版权所有：中国科学院软件研究所    <a href="https://beian.miit.gov.cn/">京ICP备05046678号-3</a><br /> 
+地址：北京市海淀区中关村南四街4号,邮政编码：100190<br />
+电话：010-62562563 传真：010-62562533  Email：jos@iscas.ac.cn<br />
+技术支持：<a href="http://www.e-tiller.com" target="_blank">北京勤云科技发展有限公司</a><br />
+<div style="width:406px;margin:0 auto; padding:10px 0;">
+         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11040202500063" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/jos/ch/ext_images/batb.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11040202500063号</p></a>
+       </div>
+   
+       <div class="clear"></div>
+  </div>
+   <style>
+.social-share .icon-wechat .wechat-qrcode {top: 0px; }
+ .et-py-10 .icon{margin: 0;}
+  </style>
+  <!--底部结束-->
+  <link rel="stylesheet" type="text/css" href="template/011_2/css/1000and1200.css">
+<!--  悬浮广告左边-->
+<!--1-->
+
+<!--  悬浮广告右边-->
+
+<!--弹出窗口-->
+
+<style>
+
+    .slideTxtBox_list_zy bb_1 {
+        display:block;
+    }
+    .slideTxtBox_list_shuffling bb_2 {
+        display:block;
+    }
+	#Content a{
+	
+	text-decoration: underline;
+	color: blue;
+	}
+	.search_ext_list_body .search_ext_list_body_container .search_ext_keyword_result .search_ext_article_list li{
+	
+	clear: both;
+	}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd .article_list li {
+    overflow: initial;
+    height: 100px;
+}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd ul {
+   overflow: initial;
+}
+
+.article_issue_left .article_issue_m .slideTxtBox .article_issue_bd .article_list .article_line{
+ overflow: initial;
+}
+</style>
+</body>
+</html>
+<script language="javascript">
+$().ready(function() {
+	//不管页面上有没有统计数字，都要加这个语句，用来刷新访问统计
+	 var strURL="jos/site/get_access_and_today_count";
+	 $.get(strURL,function(strScript){			 
+		eval(strScript);
+	});
+    });
+   
+   
+   
+
+    setTimeout(() => {
+        //alert($(".YYSS").length);
+        //alert($(".slideTxtBox_list_zy bb_1").length);
+        // $(".slideTxtBox_list_shuffling bb_2").css("display", "block");
+    },5000)
+</script>
+<script style="display:none;">
+//获取所有图片元素
+var currentUrl = window.location.href.toLowerCase();
+    if (currentUrl.indexOf('login') !== -1 && currentUrl.indexOf('html') !== -1) {
+const images = document.querySelectorAll('img');
+var image_news = document.getElementById('slideBox');
+var _images = "";
+if(image_news != "" && image_news != "null" && image_news != null){
+	_images = image_news.querySelectorAll('img');
+}
+// 遍历所有图片，并添加data-src属性
+images.forEach(image => {
+  image.setAttribute('data-src', image.src);
+});
+// 替换所有图片默认加载
+images.forEach(image => {
+  image.setAttribute('src', "http://www.e-tiller.com/uploadfile/loading.gif");
+});
+try{
+  // 图片新闻默认不懒加载
+  _images.forEach(image => {
+     image.setAttribute('src', image.dataset.src);
+  });
+}catch(e){}
+//监听页面滚动事件
+window.addEventListener('scroll', loadImages);
+//定义 loadImages 函数来加载图片
+
+function loadImages() {
+  for (let i = 0; i < images.length; i++) {
+    // 获取图片源和位置信息
+    let imgSrc = images[i].dataset.src;
+    let imgRect = images[i].getBoundingClientRect();
+    
+    if (imgRect.top < window.innerHeight && imgRect.left < window.innerWidth
+     && imgRect.right > 0 && imgRect.bottom > 0) {  
+      // 图片进入视口,加载真实图片源
+      images[i].src = imgSrc;  
+      images[i].addEventListener('load', () => { 
+        images[i].style.opacity = 1;  // 淡入效果
+      });
+    } 
+  }
+}
+//页面初始化时调用一次 loadImages，防止某些图片已进入视口但未加载
+loadImages();
+}
+</script>

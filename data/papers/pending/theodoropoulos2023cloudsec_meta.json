@@ -1,0 +1,11 @@
+{
+  "key": "theodoropoulos2023cloudsec",
+  "entry_type": "article",
+  "title": "Security in Cloud-Native Services: A Survey",
+  "author": "Theodoropoulos, Theodoros and Rosa, Luis and Benzaid, Chafika and Gray, Peter and Marin, Eduard and others",
+  "year": "2023",
+  "doi": "10.3390/jcp3040034",
+  "url": "",
+  "journal": "Journal of Cybersecurity and Privacy",
+  "raw": "@article{theodoropoulos2023cloudsec,\n  title   = {Security in Cloud-Native Services: A Survey},\n  author  = {Theodoropoulos, Theodoros and Rosa, Luis and Benzaid, Chafika and Gray, Peter and Marin, Eduard and others},\n  journal = {Journal of Cybersecurity and Privacy},\n  volume  = {3},\n  number  = {4},\n  pages   = {758--793},\n  year    = {2023},\n  doi     = {10.3390/jcp3040034}\n}"
+}

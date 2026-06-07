@@ -1,0 +1,11 @@
+{
+  "key": "otel_tail",
+  "entry_type": "misc",
+  "title": "Tail Sampling",
+  "author": "{OpenTelemetry",
+  "year": "2024",
+  "doi": "",
+  "url": "https://opentelemetry.io/docs/concepts/sampling/",
+  "journal": "",
+  "raw": "@misc{otel_tail,\n  title        = {Tail Sampling},\n  author       = {{OpenTelemetry}},\n  year         = {2024},\n  howpublished = {\\url{https://opentelemetry.io/docs/concepts/sampling/}},\n  url          = {https://opentelemetry.io/docs/concepts/sampling/}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "zhu2020loghub",
+  "entry_type": "article",
+  "title": "Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics",
+  "author": "Zhu, Jieming and He, Shilin and He, Pinjia and Liu, Jinyang and Lyu, Michael R.",
+  "year": "2020",
+  "doi": "10.48550/arXiv.2008.06448",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2008.06448",
+  "raw": "@article{zhu2020loghub,\n  title   = {Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics},\n  author  = {Zhu, Jieming and He, Shilin and He, Pinjia and Liu, Jinyang and Lyu, Michael R.},\n  journal = {arXiv preprint arXiv:2008.06448},\n  year    = {2020},\n  doi     = {10.48550/arXiv.2008.06448}\n}"
+}

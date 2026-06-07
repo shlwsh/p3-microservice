@@ -1,0 +1,11 @@
+{
+  "key": "zhang2024reducing",
+  "entry_type": "inproceedings",
+  "title": "Reducing Events to Augment Log-based Anomaly Detection Models: An Empirical Study",
+  "author": "Zhang, Lingzhe and Jia, Tong and Wang, Kangjin and Jia, Mengxi and Yang, Yong and Li, Ying",
+  "year": "2024",
+  "doi": "10.1145/3674805.3695403",
+  "url": "",
+  "journal": "Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering",
+  "raw": "@inproceedings{zhang2024reducing,\n  title     = {Reducing Events to Augment Log-based Anomaly Detection Models: An Empirical Study},\n  author    = {Zhang, Lingzhe and Jia, Tong and Wang, Kangjin and Jia, Mengxi and Yang, Yong and Li, Ying},\n  booktitle = {Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering},\n  year      = {2024},\n  doi       = {10.1145/3674805.3695403}\n}"
+}

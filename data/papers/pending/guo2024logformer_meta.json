@@ -1,0 +1,11 @@
+{
+  "key": "guo2024logformer",
+  "entry_type": "inproceedings",
+  "title": "LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly Detection",
+  "author": "Guo, Hongcheng and Yang, Jian and Liu, Jiaheng and Bai, Jiaqi and Wang, Boyang and others",
+  "year": "2024",
+  "doi": "10.1609/aaai.v38i1.27764",
+  "url": "",
+  "journal": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "raw": "@inproceedings{guo2024logformer,\n  title     = {LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly Detection},\n  author    = {Guo, Hongcheng and Yang, Jian and Liu, Jiaheng and Bai, Jiaqi and Wang, Boyang and others},\n  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},\n  volume    = {38},\n  number    = {1},\n  pages     = {135--143},\n  year      = {2024},\n  doi       = {10.1609/aaai.v38i1.27764}\n}"
+}

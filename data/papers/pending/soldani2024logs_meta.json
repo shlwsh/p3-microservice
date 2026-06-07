@@ -1,0 +1,11 @@
+{
+  "key": "soldani2024logs",
+  "entry_type": "article",
+  "title": "Explaining Microservices' Cascading Failures From Their Logs",
+  "author": "Soldani, Jacopo and Forti, Stefano and Roveroni, Luca and Brogi, Antonio",
+  "year": "2024",
+  "doi": "10.1002/spe.3400",
+  "url": "",
+  "journal": "Software: Practice and Experience",
+  "raw": "@article{soldani2024logs,\n  title   = {Explaining Microservices' Cascading Failures From Their Logs},\n  author  = {Soldani, Jacopo and Forti, Stefano and Roveroni, Luca and Brogi, Antonio},\n  journal = {Software: Practice and Experience},\n  year    = {2024},\n  doi     = {10.1002/spe.3400}\n}"
+}

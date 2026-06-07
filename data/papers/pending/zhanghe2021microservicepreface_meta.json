@@ -1,0 +1,11 @@
+{
+  "key": "zhanghe2021microservicepreface",
+  "entry_type": "article",
+  "title": "面向持续软件工程的微服务架构技术专题前言",
+  "author": "张贺 and 王忠杰 and 陈连平 and 彭鑫",
+  "year": "2021",
+  "doi": "10.13328/j.cnki.jos.006237",
+  "url": "https://www.jos.org.cn/1000-9825/6237.htm",
+  "journal": "软件学报",
+  "raw": "@article{zhanghe2021microservicepreface,\n  title   = {面向持续软件工程的微服务架构技术专题前言},\n  author  = {张贺 and 王忠杰 and 陈连平 and 彭鑫},\n  journal = {软件学报},\n  volume  = {32},\n  number  = {5},\n  pages   = {1229--1230},\n  year    = {2021},\n  doi     = {10.13328/j.cnki.jos.006237},\n  url     = {https://www.jos.org.cn/1000-9825/6237.htm}\n}"
+}

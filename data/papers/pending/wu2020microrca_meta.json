@@ -1,0 +1,11 @@
+{
+  "key": "wu2020microrca",
+  "entry_type": "inproceedings",
+  "title": "MicroRCA: Root Cause Localization of Performance Issues in Microservices",
+  "author": "Wu, Li and Tordsson, Johan and Elmroth, Erik and Kao, Odej",
+  "year": "2020",
+  "doi": "10.1109/NOMS47738.2020.9110353",
+  "url": "",
+  "journal": "NOMS 2020 - 2020 IEEE/IFIP Network Operations and Management Symposium",
+  "raw": "@inproceedings{wu2020microrca,\n  title     = {MicroRCA: Root Cause Localization of Performance Issues in Microservices},\n  author    = {Wu, Li and Tordsson, Johan and Elmroth, Erik and Kao, Odej},\n  booktitle = {NOMS 2020 - 2020 IEEE/IFIP Network Operations and Management Symposium},\n  pages     = {1--9},\n  year      = {2020},\n  doi       = {10.1109/NOMS47738.2020.9110353}\n}"
+}

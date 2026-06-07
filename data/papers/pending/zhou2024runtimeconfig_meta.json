@@ -1,0 +1,11 @@
+{
+  "key": "zhou2024runtimeconfig",
+  "entry_type": "article",
+  "title": "软件运行时配置研究综述",
+  "author": "周书林 and 李姗姗 and 董威 and 王戟 and 廖湘科",
+  "year": "2024",
+  "doi": "10.13328/j.cnki.jos.006835",
+  "url": "https://www.jos.org.cn/jos/article/abstract/6835",
+  "journal": "软件学报",
+  "raw": "@article{zhou2024runtimeconfig,\n  title   = {软件运行时配置研究综述},\n  author  = {周书林 and 李姗姗 and 董威 and 王戟 and 廖湘科},\n  journal = {软件学报},\n  volume  = {35},\n  number  = {1},\n  pages   = {63--86},\n  year    = {2024},\n  doi     = {10.13328/j.cnki.jos.006835},\n  url     = {https://www.jos.org.cn/jos/article/abstract/6835}\n}"
+}

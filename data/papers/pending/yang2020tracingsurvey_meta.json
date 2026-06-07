@@ -1,0 +1,11 @@
+{
+  "key": "yang2020tracingsurvey",
+  "entry_type": "article",
+  "title": "分布式追踪技术综述",
+  "author": "杨勇 and 李影 and 吴中海",
+  "year": "2020",
+  "doi": "10.13328/j.cnki.jos.006047",
+  "url": "https://www.jos.org.cn/1000-9825/6047.htm",
+  "journal": "软件学报",
+  "raw": "@article{yang2020tracingsurvey,\n  title   = {分布式追踪技术综述},\n  author  = {杨勇 and 李影 and 吴中海},\n  journal = {软件学报},\n  volume  = {31},\n  number  = {7},\n  pages   = {2019--2039},\n  year    = {2020},\n  doi     = {10.13328/j.cnki.jos.006047},\n  url     = {https://www.jos.org.cn/1000-9825/6047.htm}\n}"
+}

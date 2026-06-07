@@ -1,0 +1,11 @@
+{
+  "key": "you2021tracelogstorage",
+  "entry_type": "article",
+  "title": "一种监控系统的链路跟踪型日志数据的存储设计",
+  "author": "尤勇 and 汪浩 and 任天 and 顾胜晖 and 孙佳林",
+  "year": "2021",
+  "doi": "10.13328/j.cnki.jos.006234",
+  "url": "https://www.jos.org.cn/1000-9825/6234.htm",
+  "journal": "软件学报",
+  "raw": "@article{you2021tracelogstorage,\n  title   = {一种监控系统的链路跟踪型日志数据的存储设计},\n  author  = {尤勇 and 汪浩 and 任天 and 顾胜晖 and 孙佳林},\n  journal = {软件学报},\n  volume  = {32},\n  number  = {5},\n  pages   = {1302--1321},\n  year    = {2021},\n  doi     = {10.13328/j.cnki.jos.006234},\n  url     = {https://www.jos.org.cn/1000-9825/6234.htm}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "jia2021loggingdecision",
+  "entry_type": "article",
+  "title": "基于程序层次树的日志打印位置决策方法",
+  "author": "贾统 and 李影 and 张齐勋 and 吴中海",
+  "year": "2021",
+  "doi": "10.13328/j.cnki.jos.005990",
+  "url": "https://www.jos.org.cn/1000-9825/5990.htm",
+  "journal": "软件学报",
+  "raw": "@article{jia2021loggingdecision,\n  title   = {基于程序层次树的日志打印位置决策方法},\n  author  = {贾统 and 李影 and 张齐勋 and 吴中海},\n  journal = {软件学报},\n  volume  = {32},\n  number  = {9},\n  pages   = {2713--2728},\n  year    = {2021},\n  doi     = {10.13328/j.cnki.jos.005990},\n  url     = {https://www.jos.org.cn/1000-9825/5990.htm}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "zhang2024multivariate",
+  "entry_type": "inproceedings",
+  "title": "Multivariate Log-based Anomaly Detection for Distributed Database",
+  "author": "Zhang, Lingzhe and Jia, Tong and Jia, Mengxi and Li, Ying and Yang, Yong and Wu, Zhonghai",
+  "year": "2024",
+  "doi": "10.1145/3637528.3671725",
+  "url": "",
+  "journal": "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+  "raw": "@inproceedings{zhang2024multivariate,\n  title     = {Multivariate Log-based Anomaly Detection for Distributed Database},\n  author    = {Zhang, Lingzhe and Jia, Tong and Jia, Mengxi and Li, Ying and Yang, Yong and Wu, Zhonghai},\n  booktitle = {Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},\n  year      = {2024},\n  doi       = {10.1145/3637528.3671725}\n}"
+}

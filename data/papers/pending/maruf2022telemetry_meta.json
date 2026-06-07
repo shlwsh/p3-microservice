@@ -1,0 +1,11 @@
+{
+  "key": "maruf2022telemetry",
+  "entry_type": "article",
+  "title": "Using Microservice Telemetry Data for System Dynamic Analysis",
+  "author": "Maruf, Abdullah Al and Bakhtin, Alexander and Cerny, Tomas and Taibi, Davide",
+  "year": "2022",
+  "doi": "10.48550/arXiv.2207.02776",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2207.02776",
+  "raw": "@article{maruf2022telemetry,\n  title   = {Using Microservice Telemetry Data for System Dynamic Analysis},\n  author  = {Maruf, Abdullah Al and Bakhtin, Alexander and Cerny, Tomas and Taibi, Davide},\n  journal = {arXiv preprint arXiv:2207.02776},\n  year    = {2022},\n  doi     = {10.48550/arXiv.2207.02776}\n}"
+}

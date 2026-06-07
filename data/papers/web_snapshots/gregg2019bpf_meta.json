@@ -1,0 +1,11 @@
+{
+  "key": "gregg2019bpf",
+  "entry_type": "book",
+  "title": "{BPF",
+  "author": "Gregg, Brendan",
+  "year": "2019",
+  "doi": "",
+  "url": "",
+  "journal": "",
+  "raw": "@book{gregg2019bpf,\n  title     = {{BPF} Performance Tools: Linux System and Application Observability},\n  author    = {Gregg, Brendan},\n  year      = {2019},\n  publisher = {Addison-Wesley},\n  isbn      = {978-0136554820}\n}"
+}

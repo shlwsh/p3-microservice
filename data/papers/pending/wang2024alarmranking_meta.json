@@ -1,0 +1,11 @@
+{
+  "key": "wang2024alarmranking",
+  "entry_type": "article",
+  "title": "基于多元数据融合的网络侧告警排序方法",
+  "author": "王维靖 and 王星凯 and 陈俊洁 and 吴复迪 and 杨林 and 张润滋 and 侯德俊 and 王赞",
+  "year": "2024",
+  "doi": "10.13328/j.cnki.jos.007118",
+  "url": "https://www.jos.org.cn/1000-9825/7118.htm",
+  "journal": "软件学报",
+  "raw": "@article{wang2024alarmranking,\n  title   = {基于多元数据融合的网络侧告警排序方法},\n  author  = {王维靖 and 王星凯 and 陈俊洁 and 吴复迪 and 杨林 and 张润滋 and 侯德俊 and 王赞},\n  journal = {软件学报},\n  volume  = {35},\n  number  = {8},\n  pages   = {3610--3625},\n  year    = {2024},\n  doi     = {10.13328/j.cnki.jos.007118},\n  url     = {https://www.jos.org.cn/1000-9825/7118.htm}\n}"
+}

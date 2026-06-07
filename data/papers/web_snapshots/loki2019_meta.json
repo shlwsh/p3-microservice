@@ -1,0 +1,11 @@
+{
+  "key": "loki2019",
+  "entry_type": "misc",
+  "title": "Grafana Loki: Like Prometheus, but for Logs",
+  "author": "{Grafana Labs",
+  "year": "2019",
+  "doi": "",
+  "url": "https://grafana.com/oss/loki/",
+  "journal": "",
+  "raw": "@misc{loki2019,\n  title        = {Grafana Loki: Like Prometheus, but for Logs},\n  author       = {{Grafana Labs}},\n  year         = {2019},\n  howpublished = {KubeCon Presentation},\n  url          = {https://grafana.com/oss/loki/}\n}"
+}

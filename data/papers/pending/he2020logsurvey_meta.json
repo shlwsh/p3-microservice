@@ -1,0 +1,11 @@
+{
+  "key": "he2020logsurvey",
+  "entry_type": "article",
+  "title": "A Survey on Automated Log Analysis for Reliability Engineering",
+  "author": "He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su, Yuxin and Lyu, Michael R.",
+  "year": "2020",
+  "doi": "10.48550/arXiv.2009.07237",
+  "url": "",
+  "journal": "arXiv preprint arXiv:2009.07237",
+  "raw": "@article{he2020logsurvey,\n  title   = {A Survey on Automated Log Analysis for Reliability Engineering},\n  author  = {He, Shilin and He, Pinjia and Chen, Zhuangbin and Yang, Tianyi and Su, Yuxin and Lyu, Michael R.},\n  journal = {arXiv preprint arXiv:2009.07237},\n  year    = {2020},\n  doi     = {10.48550/arXiv.2009.07237}\n}"
+}

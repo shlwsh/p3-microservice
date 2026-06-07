@@ -1,0 +1,11 @@
+{
+  "key": "richardson2018microservices",
+  "entry_type": "book",
+  "title": "Microservices Patterns",
+  "author": "Richardson, Chris",
+  "year": "2018",
+  "doi": "",
+  "url": "",
+  "journal": "",
+  "raw": "@book{richardson2018microservices,\n  title     = {Microservices Patterns},\n  author    = {Richardson, Chris},\n  year      = {2018},\n  publisher = {Manning},\n  isbn      = {978-1617294549}\n}"
+}

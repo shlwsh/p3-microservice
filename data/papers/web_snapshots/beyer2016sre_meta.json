@@ -1,0 +1,11 @@
+{
+  "key": "beyer2016sre",
+  "entry_type": "book",
+  "title": "Site Reliability Engineering",
+  "author": "Beyer, Betsy and Jones, Chris and Petoff, Jennifer and Murphy, Niall Richard",
+  "year": "2016",
+  "doi": "",
+  "url": "https://sre.google/sre-book/table-of-contents/",
+  "journal": "",
+  "raw": "@book{beyer2016sre,\n  title     = {Site Reliability Engineering},\n  author    = {Beyer, Betsy and Jones, Chris and Petoff, Jennifer and Murphy, Niall Richard},\n  year      = {2016},\n  publisher = {O'Reilly},\n  isbn      = {978-1491929124},\n  url       = {https://sre.google/sre-book/table-of-contents/}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "giamattei2023monitoring",
+  "entry_type": "article",
+  "title": "Monitoring Tools for DevOps and Microservices: A Systematic Grey Literature Review",
+  "author": "Giamattei, Luca and Guerriero, Antonio and Pietrantuono, Roberto and Russo, Stefano and Malavolta, Ivano and others",
+  "year": "2023",
+  "doi": "10.1016/j.jss.2023.111906",
+  "url": "",
+  "journal": "Journal of Systems and Software",
+  "raw": "@article{giamattei2023monitoring,\n  title   = {Monitoring Tools for DevOps and Microservices: A Systematic Grey Literature Review},\n  author  = {Giamattei, Luca and Guerriero, Antonio and Pietrantuono, Roberto and Russo, Stefano and Malavolta, Ivano and others},\n  journal = {Journal of Systems and Software},\n  volume  = {203},\n  pages   = {111906},\n  year    = {2023},\n  doi     = {10.1016/j.jss.2023.111906}\n}"
+}

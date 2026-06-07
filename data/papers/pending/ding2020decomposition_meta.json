@@ -1,0 +1,11 @@
+{
+  "key": "ding2020decomposition",
+  "entry_type": "article",
+  "title": "场景驱动且自底向上的单体系统微服务拆分方法",
+  "author": "丁丹 and 彭鑫 and 郭晓峰 and 张健 and 吴毅坚",
+  "year": "2020",
+  "doi": "10.13328/j.cnki.jos.006031",
+  "url": "https://www.jos.org.cn/1000-9825/6031.htm",
+  "journal": "软件学报",
+  "raw": "@article{ding2020decomposition,\n  title   = {场景驱动且自底向上的单体系统微服务拆分方法},\n  author  = {丁丹 and 彭鑫 and 郭晓峰 and 张健 and 吴毅坚},\n  journal = {软件学报},\n  volume  = {31},\n  number  = {11},\n  pages   = {3461--3480},\n  year    = {2020},\n  doi     = {10.13328/j.cnki.jos.006031},\n  url     = {https://www.jos.org.cn/1000-9825/6031.htm}\n}"
+}

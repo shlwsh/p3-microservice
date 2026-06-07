@@ -1,0 +1,11 @@
+{
+  "key": "jin2021maintainability",
+  "entry_type": "article",
+  "title": "基于多源特征空间的微服务可维护性评估",
+  "author": "晋武侠 and 钟定洪 and 张宇云 and 杨名帆 and 刘烃",
+  "year": "2021",
+  "doi": "10.13328/j.cnki.jos.006235",
+  "url": "https://www.jos.org.cn/1000-9825/6235.htm",
+  "journal": "软件学报",
+  "raw": "@article{jin2021maintainability,\n  title   = {基于多源特征空间的微服务可维护性评估},\n  author  = {晋武侠 and 钟定洪 and 张宇云 and 杨名帆 and 刘烃},\n  journal = {软件学报},\n  volume  = {32},\n  number  = {5},\n  pages   = {1322--1340},\n  year    = {2021},\n  doi     = {10.13328/j.cnki.jos.006235},\n  url     = {https://www.jos.org.cn/1000-9825/6235.htm}\n}"
+}

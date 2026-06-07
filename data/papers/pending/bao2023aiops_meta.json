@@ -1,0 +1,11 @@
+{
+  "key": "bao2023aiops",
+  "entry_type": "article",
+  "title": "智能运维的实践: 现状与标准化",
+  "author": "包航宇 and 殷康璘 and 曹立 and 李世宁 and others",
+  "year": "2023",
+  "doi": "10.13328/j.cnki.jos.006876",
+  "url": "",
+  "journal": "软件学报",
+  "raw": "@article{bao2023aiops,\n  title   = {智能运维的实践: 现状与标准化},\n  author  = {包航宇 and 殷康璘 and 曹立 and 李世宁 and others},\n  journal = {软件学报},\n  volume  = {34},\n  number  = {9},\n  pages   = {4069--4095},\n  year    = {2023},\n  doi     = {10.13328/j.cnki.jos.006876}\n}"
+}

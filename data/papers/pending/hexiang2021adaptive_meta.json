@@ -1,0 +1,11 @@
+{
+  "key": "hexiang2021adaptive",
+  "entry_type": "article",
+  "title": "多版本共存的微服务系统自适应演化方法",
+  "author": "贺祥 and 刘磊 and 涂志莹 and 徐晓飞",
+  "year": "2021",
+  "doi": "10.13328/j.cnki.jos.006236",
+  "url": "https://www.jos.org.cn/jos/article/abstract/6236",
+  "journal": "软件学报",
+  "raw": "@article{hexiang2021adaptive,\n  title   = {多版本共存的微服务系统自适应演化方法},\n  author  = {贺祥 and 刘磊 and 涂志莹 and 徐晓飞},\n  journal = {软件学报},\n  volume  = {32},\n  number  = {5},\n  pages   = {1341--1359},\n  year    = {2021},\n  doi     = {10.13328/j.cnki.jos.006236},\n  url     = {https://www.jos.org.cn/jos/article/abstract/6236}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "kosinska2023observability",
+  "entry_type": "article",
+  "title": "Toward the Observability of Cloud-Native Applications: The Overview of the State-of-the-Art",
+  "author": "Kosi{\\'n",
+  "year": "2023",
+  "doi": "10.1109/ACCESS.2023.3281860",
+  "url": "",
+  "journal": "IEEE Access",
+  "raw": "@article{kosinska2023observability,\n  title   = {Toward the Observability of Cloud-Native Applications: The Overview of the State-of-the-Art},\n  author  = {Kosi{\\'n}ska, Joanna and Bali{\\'s}, Bartosz and Konieczny, Marek and Malawski, M. and Zieli{\\'n}ski, S{\\l}awomir},\n  journal = {IEEE Access},\n  volume  = {11},\n  pages   = {64601--64622},\n  year    = {2023},\n  doi     = {10.1109/ACCESS.2023.3281860}\n}"
+}

@@ -1,0 +1,11 @@
+{
+  "key": "xiebing2018intelligentdev",
+  "entry_type": "article",
+  "title": "数据驱动的软件智能化开发方法与技术专题前言",
+  "author": "谢冰 and 魏峻 and 彭鑫 and 孙海龙",
+  "year": "2018",
+  "doi": "10.13328/j.cnki.jos.005534",
+  "url": "",
+  "journal": "软件学报",
+  "raw": "@article{xiebing2018intelligentdev,\n  title   = {数据驱动的软件智能化开发方法与技术专题前言},\n  author  = {谢冰 and 魏峻 and 彭鑫 and 孙海龙},\n  journal = {软件学报},\n  volume  = {29},\n  number  = {8},\n  pages   = {2177--2179},\n  year    = {2018},\n  doi     = {10.13328/j.cnki.jos.005534}\n}"
+}

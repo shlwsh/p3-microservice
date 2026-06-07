@@ -1,0 +1,11 @@
+{
+  "key": "li2024amazemap",
+  "entry_type": "article",
+  "title": "{AmazeMap",
+  "author": "李亚晓 and 李青山 and 王璐 and 姜宇轩",
+  "year": "2024",
+  "doi": "10.13328/j.cnki.jos.007104",
+  "url": "https://www.jos.org.cn/1000-9825/7104.htm",
+  "journal": "软件学报",
+  "raw": "@article{li2024amazemap,\n  title   = {{AmazeMap}: 基于多层次影响图的微服务故障定位方法},\n  author  = {李亚晓 and 李青山 and 王璐 and 姜宇轩},\n  journal = {软件学报},\n  volume  = {35},\n  number  = {7},\n  pages   = {3115--3140},\n  year    = {2024},\n  doi     = {10.13328/j.cnki.jos.007104},\n  url     = {https://www.jos.org.cn/1000-9825/7104.htm}\n}"
+}

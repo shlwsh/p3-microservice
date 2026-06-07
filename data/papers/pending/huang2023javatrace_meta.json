@@ -1,0 +1,11 @@
+{
+  "key": "huang2023javatrace",
+  "entry_type": "article",
+  "title": "面向 Java 微服务系统的透明请求追踪及采样方法",
+  "author": "黄梓程 and 陈鹏飞 and 余广坝 and 陈泓仰",
+  "year": "2023",
+  "doi": "10.13328/j.cnki.jos.006523",
+  "url": "https://www.jos.org.cn/1000-9825/6523.htm",
+  "journal": "软件学报",
+  "raw": "@article{huang2023javatrace,\n  title   = {面向 Java 微服务系统的透明请求追踪及采样方法},\n  author  = {黄梓程 and 陈鹏飞 and 余广坝 and 陈泓仰},\n  journal = {软件学报},\n  volume  = {34},\n  number  = {7},\n  pages   = {3167--3187},\n  year    = {2023},\n  doi     = {10.13328/j.cnki.jos.006523},\n  url     = {https://www.jos.org.cn/1000-9825/6523.htm}\n}"
+}
