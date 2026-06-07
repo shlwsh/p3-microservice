@@ -12,6 +12,7 @@ alwaysApply: true
 | 技能 | 触发场景 |
 |------|----------|
 | `scholar-search` | 文献搜索、下载 PDF、BibTeX、`references.bib` 核实、`verify_cited_papers.py` |
+| `reference-processing` | 参考文献扩展、真实文献核验、正文引用同步、`data/papers/` 归档、文献处理报告 |
 | `paper1-multi-agent-review` | 论文审核、投稿前审核、多角色评审、`reviews/` 报告 |
 | `paper1-study-handbook` | 学习手册更新、`docs/study/` 同步 |
 | `mygit` | git commit/push、智能提交、`mygit.sh` |

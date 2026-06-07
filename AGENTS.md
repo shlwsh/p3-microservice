@@ -49,6 +49,7 @@ This project is indexed by GitNexus as **p3-microservice** (3036 symbols, 5917 r
 | Task | Skill |
 |------|-------|
 | 文献搜索 / 下载 / 引用核实 | `.cursor/skills/scholar-search/SKILL.md` |
+| 参考文献扩展 / 真实文献核验 / 文献归档报告 | `.cursor/skills/reference-processing/SKILL.md` |
 | 论文多角色审核 / 投稿前审核 | `.cursor/skills/paper1-multi-agent-review/SKILL.md` |
 | 学习手册更新 | `.cursor/skills/paper1-study-handbook/SKILL.md` |
 | 智能 Git 提交 | `.cursor/skills/mygit/SKILL.md` |
