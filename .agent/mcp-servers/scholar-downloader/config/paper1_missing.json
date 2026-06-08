@@ -1,0 +1,47 @@
+[
+  {
+    "citeKey": "chitta2009moveit",
+    "doi": "10.1109/MRA.2011.2181749",
+    "title": "MoveIt!: A Software Framework for Manipulation"
+  },
+  {
+    "citeKey": "huang2015tcn",
+    "doi": "10.1016/j.cmpb.2014.10.001",
+    "title": "Tongue Color Analysis for Diagnosis"
+  },
+  {
+    "citeKey": "kang2017neurosurgeon",
+    "doi": "10.1145/3037697.3037728",
+    "title": "Neurosurgeon: Collaborative Intelligence Between the Cloud and Mobile Edge"
+  },
+  {
+    "citeKey": "liu2019robotcloud",
+    "doi": "10.3390/robotics7030047",
+    "title": "A Comprehensive Survey of Recent Trends in Cloud Robotics Architectures and Applications",
+    "openUrl": "https://www.mdpi.com/2218-6581/7/3/47/pdf",
+    "replaces": "原 10.1109/COMST.2019.2892586 不存在；替换为 Mohammed et al. Robotics 2018 云机器人架构综述"
+  },
+  {
+    "citeKey": "qi2016tongue",
+    "doi": "10.1016/j.patcog.2016.01.017",
+    "title": "Tongue image analysis for disease diagnosis"
+  },
+  {
+    "citeKey": "wang2014edge",
+    "doi": "10.1109/JIOT.2016.2579198",
+    "title": "Edge Computing: Vision and Challenges",
+    "openUrl": "https://classpages.cselabs.umn.edu/Fall-2021/csci8980-ec/papers/Vision.pdf"
+  },
+  {
+    "citeKey": "zhang2018blind",
+    "doi": "10.1109/TCSVT.2018.2886771",
+    "title": "Blind Image Quality Assessment Using a Deep Bilinear Convolutional Neural Network",
+    "openUrl": "https://arxiv.org/pdf/1907.02665.pdf",
+    "replaces": "原 DOI 末位 2866628 有误；更正为 Zhang et al. IEEE TCSVT 2020"
+  },
+  {
+    "citeKey": "zhang2020tongue",
+    "doi": "10.1007/s10462-019-09735-6",
+    "title": "Automatic tongue diagnosis: a survey"
+  }
+]
