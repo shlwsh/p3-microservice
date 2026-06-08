@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Remote Procedure Call as a Managed System Service",
+    "authors": [
+      "Jingrong Chen",
+      "Yongji Wu",
+      "Shihan Lin",
+      "Yechen Xu",
+      "Xinhao Kong",
+      "Thomas Anderson",
+      "Matthew Lentz",
+      "Yang, Xiaowei",
+      "Danyang Zhuo"
+    ],
+    "year": 2023,
+    "citations": 2,
+    "abstract": "Remote Procedure Call (RPC) is a widely used abstraction for cloud computing. The programmer specifies type information for each remote procedure, and a compiler generates stub code linked into each application to marshal and unmarshal arguments into message buffers. Increasingly, however, application and service operations teams need a high degree of visibility and control over the flow of RPCs between services, leading many installations to use sidecars or service mesh proxies for manageabilit",
+    "doi": "10.48550/arxiv.2304.07349",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2304.07349",
+    "url": "https://openalex.org/W4366341215",
+    "source": "openalex",
+    "_relevance_score": 2.5,
+    "_matched_keywords": [
+      "mesh",
+      "sidecar"
+    ]
+  },
+  {
+    "title": "Relating Edge Computing and Microservices by means of Architecture Approaches and Features, Orchestration, Choreography, and Offloading: A Systematic Literature Review",
+    "authors": [
+      "Lucas Fernando Souza de Castro",
+      "Sandro José Rigo"
+    ],
+    "year": 2023,
+    "citations": 4,
+    "abstract": "Context: Microservices running and being powered by Edge Computing have been gaining much attention in the industry and academia. Since 2014, when Martin Fowler popularized the Microservice term, many studies have been published relating these subjects to explore how the Edge's low-latency feature could be combined with the high throughput of the distributed paradigm from Microservices. Objective: Identifying how Microservices work together with Edge Computing whereas they take advantage when ru",
+    "doi": "10.48550/arxiv.2301.07803",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2301.07803",
+    "url": "https://openalex.org/W4319990304",
+    "source": "openalex",
+    "_relevance_score": 0.9,
+    "_matched_keywords": []
+  },
+  {
+    "title": "A Survey on Failure Analysis and Fault Injection in AI Systems",
+    "authors": [
+      "Guangba Yu",
+      "Tan, Gou",
+      "Haojia Huang",
+      "Zhenyu Zhang",
+      "Pengfei Chen",
+      "Roberto Natella",
+      "Zibin Zheng"
+    ],
+    "year": 2024,
+    "citations": 3,
+    "abstract": "The rapid advancement of Artificial Intelligence (AI) has led to its integration into various areas, especially with Large Language Models (LLMs) significantly enhancing capabilities in Artificial Intelligence Generated Content (AIGC). However, the complexity of AI systems has also exposed their vulnerabilities, necessitating robust methods for failure analysis (FA) and fault injection (FI) to ensure resilience and reliability. Despite the importance of these techniques, there lacks a comprehens",
+    "doi": "10.48550/arxiv.2407.00125",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2407.00125",
+    "url": "https://openalex.org/W4400267110",
+    "source": "openalex",
+    "_relevance_score": 0.7,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Securing 5G OpenRAN with a Scalable Authorization Framework for xApps",
+    "authors": [
+      "Tolga Atalay",
+      "Sudip Maitra",
+      "Dragoslav Stojadinovic",
+      "Angelos Stavrou",
+      "Haining Wang"
+    ],
+    "year": 2022,
+    "citations": 2,
+    "abstract": "The ongoing transformation of mobile networks from proprietary physical network boxes to virtualized functions and deployment models has led to more scalable and flexible network architectures capable of adapting to specific use cases. As an enabler of this movement, the OpenRAN initiative promotes standardization allowing for a vendor-neutral radio access network with open APIs. Moreover, the O-RAN Alliance has begun specification efforts conforming to OpenRAN's definitions. This includes the n",
+    "doi": "10.48550/arxiv.2212.11465",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2212.11465",
+    "url": "https://openalex.org/W4312121871",
+    "source": "openalex",
+    "_relevance_score": 0.5,
+    "_matched_keywords": []
+  },
+  {
+    "title": "Adaptive Edge Content Delivery Networks for Web-Scale File Systems",
+    "authors": [
+      "João Tiago",
+      "David Dias",
+      "Luís Veiga"
+    ],
+    "year": 2022,
+    "citations": 1,
+    "abstract": "The InterPlanetary File System (IPFS) is an hyper-media distribution protocol, addressed by content and identities. It aims to make the web faster, safer, and more open. The JavaScript implementation of IPFS runs on the browser, benefiting from the mass adoption potential that it yields. Startrail takes advantage of the IPFS ecosystem and strives to further evolve it, making it more scalable and performant through the implementation of an adaptive network caching mechanism. Our solution aims to ",
+    "doi": "10.48550/arxiv.2207.06341",
+    "arxiv_id": "",
+    "pdf_url": "https://arxiv.org/pdf/2207.06341",
+    "url": "https://openalex.org/W4285483465",
+    "source": "openalex",
+    "_relevance_score": 0.0,
+    "_matched_keywords": []
+  }
+]

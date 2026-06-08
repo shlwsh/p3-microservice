@@ -1,0 +1,111 @@
+Found 51 snapshot items to check.
+[aws_backoff] No DOI, definitely failed.
+[bao2023aiops] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[bao2023aiops] ❌ SciHub Failed
+[berardi2022microsecurity] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[berardi2022microsecurity] ❌ SciHub Failed
+[beyer2016sre] No DOI, definitely failed.
+[burns2016borg] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[burns2016borg] ❌ SciHub Failed
+[burns2016patterns] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[burns2016patterns] ❌ SciHub Failed
+[candido2021logmonitoring] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[candido2021logmonitoring] ❌ SciHub Failed
+[cui2021orgadapt] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[cui2021orgadapt] ❌ SciHub Failed
+[diaz2023mlopsaiops] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[diaz2023mlopsaiops] ❌ SciHub Failed
+[ding2020decomposition] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[ding2020decomposition] ❌ SciHub Failed
+[fang2024microperf] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[fang2024microperf] ❌ SciHub Failed
+[feng2020microservice] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[feng2020microservice] ❌ SciHub Failed
+[giamattei2023monitoring] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[giamattei2023monitoring] ❌ SciHub Failed
+[gregg2019bpf] No DOI, definitely failed.
+[hexiang2021adaptive] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[hexiang2021adaptive] ❌ SciHub Failed
+[huang2023javatrace] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[huang2023javatrace] ❌ SciHub Failed
+[jia2021loggingdecision] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[jia2021loggingdecision] ❌ SciHub Failed
+[jiatong2020logdiag] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[jiatong2020logdiag] ❌ SciHub Failed
+[jin2021maintainability] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[jin2021maintainability] ❌ SciHub Failed
+[khan2022logtemplate] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[khan2022logtemplate] ❌ SciHub Failed
+[kosinska2023observability] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[kosinska2023observability] ❌ SciHub Failed
+[li2021observability] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[li2021observability] ❌ SciHub Failed
+[li2024amazemap] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[li2024amazemap] ❌ SciHub Failed
+[liao2016logs] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[liao2016logs] ❌ SciHub Failed
+[limingshu2019logmgmt] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[limingshu2019logmgmt] ❌ SciHub Failed
+[loki2019] No DOI, definitely failed.
+[otel_tail] No DOI, definitely failed.
+[richardson2018microservices] No DOI, definitely failed.
+[sebrechts2021service] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[sebrechts2021service] ❌ SciHub Failed
+[seshagiri2022sok] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[seshagiri2022sok] ❌ SciHub Failed
+[soldani2024logs] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[soldani2024logs] ❌ SciHub Failed
+[theodoropoulos2023cloudsec] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[theodoropoulos2023cloudsec] ❌ SciHub Failed
+[turnbull2014monitoring] No DOI, definitely failed.
+[usman2022observability] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[usman2022observability] ❌ SciHub Failed
+[wang2017tracefault] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[wang2017tracefault] ❌ SciHub Failed
+[wang2020colocation] Error: try_scihub_scidownl() missing 1 required positional argument: 'output_dir'
+[wang2020colocation] ❌ SciHub Failed
+Traceback (most recent call last):
+  File "/home/ros/work/p3-microservice/fast_scihub_check.py", line 59, in <module>
+    main()
+  File "/home/ros/work/p3-microservice/fast_scihub_check.py", line 39, in main
+    ok = try_scihub_http(item, str(dest))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/download_lib.py", line 242, in try_scihub_http
+    resp = session.get(f"{mirror}/{paper.doi}", timeout=30, allow_redirects=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/requests/sessions.py", line 671, in get
+    return self.request("GET", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 774, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1055, in _prepare_proxy
+    conn.connect()
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 433, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/work/p3-microservice/.agent/mcp-servers/scholar-downloader/.venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 477, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+KeyboardInterrupt

@@ -76,7 +76,7 @@ scholar-downloader/
 | 工具 | 说明 |
 |------|------|
 | `download_papers(dois, output_dir, use_scihub)` | 按 DOI 列表下载；OA 优先，可选 Sci-Hub |
-| `download_p3-microservice_missing(output_dir, use_scihub, playwright_fallback)` | 读取 `config/p3-microservice_missing.json` 批量下载 8 篇；可选 Playwright 机构补下 |
+| `download_project_missing(output_dir, use_scihub, playwright_fallback)` | 自动读取当前项目 `latex/references.bib`，过滤出尚未在 `data/papers` 中下载的缺失文献并批量下载；可选 Playwright 机构补下 |
 | `download_papers_via_browser(dois, …)` | 保留：连接已开启远程调试的 Chrome + Selenium + 可选 LLM XPath |
 
 `.env` 加载路径改为工作区相对路径（`.env.mygit` / `.env`），不再硬编码 WSL 路径。

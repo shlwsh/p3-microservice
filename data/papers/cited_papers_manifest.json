@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-07T09:00:55",
+  "generated_at": "2026-06-09T05:58:37",
   "bib_path": "latex/references.bib",
   "papers_dir": "data/papers",
   "cited_count": 73,
@@ -980,9 +980,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202220490",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhou2023fusionad.html",
-      "archive_method": "crad_html"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_周小晖_zhou2023fusionad.pdf",
+      "archive_method": "cached"
     },
     "zhou2024runtimeconfig": {
       "key": "zhou2024runtimeconfig",
@@ -1028,8 +1028,8 @@
     }
   },
   "summary": {
-    "ok": 21,
-    "snapshot": 52,
+    "ok": 22,
+    "snapshot": 51,
     "paywall": 0,
     "failed": 0,
     "doi_valid": 66

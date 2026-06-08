@@ -1,0 +1,37 @@
+Starting download process (with Sci-Hub and Playwright)...
+[1/73] jia2021loggingdecision (10.13328/j.cnki.jos.005990)
+  ❌ all strategies failed
+[2/73] wang2021groot (10.1109/ASE51524.2021.9678708)
+  ❌ all strategies failed
+[3/73] zhou2023fusionad (10.7544/issn1000-1239.202220490)
+  ✅ existing
+[4/73] burns2016patterns (10.1145/2901318.2901342)
+  ✅ existing
+[5/73] jiatong2020logdiag (10.13328/j.cnki.jos.006045)
+  ❌ all strategies failed
+[6/73] khan2022logtemplate (10.1145/3510003.3510101)
+  ❌ all strategies failed
+[7/73] beyer2016sre ()
+  ❌ all strategies failed
+[8/73] zhang2024reducing (10.1145/3674805.3695403)
+  ✅ existing
+[9/73] zhang2023multimodal (10.48550/arXiv.2302.10512)
+  ✅ existing
+[10/73] zhang2021graphtolerance (10.13328/j.cnki.jos.006269)
+  ❌ all strategies failed
+[11/73] zhanghe2021microservicepreface (10.13328/j.cnki.jos.006237)
+  ❌ all strategies failed
+[12/73] seshagiri2022sok (10.5070/SR32157839)
+  ✅ existing
+[13/73] turnbull2014monitoring ()
+  ❌ all strategies failed
+[14/73] wang2017tracefault (10.13328/j.cnki.jos.005223)
+  ❌ all strategies failed
+Traceback (most recent call last):
+  File "/home/ros/work/p3-microservice/run_mcp_download.py", line 13, in <module>
+object address  : 0x700b440f3d60
+object refcount : 3
+object type     : 0xa35620
+object type name: KeyboardInterrupt
+object repr     : KeyboardInterrupt()
+lost sys.stderr

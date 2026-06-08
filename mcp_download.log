@@ -1,0 +1,265 @@
+Starting download process (with Sci-Hub and Playwright)...
+[1/73] fang2024microperf (10.7544/issn1000-1239.202330543)
+  ❌ all strategies failed
+[2/73] zhou2024runtimeconfig (10.13328/j.cnki.jos.006835)
+  ❌ all strategies failed
+[3/73] beyer2016sre ()
+  ❌ all strategies failed
+[4/73] zhou2023fusionad (10.7544/issn1000-1239.202220490)
+  ✅ openUrl
+[5/73] wang2020logflow (10.13328/j.cnki.jos.005800)
+  ❌ all strategies failed
+[6/73] yuqingyang2022trace (10.13328/j.cnki.jos.006209)
+  ❌ all strategies failed
+[7/73] soldani2024logs (10.1002/spe.3400)
+  ❌ all strategies failed
+[8/73] you2021tracelogstorage (10.13328/j.cnki.jos.006234)
+  ❌ all strategies failed
+[9/73] jia2021loggingdecision (10.13328/j.cnki.jos.005990)
+  ❌ all strategies failed
+[10/73] jiang2023logparsing (10.48550/arXiv.2308.10828)
+  ✅ existing
+[11/73] zhang2024reducing (10.1145/3674805.3695403)
+  ✅ existing
+[12/73] diaz2023mlopsaiops (10.1145/3625289)
+  ❌ all strategies failed
+[13/73] he2020logsurvey (10.48550/arXiv.2009.07237)
+  ✅ existing
+[14/73] limingshu2019logmgmt (10.13328/j.cnki.jos.005601)
+  ❌ all strategies failed
+[15/73] giamattei2023monitoring (10.1016/j.jss.2023.111906)
+  ❌ all strategies failed
+[16/73] wanglu2023microfault (10.11897/SP.J.1016.2023.02342)
+  ✅ existing
+[17/73] yang2020tracingsurvey (10.13328/j.cnki.jos.006047)
+  ❌ all strategies failed
+[18/73] otel_tail ()
+  ❌ all strategies failed
+[19/73] seshagiri2022sok (10.5070/SR32157839)
+  ✅ unpaywall
+[20/73] wang2024alarmranking (10.13328/j.cnki.jos.007118)
+  ❌ all strategies failed
+[21/73] burns2016borg (10.1145/2898442.2898444)
+  ✅ scihub:https://sci-hub.mk
+[22/73] liao2016logs (10.13328/j.cnki.jos.004936)
+  ❌ all strategies failed
+[23/73] wang2017tracefault (10.13328/j.cnki.jos.005223)
+  ❌ all strategies failed
+[24/73] zhu2023sidecar (10.1145/3620678.3624652)
+  ❌ all strategies failed
+[25/73] zhang2023multimodal (10.48550/arXiv.2302.10512)
+  ✅ existing
+[26/73] kosinska2023observability (10.1109/ACCESS.2023.3281860)
+  ❌ all strategies failed
+[27/73] wei2023cloudlogstorage (10.7544/issn1000-1239.202330178)
+  ✅ openUrl
+[28/73] liu2019logzip (10.1109/ASE.2019.00085)
+  ✅ existing
+[29/73] burns2016patterns (10.1145/2901318.2901342)
+  ✅ scihub:https://sci-hub.mk
+[30/73] wuhuayao2020microdev (10.7544/issn1000-1239.2020.20190624)
+  ❌ all strategies failed
+[31/73] hexiang2021adaptive (10.13328/j.cnki.jos.006236)
+  ❌ all strategies failed
+[32/73] hadadi2024logfailure (10.1007/s10664-024-10501-4)
+  ✅ existing
+[33/73] ali2025logml (10.1007/s10664-025-10669-3)
+  ✅ existing
+[34/73] cheng2023aiops (10.48550/arXiv.2304.04661)
+  ✅ existing
+[35/73] wang2020colocation (10.13328/j.cnki.jos.006066)
+  ❌ all strategies failed
+[36/73] yang2023nahida (10.48550/arXiv.2311.09032)
+  ✅ existing
+[37/73] xiebing2018intelligentdev (10.13328/j.cnki.jos.005534)
+  ❌ all strategies failed
+[38/73] turnbull2014monitoring ()
+  ❌ all strategies failed
+[39/73] jamshidi2018microservices (10.1109/MS.2018.2141039)
+  ✅ existing
+[40/73] zhanghe2021microservicepreface (10.13328/j.cnki.jos.006237)
+  ✅ scidownl
+[41/73] guo2024logformer (10.1609/aaai.v38i1.27764)
+  ✅ existing
+[42/73] soldani2023ebpf (10.1109/ACCESS.2023.3281480)
+  ✅ existing
+[43/73] usman2022observability (10.1109/ACCESS.2022.3193102)
+  ✅ scidownl
+[44/73] wang2024rca (10.48550/arXiv.2408.00803)
+  ✅ existing
+[45/73] ding2020decomposition (10.13328/j.cnki.jos.006031)
+  ❌ all strategies failed
+[46/73] zhang2024servicedep (10.13328/j.cnki.jos.006827)
+  ❌ all strategies failed
+[47/73] li2021observability (10.1007/s10664-021-10063-9)
+  ❌ all strategies failed
+[48/73] huang2023javatrace (10.13328/j.cnki.jos.006523)
+  ❌ all strategies failed
+[49/73] li2024amazemap (10.13328/j.cnki.jos.007104)
+  ❌ all strategies failed
+[50/73] wu2020microrca (10.1109/NOMS47738.2020.9110353)
+  ✅ scihub:https://sci-hub.mk
+[51/73] dai2020logram (10.48550/arXiv.2001.03038)
+  ✅ existing
+[52/73] khan2022logtemplate (10.1145/3510003.3510101)
+  ❌ all strategies failed
+[53/73] jiatong2020logdiag (10.13328/j.cnki.jos.006045)
+  ❌ all strategies failed
+[54/73] gregg2019bpf ()
+  ❌ all strategies failed
+[55/73] soldani2020graphrca (10.1016/j.jss.2019.110432)
+  ✅ existing
+[56/73] bao2023aiops (10.13328/j.cnki.jos.006876)
+  ❌ all strategies failed
+[57/73] candido2021logmonitoring (10.7717/peerj-cs.489)
+  ❌ all strategies failed
+[58/73] berardi2022microsecurity (10.7717/peerj-cs.779)
+  ❌ all strategies failed
+[59/73] feng2020microservice (10.7544/issn1000-1239.2020.20190460)
+  ❌ all strategies failed
+[60/73] zhang2021graphtolerance (10.13328/j.cnki.jos.006269)
+  ❌ all strategies failed
+[61/73] loki2019 ()
+  ❌ all strategies failed
+[62/73] wang2021groot (10.1109/ASE51524.2021.9678708)
+  ❌ all strategies failed
+[63/73] zhang2024multivariate (10.1145/3637528.3671725)
+  ✅ existing
+[64/73] meiyudong2020logcnn (10.11897/SP.J.1016.2020.00366)
+  ✅ existing
+[65/73] theodoropoulos2023cloudsec (10.3390/jcp3040034)
+  ❌ all strategies failed
+[66/73] varghese2022edge (10.1145/3444692)
+  ✅ existing
+[67/73] richardson2018microservices ()
+  ❌ all strategies failed
+[68/73] maruf2022telemetry (10.48550/arXiv.2207.02776)
+  ✅ existing
+[69/73] aws_backoff ()
+  ❌ all strategies failed
+[70/73] jin2021maintainability (10.13328/j.cnki.jos.006235)
+  ❌ all strategies failed
+[71/73] cui2021orgadapt (10.13328/j.cnki.jos.006232)
+  ❌ all strategies failed
+[72/73] zhu2020loghub (10.48550/arXiv.2008.06448)
+  ✅ existing
+[73/73] sebrechts2021service (10.1109/ACCESS.2021.3115438)
+  ❌ all strategies failed
+[进展] 网络自检（启动后）：https://www.baidu.com
+[进展] ❌ 启动后: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.baidu.com/", waiting until "domcontentloaded"
+
+[进展] 打开 IEEE 机构登录页...
+
+=== Download Result ===
+❌ fang2024microperf (10.7544/issn1000-1239.202330543) — all strategies failed
+❌ zhou2024runtimeconfig (10.13328/j.cnki.jos.006835) — all strategies failed
+❌ beyer2016sre () — all strategies failed
+✅ zhou2023fusionad (10.7544/issn1000-1239.202220490) ← openUrl
+   /home/ros/work/p3-microservice/data/papers/2023_周小晖_zhou2023fusionad.pdf
+❌ wang2020logflow (10.13328/j.cnki.jos.005800) — all strategies failed
+❌ yuqingyang2022trace (10.13328/j.cnki.jos.006209) — all strategies failed
+❌ soldani2024logs (10.1002/spe.3400) — all strategies failed
+❌ you2021tracelogstorage (10.13328/j.cnki.jos.006234) — all strategies failed
+❌ jia2021loggingdecision (10.13328/j.cnki.jos.005990) — all strategies failed
+✅ jiang2023logparsing (10.48550/arXiv.2308.10828) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_Zhihan_jiang2023logparsing.pdf
+✅ zhang2024reducing (10.1145/3674805.3695403) ← existing
+   /home/ros/work/p3-microservice/data/papers/2024_Lingzhe_zhang2024reducing.pdf
+❌ diaz2023mlopsaiops (10.1145/3625289) — all strategies failed
+✅ he2020logsurvey (10.48550/arXiv.2009.07237) ← existing
+   /home/ros/work/p3-microservice/data/papers/2020_Shilin_he2020logsurvey.pdf
+❌ limingshu2019logmgmt (10.13328/j.cnki.jos.005601) — all strategies failed
+❌ giamattei2023monitoring (10.1016/j.jss.2023.111906) — all strategies failed
+✅ wanglu2023microfault (10.11897/SP.J.1016.2023.02342) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_王璐_wanglu2023microfault.pdf
+❌ yang2020tracingsurvey (10.13328/j.cnki.jos.006047) — all strategies failed
+❌ otel_tail () — all strategies failed
+✅ seshagiri2022sok (10.5070/SR32157839) ← unpaywall
+   /home/ros/work/p3-microservice/data/papers/2022_Vishwanath_seshagiri2022sok.pdf
+❌ wang2024alarmranking (10.13328/j.cnki.jos.007118) — all strategies failed
+✅ burns2016borg (10.1145/2898442.2898444) ← scihub:https://sci-hub.mk
+   /home/ros/work/p3-microservice/data/papers/2016_Brendan_burns2016borg.pdf
+❌ liao2016logs (10.13328/j.cnki.jos.004936) — all strategies failed
+❌ wang2017tracefault (10.13328/j.cnki.jos.005223) — all strategies failed
+❌ zhu2023sidecar (10.1145/3620678.3624652) — all strategies failed
+✅ zhang2023multimodal (10.48550/arXiv.2302.10512) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_Shenglin_zhang2023multimodal.pdf
+❌ kosinska2023observability (10.1109/ACCESS.2023.3281860) — all strategies failed
+✅ wei2023cloudlogstorage (10.7544/issn1000-1239.202330178) ← openUrl
+   /home/ros/work/p3-microservice/data/papers/2023_魏钧宇_wei2023cloudlogstorage.pdf
+✅ liu2019logzip (10.1109/ASE.2019.00085) ← existing
+   /home/ros/work/p3-microservice/data/papers/2019_Jinyang_liu2019logzip.pdf
+✅ burns2016patterns (10.1145/2901318.2901342) ← scihub:https://sci-hub.mk
+   /home/ros/work/p3-microservice/data/papers/2016_Brendan_burns2016patterns.pdf
+❌ wuhuayao2020microdev (10.7544/issn1000-1239.2020.20190624) — all strategies failed
+❌ hexiang2021adaptive (10.13328/j.cnki.jos.006236) — all strategies failed
+✅ hadadi2024logfailure (10.1007/s10664-024-10501-4) ← existing
+   /home/ros/work/p3-microservice/data/papers/2024_Fatemeh_hadadi2024logfailure.pdf
+✅ ali2025logml (10.1007/s10664-025-10669-3) ← existing
+   /home/ros/work/p3-microservice/data/papers/2025_Shan_ali2025logml.pdf
+✅ cheng2023aiops (10.48550/arXiv.2304.04661) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_Qian_cheng2023aiops.pdf
+❌ wang2020colocation (10.13328/j.cnki.jos.006066) — all strategies failed
+✅ yang2023nahida (10.48550/arXiv.2311.09032) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_Wanqi_yang2023nahida.pdf
+❌ xiebing2018intelligentdev (10.13328/j.cnki.jos.005534) — all strategies failed
+❌ turnbull2014monitoring () — all strategies failed
+✅ jamshidi2018microservices (10.1109/MS.2018.2141039) ← existing
+   /home/ros/work/p3-microservice/data/papers/2018_Pooyan_jamshidi2018microservices.pdf
+✅ zhanghe2021microservicepreface (10.13328/j.cnki.jos.006237) ← scidownl
+   /home/ros/work/p3-microservice/data/papers/2021_张贺_zhanghe2021microservicepreface.pdf
+✅ guo2024logformer (10.1609/aaai.v38i1.27764) ← existing
+   /home/ros/work/p3-microservice/data/papers/2024_Hongcheng_guo2024logformer.pdf
+✅ soldani2023ebpf (10.1109/ACCESS.2023.3281480) ← existing
+   /home/ros/work/p3-microservice/data/papers/2023_David_soldani2023ebpf.pdf
+✅ usman2022observability (10.1109/ACCESS.2022.3193102) ← scidownl
+   /home/ros/work/p3-microservice/data/papers/2022_Muhammad_usman2022observability.pdf
+✅ wang2024rca (10.48550/arXiv.2408.00803) ← existing
+   /home/ros/work/p3-microservice/data/papers/2024_Tingting_wang2024rca.pdf
+❌ ding2020decomposition (10.13328/j.cnki.jos.006031) — all strategies failed
+❌ zhang2024servicedep (10.13328/j.cnki.jos.006827) — all strategies failed
+❌ li2021observability (10.1007/s10664-021-10063-9) — all strategies failed
+❌ huang2023javatrace (10.13328/j.cnki.jos.006523) — all strategies failed
+❌ li2024amazemap (10.13328/j.cnki.jos.007104) — all strategies failed
+✅ wu2020microrca (10.1109/NOMS47738.2020.9110353) ← scihub:https://sci-hub.mk
+   /home/ros/work/p3-microservice/data/papers/2020_Li_wu2020microrca.pdf
+✅ dai2020logram (10.48550/arXiv.2001.03038) ← existing
+   /home/ros/work/p3-microservice/data/papers/2020_Hetong_dai2020logram.pdf
+❌ khan2022logtemplate (10.1145/3510003.3510101) — all strategies failed
+❌ jiatong2020logdiag (10.13328/j.cnki.jos.006045) — all strategies failed
+❌ gregg2019bpf () — all strategies failed
+✅ soldani2020graphrca (10.1016/j.jss.2019.110432) ← existing
+   /home/ros/work/p3-microservice/data/papers/2020_Jacopo_soldani2020graphrca.pdf
+❌ bao2023aiops (10.13328/j.cnki.jos.006876) — all strategies failed
+❌ candido2021logmonitoring (10.7717/peerj-cs.489) — all strategies failed
+❌ berardi2022microsecurity (10.7717/peerj-cs.779) — all strategies failed
+❌ feng2020microservice (10.7544/issn1000-1239.2020.20190460) — all strategies failed
+❌ zhang2021graphtolerance (10.13328/j.cnki.jos.006269) — all strategies failed
+❌ loki2019 () — all strategies failed
+❌ wang2021groot (10.1109/ASE51524.2021.9678708) — all strategies failed
+✅ zhang2024multivariate (10.1145/3637528.3671725) ← existing
+   /home/ros/work/p3-microservice/data/papers/2024_Lingzhe_zhang2024multivariate.pdf
+✅ meiyudong2020logcnn (10.11897/SP.J.1016.2020.00366) ← existing
+   /home/ros/work/p3-microservice/data/papers/2020_梅御东_meiyudong2020logcnn.pdf
+❌ theodoropoulos2023cloudsec (10.3390/jcp3040034) — all strategies failed
+✅ varghese2022edge (10.1145/3444692) ← existing
+   /home/ros/work/p3-microservice/data/papers/2022_Benjamin_varghese2022edge.pdf
+❌ richardson2018microservices () — all strategies failed
+✅ maruf2022telemetry (10.48550/arXiv.2207.02776) ← existing
+   /home/ros/work/p3-microservice/data/papers/2022_Al_maruf2022telemetry.pdf
+❌ aws_backoff () — all strategies failed
+❌ jin2021maintainability (10.13328/j.cnki.jos.006235) — all strategies failed
+❌ cui2021orgadapt (10.13328/j.cnki.jos.006232) — all strategies failed
+✅ zhu2020loghub (10.48550/arXiv.2008.06448) ← existing
+   /home/ros/work/p3-microservice/data/papers/2020_Jieming_zhu2020loghub.pdf
+❌ sebrechts2021service (10.1109/ACCESS.2021.3115438) — all strategies failed
+
+合计: 29/73 成功
+
+⚠️ Playwright fallback failed: Page.goto: net::ERR_CONNECTION_RESET at https://ieeexplore.ieee.org/login/signin?url=https%3A%2F%2Fieeexplore.ieee.org%2F
+Call log:
+  - navigating to "https://ieeexplore.ieee.org/login/signin?url=https%3A%2F%2Fieeexplore.ieee.org%2F", waiting until "domcontentloaded"
+
+Run: python run_playwright_download.py
