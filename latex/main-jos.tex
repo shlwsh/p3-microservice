@@ -31,6 +31,11 @@
 
 \begin{flushleft}
 \xiaowuhao
+{\hei 建议引用格式:}\hspace{1em}{\kai 石洪雷. 微服务架构下分布式定向日志采集组件的设计与实现[J]. 软件学报投稿稿, 2026.}
+\end{flushleft}
+
+\begin{flushleft}
+\xiaowuhao
 {\hei Abstract:}\hspace{1em}{\kai
 In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection framework and prototype component. The framework consists of three layers: gateway pre-filtering, node-side directed collection, and center-side secondary filtering. The log center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints, while a triple strategy transformation preserves policy semantics across the three layers. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode). Compared with full collection in the same architecture, distributed directed log collection reduces Loki ingested log volume, average agent CPU, and memory by 98.4\%, 37.5\%, and 2.0\% respectively (mean ingested logs: 72 vs.\ 4388$\pm$1). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments; attention-list generation takes about 15\,ms on 5000 traffic logs; exponential backoff passes all unit tests.
 }
@@ -54,5 +59,9 @@ In microservice systems, dispersed and heterogeneous logs impose high overhead o
 
 \bibliographystyle{plain}
 \bibliography{references}
+
+\vspace{1em}
+\noindent{\xiaowuhao\song
+\textbf{作者简介：}石洪雷，太原理工大学，主要研究领域为微服务可观测性、分布式日志采集与智能运维。E-mail: shihonglei0042@link.tyut.edu.cn。}
 
 \end{document}

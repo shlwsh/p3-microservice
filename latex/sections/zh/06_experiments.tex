@@ -5,8 +5,30 @@
 
 对比实验将定向采集与全量采集（\texttt{COLLECTION\_MODE=full}）在同一硬件环境下对照：负载为 180\,s、并发 50 的混合 HTTP 请求（含正常/500 错误/慢请求），每模式独立重复 3 次。Loki 入库增量取自 Center 统计接口；Agent CPU/内存于每轮压测结束后对全部 9 个 Agent 容器执行 \texttt{docker stats} 单次快照并取算术均值。每轮网关流量日志 Redis 增量约 $1.97\times10^4$ 条，关注清单稳定生成 16 条 URL 模式（含 \texttt{/status/500}、\texttt{/delay/1} 等异常/慢请求泛化模式），保障高价值请求可被定向规则覆盖。原始数据见 phase3 结果 JSON。
 
+\subsection{研究问题与指标}
+为使实验与贡献形成可审计对应关系，本文围绕 4 个研究问题组织实验，如表~\ref{tab:rq_mapping} 所示。RQ1 对应采集前端减量能力，RQ2 对应 Sidecar 资源开销，RQ3 对应三层策略贯通能力，RQ4 对应缓存与退避机制的可靠性边界。
+
+\begin{table*}[htbp]
+  \centering
+  \caption{研究问题、指标与证据映射}
+  \label{tab:rq_mapping}
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{p{1.2cm}p{5.2cm}p{4.2cm}p{4.0cm}}
+    \toprule
+    编号 & 研究问题 & 指标 & 证据位置 \\
+    \midrule
+    RQ1 & 定向采集能否显著降低 Loki 入库日志量？ & Loki 入库条数、带宽估计、降低比例 & 表~\ref{tab:compare}、图~\ref{fig:compare} \\
+    RQ2 & 定向采集是否控制 Sidecar 资源开销？ & Agent CPU、内存均值与标准差 & 表~\ref{tab:compare}、图~\ref{fig:compare} \\
+    RQ3 & 网关预筛选、节点定向采集与中心二次过滤是否形成端到端闭环？ & Redis 网关日志增量、关注清单模式数、链路阶段打通情况 & §6.3 与原始 phase3 JSON \\
+    RQ4 & 固定缓存块与压力感知退避是否具有必要性与有界性？ & 策略仿真消融、微基准耗时、退避单元测试与等待上界 & 图~\ref{fig:ablation}、图~\ref{fig:attention}、式~\ref{eq:backoff} \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table*}
+
 \subsection{实验结果}
-表~\ref{tab:compare} 与图~\ref{fig:compare} 给出三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上降低 37.5\%。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}；即便考虑该因素，定向模式仍将入库量控制在百条量级。图~\ref{fig:ablation} 为策略仿真消融（非集群实测）。
+表~\ref{tab:compare} 与图~\ref{fig:compare} 给出 RQ1 与 RQ2 的三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上降低 37.5\%。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}；即便考虑该因素，定向模式仍将入库量控制在百条量级。图~\ref{fig:ablation} 为 RQ4 的策略仿真消融（非集群实测）。
 
 \begin{table}[htbp]
   \centering
@@ -38,7 +60,7 @@
   \label{fig:ablation}
 \end{figure}
 
-关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）。指数退避模块通过 Go 单元测试全部用例。端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取。
+针对 RQ3，端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取。针对 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}），指数退避模块通过 Go 单元测试全部用例。
 
 \begin{figure}[htbp]
   \centering

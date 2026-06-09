@@ -7,7 +7,8 @@ description: >-
   Self-contained skill pack. Use when the user asks to review the p3 paper,
   run multi-agent paper review, 执行论文多角色审核, 软件学报投稿前审核,
   论文审核, compare against benchmark JOS papers, run major-revision closure,
-  or simulate peer reviewers.
+  apply top-tier computer science journal writing standards, or simulate peer
+  reviewers.
 disable-model-invocation: false
 ---
 
@@ -18,20 +19,22 @@ disable-model-invocation: false
 
 ## 启动时必读（按序）
 
-1. [config.md](config.md) — 路径、**TARGET_JOURNAL**、JOS 文献门槛  
-2. [审核细则.md](审核细则.md) — **Phase 1–2 各角色细则（优先）**  
-3. [软件学报投稿要点.md](软件学报投稿要点.md) — **JOS 初审/退稿高发区（JOS 时必读）**  
-4. [参考文献归档细则.md](参考文献归档细则.md) — **C6 文献核实与 `papers/` 归档**  
-5. [已知问题清单.md](已知问题清单.md) — C1–C6 + **J1–J7**  
-6. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — **论文 A/B 八维度对照、重大修改、二次评审、版本化编译**
-7. [论文领域要点.md](论文领域要点.md) — SQ、基线、国内文献方向
-8. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
+1. [config.md](config.md) — 路径、**TARGET_JOURNAL**、JOS 文献门槛
+2. [审核细则.md](审核细则.md) — **Phase 1–2 各角色细则（优先）**
+3. [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md) — **评审要求、结构篇幅、行文、图表公式、参考文献五维规范**
+4. [软件学报投稿要点.md](软件学报投稿要点.md) — **JOS 初审/退稿高发区（JOS 时必读）**
+5. [参考文献归档细则.md](参考文献归档细则.md) — **C6 文献核实与 `papers/` 归档**
+6. [已知问题清单.md](已知问题清单.md) — C1–C10 + **J1–J11 + T1–T5**
+7. [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) — **论文 A/B 八维度对照、重大修改、二次评审、版本化编译**
+8. [论文领域要点.md](论文领域要点.md) — SQ、基线、国内文献方向
+9. [角色定义手册.md](角色定义手册.md) — 扮演语气与职责
 
 ## 使用时机
 
 - **执行 p3 论文多角色审核** / **软件学报投稿前审核** / **模拟审稿人**
 - 投稿《软件学报》（默认）或《计算机学报》前要 P0/P1/P2 行动清单
 - 对照基准论文 A（包航宇等，2023）与论文 B（贾统等，2020）做重大修改闭环
+- 按计算机科学顶级期刊规范检查稿件结构、表达、图表公式和参考文献著录
 - 根据评审意见生成 `docs/YYYYMMDD-HHMMSS-*.md` 方案、修改主稿、编译版本化 PDF、二次评审
 - **默认不改 `.tex`**（改稿见 [改稿衔接.md](改稿衔接.md)）
 
@@ -75,11 +78,11 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 
 **Phase 0**：列 `latex/sections/zh/*.tex` 行数；读 `phase3_latest.json` 摘要字段；列 Markdown/LaTeX 双主稿；写 `00-上下文清单.md`。
 
-**Phase 1**：**先跑** `python3 scripts/verify_cited_papers.py --download`（C6）；再 `grep ±1000`、J1–J7。
+**Phase 1**：**先跑** `python3 scripts/verify_cited_papers.py --download`（C6）；再 `grep ±1000`、J1–J11、T1–T5。
 
 **Phase 5**：`05` 附录含 JOS 投稿外 checklist + `cited_papers_manifest.json` 摘要。
 
-**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。**新增维度**：方法论检查伪代码完整性（M7）、多规模实验（M10）、量化创新对比（MJ4）；领域检查 2023+ 前沿覆盖（D6-D8）、对比表扩展（DJ6）、三贡献贯穿（DJ7）；统计检查图文一致（S10）、误差条（S7）；编辑检查英文术语统一（E12）、长句（E13）。
+**Phase 2**：五角色**按审核细则勾选**，勿重复通读全文；Issue 前缀 `METHOD-` `DOMAIN-` `STAT-` `EDIT-` `ETHICS-`。**新增维度**：方法论检查伪代码完整性（M7）、RQ/基线/多规模实验（M10/M13）、量化创新对比（MJ4）；领域检查 2023+ 前沿覆盖（D6-D8）、对比表扩展（DJ6）、三贡献贯穿（DJ7）；统计检查图文一致（S10）、误差条（S7）、有效性威胁（S11）；编辑检查英文术语统一（E12）、长句（E13）、首页/作者简介/图表公式规范（E18-E23）。
 
 **Phase 3**：Top-3 分歧（CL-FAIR / CL-SIGMA / CL-SYNC 等）；对话体；`[共识]` / `[交 PI 裁决]`。
 
@@ -97,6 +100,11 @@ Phase 5  🎯 → 05-全面评审报告.md + 执行摘要.md
 - [ ] **C7** 算法伪代码/形式化已评估  
 - [ ] **C9** 图表数据与正文一致性已核查  
 - [ ] **C10** 创新量化与三贡献贯穿已评估  
+- [ ] **T1** 顶刊评审要求：痛点、贡献、RQ、方法严密性已评估
+- [ ] **T2** 文档结构：中英摘要、元数据、作者简介、篇幅配比已评估
+- [ ] **T3** 行文表达：客观书面语、漏斗式引言、深度结果解释已评估
+- [ ] **T4** 图表公式：公式编号/符号解释、三线表、图题/表题位置已评估
+- [ ] **T5** 参考文献著录：中英双语、类型标识、DOI/URL、归档已评估
 - [ ] **（JOS）** J2/J3 国内对比与中文文献已评估  
 - [ ] **（JOS）** J8 最新前沿文献覆盖已评估  
 - [ ] **（JOS）** J9 英文 Abstract 术语一致性已核查
@@ -135,6 +143,7 @@ python3 scripts/verify_cited_papers.py --download
 | 文件 | 用途 |
 |------|------|
 | [审核细则.md](审核细则.md) | **各角色高效勾选清单** |
+| [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md) | **顶刊五维规范与裁决规则** |
 | [参考文献归档细则.md](参考文献归档细则.md) | **C6 文献核实与 papers/ 归档** |
 | [软件学报投稿要点.md](软件学报投稿要点.md) | **JOS 官网投稿与敬告作者** |
 | [基准论文对照与改稿闭环.md](基准论文对照与改稿闭环.md) | **论文 A/B 对比、重大修改闭环、二次评审** |

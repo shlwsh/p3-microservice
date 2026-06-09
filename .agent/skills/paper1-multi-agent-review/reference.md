@@ -29,9 +29,9 @@ reviews/{run_id}/
 | LaTeX | `latex/main-zh.tex`、`latex/sections/zh/*.tex` |
 | Markdown | `docs/v4-论文稿件.md` |
 
-## 预检 C1–C6 + J1–J7（JOS）
+## 预检 C1–C6 + J1–J7（JOS）+ T1–T5（顶刊）
 
-见 [已知问题清单.md](已知问题清单.md)。**P0 高发**：C3a、C6c、J2/J3。
+见 [已知问题清单.md](已知问题清单.md)。**P0 高发**：C3a、C6c、J2/J3、T5b。
 
 ## 文献归档（C6）
 
@@ -45,6 +45,10 @@ python3 scripts/verify_cited_papers.py --download
 
 完整条文见 [软件学报投稿要点.md](软件学报投稿要点.md)。审核产出须在 `05` 附录含 **§10 投稿外 checklist**。
 
+## 顶级期刊规范专检
+
+完整规则见 [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md)。审核产出须在 `05` 正文或附录含 **T1–T5 五维检查**，覆盖评审要求、文档结构、行文表达、图表公式、参考文献著录。
+
 ## 交互议题簇（p3 + JOS）
 
 | ID | 主题 | 参与 |
@@ -56,6 +60,9 @@ python3 scripts/verify_cited_papers.py --download
 | CL-SCOPE | 8 节点外推边界 | 🔬 🎓 |
 | CL-JOS-CN | 中文文献与国内对比是否够 JOS 初审 | 🔬 ✍️ |
 | CL-JOS-NOV | 创新深度 vs 工程报告 | 🔬 🔍 🎓 |
+| CL-TOP-RQ | RQ/SQ 是否真正组织实验逻辑 | 🔍 📊 🎓 |
+| CL-TOP-FMT | 图表公式和参考文献著录是否达到形式审查 | ✍️ 📊 |
+| CL-TOP-STYLE | 摘要、引言和贡献表达是否达到顶刊书面语 | ✍️ 🔬 |
 
 ## Issue ID 前缀（JOS 增量）
 
@@ -65,6 +72,9 @@ python3 scripts/verify_cited_papers.py --download
 | `METHOD-J*` | JOS 实验/形式化不足 |
 | `EDIT-J*` | JOS 模板/摘要/图表 |
 | `ETHICS-J*` | JOS 原创/一稿多投风险 |
+| `TOPIC-*` | 顶刊选题、痛点、贡献和 RQ 链路 |
+| `TOP-*` | 顶刊五维规范通用问题 |
+| `METHOD-T*` / `DOMAIN-T*` / `EDIT-T*` / `STAT-T*` | 顶刊规范落到具体角色的问题 |
 
 | 前缀 | 角色 | 示例 |
 |------|------|------|
@@ -88,10 +98,11 @@ python3 scripts/verify_cited_papers.py --download
 
 ## 05-全面评审报告 目录
 
-1. 元信息  2. 执行摘要  3. 预检（含 J1–J7 若 JOS）  4. 分角色审稿  5. 交互质询  
-6. 综合问题清单（P0→P2）  7. 亮点  8. 修改路线图  9. 证据索引（L0 字段表）  
-10. **附录：JOS 投稿外 checklist**（在线投稿、定稿、投稿声明等）  
-11. **附录：文献归档**（`cited_papers_manifest.json` 摘要）
+1. 元信息  2. 执行摘要  3. 预检（含 J1–J7 若 JOS、T1–T5 顶刊规范）  4. 分角色审稿  5. 交互质询
+6. 综合问题清单（P0→P2）  7. 亮点  8. 修改路线图  9. 证据索引（L0 字段表）
+10. **附录：JOS 投稿外 checklist**（在线投稿、定稿、投稿声明等）
+11. **附录：顶级期刊五维规范检查**（T1–T5 逐项结论）
+12. **附录：文献归档**（`cited_papers_manifest.json` 摘要）
 
 ## 行动清单模板
 
@@ -119,4 +130,4 @@ python3 scripts/verify_cited_papers.py --download
 
 ## 技能包内全部文档
 
-[README.md](README.md) · [SKILL.md](SKILL.md) · [config.md](config.md) · [审核细则.md](审核细则.md) · [参考文献归档细则.md](参考文献归档细则.md) · [软件学报投稿要点.md](软件学报投稿要点.md) · [设计方案.md](设计方案.md) · [角色定义手册.md](角色定义手册.md) · [已知问题清单.md](已知问题清单.md) · [论文领域要点.md](论文领域要点.md) · [改稿衔接.md](改稿衔接.md) · [回归验证.md](回归验证.md)
+[README.md](README.md) · [SKILL.md](SKILL.md) · [config.md](config.md) · [审核细则.md](审核细则.md) · [参考文献归档细则.md](参考文献归档细则.md) · [软件学报投稿要点.md](软件学报投稿要点.md) · [顶级期刊论文规范指南.md](顶级期刊论文规范指南.md) · [设计方案.md](设计方案.md) · [角色定义手册.md](角色定义手册.md) · [已知问题清单.md](已知问题清单.md) · [论文领域要点.md](论文领域要点.md) · [改稿衔接.md](改稿衔接.md) · [回归验证.md](回归验证.md)
