@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-09T05:58:37",
+  "generated_at": "2026-06-09T10:21:31",
   "bib_path": "latex/references.bib",
   "papers_dir": "data/papers",
-  "cited_count": 73,
+  "cited_count": 51,
   "entries": {
     "ali2025logml": {
       "key": "ali2025logml",
@@ -18,20 +18,6 @@
       "archive_path": "data/papers/2025_Shan_ali2025logml.pdf",
       "archive_method": "cached"
     },
-    "aws_backoff": {
-      "key": "aws_backoff",
-      "title": "Exponential Backoff and Jitter",
-      "year": "2015",
-      "doi": "",
-      "url": "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/",
-      "journal": "",
-      "entry_type": "misc",
-      "url_valid": true,
-      "url_resolve": "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/aws_backoff.html",
-      "archive_method": "bib_url"
-    },
     "bao2023aiops": {
       "key": "bao2023aiops",
       "title": "智能运维的实践: 现状与标准化",
@@ -42,37 +28,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006876",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/bao2023aiops.html",
-      "archive_method": "jos"
-    },
-    "berardi2022microsecurity": {
-      "key": "berardi2022microsecurity",
-      "title": "Microservices Security: A Systematic Literature Review",
-      "year": "2022",
-      "doi": "10.7717/peerj-cs.779",
-      "url": "",
-      "journal": "PeerJ Computer Science",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Microservice security: a systematic literature review",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/berardi2022microsecurity_crossref.json",
-      "archive_method": "crossref_json"
-    },
-    "beyer2016sre": {
-      "key": "beyer2016sre",
-      "title": "Site Reliability Engineering",
-      "year": "2016",
-      "doi": "",
-      "url": "https://sre.google/sre-book/table-of-contents/",
-      "journal": "",
-      "entry_type": "book",
-      "url_valid": true,
-      "url_resolve": "https://sre.google/sre-book/table-of-contents/",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/beyer2016sre.html",
-      "archive_method": "bib_url"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_包航宇_bao2023aiops.pdf",
+      "archive_method": "cached"
     },
     "burns2016borg": {
       "key": "burns2016borg",
@@ -84,9 +42,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "crossref:Borg, Omega, and Kubernetes",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/burns2016borg_crossref.json",
-      "archive_method": "crossref_json"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_Brendan_burns2016borg.pdf",
+      "archive_method": "cached"
     },
     "burns2016patterns": {
       "key": "burns2016patterns",
@@ -98,23 +56,23 @@
       "entry_type": "inproceedings",
       "doi_valid": true,
       "doi_resolve": "crossref:Practical condition synchronization for transactional memory",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/burns2016patterns_crossref.json",
-      "archive_method": "crossref_json"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_Brendan_burns2016patterns.pdf",
+      "archive_method": "cached"
     },
-    "candido2021logmonitoring": {
-      "key": "candido2021logmonitoring",
-      "title": "Log-based Software Monitoring: A Systematic Mapping Study",
-      "year": "2021",
-      "doi": "10.7717/peerj-cs.489",
-      "url": "",
-      "journal": "PeerJ Computer Science",
+    "chen2020loganomaly": {
+      "key": "chen2020loganomaly",
+      "title": "面向云数据中心多语法日志通用异常检测机制",
+      "year": "2020",
+      "doi": "10.7544/issn1000-1239.2020.20190875",
+      "url": "https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.2020.20190875.pdf",
+      "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Log-based software monitoring: a systematic mapping study",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/candido2021logmonitoring_crossref.json",
-      "archive_method": "crossref_json"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190875",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_陈彦宁_chen2020loganomaly.pdf",
+      "archive_method": "cached"
     },
     "cheng2023aiops": {
       "key": "cheng2023aiops",
@@ -129,20 +87,6 @@
       "archive_status": "ok",
       "archive_path": "data/papers/2023_Qian_cheng2023aiops.pdf",
       "archive_method": "cached"
-    },
-    "cui2021orgadapt": {
-      "key": "cui2021orgadapt",
-      "title": "面向微服务架构的开发组织适应性评估框架",
-      "year": "2021",
-      "doi": "10.13328/j.cnki.jos.006232",
-      "url": "https://www.jos.org.cn/jos/article/abstract/6232",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006232",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/cui2021orgadapt.html",
-      "archive_method": "jos"
     },
     "dai2020logram": {
       "key": "dai2020logram",
@@ -160,17 +104,17 @@
     },
     "diaz2023mlopsaiops": {
       "key": "diaz2023mlopsaiops",
-      "title": "A Joint Study of the Challenges, Opportunities, and Roadmap of MLOps and AIOps: A Systematic Survey",
-      "year": "2023",
-      "doi": "10.1145/3625289",
+      "title": "An Empirical Study on Challenges of Event Management in Microservice Architectures",
+      "year": "2024",
+      "doi": "10.48550/arXiv.2408.00440",
       "url": "",
-      "journal": "ACM Computing Surveys",
+      "journal": "arXiv preprint arXiv:2408.00440",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:A Joint Study of the Challenges, Opportunities, and Roadmap ",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/diaz2023mlopsaiops_crossref.json",
-      "archive_method": "crossref_json"
+      "doi_resolve": "https://arxiv.org/abs/2408.00440",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Rodrigo_diaz2023mlopsaiops.pdf",
+      "archive_method": "cached"
     },
     "ding2020decomposition": {
       "key": "ding2020decomposition",
@@ -182,9 +126,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006031",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/ding2020decomposition.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_丁丹_ding2020decomposition.pdf",
+      "archive_method": "cached"
     },
     "fang2024microperf": {
       "key": "fang2024microperf",
@@ -196,9 +140,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330543",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/fang2024microperf.html",
-      "archive_method": "crad_html"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_方浩天_fang2024microperf.pdf",
+      "archive_method": "cached"
     },
     "feng2020microservice": {
       "key": "feng2020microservice",
@@ -210,37 +154,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190460",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/feng2020microservice.html",
-      "archive_method": "crad_html"
-    },
-    "giamattei2023monitoring": {
-      "key": "giamattei2023monitoring",
-      "title": "Monitoring Tools for DevOps and Microservices: A Systematic Grey Literature Review",
-      "year": "2023",
-      "doi": "10.1016/j.jss.2023.111906",
-      "url": "",
-      "journal": "Journal of Systems and Software",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Monitoring tools for DevOps and microservices: A systematic ",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/giamattei2023monitoring.html",
-      "archive_method": "unpaywall"
-    },
-    "gregg2019bpf": {
-      "key": "gregg2019bpf",
-      "title": "BPF Performance Tools: Linux System and Application Observability",
-      "year": "2019",
-      "doi": "",
-      "url": "https://www.brendangregg.com/bpf-performance-tools-book.html",
-      "journal": "",
-      "entry_type": "book",
-      "url_valid": true,
-      "url_resolve": "https://www.brendangregg.com/bpf-performance-tools-book.html",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/gregg2019bpf.html",
-      "archive_method": "bib_url"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_冯志勇_feng2020microservice.pdf",
+      "archive_method": "cached"
     },
     "guo2024logformer": {
       "key": "guo2024logformer",
@@ -284,20 +200,6 @@
       "archive_path": "data/papers/2020_Shilin_he2020logsurvey.pdf",
       "archive_method": "cached"
     },
-    "hexiang2021adaptive": {
-      "key": "hexiang2021adaptive",
-      "title": "多版本共存的微服务系统自适应演化方法",
-      "year": "2021",
-      "doi": "10.13328/j.cnki.jos.006236",
-      "url": "https://www.jos.org.cn/jos/article/abstract/6236",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006236",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/hexiang2021adaptive.html",
-      "archive_method": "jos"
-    },
     "huang2023javatrace": {
       "key": "huang2023javatrace",
       "title": "面向 Java 微服务系统的透明请求追踪及采样方法",
@@ -308,9 +210,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006523",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/huang2023javatrace.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_黄梓程_huang2023javatrace.pdf",
+      "archive_method": "cached"
     },
     "jamshidi2018microservices": {
       "key": "jamshidi2018microservices",
@@ -336,9 +238,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005990",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/jia2021loggingdecision.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2021_贾统_jia2021loggingdecision.pdf",
+      "archive_method": "cached"
     },
     "jiang2023logparsing": {
       "key": "jiang2023logparsing",
@@ -364,79 +266,23 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006045",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/jiatong2020logdiag.html",
-      "archive_method": "jos"
-    },
-    "jin2021maintainability": {
-      "key": "jin2021maintainability",
-      "title": "基于多源特征空间的微服务可维护性评估",
-      "year": "2021",
-      "doi": "10.13328/j.cnki.jos.006235",
-      "url": "https://www.jos.org.cn/1000-9825/6235.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006235",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/jin2021maintainability.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_贾统_jiatong2020logdiag.pdf",
+      "archive_method": "cached"
     },
     "khan2022logtemplate": {
       "key": "khan2022logtemplate",
-      "title": "Guidelines for Assessing the Accuracy of Log Message Template Identification Techniques",
-      "year": "2022",
-      "doi": "10.1145/3510003.3510101",
-      "url": "",
-      "journal": "ACM Transactions on Software Engineering and Methodology",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Guidelines for assessing the accuracy of log message templat",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/khan2022logtemplate_crossref.json",
-      "archive_method": "crossref_json"
-    },
-    "kosinska2023observability": {
-      "key": "kosinska2023observability",
-      "title": "Toward the Observability of Cloud-Native Applications: The Overview of the State-of-the-Art",
+      "title": "LILAC: Log Parsing using LLMs with Adaptive Parsing Cache",
       "year": "2023",
-      "doi": "10.1109/ACCESS.2023.3281860",
+      "doi": "10.48550/arXiv.2310.01796",
       "url": "",
-      "journal": "IEEE Access",
+      "journal": "arXiv preprint arXiv:2310.01796",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Toward the Observability of Cloud-Native Applications: The O",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/kosinska2023observability.html",
-      "archive_method": "doi_landing"
-    },
-    "li2021observability": {
-      "key": "li2021observability",
-      "title": "Enjoy Your Observability: An Industrial Survey of Microservice Tracing and Analysis",
-      "year": "2021",
-      "doi": "10.1007/s10664-021-10063-9",
-      "url": "",
-      "journal": "Empirical Software Engineering",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Enjoy your observability: an industrial survey of microservi",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/li2021observability.html",
-      "archive_method": "unpaywall"
-    },
-    "li2024amazemap": {
-      "key": "li2024amazemap",
-      "title": "{AmazeMap",
-      "year": "2024",
-      "doi": "10.13328/j.cnki.jos.007104",
-      "url": "https://www.jos.org.cn/1000-9825/7104.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.007104",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/li2024amazemap.html",
-      "archive_method": "jos"
+      "doi_resolve": "https://arxiv.org/abs/2310.01796",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Zhihan_khan2022logtemplate.pdf",
+      "archive_method": "cached"
     },
     "liao2016logs": {
       "key": "liao2016logs",
@@ -448,9 +294,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.004936",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/liao2016logs.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_廖湘科_liao2016logs.pdf",
+      "archive_method": "cached"
     },
     "limingshu2019logmgmt": {
       "key": "limingshu2019logmgmt",
@@ -462,9 +308,23 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005601",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/limingshu2019logmgmt.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2019_李明树_limingshu2019logmgmt.pdf",
+      "archive_method": "cached"
+    },
+    "liu2017microcontainer": {
+      "key": "liu2017microcontainer",
+      "title": "面向微服务架构的容器级弹性资源供给方法",
+      "year": "2017",
+      "doi": "10.7544/issn1000-1239.2017.20151043",
+      "url": "https://crad.ict.ac.cn/cn/article/pdf/preview/10.7544/issn1000-1239.2017.20151043.pdf",
+      "journal": "计算机研究与发展",
+      "entry_type": "article",
+      "doi_valid": true,
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2017.20151043",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2017_刘敏_liu2017microcontainer.pdf",
+      "archive_method": "cached"
     },
     "liu2019logzip": {
       "key": "liu2019logzip",
@@ -479,20 +339,6 @@
       "archive_status": "ok",
       "archive_path": "data/papers/2019_Jinyang_liu2019logzip.pdf",
       "archive_method": "cached"
-    },
-    "loki2019": {
-      "key": "loki2019",
-      "title": "Grafana Loki: Like Prometheus, but for Logs",
-      "year": "2019",
-      "doi": "",
-      "url": "https://grafana.com/oss/loki/",
-      "journal": "",
-      "entry_type": "misc",
-      "url_valid": true,
-      "url_resolve": "https://grafana.com/oss/loki/",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/loki2019.html",
-      "archive_method": "bib_url"
     },
     "maruf2022telemetry": {
       "key": "maruf2022telemetry",
@@ -522,47 +368,47 @@
       "archive_path": "data/papers/2020_梅御东_meiyudong2020logcnn.pdf",
       "archive_method": "cached"
     },
+    "moreschini2023microai": {
+      "key": "moreschini2023microai",
+      "title": "AI Techniques in the Microservices Life-Cycle: A Systematic Mapping Study",
+      "year": "2023",
+      "doi": "10.48550/arXiv.2305.16092",
+      "url": "",
+      "journal": "arXiv preprint arXiv:2305.16092",
+      "entry_type": "article",
+      "doi_valid": true,
+      "doi_resolve": "https://arxiv.org/abs/2305.16092",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Sergio_moreschini2023microai.pdf",
+      "archive_method": "cached"
+    },
     "otel_tail": {
       "key": "otel_tail",
-      "title": "Tail Sampling",
+      "title": "TraceMesh: Scalable and Streaming Sampling for Distributed Traces",
       "year": "2024",
-      "doi": "",
-      "url": "https://opentelemetry.io/docs/concepts/sampling/",
-      "journal": "",
-      "entry_type": "misc",
-      "url_valid": true,
-      "url_resolve": "https://opentelemetry.io/docs/concepts/sampling/",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/otel_tail.html",
-      "archive_method": "bib_url"
+      "doi": "10.48550/arXiv.2406.06975",
+      "url": "",
+      "journal": "arXiv preprint arXiv:2406.06975",
+      "entry_type": "article",
+      "doi_valid": true,
+      "doi_resolve": "https://arxiv.org/abs/2406.06975",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Zhuangbin_otel_tail.pdf",
+      "archive_method": "cached"
     },
     "richardson2018microservices": {
       "key": "richardson2018microservices",
-      "title": "Microservices Patterns",
-      "year": "2018",
-      "doi": "",
-      "url": "https://www.manning.com/books/microservices-patterns",
-      "journal": "",
-      "entry_type": "book",
-      "url_valid": true,
-      "url_resolve": "https://www.manning.com/books/microservices-patterns",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/richardson2018microservices.html",
-      "archive_method": "bib_url"
-    },
-    "sebrechts2021service": {
-      "key": "sebrechts2021service",
-      "title": "Service Mesh: Challenges, State of the Art, and Future Research Opportunities",
-      "year": "2021",
-      "doi": "10.1109/ACCESS.2021.3115438",
+      "title": "Designing Microservice Systems Using Patterns: An Empirical Study on Quality Trade-Offs",
+      "year": "2022",
+      "doi": "10.48550/arXiv.2201.03598",
       "url": "",
-      "journal": "IEEE Access",
+      "journal": "arXiv preprint arXiv:2201.03598",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Service Relationship Orchestration: Lessons Learned From Run",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/sebrechts2021service.html",
-      "archive_method": "doi_landing"
+      "doi_resolve": "https://arxiv.org/abs/2201.03598",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Guilherme_richardson2018microservices.pdf",
+      "archive_method": "cached"
     },
     "seshagiri2022sok": {
       "key": "seshagiri2022sok",
@@ -574,9 +420,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "crossref:[SoK] Identifying Mismatches Between Microservice Testbeds a",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/seshagiri2022sok_crossref.json",
-      "archive_method": "crossref_json"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Vishwanath_seshagiri2022sok.pdf",
+      "archive_method": "cached"
     },
     "soldani2020graphrca": {
       "key": "soldani2020graphrca",
@@ -606,48 +452,6 @@
       "archive_path": "data/papers/2023_David_soldani2023ebpf.pdf",
       "archive_method": "cached"
     },
-    "soldani2024logs": {
-      "key": "soldani2024logs",
-      "title": "Explaining Microservices' Cascading Failures From Their Logs",
-      "year": "2024",
-      "doi": "10.1002/spe.3400",
-      "url": "",
-      "journal": "Software: Practice and Experience",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Explaining Microservices' Cascading Failures From Their Logs",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/soldani2024logs_crossref.json",
-      "archive_method": "crossref_json"
-    },
-    "theodoropoulos2023cloudsec": {
-      "key": "theodoropoulos2023cloudsec",
-      "title": "Security in Cloud-Native Services: A Survey",
-      "year": "2023",
-      "doi": "10.3390/jcp3040034",
-      "url": "",
-      "journal": "Journal of Cybersecurity and Privacy",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Security in Cloud-Native Services: A Survey",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/theodoropoulos2023cloudsec.html",
-      "archive_method": "unpaywall"
-    },
-    "turnbull2014monitoring": {
-      "key": "turnbull2014monitoring",
-      "title": "The Art of Monitoring",
-      "year": "2014",
-      "doi": "",
-      "url": "https://openlibrary.org/works/OL27309078W",
-      "journal": "",
-      "entry_type": "book",
-      "url_valid": true,
-      "url_resolve": "https://openlibrary.org/works/OL27309078W/The_Art_of_Monitoring",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/turnbull2014monitoring.html",
-      "archive_method": "bib_url"
-    },
     "usman2022observability": {
       "key": "usman2022observability",
       "title": "A Survey on Observability of Distributed Edge and Container-Based Microservices",
@@ -658,9 +462,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "crossref:A Survey on Observability of Distributed Edge &amp; Containe",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/usman2022observability.html",
-      "archive_method": "doi_landing"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Muhammad_usman2022observability.pdf",
+      "archive_method": "cached"
     },
     "varghese2022edge": {
       "key": "varghese2022edge",
@@ -686,65 +490,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005223",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wang2017tracefault.html",
-      "archive_method": "jos"
-    },
-    "wang2020colocation": {
-      "key": "wang2020colocation",
-      "title": "在离线混部作业调度与资源管理技术研究综述",
-      "year": "2020",
-      "doi": "10.13328/j.cnki.jos.006066",
-      "url": "https://www.jos.org.cn/1000-9825/6066.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006066",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wang2020colocation.html",
-      "archive_method": "jos"
-    },
-    "wang2020logflow": {
-      "key": "wang2020logflow",
-      "title": "多节点系统异常日志流量模式检测方法",
-      "year": "2020",
-      "doi": "10.13328/j.cnki.jos.005800",
-      "url": "https://www.jos.org.cn/1000-9825/5800.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005800",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wang2020logflow.html",
-      "archive_method": "jos"
-    },
-    "wang2021groot": {
-      "key": "wang2021groot",
-      "title": "Groot: An Event-graph-based Approach for Root Cause Analysis in Industrial Settings",
-      "year": "2021",
-      "doi": "10.1109/ASE51524.2021.9678708",
-      "url": "",
-      "journal": "Proceedings of the 36th IEEE/ACM International Conference on Automated Software Engineering",
-      "entry_type": "inproceedings",
-      "doi_valid": true,
-      "doi_resolve": "crossref:Groot: An Event-graph-based Approach for Root Cause Analysis",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wang2021groot.html",
-      "archive_method": "doi_landing"
-    },
-    "wang2024alarmranking": {
-      "key": "wang2024alarmranking",
-      "title": "基于多元数据融合的网络侧告警排序方法",
-      "year": "2024",
-      "doi": "10.13328/j.cnki.jos.007118",
-      "url": "https://www.jos.org.cn/1000-9825/7118.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.007118",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wang2024alarmranking.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2017_王智宇_wang2017tracefault.pdf",
+      "archive_method": "cached"
     },
     "wang2024rca": {
       "key": "wang2024rca",
@@ -784,9 +532,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330178",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wei2023cloudlogstorage.html",
-      "archive_method": "crad_html"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_魏钧宇_wei2023cloudlogstorage.pdf",
+      "archive_method": "cached"
     },
     "wu2020microrca": {
       "key": "wu2020microrca",
@@ -798,9 +546,9 @@
       "entry_type": "inproceedings",
       "doi_valid": true,
       "doi_resolve": "crossref:MicroRCA: Root Cause Localization of Performance Issues in M",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wu2020microrca.html",
-      "archive_method": "unpaywall"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Li_wu2020microrca.pdf",
+      "archive_method": "cached"
     },
     "wuhuayao2020microdev": {
       "key": "wuhuayao2020microdev",
@@ -812,23 +560,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190624",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/wuhuayao2020microdev.html",
-      "archive_method": "crad_html"
-    },
-    "xiebing2018intelligentdev": {
-      "key": "xiebing2018intelligentdev",
-      "title": "数据驱动的软件智能化开发方法与技术专题前言",
-      "year": "2018",
-      "doi": "10.13328/j.cnki.jos.005534",
-      "url": "",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005534",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/xiebing2018intelligentdev.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_吴化尧_wuhuayao2020microdev.pdf",
+      "archive_method": "cached"
     },
     "yang2020tracingsurvey": {
       "key": "yang2020tracingsurvey",
@@ -840,9 +574,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006047",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/yang2020tracingsurvey.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_杨勇_yang2020tracingsurvey.pdf",
+      "archive_method": "cached"
     },
     "yang2023nahida": {
       "key": "yang2023nahida",
@@ -868,9 +602,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006234",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/you2021tracelogstorage.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2021_尤勇_you2021tracelogstorage.pdf",
+      "archive_method": "cached"
     },
     "yuqingyang2022trace": {
       "key": "yuqingyang2022trace",
@@ -882,23 +616,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006209",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/yuqingyang2022trace.html",
-      "archive_method": "jos"
-    },
-    "zhang2021graphtolerance": {
-      "key": "zhang2021graphtolerance",
-      "title": "面向分布式图计算作业的容错技术研究综述",
-      "year": "2021",
-      "doi": "10.13328/j.cnki.jos.006269",
-      "url": "https://www.jos.org.cn/1000-9825/6269.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006269",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhang2021graphtolerance.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_于庆洋_yuqingyang2022trace.pdf",
+      "archive_method": "cached"
     },
     "zhang2023multimodal": {
       "key": "zhang2023multimodal",
@@ -952,23 +672,9 @@
       "entry_type": "article",
       "doi_valid": true,
       "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006827",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhang2024servicedep.html",
-      "archive_method": "jos"
-    },
-    "zhanghe2021microservicepreface": {
-      "key": "zhanghe2021microservicepreface",
-      "title": "面向持续软件工程的微服务架构技术专题前言",
-      "year": "2021",
-      "doi": "10.13328/j.cnki.jos.006237",
-      "url": "https://www.jos.org.cn/1000-9825/6237.htm",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006237",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhanghe2021microservicepreface.html",
-      "archive_method": "jos"
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_张齐勋_zhang2024servicedep.pdf",
+      "archive_method": "cached"
     },
     "zhou2023fusionad": {
       "key": "zhou2023fusionad",
@@ -983,20 +689,6 @@
       "archive_status": "ok",
       "archive_path": "data/papers/2023_周小晖_zhou2023fusionad.pdf",
       "archive_method": "cached"
-    },
-    "zhou2024runtimeconfig": {
-      "key": "zhou2024runtimeconfig",
-      "title": "软件运行时配置研究综述",
-      "year": "2024",
-      "doi": "10.13328/j.cnki.jos.006835",
-      "url": "https://www.jos.org.cn/jos/article/abstract/6835",
-      "journal": "软件学报",
-      "entry_type": "article",
-      "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006835",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhou2024runtimeconfig.html",
-      "archive_method": "jos"
     },
     "zhu2020loghub": {
       "key": "zhu2020loghub",
@@ -1014,24 +706,24 @@
     },
     "zhu2023sidecar": {
       "key": "zhu2023sidecar",
-      "title": "Dissecting Overheads of Service Mesh Sidecars",
-      "year": "2023",
-      "doi": "10.1145/3620678.3624652",
+      "title": "Technical Report: Performance Comparison of Service Mesh Frameworks: the Case of Istio and Linkerd",
+      "year": "2024",
+      "doi": "10.48550/arXiv.2411.02267",
       "url": "",
-      "journal": "Proceedings of the ACM Symposium on Cloud Computing",
+      "journal": "arXiv preprint arXiv:2411.02267",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:Dissecting Overheads of Service Mesh Sidecars",
-      "archive_status": "snapshot",
-      "archive_path": "data/papers/web_snapshots/zhu2023sidecar_crossref.json",
-      "archive_method": "crossref_json"
+      "doi_resolve": "https://arxiv.org/abs/2411.02267",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Yuxin_zhu2023sidecar.pdf",
+      "archive_method": "cached"
     }
   },
   "summary": {
-    "ok": 22,
-    "snapshot": 51,
+    "ok": 51,
+    "snapshot": 0,
     "paywall": 0,
     "failed": 0,
-    "doi_valid": 66
+    "doi_valid": 51
   }
 }

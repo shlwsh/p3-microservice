@@ -234,9 +234,12 @@ def try_download(entry: BibEntry, out_dir: Path, client: httpx.Client) -> tuple[
         for u in jos_urls(entry.doi):
             urls.append(("jos", u))
     if "计算机研究与发展" in entry.journal and entry.doi:
+        urls.append(("crad_pdf", f"https://crad.ict.ac.cn/cn/article/pdf/preview/{entry.doi}.pdf"))
         u = crad_html_url(entry.doi)
         if u:
             urls.append(("crad_html", u))
+    if entry.url and "crad.ict.ac.cn" in entry.url and "pdf" in entry.url.lower():
+        urls.insert(0, ("crad_pdf_url", entry.url))
     if "计算机学报" in entry.journal and entry.doi:
         u = cjc_html_url(entry.doi)
         if u:
@@ -311,7 +314,9 @@ def main() -> int:
     }
     stats = {"ok": 0, "snapshot": 0, "paywall": 0, "failed": 0, "doi_valid": 0}
 
-    with httpx.Client(headers={"User-Agent": "p3-microservice/1.0 (citation-verify)"}) as client:
+    with httpx.Client(
+        headers={"User-Agent": "Mozilla/5.0 (p3-microservice/1.0 citation-verify)"}
+    ) as client:
         for key in sorted(cited):
             e = bib[key]
             rec: dict[str, Any] = {

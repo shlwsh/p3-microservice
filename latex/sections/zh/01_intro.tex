@@ -1,8 +1,8 @@
 \section{引言}
 
-微服务架构通过服务拆分提升了系统的可扩展性与开发敏捷性，容器编排、Sidecar 与服务治理模式进一步推动了云原生应用的大规模部署\cite{burns2016patterns,burns2016borg,jamshidi2018microservices,richardson2018microservices,feng2020microservice,wuhuayao2020microdev}。但这种架构也使日志产生源头高度分散：每个服务实例独立输出日志，格式因技术栈而异，总量随请求并发线性增长。传统可观测性方案（如 ELK/EFK Stack、Grafana Loki 搭配 Promtail 等）多采用\textbf{全量采集}策略，在中小规模场景下尚可接受；当集群规模达到数十至数百节点时，全量采集将导致节点 CPU/内存持续占用、南北向带宽成为瓶颈、存储与索引成本急剧上升，且海量低价值日志淹没关键故障信息\cite{liao2016logs,limingshu2019logmgmt,li2021observability,usman2022observability}。
+微服务架构通过服务拆分提升了系统的可扩展性与开发敏捷性，容器编排、Sidecar 与服务治理模式进一步推动了云原生应用的大规模部署\cite{burns2016patterns,burns2016borg,jamshidi2018microservices,richardson2018microservices,feng2020microservice,wuhuayao2020microdev}。但这种架构也使日志产生源头高度分散：每个服务实例独立输出日志，格式因技术栈而异，总量随请求并发线性增长。传统可观测性方案多采用\textbf{全量采集}策略，在中小规模场景下尚可接受；当集群规模达到数十至数百节点时，全量采集将导致节点 CPU/内存持续占用、南北向带宽成为瓶颈、存储与索引成本急剧上升，且海量低价值日志淹没关键故障信息\cite{liao2016logs,limingshu2019logmgmt,he2020logsurvey,usman2022observability}。
 
-现有研究集中在日志存储压缩、采样过滤、故障诊断与 eBPF 无侵入采集等方向，但较少从\textbf{网关流量感知}出发，动态驱动各服务节点的应用日志定向采集。智能运维实践与标准化研究强调平台能力建设和数据闭环\cite{bao2023aiops}，基于日志的故障诊断综述则侧重日志解析、异常检测和根因定位等后端分析技术\cite{jiatong2020logdiag}。本文将研究对象前移到\textbf{采集前端}：利用网关作为南北向流量入口所掌握的 URL、状态码、响应时延等结构化信号，在不侵入业务代码的前提下识别高价值请求，进而指导下游节点仅采集与异常、慢请求相关的应用日志，实现``只采必要日志''。
+现有研究集中在日志存储压缩、采样过滤、故障诊断与 eBPF 无侵入采集等方向，但较少从\textbf{网关流量感知}出发，动态驱动各服务节点的应用日志定向采集。包航宇等\cite{bao2023aiops}总结智能运维实践与标准化框架，贾统等\cite{jiatong2020logdiag}系统梳理基于日志的分布式软件系统故障诊断技术。本文将研究对象前移到\textbf{采集前端}：利用网关作为南北向流量入口所掌握的 URL、状态码、响应时延等结构化信号，在不侵入业务代码的前提下识别高价值请求，进而指导下游节点仅采集与异常、慢请求相关的应用日志，实现``只采必要日志''。
 
 本文提出\textbf{分布式定向日志采集框架与原型组件}。框架由\textbf{网关预筛选、节点定向采集、中心二次过滤}三层组成，并通过三次策略转换保持跨层语义一致。相较 Promtail/Fluent Bit 全量推送后在存储端压缩的传统方案，本文在采集前端即实现日志入库量 98.4\% 的下降（72 条 vs.\ 4388$\pm$1 条），从源头降低网络与存储开销。主要贡献如下：
 
