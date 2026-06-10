@@ -19,6 +19,6 @@ alwaysApply: true
 | `makeskill` | 新建/规范项目技能 |
 | `gitnexus-cursor-mcp-setup` | 配置 GitNexus MCP、索引仓库 |
 
-GitNexus 代码智能（`.claude/skills/gitnexus/`）：改代码前跑 impact；探索用 query/context。
+GitNexus 代码智能（`.claude/skills/gitnexus/`，经 `.agent/skills/gitnexus` → `.cursor/skills/gitnexus` 符号链接镜像）：改代码前跑 impact；探索用 query/context。
 
-维护链接：`bash scripts/link_cursor_skills.sh`
+维护链接：`bash scripts/link_cursor_skills.sh`（含 gitnexus 包；analyze 更新后无需重跑，除非增删顶层技能项）

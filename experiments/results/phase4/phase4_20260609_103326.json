@@ -1,0 +1,45 @@
+{
+  "timestamp": "20260609_103326",
+  "phase": "phase4",
+  "methodology": "directed_scale_matrix_60s_x3",
+  "false_negative": {
+    "probes_sent": 100,
+    "loki_delta": 9,
+    "estimated_captured": 9,
+    "false_negative_rate_percent": 91.0,
+    "method": "high_value_status_500_probe"
+  },
+  "e2e_latency": {
+    "samples": 30,
+    "latency_avg_ms": 6404.4,
+    "latency_p50_ms": 6272.1,
+    "latency_p95_ms": 12000.0,
+    "latency_p99_ms": 12000.0,
+    "method": "http_to_center_received_poll"
+  },
+  "baselines": {
+    "promtail_static_filter": {
+      "description": "Promtail 全量抓取 + 静态 label 过滤（保留错误/慢请求规则）",
+      "estimated_loki_stored": 1535.8,
+      "estimated_cpu_percent": 0.07,
+      "method": "phase3_full_x0.35_rule_retention"
+    },
+    "opentelemetry_tail_sampling": {
+      "description": "OpenTelemetry Collector 尾部采样（错误保留 + 10% 正常请求）",
+      "estimated_loki_stored": 526.6,
+      "estimated_cpu_percent": 0.09,
+      "method": "phase3_full_x0.12_tail_sampling_model"
+    },
+    "ebpf_probe": {
+      "description": "eBPF 内核探针采集（系统调用/网络事件，无应用日志上下文）",
+      "estimated_loki_stored": 351.0,
+      "estimated_cpu_percent": 0.04,
+      "method": "literature_overhead_model_no_app_log"
+    },
+    "p3_directed_measured": {
+      "loki_stored": 72.0,
+      "cpu_percent": 0.05,
+      "method": "phase3_measured_8nodes"
+    }
+  }
+}

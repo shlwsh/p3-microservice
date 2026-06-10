@@ -1,0 +1,176 @@
+{
+  "timestamp": "20260609_105720",
+  "phase": "phase4",
+  "methodology": "directed_scale_matrix_60s_x3",
+  "real_load": {
+    "duration_sec": 90,
+    "requests_total": 36544,
+    "requests_high_value": 11755,
+    "loki_stored_delta": 77,
+    "high_value_capture_ratio": 0.007,
+    "method": "production_trace_mix_60_20_12_8"
+  },
+  "steady_state_fn": {
+    "high_value_requests": 15950,
+    "loki_stored_delta": 85,
+    "steady_state_false_negative_rate_percent": 99.47,
+    "capture_ratio": 0.005,
+    "method": "steady_state_production_mix_120s"
+  },
+  "center_recovery": {
+    "recovered": true,
+    "recovery_time_ms": 1083.7,
+    "method": "docker_stop_start_center"
+  },
+  "baselines": {
+    "promtail_static_filter": {
+      "description": "Promtail 全量抓取 + 静态 label 过滤（保留错误/慢请求规则）",
+      "estimated_loki_stored": 1535.8,
+      "estimated_cpu_percent": 0.07,
+      "method": "phase3_full_x0.35_rule_retention"
+    },
+    "opentelemetry_tail_sampling": {
+      "description": "OpenTelemetry Collector 尾部采样（错误保留 + 10% 正常请求）",
+      "estimated_loki_stored": 526.6,
+      "estimated_cpu_percent": 0.09,
+      "method": "phase3_full_x0.12_tail_sampling_model"
+    },
+    "ebpf_probe": {
+      "description": "eBPF 内核探针采集（系统调用/网络事件，无应用日志上下文）",
+      "estimated_loki_stored": 351.0,
+      "estimated_cpu_percent": 0.04,
+      "method": "literature_overhead_model_no_app_log"
+    },
+    "p3_directed_measured": {
+      "loki_stored": 72.0,
+      "cpu_percent": 0.05,
+      "method": "phase3_measured_8nodes"
+    }
+  },
+  "promtail_replay": {
+    "full_collect_loki_mean": 4388,
+    "promtail_retained_loki": 1535.8,
+    "retention_ratio": 0.35,
+    "method": "promtail_static_rule_replay_on_phase3_full"
+  },
+  "false_negative": {
+    "probes_sent": 30,
+    "requests_captured": 7,
+    "attention_covers_500": true,
+    "attention_list_items": 32,
+    "false_negative_rate_percent": 76.67,
+    "method": "high_value_status_500_probe_3s_interval"
+  },
+  "e2e_latency": {
+    "samples": 30,
+    "latency_avg_ms": 3724.4,
+    "latency_p50_ms": 831.5,
+    "latency_p95_ms": 12000.0,
+    "latency_p99_ms": 12000.0,
+    "method": "http_to_center_received_poll"
+  },
+  "scale": {
+    "8": {
+      "runs": [
+        {
+          "nodes": 8,
+          "repeat": 1,
+          "delta_loki_stored": 27,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 16,
+          "avg_agent_cpu_percent": 0.033,
+          "center_cpu_percent": 0.35,
+          "load_duration_sec": 60
+        },
+        {
+          "nodes": 8,
+          "repeat": 2,
+          "delta_loki_stored": 27,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 16,
+          "avg_agent_cpu_percent": 0.033,
+          "center_cpu_percent": 0.02,
+          "load_duration_sec": 60
+        },
+        {
+          "nodes": 8,
+          "repeat": 3,
+          "delta_loki_stored": 27,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 16,
+          "avg_agent_cpu_percent": 0.027,
+          "center_cpu_percent": 0.07,
+          "load_duration_sec": 60
+        }
+      ],
+      "loki_stored_mean": 27,
+      "loki_stored_stdev": 0.0,
+      "avg_agent_cpu_mean": 0.03,
+      "avg_agent_cpu_stdev": 0.0,
+      "gateway_redis_mean": 0,
+      "gateway_redis_stdev": 0.0,
+      "center_cpu_mean": 0.15,
+      "center_cpu_stdev": 0.18,
+      "attention_list_items": 16
+    },
+    "16": {
+      "runs": [
+        {
+          "nodes": 16,
+          "repeat": 1,
+          "delta_loki_stored": 51,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 32,
+          "avg_agent_cpu_percent": 0.019,
+          "center_cpu_percent": 0.07,
+          "load_duration_sec": 60
+        },
+        {
+          "nodes": 16,
+          "repeat": 2,
+          "delta_loki_stored": 41,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 32,
+          "avg_agent_cpu_percent": 0.018,
+          "center_cpu_percent": 0.75,
+          "load_duration_sec": 60
+        },
+        {
+          "nodes": 16,
+          "repeat": 3,
+          "delta_loki_stored": 51,
+          "delta_gateway_redis": 0,
+          "attention_list_items": 32,
+          "avg_agent_cpu_percent": 0.031,
+          "center_cpu_percent": 0.01,
+          "load_duration_sec": 60
+        }
+      ],
+      "loki_stored_mean": 47.67,
+      "loki_stored_stdev": 5.77,
+      "avg_agent_cpu_mean": 0.02,
+      "avg_agent_cpu_stdev": 0.01,
+      "gateway_redis_mean": 0,
+      "gateway_redis_stdev": 0.0,
+      "center_cpu_mean": 0.28,
+      "center_cpu_stdev": 0.41,
+      "attention_list_items": 32
+    }
+  },
+  "scale_projected": {
+    "32": {
+      "nodes": 32,
+      "gateway_redis_mean": 0.0,
+      "center_cpu_mean": 0.5,
+      "loki_stored_mean": 37.3,
+      "method": "projected_from_8_16_nodes"
+    },
+    "64": {
+      "nodes": 64,
+      "gateway_redis_mean": 0.0,
+      "center_cpu_mean": 0.91,
+      "loki_stored_mean": 37.3,
+      "method": "projected_from_8_16_nodes"
+    }
+  }
+}

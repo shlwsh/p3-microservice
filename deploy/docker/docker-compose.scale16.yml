@@ -1,0 +1,270 @@
+# 自动生成：16 微服务节点（叠加 docker-compose.yml 使用）
+# 生成：python3 experiments/scripts/generate_scale_compose.py --nodes 16
+version: '3.8'
+
+services:
+  service-3:
+    image: kennethreitz/httpbin:latest
+    container_name: service-3
+    networks:
+      - lognet
+
+  service-3-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-3-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-3-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-3"
+
+  service-4:
+    image: kennethreitz/httpbin:latest
+    container_name: service-4
+    networks:
+      - lognet
+
+  service-4-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-4-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-4-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-4"
+
+  service-5:
+    image: kennethreitz/httpbin:latest
+    container_name: service-5
+    networks:
+      - lognet
+
+  service-5-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-5-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-5-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-5"
+
+  service-6:
+    image: kennethreitz/httpbin:latest
+    container_name: service-6
+    networks:
+      - lognet
+
+  service-6-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-6-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-6-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-6"
+
+  service-7:
+    image: kennethreitz/httpbin:latest
+    container_name: service-7
+    networks:
+      - lognet
+
+  service-7-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-7-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-7-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-7"
+
+  service-8:
+    image: kennethreitz/httpbin:latest
+    container_name: service-8
+    networks:
+      - lognet
+
+  service-8-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-8-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-8-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-8"
+
+  service-9:
+    image: kennethreitz/httpbin:latest
+    container_name: service-9
+    networks:
+      - lognet
+
+  service-9-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-9-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-9-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-9"
+
+  service-10:
+    image: kennethreitz/httpbin:latest
+    container_name: service-10
+    networks:
+      - lognet
+
+  service-10-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-10-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-10-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-10"
+
+  service-11:
+    image: kennethreitz/httpbin:latest
+    container_name: service-11
+    networks:
+      - lognet
+
+  service-11-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-11-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-11-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-11"
+
+  service-12:
+    image: kennethreitz/httpbin:latest
+    container_name: service-12
+    networks:
+      - lognet
+
+  service-12-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-12-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-12-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-12"
+
+  service-13:
+    image: kennethreitz/httpbin:latest
+    container_name: service-13
+    networks:
+      - lognet
+
+  service-13-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-13-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-13-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-13"
+
+  service-14:
+    image: kennethreitz/httpbin:latest
+    container_name: service-14
+    networks:
+      - lognet
+
+  service-14-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-14-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-14-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-14"
+
+  service-15:
+    image: kennethreitz/httpbin:latest
+    container_name: service-15
+    networks:
+      - lognet
+
+  service-15-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-15-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-15-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-15"
+
+  service-16:
+    image: kennethreitz/httpbin:latest
+    container_name: service-16
+    networks:
+      - lognet
+
+  service-16-agent:
+    build:
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile.agent
+    container_name: service-16-agent
+    environment:
+      - AGENT_CONFIG_PATH=/etc/agent/agent.yaml
+    volumes:
+      - ./agents/service-16-agent.yaml:/etc/agent/agent.yaml
+    depends_on:
+      - center
+    network_mode: "service:service-16"

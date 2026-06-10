@@ -1,0 +1,1 @@
+../docs/latex-models/software-journal/rjthesis.cls

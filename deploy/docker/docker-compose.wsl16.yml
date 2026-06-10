@@ -1,0 +1,36 @@
+# 自动生成 WSL 内存限制
+version: '3.8'
+
+services:
+  service-1-agent:
+    mem_limit: 96m
+  service-2-agent:
+    mem_limit: 96m
+  service-3-agent:
+    mem_limit: 96m
+  service-4-agent:
+    mem_limit: 96m
+  service-5-agent:
+    mem_limit: 96m
+  service-6-agent:
+    mem_limit: 96m
+  service-7-agent:
+    mem_limit: 96m
+  service-8-agent:
+    mem_limit: 96m
+  service-9-agent:
+    mem_limit: 96m
+  service-10-agent:
+    mem_limit: 96m
+  service-11-agent:
+    mem_limit: 96m
+  service-12-agent:
+    mem_limit: 96m
+  service-13-agent:
+    mem_limit: 96m
+  service-14-agent:
+    mem_limit: 96m
+  service-15-agent:
+    mem_limit: 96m
+  service-16-agent:
+    mem_limit: 96m

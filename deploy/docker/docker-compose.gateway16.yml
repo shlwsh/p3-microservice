@@ -1,0 +1,8 @@
+# 16 节点网关 Nginx 路由覆盖
+version: '3.8'
+
+services:
+  gateway:
+    volumes:
+      - ../nginx/nginx.scale16.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
+      - ../nginx/lua:/usr/local/openresty/nginx/lua:ro

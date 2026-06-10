@@ -1,0 +1,46 @@
+# Service Agent 配置（微服务 Sidecar，与业务容器共享网络栈）
+
+server:
+  center_address: "center:9090"
+  agent_id: "service-25-agent"
+  service_name: "service-25"
+
+cache:
+  max_size_bytes: 67108864   # 64MB
+  max_entries: 50000
+  flush_threshold_percent: 80
+  flush_interval_ms: 5000
+  enable_compression: true
+
+retry:
+  base_delay: 200ms
+  multiplier: 2.0
+  max_delay: 30s
+  max_retries: 6
+  jitter: 0.3
+
+matcher:
+  pull_interval: 10s
+  min_log_level: "INFO"
+
+monitor:
+  sample_interval: 5s
+  cpu_high_threshold: 0.80
+  memory_high_threshold: 0.85
+
+local_persist:
+  db_path: "/var/lib/agent/fallback.db"
+  max_size_bytes: 268435456
+
+nginx:
+  enabled: false
+
+metrics:
+  enabled: true
+  port: 9100
+  path: "/metrics"
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"

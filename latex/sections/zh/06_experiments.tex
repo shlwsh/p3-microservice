@@ -1,3 +1,4 @@
+% !TEX root = ../../main-jos.tex
 \section{实验与分析}
 
 \subsection{环境与方法}
@@ -72,13 +73,35 @@
 \subsection{可复现性与效度威胁}
 实验脚本、Docker Compose 配置与原始 JSON 结果保存在 \texttt{experiments/} 及 phase3 结果目录，图~\ref{fig:compare}、表~\ref{tab:compare} 均由该 JSON 派生。当前结果仍存在以下效度威胁。
 
-\textbf{规模效度}：实验集群为 WSL/Docker 八节点原型，能够验证端到端链路和采集前端减量效果，但不能直接外推至数百节点生产环境。后续需在 32--64 节点云环境中复测网络带宽、Loki 写入压力和 Center 调度开销。
+\textbf{规模效度}：八/十六节点为 WSL/Docker 实测，三十二/六十四节点为基于实测曲线的外推；云环境长稳与带宽压力仍需验证。
 
-\textbf{基线效度}：本文已提供同架构全量采集基线，但尚未部署 Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 采集方案做端到端对照。表~\ref{tab:related_compare} 中相关方案仅用于机制比较，未作为已完成实验结果陈述。
+\textbf{基线效度}：已给出同架构全量基线与 Promtail/OTel/eBPF 同负载估算（图~\ref{fig:baseline}），完整端到端部署对照仍待补充。
 
-\textbf{负载效度}：当前负载由 httpbin 合成，覆盖正常、错误与慢请求，但距离 DeathStarBench、Alibaba 生产迹等真实微服务流量仍有差距。后续应引入真实调用图、长尾延迟和突发流量，以评估关注清单在异常稀疏或突发场景中的稳定性。
+\textbf{负载效度}：当前负载由 httpbin 合成，覆盖正常、错误与慢请求，但距离 DeathStarBench、Alibaba 生产迹等真实微服务流量仍有差距。
 
-\textbf{统计效度}：每模式重复 3 次，实验时长 180\,s，适合作为原型探索性验证；端到端采集延迟、高价值日志漏报率和故障后恢复时间尚未形成完整统计。图~\ref{fig:ablation} 为策略仿真消融，不能与表~\ref{tab:compare} 的集群实测直接比较。
+\textbf{统计效度}：三期对比为 180\,s、$n{=}3$；四期规模矩阵为 60\,s、$n{=}3$。逐探针命中率受 Agent 批处理影响，不能单独代表稳态漏报率。图~\ref{fig:ablation} 为策略仿真消融，不能与表~\ref{tab:compare} 的集群实测直接比较。
 
-\subsection{后续实验计划}
-为达到正式投稿的更高证据强度，后续实验将按三类扩展：第一，规模扩展，在 4/8/16/32/64 节点上测量日志入库量、网络带宽、Center CPU 与 Loki 写入延迟；第二，基线扩展，加入 Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 采集链路，统一负载与日志源频率；第三，消融扩展，将动态关注清单、固定缓存块和压力感知退避从仿真消融迁移到集群实测，并补充高价值日志漏报率、端到端采集延迟和中心故障恢复时间。上述计划不替代本文已有实测结果，而用于进一步验证框架在生产级场景中的普适性。
+\subsection{规模扩展与质量指标}
+在四期实验中，本文在八节点与十六节点集群上补跑定向模式规模矩阵（60\,s、并发 50、每规模重复 3 次），并对 32/64 节点给出基于实测曲线的资源外推。图~\ref{fig:scale} 显示：定向模式下 Loki 入库量随节点数缓慢增长（八节点 27$\pm$0 条、十六节点 47.7$\pm$5.8 条/轮），而 Agent 平均 CPU 维持在 0.02\%--0.03\% 量级；Center CPU 在十六节点下为 0.28$\pm$0.41\%，未出现随规模线性失控。32/64 节点柱形为外推值（灰色），供云环境长稳验证参考。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{fig7_scale_bars.pdf}
+  \caption{多规模扩展实验（绿：实测 8/16 节点；灰：32/64 外推）}
+  \label{fig:scale}
+\end{figure}
+
+\textbf{高价值日志漏报与端到端延迟。}稳态混合负载下，关注清单稳定覆盖 \texttt{/status/500}、\texttt{/delay/1} 等泛化模式（八节点 16 条、十六节点 32 条），规则级漏报率为 0。生产迹风格混合负载（60\% 正常 / 20\% 5xx / 12\% 慢请求 / 8\% 其他，90\,s、十六节点）共发送 3.6$\times10^4$ 次请求，定向入库 77 条，验证减量能力。逐探针实验的即时命中率受 Agent 2\,s 批处理影响，不等同于规则级漏报。端到端延迟（HTTP $\rightarrow$ Center \texttt{received}）实测：P50 0.83\,s、P95 12\,s（$n{=}30$）。中心故障恢复实验（\texttt{docker stop/start}）恢复时间约 1.1\,s。
+
+\subsection{工业基线对照}
+图~\ref{fig:baseline} 在同负载口径下给出本文定向采集与三类工业基线的对照。P3 定向采集为八节点三期实测（72 条、CPU 0.05\%）；Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 探针方案基于同架构全量基线与公开文献开销模型估算，尚未在本文集群中完整部署。估算结果表明：定向采集在保持最低入库量的同时，CPU 开销与 Promtail 静态过滤同量级，显著低于尾采样 Collector 的推理与追踪附加成本。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig8_baseline_bars.pdf}
+  \caption{工业基线对照（P3 实测，其余为同负载估算）}
+  \label{fig:baseline}
+\end{figure}
+
+\subsection{剩余局限与后续工作}
+四期实验已补充 8/16 节点规模矩阵、规则级漏报验证、端到端延迟与工业基线估算，但 32/64 节点仍为资源外推，Promtail/OpenTelemetry/eBPF 尚需端到端部署实测。后续将在云环境开展 32/64 节点长稳压测，引入 DeathStarBench 等真实负载，并将集群实测消融与中心故障恢复时间纳入投稿前证据包。
