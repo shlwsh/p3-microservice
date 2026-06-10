@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  10 JUN 2026 18:57
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  10 JUN 2026 21:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,7 +6,7 @@ entering extended mode
 (./main-jos.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
-(/root/work/p3-microservice/docs/latex-models/software-journal/rjthesis.cls
+(./rjthesis.cls
 Document Class: rjthesis 2019/11/13 Software journal paper
 (/usr/share/texlive/texmf-dist/tex/latex/ctex/ctexart.cls
 (/usr/share/texlive/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
@@ -697,7 +697,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \oddsidemargin=1.44614pt
 * \evensidemargin=38.30426pt
 * \topmargin=-13.87262pt
-* \headheight=35.2pt
+* \headheight=36.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
@@ -794,293 +794,12 @@ Package fontspec Info: Font family 'NotoSerifCJKSC(1)' created for font 'Noto
 (fontspec)             CJK SC/BI/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
-(./sections/zh/01_intro.tex
+(./sections/zh/01_intro.tex [1
 
-LaTeX Warning: Citation `burns2016patterns' on page 1 undefined on input line 4
-.
-
-
-LaTeX Warning: Citation `burns2016borg' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `jamshidi2018microservices' on page 1 undefined on inpu
-t line 4.
-
-
-LaTeX Warning: Citation `richardson2018microservices' on page 1 undefined on in
-put line 4.
-
-
-LaTeX Warning: Citation `feng2020microservice' on page 1 undefined on input lin
-e 4.
-
-
-LaTeX Warning: Citation `wuhuayao2020microdev' on page 1 undefined on input lin
-e 4.
-
-
-LaTeX Warning: Citation `liao2016logs' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `limingshu2019logmgmt' on page 1 undefined on input lin
-e 4.
-
-
-LaTeX Warning: Citation `he2020logsurvey' on page 1 undefined on input line 4.
-
-
-LaTeX Warning: Citation `usman2022observability' on page 1 undefined on input l
-ine 4.
-
-
-Package fancyhdr Warning: \headheight is too small (35.2pt): 
-(fancyhdr)                Make it at least 35.69583pt, for example:
-(fancyhdr)                \setlength{\headheight}{35.69583pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-0.49583pt}.
-
-[1
-
-]
-
-LaTeX Warning: Citation `bao2023aiops' on page 2 undefined on input line 6.
-
-
-LaTeX Warning: Citation `jiatong2020logdiag' on page 2 undefined on input line 
-6.
-
-) (./sections/zh/02_related.tex
-
-LaTeX Warning: Citation `liao2016logs' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `limingshu2019logmgmt' on page 2 undefined on input lin
-e 5.
-
-
-LaTeX Warning: Citation `he2020logsurvey' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `chen2020loganomaly' on page 2 undefined on input line 
-5.
-
-
-LaTeX Warning: Citation `liu2019logzip' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `zhu2020loghub' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `wei2023cloudlogstorage' on page 2 undefined on input l
-ine 5.
-
-
-LaTeX Warning: Citation `khan2022logtemplate' on page 2 undefined on input line
- 5.
-
-
-LaTeX Warning: Citation `otel_tail' on page 2 undefined on input line 8.
-
-
-LaTeX Warning: Citation `usman2022observability' on page 2 undefined on input l
-ine 8.
-
-
-LaTeX Warning: Citation `maruf2022telemetry' on page 2 undefined on input line 
-8.
-
-
-LaTeX Warning: Citation `moreschini2023microai' on page 2 undefined on input li
-ne 8.
-
-
-LaTeX Warning: Citation `yang2020tracingsurvey' on page 2 undefined on input li
-ne 8.
-
-
-LaTeX Warning: Citation `huang2023javatrace' on page 2 undefined on input line 
-8.
-
-
-LaTeX Warning: Citation `you2021tracelogstorage' on page 2 undefined on input l
-ine 8.
-
-
-LaTeX Warning: Citation `yuqingyang2022trace' on page 2 undefined on input line
- 8.
-
-
-LaTeX Warning: Citation `zhang2024servicedep' on page 2 undefined on input line
- 8.
-
-
-LaTeX Warning: Citation `wanglu2023microfault' on page 2 undefined on input lin
-e 8.
-
-
-LaTeX Warning: Citation `wang2017tracefault' on page 2 undefined on input line 
-8.
-
-
-LaTeX Warning: Citation `wu2020microrca' on page 2 undefined on input line 8.
-
-
-LaTeX Warning: Citation `zhang2023multimodal' on page 2 undefined on input line
- 8.
-
-
-LaTeX Warning: Citation `wang2024rca' on page 2 undefined on input line 8.
-
-
-LaTeX Warning: Citation `varghese2022edge' on page 2 undefined on input line 11
-.
-
-
-LaTeX Warning: Citation `usman2022observability' on page 2 undefined on input l
-ine 11.
-
-
-LaTeX Warning: Citation `liu2017microcontainer' on page 2 undefined on input li
-ne 11.
-
-
-LaTeX Warning: Citation `zhu2023sidecar' on page 2 undefined on input line 11.
-
-
-LaTeX Warning: Citation `soldani2023ebpf' on page 2 undefined on input line 11.
-
-
-
+]) (./sections/zh/02_related.tex
 Underfull \vbox (badness 3989) has occurred while \output is active []
 
  [2]
-
-LaTeX Warning: Citation `bao2023aiops' on page 3 undefined on input line 14.
-
-
-LaTeX Warning: Citation `cheng2023aiops' on page 3 undefined on input line 14.
-
-
-LaTeX Warning: Citation `diaz2023mlopsaiops' on page 3 undefined on input line 
-14.
-
-
-LaTeX Warning: Citation `moreschini2023microai' on page 3 undefined on input li
-ne 14.
-
-
-LaTeX Warning: Citation `jiatong2020logdiag' on page 3 undefined on input line 
-17.
-
-
-LaTeX Warning: Citation `dai2020logram' on page 3 undefined on input line 17.
-
-
-LaTeX Warning: Citation `khan2022logtemplate' on page 3 undefined on input line
- 17.
-
-
-LaTeX Warning: Citation `jiang2023logparsing' on page 3 undefined on input line
- 17.
-
-
-LaTeX Warning: Citation `meiyudong2020logcnn' on page 3 undefined on input line
- 17.
-
-
-LaTeX Warning: Citation `guo2024logformer' on page 3 undefined on input line 17
-.
-
-
-LaTeX Warning: Citation `ali2025logml' on page 3 undefined on input line 17.
-
-
-LaTeX Warning: Citation `hadadi2024logfailure' on page 3 undefined on input lin
-e 17.
-
-
-LaTeX Warning: Citation `zhou2023fusionad' on page 3 undefined on input line 17
-.
-
-
-LaTeX Warning: Citation `fang2024microperf' on page 3 undefined on input line 1
-7.
-
-
-LaTeX Warning: Citation `zhang2024reducing' on page 3 undefined on input line 1
-7.
-
-
-LaTeX Warning: Citation `zhang2024multivariate' on page 3 undefined on input li
-ne 17.
-
-
-LaTeX Warning: Citation `soldani2020graphrca' on page 3 undefined on input line
- 17.
-
-
-LaTeX Warning: Citation `ding2020decomposition' on page 3 undefined on input li
-ne 20.
-
-
-LaTeX Warning: Citation `jia2021loggingdecision' on page 3 undefined on input l
-ine 20.
-
-
-LaTeX Warning: Citation `jamshidi2018microservices' on page 3 undefined on inpu
-t line 20.
-
-
-LaTeX Warning: Citation `seshagiri2022sok' on page 3 undefined on input line 20
-.
-
-
-LaTeX Warning: Citation `burns2016patterns' on page 3 undefined on input line 2
-0.
-
-
-LaTeX Warning: Citation `burns2016borg' on page 3 undefined on input line 20.
-
-
-LaTeX Warning: Citation `richardson2018microservices' on page 3 undefined on in
-put line 20.
-
-
-LaTeX Warning: Citation `soldani2023ebpf' on page 3 undefined on input line 23.
-
-
-
-LaTeX Warning: Citation `yang2023nahida' on page 3 undefined on input line 23.
-
-
-LaTeX Warning: Citation `otel_tail' on page 3 undefined on input line 48.
-
-
-LaTeX Warning: Citation `soldani2023ebpf' on page 3 undefined on input line 48.
-
-
-
-LaTeX Warning: Citation `yang2023nahida' on page 3 undefined on input line 48.
-
-
-LaTeX Warning: Citation `bao2023aiops' on page 3 undefined on input line 48.
-
-
-LaTeX Warning: Citation `jiatong2020logdiag' on page 3 undefined on input line 
-48.
-
-
-LaTeX Warning: Citation `yuqingyang2022trace' on page 3 undefined on input line
- 48.
-
-
-LaTeX Warning: Citation `bao2023aiops' on page 3 undefined on input line 52.
-
-
-LaTeX Warning: Citation `jiatong2020logdiag' on page 3 undefined on input line 
-52.
-
 [3]) (./sections/zh/03_system.tex
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\TU/NotoSerifCJKSC(0)/m/n/9.03374 高 价 值 流 量 日 志 与
@@ -1132,9 +851,8 @@ File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
  [12]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
-) (./sections/zh/07_conclusion.tex [13])
-No file main-jos.bbl.
-[14] (./main-jos.aux)
+) (./sections/zh/07_conclusion.tex [13]) (./main-jos.bbl [14]
+[15] [16]) [17] (./main-jos.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -1144,17 +862,14 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 18698 strings out of 474878
- 426143 string characters out of 5762516
- 1958627 words of memory out of 5000000
- 40418 multiletter control sequences out of 15000+600000
- 565356 words of font info for 119 fonts, out of 8000000 for 9000
+ 18757 strings out of 474878
+ 427187 string characters out of 5762516
+ 1959627 words of memory out of 5000000
+ 40474 multiletter control sequences out of 15000+600000
+ 565364 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  107i,15n,111p,1558b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-jos.pdf (14 pages).
+Output written on main-jos.pdf (17 pages).
