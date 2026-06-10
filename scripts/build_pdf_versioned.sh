@@ -11,8 +11,8 @@ echo "编译 v${VERSION} @ ${TS}"
 "${ROOT}/scripts/build_pdf_jos.sh"
 "${ROOT}/scripts/build_pdf.sh"
 
-JOS_SRC="${ROOT}/latex/output/main-jos.pdf"
-ZH_SRC="${ROOT}/latex/output/main-zh.pdf"
+JOS_SRC="${ROOT}/latex/main-jos.pdf"
+ZH_SRC="${ROOT}/latex/main-zh.pdf"
 JOS_DST="${ROOT}/docs/v${VERSION}-论文稿件-jos-${TS}.pdf"
 ZH_DST="${ROOT}/docs/v${VERSION}-论文稿件-zh-${TS}.pdf"
 
