@@ -2,7 +2,8 @@
 
 \bibitem{ali2025logml}
 Shan Ali, Chaima Boufaied, Domenico Bianculli, Paula Branco, and Lionel Briand.
-\newblock A comprehensive study of machine learning techniques for log-based anomaly detection.
+\newblock A comprehensive study of machine learning techniques for log-based
+  anomaly detection.
 \newblock {\em Empirical Software Engineering}, 2025.
 
 \bibitem{burns2016borg}
@@ -13,7 +14,8 @@ Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
 \bibitem{burns2016patterns}
 Brendan Burns, David Oppenheimer, and Eric Brewer.
 \newblock Design patterns for container-based distributed systems.
-\newblock In {\em Proceedings of the 7th Workshop on Hot Topics in Cloud Computing (HotCloud)}. ACM, 2016.
+\newblock In {\em Proceedings of the 7th Workshop on Hot Topics in Cloud
+  Computing (HotCloud)}. ACM, 2016.
 
 \bibitem{otel_tail}
 Zhuangbin Chen, Zhihan Jiang, Yuxin Su, Michael~R. Lyu, and Zibin Zheng.
@@ -21,8 +23,10 @@ Zhuangbin Chen, Zhihan Jiang, Yuxin Su, Michael~R. Lyu, and Zibin Zheng.
 \newblock {\em arXiv preprint arXiv:2406.06975}, 2024.
 
 \bibitem{cheng2023aiops}
-Qian Cheng, Doyen Sahoo, Amrita Saha, Wenzhuo Yang, Chenghao Liu, and Steven C.~H. Hoi.
-\newblock Ai for it operations (aiops) on cloud platforms: Reviews, opportunities and challenges.
+Qian Cheng, Doyen Sahoo, Amrita Saha, Wenzhuo Yang, Chenghao Liu, and Steven
+  C.~H. Hoi.
+\newblock Ai for it operations (aiops) on cloud platforms: Reviews,
+  opportunities and challenges.
 \newblock {\em arXiv preprint arXiv:2304.04661}, 2023.
 
 \bibitem{dai2020logram}
@@ -33,20 +37,25 @@ Hetong Dai, Heng Li, Weiyi Shang, Tse-Hsun Chen, and Che-Shao Chen.
 \bibitem{guo2024logformer}
 Hongcheng Guo, Jian Yang, Jiaheng Liu, Jiaqi Bai, Boyang Wang, et~al.
 \newblock Logformer: A pre-train and tuning pipeline for log anomaly detection.
-\newblock In {\em Proceedings of the AAAI Conference on Artificial Intelligence}, volume~38, pages 135--143, 2024.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial
+  Intelligence}, volume~38, pages 135--143, 2024.
 
 \bibitem{hadadi2024logfailure}
-Fatemeh Hadadi, Joshua~H. Dawes, Donghwan Shin, Domenico Bianculli, and Lionel Briand.
-\newblock Systematic evaluation of deep learning models for log-based failure prediction.
+Fatemeh Hadadi, Joshua~H. Dawes, Donghwan Shin, Domenico Bianculli, and Lionel
+  Briand.
+\newblock Systematic evaluation of deep learning models for log-based failure
+  prediction.
 \newblock {\em Empirical Software Engineering}, 2024.
 
 \bibitem{he2020logsurvey}
-Shilin He, Pinjia He, Zhuangbin Chen, Tianyi Yang, Yuxin Su, and Michael~R. Lyu.
+Shilin He, Pinjia He, Zhuangbin Chen, Tianyi Yang, Yuxin Su, and Michael~R.
+  Lyu.
 \newblock A survey on automated log analysis for reliability engineering.
 \newblock {\em arXiv preprint arXiv:2009.07237}, 2020.
 
 \bibitem{jamshidi2018microservices}
-Pooyan Jamshidi, Claus Pahl, Nabor~C. Mendon{\c{c}}a, James~W. Lewis, and Stefan Tilkov.
+Pooyan Jamshidi, Claus Pahl, Nabor~C. Mendon{\c{c}}a, James~W. Lewis, and
+  Stefan Tilkov.
 \newblock Microservices: The journey so far and challenges ahead.
 \newblock {\em IEEE Software}, 35(3):6--9, 2018.
 
@@ -61,14 +70,19 @@ Zhihan Jiang, Jinyang Liu, Junjie Huang, Yichen Li, and Michael~R. Lyu.
 \newblock {\em arXiv preprint arXiv:2310.01796}, 2023.
 
 \bibitem{diaz2023mlopsaiops}
-Rodrigo Laigner, Yixin Zhou, Alan Salomao, Pengfei Zhou, Leonardo Carvalho, Alexander Romanovsky, and Claus Pahl.
-\newblock An empirical study on challenges of event management in microservice architectures.
+Rodrigo Laigner, Yixin Zhou, Alan Salomao, Pengfei Zhou, Leonardo Carvalho,
+  Alexander Romanovsky, and Claus Pahl.
+\newblock An empirical study on challenges of event management in microservice
+  architectures.
 \newblock {\em arXiv preprint arXiv:2408.00440}, 2024.
 
 \bibitem{liu2019logzip}
-Jinyang Liu, Jieming Zhu, Shilin He, Pinjia He, Zibin Zheng, and Michael~R. Lyu.
-\newblock Logzip: Extracting hidden structures via iterative clustering for log compression.
-\newblock In {\em Proceedings of the 34th IEEE/ACM International Conference on Automated Software Engineering}, pages 863--875, 2019.
+Jinyang Liu, Jieming Zhu, Shilin He, Pinjia He, Zibin Zheng, and Michael~R.
+  Lyu.
+\newblock Logzip: Extracting hidden structures via iterative clustering for log
+  compression.
+\newblock In {\em Proceedings of the 34th IEEE/ACM International Conference on
+  Automated Software Engineering}, pages 863--875, 2019.
 
 \bibitem{maruf2022telemetry}
 Abdullah~Al Maruf, Alexander Bakhtin, Tomas Cerny, and Davide Taibi.
@@ -77,32 +91,41 @@ Abdullah~Al Maruf, Alexander Bakhtin, Tomas Cerny, and Davide Taibi.
 
 \bibitem{moreschini2023microai}
 Sergio Moreschini, Davide Taibi, Valentina Lenarduzzi, and Claus Pahl.
-\newblock Ai techniques in the microservices life-cycle: A systematic mapping study.
+\newblock Ai techniques in the microservices life-cycle: A systematic mapping
+  study.
 \newblock {\em arXiv preprint arXiv:2305.16092}, 2023.
 
 \bibitem{seshagiri2022sok}
-Vishwanath Seshagiri, Darby Huye, Lan Liu, Avani Wildani, and Raja~R. Sambasivan.
-\newblock [sok] identifying mismatches between microservice testbeds and industrial perceptions of microservices.
+Vishwanath Seshagiri, Darby Huye, Lan Liu, Avani Wildani, and Raja~R.
+  Sambasivan.
+\newblock [sok] identifying mismatches between microservice testbeds and
+  industrial perceptions of microservices.
 \newblock {\em Systems Research}, 1(1), 2022.
 
 \bibitem{soldani2023ebpf}
-David Soldani, Petrit Nahi, Hami Bour, Saber Jafarizadeh, Mohammed~F. Soliman, et~al.
-\newblock ebpf: A new approach to cloud-native observability, networking and security for current and future mobile networks.
+David Soldani, Petrit Nahi, Hami Bour, Saber Jafarizadeh, Mohammed~F. Soliman,
+  et~al.
+\newblock ebpf: A new approach to cloud-native observability, networking and
+  security for current and future mobile networks.
 \newblock {\em IEEE Access}, 11:57174--57202, 2023.
 
 \bibitem{soldani2020graphrca}
 Jacopo Soldani and Antonio Brogi.
-\newblock Graph-based root cause analysis for service-oriented and microservice architectures.
+\newblock Graph-based root cause analysis for service-oriented and microservice
+  architectures.
 \newblock {\em Journal of Systems and Software}, 159:110432, 2020.
 
 \bibitem{usman2022observability}
 Muhammad Usman, Simone Ferlin, Anna Brunstrom, and Javid Taheri.
-\newblock A survey on observability of distributed edge and container-based microservices.
+\newblock A survey on observability of distributed edge and container-based
+  microservices.
 \newblock {\em IEEE Access}, 10:86904--86919, 2022.
 
 \bibitem{richardson2018microservices}
-Guilherme Vale, Filipe~Figueiredo Correia, Eduardo~Martins Guerra, Thatiane de~Oliveira Rosa, Jonas Fritzsch, and Justus Bogner.
-\newblock Designing microservice systems using patterns: An empirical study on quality trade-offs.
+Guilherme Vale, Filipe~Figueiredo Correia, Eduardo~Martins Guerra, Thatiane
+  de~Oliveira Rosa, Jonas Fritzsch, and Justus Bogner.
+\newblock Designing microservice systems using patterns: An empirical study on
+  quality trade-offs.
 \newblock {\em arXiv preprint arXiv:2201.03598}, 2022.
 
 \bibitem{varghese2022edge}
@@ -112,13 +135,16 @@ Benjamin Varghese, Nikolaos Antonopoulos, and Rajkumar Buyya.
 
 \bibitem{wang2024rca}
 Tingting Wang and Guilin Qi.
-\newblock A comprehensive survey on root cause analysis in (micro) services: Methodologies, challenges, and trends.
+\newblock A comprehensive survey on root cause analysis in (micro) services:
+  Methodologies, challenges, and trends.
 \newblock {\em arXiv preprint arXiv:2408.00803}, 2024.
 
 \bibitem{wu2020microrca}
 Li~Wu, Johan Tordsson, Erik Elmroth, and Odej Kao.
-\newblock Microrca: Root cause localization of performance issues in microservices.
-\newblock In {\em NOMS 2020 - 2020 IEEE/IFIP Network Operations and Management Symposium}, pages 1--9, 2020.
+\newblock Microrca: Root cause localization of performance issues in
+  microservices.
+\newblock In {\em NOMS 2020 - 2020 IEEE/IFIP Network Operations and Management
+  Symposium}, pages 1--9, 2020.
 
 \bibitem{yang2023nahida}
 Wanqi Yang, Pengfei Chen, Kai Liu, and Huxing Zhang.
@@ -128,26 +154,32 @@ Wanqi Yang, Pengfei Chen, Kai Liu, and Huxing Zhang.
 \bibitem{zhang2024multivariate}
 Lingzhe Zhang, Tong Jia, Mengxi Jia, Ying Li, Yong Yang, and Zhonghai Wu.
 \newblock Multivariate log-based anomaly detection for distributed database.
-\newblock In {\em Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining}, 2024.
+\newblock In {\em Proceedings of the 30th ACM SIGKDD Conference on Knowledge
+  Discovery and Data Mining}, 2024.
 
 \bibitem{zhang2024reducing}
 Lingzhe Zhang, Tong Jia, Kangjin Wang, Mengxi Jia, Yong Yang, and Ying Li.
-\newblock Reducing events to augment log-based anomaly detection models: An empirical study.
-\newblock In {\em Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering}, 2024.
+\newblock Reducing events to augment log-based anomaly detection models: An
+  empirical study.
+\newblock In {\em Proceedings of the 39th IEEE/ACM International Conference on
+  Automated Software Engineering}, 2024.
 
 \bibitem{zhang2023multimodal}
 Shenglin Zhang, Pengxiang Jin, Zihan Lin, Yongqian Sun, et~al.
-\newblock Robust failure diagnosis of microservice system through multimodal data.
+\newblock Robust failure diagnosis of microservice system through multimodal
+  data.
 \newblock {\em arXiv preprint arXiv:2302.10512}, 2023.
 
 \bibitem{zhu2023sidecar}
 Yuxin Zhang, Bowen Li, Xin Peng, Qilin Xiang, and Xuanzhe Liu.
-\newblock Technical report: Performance comparison of service mesh frameworks: the case of istio and linkerd.
+\newblock Technical report: Performance comparison of service mesh frameworks:
+  the case of istio and linkerd.
 \newblock In {\em arXiv preprint arXiv:2411.02267}, 2024.
 
 \bibitem{zhu2020loghub}
 Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, and Michael~R. Lyu.
-\newblock Loghub: A large collection of system log datasets for ai-driven log analytics.
+\newblock Loghub: A large collection of system log datasets for ai-driven log
+  analytics.
 \newblock {\em arXiv preprint arXiv:2008.06448}, 2020.
 
 \bibitem{ding2020decomposition}
@@ -157,7 +189,8 @@ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, and Michael~R. Lyu.
 
 \bibitem{yuqingyang2022trace}
 于庆洋, 白晓颖, 李明杰, 李奇原, 刘涛, 刘泽胤, and 裴丹.
-\newblock 基于调用链控制流分析的大型微服务系统性能建模与异常定位.
+\newblock
+  基于调用链控制流分析的大型微服务系统性能建模与异常定位.
 \newblock {\em 软件学报}, 33(5):1849--1864, 2022.
 
 \bibitem{feng2020microservice}
@@ -217,7 +250,8 @@ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, and Michael~R. Lyu.
 
 \bibitem{meiyudong2020logcnn}
 梅御东, 陈旭, 孙毓忠, et~al.
-\newblock 一种基于日志信息和 {CNN-text} 的软件系统异常检测方法.
+\newblock 一种基于日志信息和 {CNN-text}
+  的软件系统异常检测方法.
 \newblock {\em 计算机学报}, 43(2):524--544, 2020.
 
 \bibitem{wang2017tracefault}

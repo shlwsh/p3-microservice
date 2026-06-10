@@ -1,25 +1,24 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: main-jos.aux
+The top-level auxiliary file: main-zh.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--can't use both volume and number fields in guo2024logformer
 You've used 51 entries,
             2118 wiz_defined-function locations,
-            745 strings with 13190 characters,
-and the built_in function-call counts, 19871 in all, are:
+            745 strings with 13188 characters,
+and the built_in function-call counts, 19866 in all, are:
 = -- 1858
 > -- 1333
 < -- 4
 + -- 530
 - -- 472
-* -- 1634
+* -- 1631
 := -- 3454
 add.period$ -- 154
 call.type$ -- 51
 change.case$ -- 383
 chr.to.int$ -- 0
-cite$ -- 52
+cite$ -- 51
 duplicate$ -- 588
 empty$ -- 1274
 format.name$ -- 472
@@ -29,20 +28,19 @@ int.to.str$ -- 51
 missing$ -- 51
 newline$ -- 258
 num.names$ -- 102
-pop$ -- 349
+pop$ -- 350
 preamble$ -- 1
 purify$ -- 332
 quote$ -- 0
 skip$ -- 400
 stack$ -- 0
 substring$ -- 1097
-swap$ -- 83
+swap$ -- 82
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 204
-warning$ -- 1
+warning$ -- 0
 while$ -- 164
 width$ -- 53
 write$ -- 545
-(There was 1 warning)

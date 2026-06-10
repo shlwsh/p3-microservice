@@ -65,7 +65,7 @@
   \label{fig:ablation}
 \end{figure}
 
-针对 RQ3，端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取（复现脚本见 \texttt{experiments/scripts/phase3\_collect.py}，原始结果见 \texttt{experiments/results/phase3/phase3\_latest.json}）。针对 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过 \texttt{agent/pkg/retry/backoff\_test.go} 全部单元测试用例。
+针对 RQ3，端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ \allowbreak Agent gRPC $\rightarrow$ \allowbreak Redis $\rightarrow$ \allowbreak 关注清单生成 $\rightarrow$ \allowbreak Agent 规则拉取（复现脚本见 \url{experiments/scripts/phase3_collect.py}，原始结果见 \url{experiments/results/phase3/phase3_latest.json}）。针对 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过 \url{agent/pkg/retry/backoff_test.go} 全部单元测试用例。
 
 \begin{figure}[htbp]
   \centering

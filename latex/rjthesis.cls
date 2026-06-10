@@ -115,6 +115,6 @@
 \newcommand{\rjhead}[1]{%
 	\fancyhead[LO]{\ifthenelse{\value{page}=1}{\setlength{\lineskip}{0pt}\liuhao\song 软件学报ISSN 1000-9825, CODEN RUXUEW\\Journal of Software, [doi: 10.13328/j.cnki.jos.000000]\\©中国科学院软件研究所版权所有.}{\xiaowuhao\kai #1}}}
 
-\setlength{\headheight}{35.2pt}
+\setlength{\headheight}{36pt}
 \setlength{\linespread}{1}  % 设置文本行间距为单倍
 \setlist{nosep}    %设置item之间的间距
