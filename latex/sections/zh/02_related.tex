@@ -20,7 +20,7 @@ OpenTelemetry 尾部采样依赖分布式追踪上下文，在请求完成后决
 微服务涉及服务拆分、持续软件工程治理与运行时配置管理\cite{ding2020decomposition,jia2021loggingdecision,jamshidi2018microservices,seshagiri2022sok}。容器编排和微服务模式为 Sidecar 采集提供了部署基础\cite{burns2016patterns,burns2016borg,richardson2018microservices}。因此，本文在实验节明确区分原型验证与生产级证据，并把 Promtail、OpenTelemetry 和 eBPF 作为后续端到端基线。
 
 \subsection{新兴采集技术}
-eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,yang2023nahida}。然而，eBPF 方案侧重\textbf{基础设施级}事件，对\textbf{应用级}日志的定向采集支持有限，且缺乏网关流量驱动的动态策略源。OpenTelemetry 尾部采样以\textbf{分布式追踪 span} 为单位，与本文以\textbf{URL 模式}为粒度的应用日志定向过滤存在互补关系。本文方案以规则驱动的轻量匹配替代 ML 推理，更适合边缘资源受限环境。
+eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,yang2023nahida}。然而，eBPF 方案侧重\textbf{基础设施级}事件，对\textbf{应用级}日志的定向采集支持有限，且缺乏网关流量驱动的动态策略源。OpenTelemetry 尾部采样以\textbf{分布式追踪 span} 为单位，与本文以\textbf{URL 模式}为粒度的应用日志定向过滤存在互补关系。Ingress/API 网关侧的访问日志分析与按路由采样在工业实践中已有探索，但多停留在网关层过滤或静态规则配置，尚未形成``网关流量 $\rightarrow$ 多节点应用日志动态清单 $\rightarrow$ 中心二次过滤''的贯通闭环。本文方案以规则驱动的轻量匹配替代 ML 推理，更适合边缘资源受限环境。
 
 \subsection{与代表性方案对比}
 表~\ref{tab:related_compare} 从策略输入、减量位置、日志削减证据、动态策略来源和 Sidecar 开销等维度对比本文与代表性方案。
@@ -42,11 +42,14 @@ eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,ya
     AIOps 标准化\cite{bao2023aiops} & 运维能力框架 & 平台能力层 & 非采集算法 & 标准化能力模型 & 非组件级 & 本文支撑数据采集能力 \\
     日志故障诊断综述\cite{jiatong2020logdiag} & 已入库日志 & 分析阶段 & 非采集减量 & 后端诊断任务 & 非组件级 & 本文减少诊断输入规模 \\
     调用链异常定位\cite{yuqingyang2022trace} & 调用链 & 定位阶段 & 非采集减量 & Trace/控制流 & 依追踪系统 & 侧重事后定位 \\
-    \textbf{本文} & \textbf{网关流量} & \textbf{采集前端} & \textbf{98.4\% 入库量下降} & \textbf{Top-$K$ URL 清单} & \textbf{CPU 降低 37.5\%} & \textbf{前端定向减量框架} \\
+    \textbf{本文} & \textbf{网关流量} & \textbf{采集前端} & \textbf{72 vs 4388 条$^*$} & \textbf{Top-$K$ URL 清单} & \textbf{0.05\% CPU$^*$} & \textbf{前端定向减量框架} \\
     \bottomrule
   \end{tabular}%
   }
 \end{table*}
 
 \subsection{本文定位}
-综上，包航宇等 AIOps 标准化研究解决平台能力建设问题\cite{bao2023aiops}，贾统等日志诊断综述解决后端分析方法体系问题\cite{jiatong2020logdiag}；二者均需要稳定、低成本且高价值的日志输入。本文定位为\textbf{AIOps 采集前端的定向减量技术}：将网关 access log 作为动态策略输入，下发至各微服务节点做应用日志定向采集，再由中心二次过滤后入库。通过关注清单、三次策略转换与可复现 Docker 原型，本文在采集阶段实现日志入库量数量级下降（相较全量基线入库量降低 98.4\%），并与全量 Sidecar 架构进行对照实测。
+综上，包航宇等 AIOps 标准化研究解决平台能力建设问题\cite{bao2023aiops}，贾统等日志诊断综述解决后端分析方法体系问题\cite{jiatong2020logdiag}；二者均需要稳定、低成本且高价值的日志输入。本文定位为\textbf{AIOps 采集前端的定向减量技术}：将网关 access log 作为动态策略输入，下发至各微服务节点做应用日志定向采集，再由中心二次过滤后入库。通过关注清单、三次策略转换与可复现 Docker 原型，本文在采集阶段将入库量降至百条量级（八节点实测 72 条 vs.\ 全量 4388$\pm$1 条$^*$），并与全量 Sidecar 架构进行对照实测。
+
+\vspace{0.3em}
+\noindent{\small $^*$八节点、180\,s、$n{=}3$；全量基线发射频率（400\,ms）高于定向模式（2\,s），降幅为策略过滤与源配置联合效果（§6.3）。}

@@ -22,6 +22,9 @@ if [[ ! -f "${JOS_CLS}/rjthesis.cls" ]]; then
   exit 1
 fi
 
+# IDE/LaTeX Workshop 诊断需在同目录找到类文件
+ln -sf "../docs/latex-models/software-journal/rjthesis.cls" "${TEX_DIR}/rjthesis.cls"
+
 export TEXINPUTS="${JOS_CLS}//:${TEXINPUTS:-}"
 
 run_xelatex() {

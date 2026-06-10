@@ -29,7 +29,11 @@
 \end{table*}
 
 \subsection{实验结果}
-表~\ref{tab:compare} 与图~\ref{fig:compare} 给出 RQ1 与 RQ2 的三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上降低 37.5\%。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}；即便考虑该因素，定向模式仍将入库量控制在百条量级。图~\ref{fig:ablation} 为 RQ4 的策略仿真消融（非集群实测）。
+表~\ref{tab:compare} 与图~\ref{fig:compare} 给出 RQ1 与 RQ2 的三期实测对比。相较同架构全量模式，定向采集在 Loki 入库日志量上降低 98.4\%（72$\pm$0 条 vs.\ 4388$\pm$1 条），在 Agent CPU 上相对降低 37.5\%（绝对值分别为 0.05$\pm$0.01\% 与 0.08$\pm$0.02\%，标准差存在重叠，宜结合效应量解读）。需指出：全量基线除关闭规则过滤外，应用日志源发射频率（400\,ms）亦高于定向模式（2\,s），表~\ref{tab:compare} 降幅为\textbf{策略过滤与源配置差异的联合效果}。
+
+\textbf{发射频率敏感性。}源端理论产生速率比约为 $2000/400{=}5{:}1$。若入库降幅仅由发射频率导致，预期入库比应接近 5:1；实测为 $4388/72{\approx}61{:}1$，表明\textbf{定向过滤策略}贡献了绝大部分减量。因此 98.4\% 降幅以策略过滤为主、发射频率差异为辅；同频率对照实验列入 §6.6 后续工作。即便考虑该因素，定向模式仍将入库量控制在百条量级。
+
+\textbf{成本粗算。}按表~\ref{tab:compare} 带宽均值，单场 180\,s 压测南北向日志流量约减少 $(12.19{-}0.20){\times}180{\approx}2.2$\,MB；在类似负载持续运行下，定向模式可显著降低上行带宽与 Loki 索引写入压力（具体节约量取决于 QPS 与日志字段大小）。图~\ref{fig:ablation} 为 RQ4 的策略仿真消融（非集群实测）。
 
 \begin{table}[htbp]
   \centering
@@ -61,7 +65,7 @@
   \label{fig:ablation}
 \end{figure}
 
-针对 RQ3，端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取。针对 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}），指数退避模块通过 Go 单元测试全部用例。
+针对 RQ3，端到端链路已实测打通：Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成 $\rightarrow$ Agent 规则拉取（复现脚本见 \texttt{experiments/scripts/phase3\_collect.py}，原始结果见 \texttt{experiments/results/phase3/phase3\_latest.json}）。针对 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过 \texttt{agent/pkg/retry/backoff\_test.go} 全部单元测试用例。
 
 \begin{figure}[htbp]
   \centering
@@ -91,10 +95,10 @@
   \label{fig:scale}
 \end{figure}
 
-\textbf{高价值日志漏报与端到端延迟。}稳态混合负载下，关注清单稳定覆盖 \texttt{/status/500}、\texttt{/delay/1} 等泛化模式（八节点 16 条、十六节点 32 条），规则级漏报率为 0。生产迹风格混合负载（60\% 正常 / 20\% 5xx / 12\% 慢请求 / 8\% 其他，90\,s、十六节点）共发送 3.6$\times10^4$ 次请求，定向入库 77 条，验证减量能力。逐探针实验的即时命中率受 Agent 2\,s 批处理影响，不等同于规则级漏报。端到端延迟（HTTP $\rightarrow$ Center \texttt{received}）实测：P50 0.83\,s、P95 12\,s（$n{=}30$）。中心故障恢复实验（\texttt{docker stop/start}）恢复时间约 1.1\,s。
+\textbf{高价值日志漏报与端到端延迟。}稳态混合负载下，关注清单稳定覆盖 \texttt{/status/500}、\texttt{/delay/1} 等泛化模式（八节点 16 条、十六节点 32 条），\textbf{规则级}漏报率为 0（合成负载与清单配置下）。生产迹风格混合负载（60\% 正常 / 20\% 5xx / 12\% 慢请求 / 8\% 其他，90\,s、十六节点）共发送 3.6$\times10^4$ 次请求，定向入库 77 条，验证减量能力。逐探针实验的即时命中率受 Agent 2\,s 批处理影响，不等同于规则级漏报，亦不能单独代表生产稳态漏报率。端到端延迟（HTTP $\rightarrow$ Center \texttt{received}）实测：P50 0.83\,s、P95 12\,s（$n{=}30$）；P95 较高与批处理窗口及合成慢请求有关，面向实时告警需结合业务 SLA 评估可接受性。中心故障恢复实验（\texttt{docker stop/start}）恢复时间约 1.1\,s。
 
 \subsection{工业基线对照}
-图~\ref{fig:baseline} 在同负载口径下给出本文定向采集与三类工业基线的对照。P3 定向采集为八节点三期实测（72 条、CPU 0.05\%）；Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 探针方案基于同架构全量基线与公开文献开销模型估算，尚未在本文集群中完整部署。估算结果表明：定向采集在保持最低入库量的同时，CPU 开销与 Promtail 静态过滤同量级，显著低于尾采样 Collector 的推理与追踪附加成本。
+图~\ref{fig:baseline} 在同负载口径下给出本文定向采集与三类工业基线的对照。\textbf{仅 P3 定向采集为八节点三期集群实测}（72 条、CPU 0.05\%）；Promtail+静态过滤、OpenTelemetry 尾部采样和 eBPF 探针方案基于同架构全量基线与公开文献开销模型\textbf{估算}，\textbf{尚未在本文集群中完整部署}，图中柱形应解读为趋势参考而非实测结论。估算结果表明：定向采集在保持最低入库量的同时，CPU 开销与 Promtail 静态过滤同量级，显著低于尾采样 Collector 的推理与追踪附加成本；Promtail 同集群实测列入后续工作。
 
 \begin{figure}[htbp]
   \centering
@@ -104,4 +108,4 @@
 \end{figure}
 
 \subsection{剩余局限与后续工作}
-四期实验已补充 8/16 节点规模矩阵、规则级漏报验证、端到端延迟与工业基线估算，但 32/64 节点仍为资源外推，Promtail/OpenTelemetry/eBPF 尚需端到端部署实测。后续将在云环境开展 32/64 节点长稳压测，引入 DeathStarBench 等真实负载，并将集群实测消融与中心故障恢复时间纳入投稿前证据包。
+四期实验已补充 8/16 节点规模矩阵、规则级漏报验证、端到端延迟与工业基线估算，但 32/64 节点仍为资源外推，Promtail/OpenTelemetry/eBPF 尚需端到端部署实测，同频率发射对照与集群实测消融尚待补充。后续将在云环境开展 32/64 节点长稳压测，引入 DeathStarBench 等真实负载，完成 Promtail 同集群实测、同频率对照实验，并将集群实测消融纳入投稿前证据包。
