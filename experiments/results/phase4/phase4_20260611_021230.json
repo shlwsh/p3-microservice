@@ -1,5 +1,5 @@
 {
-  "timestamp": "20260611_024321",
+  "timestamp": "20260611_021230",
   "phase": "phase4",
   "methodology": "directed_scale_matrix_60s_x3",
   "scale": {
@@ -88,49 +88,6 @@
       "center_cpu_mean": 0.77,
       "center_cpu_stdev": 1.29,
       "attention_list_items": 32
-    },
-    "32": {
-      "runs": [
-        {
-          "nodes": 32,
-          "repeat": 1,
-          "delta_loki_stored": 99,
-          "delta_gateway_redis": 6826,
-          "attention_list_items": 50,
-          "avg_agent_cpu_percent": 0.051,
-          "center_cpu_percent": 0.02,
-          "load_duration_sec": 60
-        },
-        {
-          "nodes": 32,
-          "repeat": 2,
-          "delta_loki_stored": 99,
-          "delta_gateway_redis": 6587,
-          "attention_list_items": 50,
-          "avg_agent_cpu_percent": 0.05,
-          "center_cpu_percent": 0.02,
-          "load_duration_sec": 60
-        },
-        {
-          "nodes": 32,
-          "repeat": 3,
-          "delta_loki_stored": 99,
-          "delta_gateway_redis": 6665,
-          "attention_list_items": 50,
-          "avg_agent_cpu_percent": 0.07,
-          "center_cpu_percent": 0.14,
-          "load_duration_sec": 60
-        }
-      ],
-      "loki_stored_mean": 99,
-      "loki_stored_stdev": 0.0,
-      "avg_agent_cpu_mean": 0.06,
-      "avg_agent_cpu_stdev": 0.01,
-      "gateway_redis_mean": 6692.67,
-      "gateway_redis_stdev": 121.88,
-      "center_cpu_mean": 0.06,
-      "center_cpu_stdev": 0.07,
-      "attention_list_items": 50
     }
   },
   "baselines": {
@@ -183,17 +140,17 @@
   "scale_projected": {
     "32": {
       "nodes": 32,
-      "gateway_redis_mean": 6692.7,
-      "center_cpu_mean": 0.06,
-      "loki_stored_mean": 75.0,
-      "method": "projected_from_8_32_nodes"
+      "gateway_redis_mean": 0.0,
+      "center_cpu_mean": 14.2,
+      "loki_stored_mean": 51.0,
+      "method": "projected_from_8_16_nodes"
     },
     "64": {
       "nodes": 64,
-      "gateway_redis_mean": 13385.3,
-      "center_cpu_mean": 0.11,
-      "loki_stored_mean": 75.0,
-      "method": "projected_from_8_32_nodes"
+      "gateway_redis_mean": 0.0,
+      "center_cpu_mean": 25.6,
+      "loki_stored_mean": 51.0,
+      "method": "projected_from_8_16_nodes"
     }
   },
   "real_load": {

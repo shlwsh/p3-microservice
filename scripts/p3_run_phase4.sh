@@ -42,6 +42,8 @@ done
 
 if [[ "${NODES}" -gt 8 ]]; then
   # 扩展 nginx 路由：覆盖 gateway 卷
+  docker stop gateway gateway-agent 2>/dev/null || true
+  docker rm gateway gateway-agent 2>/dev/null || true
   docker compose -f docker-compose.yml -f "docker-compose.wsl${NODES}.yml" -f "docker-compose.scale${NODES}.yml" \
     up -d --build --force-recreate loki redis prometheus grafana center "${SERVICES[@]}" 2>&1 | tail -20
   docker stop gateway gateway-agent 2>/dev/null || true
@@ -51,15 +53,16 @@ if [[ "${NODES}" -gt 8 ]]; then
     -v "${ROOT}/deploy/nginx/${NGINX_CONF##*/}:/usr/local/openresty/nginx/conf/nginx.conf:ro" \
     -v "${ROOT}/deploy/nginx/lua:/usr/local/openresty/nginx/lua:ro" \
     openresty/openresty:1.25.3.1-alpine
-  docker run -d --name gateway-agent --network container:gateway \
+  if ! docker run -d --name gateway-agent --network container:gateway \
     -e AGENT_CONFIG_PATH=/etc/agent/agent.yaml \
     -v "${COMPOSE_DIR}/gateway-agent-config.yaml:/etc/agent/agent.yaml:ro" \
-    docker-gateway-agent 2>/dev/null || \
-  docker compose -f docker-compose.yml build gateway-agent && \
-  docker run -d --name gateway-agent --network container:gateway \
-    -e AGENT_CONFIG_PATH=/etc/agent/agent.yaml \
-    -v "${COMPOSE_DIR}/gateway-agent-config.yaml:/etc/agent/agent.yaml:ro" \
-    docker-gateway-agent
+    docker-gateway-agent 2>/dev/null; then
+    docker compose -f docker-compose.yml build gateway-agent
+    docker run -d --name gateway-agent --network container:gateway \
+      -e AGENT_CONFIG_PATH=/etc/agent/agent.yaml \
+      -v "${COMPOSE_DIR}/gateway-agent-config.yaml:/etc/agent/agent.yaml:ro" \
+      docker-gateway-agent
+  fi
 else
   "${COMPOSE[@]}" up -d --build --force-recreate "${SERVICES[@]}"
 fi
@@ -73,7 +76,7 @@ if [[ "${NODES}" -le 16 ]]; then
 else
   SCALE_NODES="${NODES}"
 fi
-python3 experiments/scripts/phase4_benchmark.py --nodes "${SCALE_NODES}"
+python3 experiments/scripts/phase4_benchmark.py --nodes "${SCALE_NODES}" "${@:2}"
 
 echo "[3/4] 更新图表..."
 python3 figures/plot_phase4.py 2>/dev/null || true

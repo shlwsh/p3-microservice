@@ -183,15 +183,15 @@
   "scale_projected": {
     "32": {
       "nodes": 32,
-      "gateway_redis_mean": 6692.7,
-      "center_cpu_mean": 0.06,
+      "gateway_redis_mean": 6700.7,
+      "center_cpu_mean": 0.32,
       "loki_stored_mean": 75.0,
       "method": "projected_from_8_32_nodes"
     },
     "64": {
       "nodes": 64,
-      "gateway_redis_mean": 13385.3,
-      "center_cpu_mean": 0.11,
+      "gateway_redis_mean": 13401.3,
+      "center_cpu_mean": 0.58,
       "loki_stored_mean": 75.0,
       "method": "projected_from_8_32_nodes"
     }

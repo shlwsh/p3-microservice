@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  10 JUN 2026 18:57
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,9 +677,25 @@ Package hyperref Info: Link coloring OFF on input line 21.
 LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
  available
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
- input line 11.
- [2]) (./sections/zh/02_related.tex [3] [4])
-(./sections/zh/03_system.tex
+ input line 7.
+ [2]) (./sections/zh/02_related.tex [3] [4]
+
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
+
+
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+) (./sections/zh/03_system.tex [5]
 Underfull \hbox (badness 3525) in paragraph at lines 24--24
 []\TU/FandolSong-Regular(0)/m/n/10.95 高 价 值 流 量 日 志
  []
@@ -706,81 +722,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
-
-Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
-(fontspec)                Script "CJK".
-
-
-Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
-(fontspec)             'FandolFang-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-
-[5] [6]) (./sections/zh/04_algorithms.tex [7]
+[6]) (./sections/zh/04_algorithms.tex [7] [8]
 File: ../figures/fig2_triple_transform.pdf Graphic file (type pdf)
 <use ../figures/fig2_triple_transform.pdf>
- [8]
 File: ../figures/fig5_backoff_distribution.pdf Graphic file (type pdf)
 <use ../figures/fig5_backoff_distribution.pdf>
 )
 (./sections/zh/05_implementation.tex [9] [10])
-(./sections/zh/06_experiments.tex
+(./sections/zh/06_experiments.tex [11]
 Underfull \hbox (badness 10000) in paragraph at lines 28--28
 []\TU/lmr/m/n/10.95 §6.3 \TU/FandolSong-Regular(0)/m/n/10.95 与 原 始 \TU/lmr/m/n/
 10.95 phase3
  []
 
-[11]
-Overfull \hbox (54.15446pt too wide) in paragraph at lines 36--37
-[]\TU/FandolSong-Regular(0)/b/n/12 成 本 粗 算。|  \TU/FandolSong-Regular(0)/m/n/12 
-按 表 []\TU/lmr/m/n/12 5[] \TU/FandolSong-Regular(0)/m/n/12 带 宽 均 值，|  单 场 \TU/lm
-r/m/n/12 180s \TU/FandolSong-Regular(0)/m/n/12 压 测 南 北 向 日 志 流 量 约 减 少 $\OT1/cm
-r/m/n/12 (12\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 19[]0\OML/cmm/m/it/12 :\OT1/cmr/m
-/n/12 20)[]180[]2\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2$\TU/lmr/m/n/12 MB\TU/Fando
-lSong-Regular(0)/m/n/12 ；|
- []
-
+[12]
 File: ../figures/fig3_comparison_bars.pdf Graphic file (type pdf)
 <use ../figures/fig3_comparison_bars.pdf>
 File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 <use ../figures/fig4_ablation_bars.pdf>
-[12] [13]
+
+Overfull \hbox (25.47134pt too wide) in paragraph at lines 70--71
+[][][][][][][] [] [][][][][][] [] [][][][][][][][][][][][] [] [][][] [] [][]$[]
+ \TU/FandolSong-Regular(0)/m/n/12 和 []$[][][][][][][][][][][] [] [][][][][][][]
+ [] [][][][][][] [] [][][][][][] [] [][][][][][] []
+ []
+
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
- [14]
+
+Overfull \hbox (75.93733pt too wide) in paragraph at lines 80--81
+[]\TU/FandolSong-Regular(0)/m/n/12 实 验 脚 本、| \TU/lmr/m/n/12 Docker Compose \TU/
+FandolSong-Regular(0)/m/n/12 配 置 与 原 始 \TU/lmr/m/n/12 JSON \TU/FandolSong-Regul
+ar(0)/m/n/12 结 果 保 存 在 \TU/lmtt/m/n/12 experiments/ \TU/FandolSong-Regular(0)/m
+/n/12 及 \TU/lmr/m/n/12 phase3/phase4/phase5
+ []
+
+[13] [14] [15]
 File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
 <use ../figures/fig7_scale_bars.pdf>
+ [16]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
-) (./sections/zh/07_conclusion.tex [15]) [16] (./main-zh.bbl
-[17]
+) (./sections/zh/07_conclusion.tex [17]) (./main-zh.bbl
+[18] [19]
 Underfull \hbox (badness 1502) in paragraph at lines 113--117
 \TU/lmr/m/n/12 oriented and microservice architectures.  \TU/lmr/m/it/12 Journa
 l of Systems and Software\TU/lmr/m/n/12 ,
  []
 
-[18] [19]
+[20] [21]
 Missing character: There is no 璘 (U+7498) in font [FandolSong-Regular.otf]/OT:l
 anguage=dflt;!
-[20]) [21] (./main-zh.aux)
+[22]) [23] (./main-zh.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17512 strings out of 474878
- 397456 string characters out of 5762516
- 1950627 words of memory out of 5000000
- 39292 multiletter control sequences out of 15000+600000
+ 17546 strings out of 474878
+ 399868 string characters out of 5762516
+ 1949627 words of memory out of 5000000
+ 39326 multiletter control sequences out of 15000+600000
  566524 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,15n,97p,1378b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,15n,97p,1856b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-zh.pdf (21 pages).
+Output written on main-zh.pdf (23 pages).

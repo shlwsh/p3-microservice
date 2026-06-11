@@ -21,11 +21,10 @@
 \end{table}
 
 \subsection{模块划分}
-\textbf{Agent}（\texttt{agent/pkg/}）：\texttt{collector} 采集、\texttt{matcher} 规则匹配、\texttt{cache} 固定缓存块、\texttt{retry} 退避、\texttt{uploader} gRPC 上传、\texttt{monitor} 资源监控。\\
-\textbf{Center}（\texttt{center/pkg/}）：\texttt{strategy} 清单生成与三次转换、\texttt{receiver} 二次过滤、\texttt{storage} Loki 批量推送、\texttt{dispatch} 规则下发。
+系统实现分为 Agent 与 Center 两大模块。\textbf{Agent} 负责节点侧的日志采集（collector）、规则匹配（matcher）、固定缓存块管理（cache）、退避重试（retry）、gRPC 上传（uploader）和资源监控（monitor），代码位于 \texttt{agent/pkg/} 各子包。\textbf{Center} 负责关注清单生成与三次转换（strategy）、二次过滤（receiver）、Loki 批量推送（storage）和规则下发（dispatch），代码位于 \texttt{center/pkg/} 各子包。
 
 \subsection{关键数据结构与匹配实现}
-关注清单在 Redis 中按版本存储，核心键包括当前版本指针、按服务分组的 URL 模式集合以及 TTL 元数据。Center 生成新清单后先写入版本化键，再原子更新当前版本指针，Agent 拉取时携带本地版本号，仅在版本变化或 TTL 即将过期时更新规则。节点侧匹配器将 URL 模式编译为前缀/通配匹配规则，并按服务名分桶，单条日志匹配复杂度近似为 $O(R_s)$，其中 $R_s$ 为该服务当前关注规则数；在 Top-$K$ 限制下，$R_s$ 通常远小于全局规则数。应用日志采用 Apache Combined 风格字段，至少包含时间戳、方法、URL、状态码与响应字节数；非兼容格式需要通过解析适配器转换为统一字段后再进入匹配器。
+关注清单在 Redis 中按版本存储：Center 生成新清单后先写入版本化键，再原子更新当前版本指针；Agent 拉取时携带本地版本号，仅在版本变化或 TTL 即将过期时更新规则，减少不必要的网络往返。节点侧匹配器将 URL 模式编译为前缀/通配匹配规则，并按服务名分桶，单条日志匹配复杂度近似为 $O(R_s)$，其中 $R_s$ 为该服务当前关注规则数；在 Top-$K$ 限制下，$R_s$ 通常远小于全局规则数。应用日志采用 Apache Combined 风格字段，至少包含时间戳、方法、URL、状态码与响应字节数；非兼容格式需要通过解析适配器转换为统一字段后再进入匹配器。
 
 \subsection{部署配置}
 Docker Compose 定义完整集群：Loki、Grafana、Redis、Prometheus、Center、OpenResty 网关、httpbin 模拟微服务及 9 个 Agent Sidecar（1 网关 + 8 微服务）。微服务侧 \texttt{AppCollector} 生成 Apache Combined 风格应用日志，URL 与网关 \texttt{location} 前缀一致。无关注清单时 Agent 仅采集 ERROR 及以上级别，避免退化为全量。WSL 环境通过 \texttt{docker-compose.wsl.yml} 限制容器内存；\texttt{docker-compose.scale.yml} 扩展至 8 微服务节点。

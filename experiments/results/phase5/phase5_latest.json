@@ -1,0 +1,2866 @@
+{
+  "experiment": "phase5_multiprocess_simulation",
+  "timestamp": "20260610_232427",
+  "methodology": "multiprocess_simulation_based_on_phase3_distributions",
+  "parameters": {
+    "n_agents": 8,
+    "duration_sec": 180,
+    "repeats": 3,
+    "concurrency": 50
+  },
+  "e1_same_frequency": {
+    "description": "同频率(2s)对照实验 — 隔离策略过滤的独立贡献",
+    "directed_2s": {
+      "runs": [
+        {
+          "mode": "directed",
+          "repeat": 1,
+          "duration_sec": 180,
+          "loki_stored": 206,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 29,
+              "logs_uploaded": 29,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.027
+            },
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.018
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 18,
+              "logs_uploaded": 18,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.049
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.062
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 24,
+              "logs_uploaded": 24,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.053
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 26,
+              "logs_uploaded": 26,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.02
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 24,
+              "logs_uploaded": 24,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.062
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 22,
+              "logs_uploaded": 22,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.077
+            }
+          ],
+          "avg_agent_cpu": 0.046
+        },
+        {
+          "mode": "directed",
+          "repeat": 2,
+          "duration_sec": 180,
+          "loki_stored": 247,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 31,
+              "logs_uploaded": 31,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.068
+            },
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.067
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.067
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.065
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 34,
+              "logs_uploaded": 34,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.037
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 27,
+              "logs_uploaded": 27,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.035
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 28,
+              "logs_uploaded": 28,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.062
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 34,
+              "logs_uploaded": 34,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.042
+            }
+          ],
+          "avg_agent_cpu": 0.055
+        },
+        {
+          "mode": "directed",
+          "repeat": 3,
+          "duration_sec": 180,
+          "loki_stored": 242,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 25,
+              "logs_uploaded": 25,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.048
+            },
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 27,
+              "logs_uploaded": 27,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.048
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 38,
+              "logs_uploaded": 38,
+              "cache_evictions": 0,
+              "retry_count": 2,
+              "cpu_simulated": 0.029
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.042
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 34,
+              "logs_uploaded": 34,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.051
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 26,
+              "logs_uploaded": 26,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.08
+            }
+          ],
+          "avg_agent_cpu": 0.051
+        }
+      ],
+      "loki_stored_mean": 231.7,
+      "loki_stored_stdev": 22.4,
+      "cpu_mean": 0.051,
+      "cpu_stdev": 0.005
+    },
+    "full_2s": {
+      "runs": [
+        {
+          "mode": "full-same-freq",
+          "repeat": 1,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.089
+            },
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.124
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.09
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.063
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.087
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.093
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.037
+            }
+          ],
+          "avg_agent_cpu": 0.08
+        },
+        {
+          "mode": "full-same-freq",
+          "repeat": 2,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.089
+            },
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.124
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.053
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.085
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.079
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.099
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.079
+            }
+          ],
+          "avg_agent_cpu": 0.083
+        },
+        {
+          "mode": "full-same-freq",
+          "repeat": 3,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.107
+            },
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.079
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.09
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.048
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.096
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.096
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.068
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.096
+            }
+          ],
+          "avg_agent_cpu": 0.085
+        }
+      ],
+      "loki_stored_mean": 720,
+      "loki_stored_stdev": 0.0,
+      "cpu_mean": 0.083,
+      "cpu_stdev": 0.003
+    },
+    "reduction_percent": 67.8,
+    "emit_interval_ms": 2000,
+    "duration_sec": 180,
+    "n_agents": 8,
+    "repeats": 3,
+    "conclusion": "同频率下策略过滤独立降幅 67.8%",
+    "methodology": "multiprocess_simulation_same_emit_rate"
+  },
+  "e2_promtail_comparison": {
+    "description": "Promtail 静态规则 vs 定向采集 vs 全量采集",
+    "directed": {
+      "runs": [
+        {
+          "mode": "directed",
+          "repeat": 1,
+          "duration_sec": 180,
+          "loki_stored": 238,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 21,
+              "logs_uploaded": 21,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.016
+            },
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 31,
+              "logs_uploaded": 31,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.047
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 22,
+              "logs_uploaded": 22,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.039
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 38,
+              "logs_uploaded": 38,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.018
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 29,
+              "logs_uploaded": 29,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.038
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.041
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.031
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.022
+            }
+          ],
+          "avg_agent_cpu": 0.032
+        },
+        {
+          "mode": "directed",
+          "repeat": 2,
+          "duration_sec": 180,
+          "loki_stored": 236,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 37,
+              "logs_uploaded": 37,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.031
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 22,
+              "logs_uploaded": 22,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.038
+            },
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 36,
+              "logs_uploaded": 36,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.077
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 21,
+              "logs_uploaded": 21,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.047
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 27,
+              "logs_uploaded": 27,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.004
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.041
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.031
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 28,
+              "logs_uploaded": 28,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.042
+            }
+          ],
+          "avg_agent_cpu": 0.039
+        },
+        {
+          "mode": "directed",
+          "repeat": 3,
+          "duration_sec": 180,
+          "loki_stored": 226,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 2,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.078
+            },
+            {
+              "agent_id": 1,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.049
+            },
+            {
+              "agent_id": 3,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.093
+            },
+            {
+              "agent_id": 4,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 31,
+              "logs_uploaded": 31,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.043
+            },
+            {
+              "agent_id": 6,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.053
+            },
+            {
+              "agent_id": 5,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 20,
+              "logs_uploaded": 20,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.056
+            },
+            {
+              "agent_id": 7,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 22,
+              "logs_uploaded": 22,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.079
+            },
+            {
+              "agent_id": 8,
+              "mode": "directed",
+              "logs_generated": 90,
+              "logs_matched": 28,
+              "logs_uploaded": 28,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.042
+            }
+          ],
+          "avg_agent_cpu": 0.062
+        }
+      ],
+      "loki_stored_mean": 233.3,
+      "loki_stored_stdev": 6.4,
+      "cpu_mean": 0.044,
+      "cpu_stdev": 0.016
+    },
+    "promtail_static": {
+      "runs": [
+        {
+          "mode": "promtail-static",
+          "repeat": 1,
+          "duration_sec": 180,
+          "loki_stored": 278,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 38,
+              "logs_uploaded": 38,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.059
+            },
+            {
+              "agent_id": 2,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 25,
+              "logs_uploaded": 25,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.06
+            },
+            {
+              "agent_id": 3,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 35,
+              "logs_uploaded": 35,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.04
+            },
+            {
+              "agent_id": 4,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 44,
+              "logs_uploaded": 44,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.068
+            },
+            {
+              "agent_id": 6,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 36,
+              "logs_uploaded": 36,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.08
+            },
+            {
+              "agent_id": 5,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 37,
+              "logs_uploaded": 37,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.065
+            },
+            {
+              "agent_id": 7,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 28,
+              "logs_uploaded": 28,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.05
+            },
+            {
+              "agent_id": 8,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 35,
+              "logs_uploaded": 35,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.043
+            }
+          ],
+          "avg_agent_cpu": 0.058
+        },
+        {
+          "mode": "promtail-static",
+          "repeat": 2,
+          "duration_sec": 180,
+          "loki_stored": 272,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 37,
+              "logs_uploaded": 37,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.077
+            },
+            {
+              "agent_id": 2,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.081
+            },
+            {
+              "agent_id": 5,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 26,
+              "logs_uploaded": 26,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.054
+            },
+            {
+              "agent_id": 4,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 33,
+              "logs_uploaded": 33,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.017
+            },
+            {
+              "agent_id": 3,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 35,
+              "logs_uploaded": 35,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.039
+            },
+            {
+              "agent_id": 6,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 38,
+              "logs_uploaded": 38,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.077
+            },
+            {
+              "agent_id": 8,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 34,
+              "logs_uploaded": 34,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.04
+            },
+            {
+              "agent_id": 7,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 37,
+              "logs_uploaded": 37,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.068
+            }
+          ],
+          "avg_agent_cpu": 0.057
+        },
+        {
+          "mode": "promtail-static",
+          "repeat": 3,
+          "duration_sec": 180,
+          "loki_stored": 279,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 37,
+              "logs_uploaded": 37,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.077
+            },
+            {
+              "agent_id": 2,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 32,
+              "logs_uploaded": 32,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.081
+            },
+            {
+              "agent_id": 3,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 36,
+              "logs_uploaded": 36,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.068
+            },
+            {
+              "agent_id": 5,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 40,
+              "logs_uploaded": 40,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.072
+            },
+            {
+              "agent_id": 4,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 28,
+              "logs_uploaded": 28,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.092
+            },
+            {
+              "agent_id": 6,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 34,
+              "logs_uploaded": 34,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.09
+            },
+            {
+              "agent_id": 7,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 42,
+              "logs_uploaded": 42,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.026
+            },
+            {
+              "agent_id": 8,
+              "mode": "promtail-static",
+              "logs_generated": 90,
+              "logs_matched": 30,
+              "logs_uploaded": 30,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.073
+            }
+          ],
+          "avg_agent_cpu": 0.072
+        }
+      ],
+      "loki_stored_mean": 276.3,
+      "loki_stored_stdev": 3.8,
+      "cpu_mean": 0.062,
+      "cpu_stdev": 0.008
+    },
+    "full_collect": {
+      "runs": [
+        {
+          "mode": "full-same-freq",
+          "repeat": 1,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.109
+            },
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.091
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.078
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.102
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.082
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.061
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.075
+            }
+          ],
+          "avg_agent_cpu": 0.082
+        },
+        {
+          "mode": "full-same-freq",
+          "repeat": 2,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.092
+            },
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.074
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.095
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.058
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.097
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.061
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.075
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.055
+            }
+          ],
+          "avg_agent_cpu": 0.076
+        },
+        {
+          "mode": "full-same-freq",
+          "repeat": 3,
+          "duration_sec": 180,
+          "loki_stored": 720,
+          "gateway_logs": 19700,
+          "agents": [
+            {
+              "agent_id": 1,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.044
+            },
+            {
+              "agent_id": 2,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 1,
+              "cpu_simulated": 0.061
+            },
+            {
+              "agent_id": 3,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.061
+            },
+            {
+              "agent_id": 5,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.071
+            },
+            {
+              "agent_id": 6,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.066
+            },
+            {
+              "agent_id": 4,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.073
+            },
+            {
+              "agent_id": 7,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.057
+            },
+            {
+              "agent_id": 8,
+              "mode": "full-same-freq",
+              "logs_generated": 90,
+              "logs_matched": 90,
+              "logs_uploaded": 90,
+              "cache_evictions": 0,
+              "retry_count": 0,
+              "cpu_simulated": 0.093
+            }
+          ],
+          "avg_agent_cpu": 0.066
+        }
+      ],
+      "loki_stored_mean": 720,
+      "loki_stored_stdev": 0.0,
+      "cpu_mean": 0.075,
+      "cpu_stdev": 0.008
+    },
+    "promtail_rule": "保留 status>=400 或 URL 含 /delay/",
+    "methodology": "multiprocess_simulation_promtail_static_filter"
+  },
+  "e3_ablation": {
+    "description": "集群消融实验（多进程模拟）— 逐一关闭组件",
+    "configs": {
+      "baseline": {
+        "mode": "directed",
+        "cache_enabled": true,
+        "backoff_enabled": true,
+        "secondary_filter": true
+      },
+      "no-attention": {
+        "mode": "no-attention",
+        "cache_enabled": true,
+        "backoff_enabled": true,
+        "secondary_filter": true
+      },
+      "no-secondary-filter": {
+        "mode": "no-secondary",
+        "cache_enabled": true,
+        "backoff_enabled": true,
+        "secondary_filter": false
+      },
+      "no-cache-block": {
+        "mode": "no-cache",
+        "cache_enabled": false,
+        "backoff_enabled": true,
+        "secondary_filter": true
+      },
+      "no-backoff": {
+        "mode": "no-backoff",
+        "cache_enabled": true,
+        "backoff_enabled": false,
+        "secondary_filter": true
+      }
+    },
+    "results": {
+      "baseline": {
+        "runs": [
+          {
+            "mode": "directed",
+            "repeat": 1,
+            "duration_sec": 180,
+            "loki_stored": 236,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 2,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.017
+              },
+              {
+                "agent_id": 3,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 36,
+                "logs_uploaded": 36,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.041
+              },
+              {
+                "agent_id": 4,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.061
+              },
+              {
+                "agent_id": 1,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.072
+              },
+              {
+                "agent_id": 5,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.071
+              },
+              {
+                "agent_id": 6,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.047
+              },
+              {
+                "agent_id": 7,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.056
+              },
+              {
+                "agent_id": 8,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.033
+              }
+            ],
+            "avg_agent_cpu": 0.05
+          },
+          {
+            "mode": "directed",
+            "repeat": 2,
+            "duration_sec": 180,
+            "loki_stored": 225,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 34,
+                "logs_uploaded": 34,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.051
+              },
+              {
+                "agent_id": 3,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.066
+              },
+              {
+                "agent_id": 2,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 21,
+                "logs_uploaded": 21,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.061
+              },
+              {
+                "agent_id": 5,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 27,
+                "logs_uploaded": 27,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.03
+              },
+              {
+                "agent_id": 4,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.096
+              },
+              {
+                "agent_id": 6,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.027
+              },
+              {
+                "agent_id": 7,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.077
+              },
+              {
+                "agent_id": 8,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.013
+              }
+            ],
+            "avg_agent_cpu": 0.053
+          },
+          {
+            "mode": "directed",
+            "repeat": 3,
+            "duration_sec": 180,
+            "loki_stored": 232,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 2,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.004
+              },
+              {
+                "agent_id": 1,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.05
+              },
+              {
+                "agent_id": 3,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.023
+              },
+              {
+                "agent_id": 5,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.023
+              },
+              {
+                "agent_id": 6,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.018
+              },
+              {
+                "agent_id": 4,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.081
+              },
+              {
+                "agent_id": 7,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.017
+              },
+              {
+                "agent_id": 8,
+                "mode": "directed",
+                "logs_generated": 90,
+                "logs_matched": 27,
+                "logs_uploaded": 27,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.06
+              }
+            ],
+            "avg_agent_cpu": 0.035
+          }
+        ],
+        "loki_stored_mean": 231,
+        "loki_stored_stdev": 5.6,
+        "cpu_mean": 0.046,
+        "cpu_stdev": 0.01
+      },
+      "no-attention": {
+        "runs": [
+          {
+            "mode": "no-attention",
+            "repeat": 1,
+            "duration_sec": 180,
+            "loki_stored": 720,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 2,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.04
+              },
+              {
+                "agent_id": 1,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.06
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.084
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.084
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.063
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.054
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.092
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.112
+              }
+            ],
+            "avg_agent_cpu": 0.074
+          },
+          {
+            "mode": "no-attention",
+            "repeat": 2,
+            "duration_sec": 180,
+            "loki_stored": 720,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.077
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.041
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.041
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.065
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.049
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.038
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.019
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.046
+              }
+            ],
+            "avg_agent_cpu": 0.047
+          },
+          {
+            "mode": "no-attention",
+            "repeat": 3,
+            "duration_sec": 180,
+            "loki_stored": 720,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.076
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.045
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.063
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.023
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.077
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.061
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.107
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-attention",
+                "logs_generated": 90,
+                "logs_matched": 90,
+                "logs_uploaded": 90,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.115
+              }
+            ],
+            "avg_agent_cpu": 0.071
+          }
+        ],
+        "loki_stored_mean": 720,
+        "loki_stored_stdev": 0.0,
+        "cpu_mean": 0.064,
+        "cpu_stdev": 0.015
+      },
+      "no-secondary-filter": {
+        "runs": [
+          {
+            "mode": "no-secondary",
+            "repeat": 1,
+            "duration_sec": 180,
+            "loki_stored": 255,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.057
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.076
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 37,
+                "logs_uploaded": 37,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.05
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 38,
+                "logs_uploaded": 38,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.107
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.043
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 38,
+                "logs_uploaded": 38,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.083
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.081
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 38,
+                "logs_uploaded": 38,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.053
+              }
+            ],
+            "avg_agent_cpu": 0.069
+          },
+          {
+            "mode": "no-secondary",
+            "repeat": 2,
+            "duration_sec": 180,
+            "loki_stored": 204,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 19,
+                "logs_uploaded": 19,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.088
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.042
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.042
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.021
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 22,
+                "logs_uploaded": 22,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.039
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 35,
+                "logs_uploaded": 35,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.061
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.077
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.074
+              }
+            ],
+            "avg_agent_cpu": 0.056
+          },
+          {
+            "mode": "no-secondary",
+            "repeat": 3,
+            "duration_sec": 180,
+            "loki_stored": 233,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.055
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.051
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.083
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.073
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 38,
+                "logs_uploaded": 38,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.038
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.082
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 24,
+                "logs_uploaded": 24,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.068
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-secondary",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.074
+              }
+            ],
+            "avg_agent_cpu": 0.066
+          }
+        ],
+        "loki_stored_mean": 230.7,
+        "loki_stored_stdev": 25.6,
+        "cpu_mean": 0.064,
+        "cpu_stdev": 0.007
+      },
+      "no-cache-block": {
+        "runs": [
+          {
+            "mode": "no-cache",
+            "repeat": 1,
+            "duration_sec": 180,
+            "loki_stored": 228,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.069
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 32,
+                "logs_uploaded": 32,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.064
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 38,
+                "logs_uploaded": 38,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.052
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 20,
+                "logs_uploaded": 20,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.063
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 32,
+                "logs_uploaded": 32,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.041
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.075
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.082
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.05
+              }
+            ],
+            "avg_agent_cpu": 0.062
+          },
+          {
+            "mode": "no-cache",
+            "repeat": 2,
+            "duration_sec": 180,
+            "loki_stored": 246,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 2,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 40,
+                "logs_uploaded": 40,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.055
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.076
+              },
+              {
+                "agent_id": 1,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.058
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.06
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.016
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.068
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 1,
+                "cpu_simulated": 0.079
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.086
+              }
+            ],
+            "avg_agent_cpu": 0.062
+          },
+          {
+            "mode": "no-cache",
+            "repeat": 3,
+            "duration_sec": 180,
+            "loki_stored": 226,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.031
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.036
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 27,
+                "logs_uploaded": 27,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.061
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.063
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.065
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.089
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.07
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-cache",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.059
+              }
+            ],
+            "avg_agent_cpu": 0.059
+          }
+        ],
+        "loki_stored_mean": 233.3,
+        "loki_stored_stdev": 11.0,
+        "cpu_mean": 0.061,
+        "cpu_stdev": 0.002
+      },
+      "no-backoff": {
+        "runs": [
+          {
+            "mode": "no-backoff",
+            "repeat": 1,
+            "duration_sec": 180,
+            "loki_stored": 238,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.062
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 27,
+                "logs_uploaded": 27,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.072
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.06
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 34,
+                "logs_uploaded": 34,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.084
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.031
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.09
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.065
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.046
+              }
+            ],
+            "avg_agent_cpu": 0.064
+          },
+          {
+            "mode": "no-backoff",
+            "repeat": 2,
+            "duration_sec": 180,
+            "loki_stored": 223,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.073
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.054
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.071
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.062
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.038
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.072
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 27,
+                "logs_uploaded": 27,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.06
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.05
+              }
+            ],
+            "avg_agent_cpu": 0.06
+          },
+          {
+            "mode": "no-backoff",
+            "repeat": 3,
+            "duration_sec": 180,
+            "loki_stored": 225,
+            "gateway_logs": 19700,
+            "agents": [
+              {
+                "agent_id": 1,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 26,
+                "logs_uploaded": 26,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.073
+              },
+              {
+                "agent_id": 2,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 30,
+                "logs_uploaded": 30,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.054
+              },
+              {
+                "agent_id": 3,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 31,
+                "logs_uploaded": 31,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.074
+              },
+              {
+                "agent_id": 4,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 28,
+                "logs_uploaded": 28,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.025
+              },
+              {
+                "agent_id": 5,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 33,
+                "logs_uploaded": 33,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.032
+              },
+              {
+                "agent_id": 7,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 29,
+                "logs_uploaded": 29,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.052
+              },
+              {
+                "agent_id": 6,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 25,
+                "logs_uploaded": 25,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.064
+              },
+              {
+                "agent_id": 8,
+                "mode": "no-backoff",
+                "logs_generated": 90,
+                "logs_matched": 23,
+                "logs_uploaded": 23,
+                "cache_evictions": 0,
+                "retry_count": 0,
+                "cpu_simulated": 0.051
+              }
+            ],
+            "avg_agent_cpu": 0.053
+          }
+        ],
+        "loki_stored_mean": 228.7,
+        "loki_stored_stdev": 8.1,
+        "cpu_mean": 0.059,
+        "cpu_stdev": 0.006
+      }
+    },
+    "contributions": {
+      "no-attention": {
+        "loki_increase": 489,
+        "loki_increase_percent": 211.7,
+        "component_contribution": "该组件移除导致入库量增加"
+      },
+      "no-secondary-filter": {
+        "loki_increase": -0.3,
+        "loki_increase_percent": -0.1,
+        "component_contribution": "该组件移除对入库量无显著影响"
+      },
+      "no-cache-block": {
+        "loki_increase": 2.3,
+        "loki_increase_percent": 1.0,
+        "component_contribution": "该组件移除导致入库量增加"
+      },
+      "no-backoff": {
+        "loki_increase": -2.3,
+        "loki_increase_percent": -1.0,
+        "component_contribution": "该组件移除对入库量无显著影响"
+      }
+    },
+    "methodology": "multiprocess_simulation_component_ablation"
+  }
+}
