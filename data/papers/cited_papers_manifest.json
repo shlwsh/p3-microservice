@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T17:07:37",
+  "generated_at": "2026-06-11T16:52:34",
   "bib_path": "latex/references.bib",
   "papers_dir": "data/papers",
   "cited_count": 51,
@@ -13,7 +13,10 @@
       "journal": "Empirical Software Engineering",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:A comprehensive study of machine learning techniques for log"
+      "doi_resolve": "crossref:A comprehensive study of machine learning techniques for log",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2025_Shan_ali2025logml.pdf",
+      "archive_method": "cached"
     },
     "bao2023aiops": {
       "key": "bao2023aiops",
@@ -24,7 +27,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006876"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006876",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_包航宇_bao2023aiops.pdf",
+      "archive_method": "cached"
     },
     "burns2016borg": {
       "key": "burns2016borg",
@@ -35,7 +41,10 @@
       "journal": "Communications of the ACM",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Borg, Omega, and Kubernetes"
+      "doi_resolve": "crossref:Borg, Omega, and Kubernetes",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_Brendan_burns2016borg.pdf",
+      "archive_method": "cached"
     },
     "burns2016patterns": {
       "key": "burns2016patterns",
@@ -46,7 +55,10 @@
       "journal": "Proceedings of the 7th Workshop on Hot Topics in Cloud Computing (HotCloud)",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:Practical condition synchronization for transactional memory"
+      "doi_resolve": "crossref:Practical condition synchronization for transactional memory",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_Brendan_burns2016patterns.pdf",
+      "archive_method": "cached"
     },
     "chen2020loganomaly": {
       "key": "chen2020loganomaly",
@@ -57,7 +69,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190875"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190875",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_陈彦宁_chen2020loganomaly.pdf",
+      "archive_method": "cached"
     },
     "cheng2023aiops": {
       "key": "cheng2023aiops",
@@ -68,7 +83,10 @@
       "journal": "arXiv preprint arXiv:2304.04661",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2304.04661"
+      "doi_resolve": "https://arxiv.org/abs/2304.04661",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Qian_cheng2023aiops.pdf",
+      "archive_method": "cached"
     },
     "dai2020logram": {
       "key": "dai2020logram",
@@ -79,7 +97,10 @@
       "journal": "arXiv preprint arXiv:2001.03038",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2001.03038"
+      "doi_resolve": "https://arxiv.org/abs/2001.03038",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Hetong_dai2020logram.pdf",
+      "archive_method": "cached"
     },
     "diaz2023mlopsaiops": {
       "key": "diaz2023mlopsaiops",
@@ -90,7 +111,10 @@
       "journal": "arXiv preprint arXiv:2408.00440",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2408.00440"
+      "doi_resolve": "https://arxiv.org/abs/2408.00440",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Rodrigo_diaz2023mlopsaiops.pdf",
+      "archive_method": "cached"
     },
     "ding2020decomposition": {
       "key": "ding2020decomposition",
@@ -101,7 +125,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006031"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006031",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_丁丹_ding2020decomposition.pdf",
+      "archive_method": "cached"
     },
     "fang2024microperf": {
       "key": "fang2024microperf",
@@ -112,7 +139,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330543"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330543",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_方浩天_fang2024microperf.pdf",
+      "archive_method": "cached"
     },
     "feng2020microservice": {
       "key": "feng2020microservice",
@@ -123,7 +153,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190460"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190460",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_冯志勇_feng2020microservice.pdf",
+      "archive_method": "cached"
     },
     "guo2024logformer": {
       "key": "guo2024logformer",
@@ -134,7 +167,10 @@
       "journal": "Proceedings of the AAAI Conference on Artificial Intelligence",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly D"
+      "doi_resolve": "crossref:LogFormer: A Pre-train and Tuning Pipeline for Log Anomaly D",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Hongcheng_guo2024logformer.pdf",
+      "archive_method": "cached"
     },
     "hadadi2024logfailure": {
       "key": "hadadi2024logfailure",
@@ -145,7 +181,10 @@
       "journal": "Empirical Software Engineering",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Systematic Evaluation of Deep Learning Models for Log-based "
+      "doi_resolve": "crossref:Systematic Evaluation of Deep Learning Models for Log-based ",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Fatemeh_hadadi2024logfailure.pdf",
+      "archive_method": "cached"
     },
     "he2020logsurvey": {
       "key": "he2020logsurvey",
@@ -156,7 +195,10 @@
       "journal": "arXiv preprint arXiv:2009.07237",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2009.07237"
+      "doi_resolve": "https://arxiv.org/abs/2009.07237",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Shilin_he2020logsurvey.pdf",
+      "archive_method": "cached"
     },
     "huang2023javatrace": {
       "key": "huang2023javatrace",
@@ -167,7 +209,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006523"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006523",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_黄梓程_huang2023javatrace.pdf",
+      "archive_method": "cached"
     },
     "jamshidi2018microservices": {
       "key": "jamshidi2018microservices",
@@ -178,7 +223,10 @@
       "journal": "IEEE Software",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Microservices: The Journey So Far and Challenges Ahead"
+      "doi_resolve": "crossref:Microservices: The Journey So Far and Challenges Ahead",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2018_Pooyan_jamshidi2018microservices.pdf",
+      "archive_method": "cached"
     },
     "jia2021loggingdecision": {
       "key": "jia2021loggingdecision",
@@ -189,7 +237,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005990"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005990",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2021_贾统_jia2021loggingdecision.pdf",
+      "archive_method": "cached"
     },
     "jiang2023logparsing": {
       "key": "jiang2023logparsing",
@@ -200,7 +251,10 @@
       "journal": "arXiv preprint arXiv:2308.10828",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2308.10828"
+      "doi_resolve": "https://arxiv.org/abs/2308.10828",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Zhihan_jiang2023logparsing.pdf",
+      "archive_method": "cached"
     },
     "jiatong2020logdiag": {
       "key": "jiatong2020logdiag",
@@ -211,7 +265,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006045"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006045",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_贾统_jiatong2020logdiag.pdf",
+      "archive_method": "cached"
     },
     "khan2022logtemplate": {
       "key": "khan2022logtemplate",
@@ -222,7 +279,10 @@
       "journal": "arXiv preprint arXiv:2310.01796",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2310.01796"
+      "doi_resolve": "https://arxiv.org/abs/2310.01796",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Zhihan_khan2022logtemplate.pdf",
+      "archive_method": "cached"
     },
     "liao2016logs": {
       "key": "liao2016logs",
@@ -233,7 +293,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.004936"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.004936",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2016_廖湘科_liao2016logs.pdf",
+      "archive_method": "cached"
     },
     "limingshu2019logmgmt": {
       "key": "limingshu2019logmgmt",
@@ -244,7 +307,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005601"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005601",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2019_李明树_limingshu2019logmgmt.pdf",
+      "archive_method": "cached"
     },
     "liu2017microcontainer": {
       "key": "liu2017microcontainer",
@@ -255,7 +321,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2017.20151043"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2017.20151043",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2017_刘敏_liu2017microcontainer.pdf",
+      "archive_method": "cached"
     },
     "liu2019logzip": {
       "key": "liu2019logzip",
@@ -266,7 +335,10 @@
       "journal": "Proceedings of the 34th IEEE/ACM International Conference on Automated Software Engineering",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:Logzip: Extracting Hidden Structures via Iterative Clusterin"
+      "doi_resolve": "crossref:Logzip: Extracting Hidden Structures via Iterative Clusterin",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2019_Jinyang_liu2019logzip.pdf",
+      "archive_method": "cached"
     },
     "maruf2022telemetry": {
       "key": "maruf2022telemetry",
@@ -277,7 +349,10 @@
       "journal": "arXiv preprint arXiv:2207.02776",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2207.02776"
+      "doi_resolve": "https://arxiv.org/abs/2207.02776",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Al_maruf2022telemetry.pdf",
+      "archive_method": "cached"
     },
     "meiyudong2020logcnn": {
       "key": "meiyudong2020logcnn",
@@ -288,7 +363,10 @@
       "journal": "计算机学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "http://cjc.ict.ac.cn/online/onlinepaper/myd-2020119221754.pdf"
+      "doi_resolve": "http://cjc.ict.ac.cn/online/onlinepaper/myd-2020119221754.pdf",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_梅御东_meiyudong2020logcnn.pdf",
+      "archive_method": "cached"
     },
     "moreschini2023microai": {
       "key": "moreschini2023microai",
@@ -299,7 +377,10 @@
       "journal": "arXiv preprint arXiv:2305.16092",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2305.16092"
+      "doi_resolve": "https://arxiv.org/abs/2305.16092",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Sergio_moreschini2023microai.pdf",
+      "archive_method": "cached"
     },
     "otel_tail": {
       "key": "otel_tail",
@@ -310,7 +391,10 @@
       "journal": "arXiv preprint arXiv:2406.06975",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2406.06975"
+      "doi_resolve": "https://arxiv.org/abs/2406.06975",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Zhuangbin_otel_tail.pdf",
+      "archive_method": "cached"
     },
     "richardson2018microservices": {
       "key": "richardson2018microservices",
@@ -321,7 +405,10 @@
       "journal": "arXiv preprint arXiv:2201.03598",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2201.03598"
+      "doi_resolve": "https://arxiv.org/abs/2201.03598",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Guilherme_richardson2018microservices.pdf",
+      "archive_method": "cached"
     },
     "seshagiri2022sok": {
       "key": "seshagiri2022sok",
@@ -332,7 +419,10 @@
       "journal": "Systems Research",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:[SoK] Identifying Mismatches Between Microservice Testbeds a"
+      "doi_resolve": "crossref:[SoK] Identifying Mismatches Between Microservice Testbeds a",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Vishwanath_seshagiri2022sok.pdf",
+      "archive_method": "cached"
     },
     "soldani2020graphrca": {
       "key": "soldani2020graphrca",
@@ -343,7 +433,10 @@
       "journal": "Journal of Systems and Software",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:Graph-based root cause analysis for service-oriented and mic"
+      "doi_resolve": "crossref:Graph-based root cause analysis for service-oriented and mic",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Jacopo_soldani2020graphrca.pdf",
+      "archive_method": "cached"
     },
     "soldani2023ebpf": {
       "key": "soldani2023ebpf",
@@ -354,7 +447,10 @@
       "journal": "IEEE Access",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:eBPF: A New Approach to Cloud-Native Observability, Networki"
+      "doi_resolve": "crossref:eBPF: A New Approach to Cloud-Native Observability, Networki",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_David_soldani2023ebpf.pdf",
+      "archive_method": "cached"
     },
     "usman2022observability": {
       "key": "usman2022observability",
@@ -365,7 +461,10 @@
       "journal": "IEEE Access",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:A Survey on Observability of Distributed Edge &amp; Containe"
+      "doi_resolve": "crossref:A Survey on Observability of Distributed Edge &amp; Containe",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Muhammad_usman2022observability.pdf",
+      "archive_method": "cached"
     },
     "varghese2022edge": {
       "key": "varghese2022edge",
@@ -376,7 +475,10 @@
       "journal": "ACM Computing Surveys",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "crossref:A Survey on Edge Performance Benchmarking"
+      "doi_resolve": "crossref:A Survey on Edge Performance Benchmarking",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_Benjamin_varghese2022edge.pdf",
+      "archive_method": "cached"
     },
     "wang2017tracefault": {
       "key": "wang2017tracefault",
@@ -387,7 +489,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005223"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.005223",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2017_王智宇_wang2017tracefault.pdf",
+      "archive_method": "cached"
     },
     "wang2024rca": {
       "key": "wang2024rca",
@@ -398,7 +503,10 @@
       "journal": "arXiv preprint arXiv:2408.00803",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2408.00803"
+      "doi_resolve": "https://arxiv.org/abs/2408.00803",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Tingting_wang2024rca.pdf",
+      "archive_method": "cached"
     },
     "wanglu2023microfault": {
       "key": "wanglu2023microfault",
@@ -409,7 +517,10 @@
       "journal": "计算机学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "http://cjc.ict.ac.cn/online/onlinepaper/wl-20231031140807.pdf"
+      "doi_resolve": "http://cjc.ict.ac.cn/online/onlinepaper/wl-20231031140807.pdf",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_王璐_wanglu2023microfault.pdf",
+      "archive_method": "cached"
     },
     "wei2023cloudlogstorage": {
       "key": "wei2023cloudlogstorage",
@@ -420,7 +531,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330178"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202330178",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_魏钧宇_wei2023cloudlogstorage.pdf",
+      "archive_method": "cached"
     },
     "wu2020microrca": {
       "key": "wu2020microrca",
@@ -431,7 +545,10 @@
       "journal": "NOMS 2020 - 2020 IEEE/IFIP Network Operations and Management Symposium",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:MicroRCA: Root Cause Localization of Performance Issues in M"
+      "doi_resolve": "crossref:MicroRCA: Root Cause Localization of Performance Issues in M",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Li_wu2020microrca.pdf",
+      "archive_method": "cached"
     },
     "wuhuayao2020microdev": {
       "key": "wuhuayao2020microdev",
@@ -442,7 +559,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190624"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.2020.20190624",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_吴化尧_wuhuayao2020microdev.pdf",
+      "archive_method": "cached"
     },
     "yang2020tracingsurvey": {
       "key": "yang2020tracingsurvey",
@@ -453,7 +573,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006047"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006047",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_杨勇_yang2020tracingsurvey.pdf",
+      "archive_method": "cached"
     },
     "yang2023nahida": {
       "key": "yang2023nahida",
@@ -464,7 +587,10 @@
       "journal": "arXiv preprint arXiv:2311.09032",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2311.09032"
+      "doi_resolve": "https://arxiv.org/abs/2311.09032",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Wanqi_yang2023nahida.pdf",
+      "archive_method": "cached"
     },
     "you2021tracelogstorage": {
       "key": "you2021tracelogstorage",
@@ -475,7 +601,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006234"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006234",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2021_尤勇_you2021tracelogstorage.pdf",
+      "archive_method": "cached"
     },
     "yuqingyang2022trace": {
       "key": "yuqingyang2022trace",
@@ -486,7 +615,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006209"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006209",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2022_于庆洋_yuqingyang2022trace.pdf",
+      "archive_method": "cached"
     },
     "zhang2023multimodal": {
       "key": "zhang2023multimodal",
@@ -497,7 +629,10 @@
       "journal": "arXiv preprint arXiv:2302.10512",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2302.10512"
+      "doi_resolve": "https://arxiv.org/abs/2302.10512",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_Shenglin_zhang2023multimodal.pdf",
+      "archive_method": "cached"
     },
     "zhang2024multivariate": {
       "key": "zhang2024multivariate",
@@ -508,7 +643,10 @@
       "journal": "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:Multivariate Log-based Anomaly Detection for Distributed Dat"
+      "doi_resolve": "crossref:Multivariate Log-based Anomaly Detection for Distributed Dat",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Lingzhe_zhang2024multivariate.pdf",
+      "archive_method": "cached"
     },
     "zhang2024reducing": {
       "key": "zhang2024reducing",
@@ -519,7 +657,10 @@
       "journal": "Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "crossref:Reducing Events to Augment Log-based Anomaly Detection Model"
+      "doi_resolve": "crossref:Reducing Events to Augment Log-based Anomaly Detection Model",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Lingzhe_zhang2024reducing.pdf",
+      "archive_method": "cached"
     },
     "zhang2024servicedep": {
       "key": "zhang2024servicedep",
@@ -530,7 +671,10 @@
       "journal": "软件学报",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006827"
+      "doi_resolve": "https://www.chndoi.org/Resolution/Handler?doi=10.13328/j.cnki.jos.006827",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_张齐勋_zhang2024servicedep.pdf",
+      "archive_method": "cached"
     },
     "zhou2023fusionad": {
       "key": "zhou2023fusionad",
@@ -541,7 +685,10 @@
       "journal": "计算机研究与发展",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202220490"
+      "doi_resolve": "https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.202220490",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2023_周小晖_zhou2023fusionad.pdf",
+      "archive_method": "cached"
     },
     "zhu2020loghub": {
       "key": "zhu2020loghub",
@@ -552,7 +699,10 @@
       "journal": "arXiv preprint arXiv:2008.06448",
       "entry_type": "article",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2008.06448"
+      "doi_resolve": "https://arxiv.org/abs/2008.06448",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2020_Jieming_zhu2020loghub.pdf",
+      "archive_method": "cached"
     },
     "zhu2023sidecar": {
       "key": "zhu2023sidecar",
@@ -563,11 +713,14 @@
       "journal": "arXiv preprint arXiv:2411.02267",
       "entry_type": "inproceedings",
       "doi_valid": true,
-      "doi_resolve": "https://arxiv.org/abs/2411.02267"
+      "doi_resolve": "https://arxiv.org/abs/2411.02267",
+      "archive_status": "ok",
+      "archive_path": "data/papers/2024_Yuxin_zhu2023sidecar.pdf",
+      "archive_method": "cached"
     }
   },
   "summary": {
-    "ok": 0,
+    "ok": 51,
     "snapshot": 0,
     "paywall": 0,
     "failed": 0,
