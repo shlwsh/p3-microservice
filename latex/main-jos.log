@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:13
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -853,22 +853,15 @@ File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
  [10] [11]
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
-
-Overfull \hbox (17.81197pt too wide) in paragraph at lines 80--81
-[][][][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][][][][] [] [][][][][
-][] [] [][][][]$[][] \TU/NotoSerifCJKSC(0)/m/n/9 和 [][]$[][][][][][][][][][][] 
-[] [][][][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][][][][] [] [][][]
-[][][] []
- []
-
-[12]
+ [12]
 File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
 <use ../figures/fig7_scale_bars.pdf>
  [13]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
-) (./sections/zh/07_conclusion.tex [14]) (./main-jos.bbl [15] [16]
-[17]) [18] (./main-jos.aux)
+)
+(./sections/zh/07_conclusion.tex [14]) (./main-jos.bbl [15] [16] [17]) [18]
+(./main-jos.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -880,12 +873,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 19280 strings out of 474878
- 439872 string characters out of 5762516
- 1959627 words of memory out of 5000000
- 40989 multiletter control sequences out of 15000+600000
- 565364 words of font info for 120 fonts, out of 8000000 for 9000
+ 19314 strings out of 474878
+ 441888 string characters out of 5762516
+ 1958627 words of memory out of 5000000
+ 41020 multiletter control sequences out of 15000+600000
+ 566523 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,15n,111p,2370b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,15n,111p,2325b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main-jos.pdf (18 pages).

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:14
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -678,7 +678,15 @@ Package hyperref Info: Link coloring OFF on input line 22.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./sections/zh/00_abstract.tex)
+(./sections/zh/00_abstract.tex) [1
+
+] (./sections/zh/01_intro.tex
+LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
+ available
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
+ input line 5.
+ [2] [3])
+(./sections/zh/02_related.tex [4]
 
 Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -695,14 +703,6 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-[1
-
-] (./sections/zh/01_intro.tex
-LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
- available
-(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
- input line 5.
- [2] [3]) (./sections/zh/02_related.tex [4]
 [5]) (./sections/zh/03_system.tex [6]
 Underfull \hbox (badness 3525) in paragraph at lines 24--24
 []\TU/FandolSong-Regular(0)/m/n/10.95 高 价 值 流 量 日 志
@@ -751,11 +751,10 @@ File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
 
-Overfull \hbox (75.93733pt too wide) in paragraph at lines 80--81
-[]\TU/FandolSong-Regular(0)/m/n/12 实 验 脚 本、| \TU/lmr/m/n/12 Docker Compose \TU/
-FandolSong-Regular(0)/m/n/12 配 置 和 原 始 \TU/lmr/m/n/12 JSON \TU/FandolSong-Regul
-ar(0)/m/n/12 结 果 保 存 在 \TU/lmtt/m/n/12 experiments/ \TU/FandolSong-Regular(0)/m
-/n/12 及 \TU/lmr/m/n/12 phase3/phase4/phase5
+Overfull \hbox (38.95709pt too wide) in paragraph at lines 80--81
+[]\TU/FandolSong-Regular(0)/m/n/12 全 部 实 验 脚 本、| \TU/lmr/m/n/12 Docker Compose 
+\TU/FandolSong-Regular(0)/m/n/12 配 置 与 原 始 \TU/lmr/m/n/12 JSON \TU/FandolSong-R
+egular(0)/m/n/12 结 果 均 保 存 在 项 目 仓 库 的 \TU/lmtt/m/n/12 experiments/
  []
 
 [14] [15] [16]
@@ -780,12 +779,12 @@ L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18016 strings out of 474878
- 408760 string characters out of 5762516
- 1951627 words of memory out of 5000000
- 39787 multiletter control sequences out of 15000+600000
+ 18040 strings out of 474878
+ 410501 string characters out of 5762516
+ 1950627 words of memory out of 5000000
+ 39811 multiletter control sequences out of 15000+600000
  566532 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,15n,97p,2369b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,15n,97p,2324b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main-zh.pdf (24 pages).

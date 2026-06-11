@@ -67,7 +67,7 @@
   \label{fig:ablation}
 \end{figure}
 
-对于 RQ3，端到端链路已在集群中实测打通：Nginx 共享内存 $\rightarrow$ \allowbreak Agent gRPC $\rightarrow$ \allowbreak Redis $\rightarrow$ \allowbreak 关注清单生成 $\rightarrow$ \allowbreak Agent 规则拉取（复现脚本见 \url{experiments/scripts/phase3_collect.py}，原始结果见 \url{experiments/results/phase3/phase3_latest.json}）。对于 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过了 \url{agent/pkg/retry/backoff_test.go} 中的全部单元测试；多进程模拟脚本和结果分别见 \url{experiments/scripts/phase5_multiprocess_sim.py} 和 \url{experiments/results/phase5/phase5_latest.json}。
+对于 RQ3，端到端链路已在集群中实测打通：Nginx 共享内存 $\rightarrow$ \allowbreak Agent gRPC $\rightarrow$ \allowbreak Redis $\rightarrow$ \allowbreak 关注清单生成 $\rightarrow$ \allowbreak Agent 规则拉取。对于 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过全部单元测试。上述实验的复现脚本、原始结果 JSON 及单元测试代码均保存在项目仓库\footnote{实验脚本与原始数据见仓库 \texttt{experiments/} 目录；退避单元测试见 \texttt{agent/pkg/retry/} 目录。}中。
 
 \begin{figure}[htbp]
   \centering
@@ -77,7 +77,7 @@
 \end{figure}
 
 \subsection{可复现性与效度威胁}
-实验脚本、Docker Compose 配置和原始 JSON 结果保存在 \texttt{experiments/} 及 phase3/phase4/phase5 结果目录中。表~\ref{tab:compare} 和图~\ref{fig:compare} 均由 phase3 JSON 派生；清空统计后的 16/32 节点规模复核分别由 \url{experiments/results/phase4/phase4_20260611_021230.json} 和 \url{experiments/results/phase4/phase4_20260611_024321.json} 派生；同频率对照、Promtail 静态过滤复现与系统级组件消融由 phase5 JSON 派生。当前结果仍存在以下效度威胁。
+全部实验脚本、Docker Compose 配置与原始 JSON 结果均保存在项目仓库的 \texttt{experiments/} 目录下，按 phase3（主对比）、phase4（规模复核）和 phase5（多进程模拟）分目录组织。表~\ref{tab:compare} 和图~\ref{fig:compare} 由 phase3 数据派生，16/32 节点规模复核由 phase4 数据派生，同频率对照、Promtail 静态过滤复现与系统级组件消融由 phase5 数据派生。当前结果仍存在以下效度威胁。
 
 \textbf{规模效度}：八节点主对比和十六/三十二节点规模复核是 WSL/Docker 实测，六十四节点仍为基于实测曲线的外推。云环境下的长稳表现与带宽压力还需要进一步验证。
 
