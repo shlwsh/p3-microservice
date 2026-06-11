@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 14:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -678,14 +678,7 @@ Package hyperref Info: Link coloring OFF on input line 22.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1
-
-] (./sections/zh/01_intro.tex
-LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
- available
-(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
- input line 7.
- [2]) (./sections/zh/02_related.tex [3] [4]
+(./sections/zh/00_abstract.tex)
 
 Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
 (fontspec)                Script "CJK".
@@ -702,7 +695,15 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-[5]) (./sections/zh/03_system.tex
+[1
+
+] (./sections/zh/01_intro.tex
+LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <12> not
+ available
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
+ input line 5.
+ [2] [3]) (./sections/zh/02_related.tex [4]
+[5]) (./sections/zh/03_system.tex [6]
 Underfull \hbox (badness 3525) in paragraph at lines 24--24
 []\TU/FandolSong-Regular(0)/m/n/10.95 高 价 值 流 量 日 志
  []
@@ -729,71 +730,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
-[6] [7]) (./sections/zh/04_algorithms.tex [8]
+) (./sections/zh/04_algorithms.tex [7] [8] [9]
 File: ../figures/fig2_triple_transform.pdf Graphic file (type pdf)
 <use ../figures/fig2_triple_transform.pdf>
- [9]
 File: ../figures/fig5_backoff_distribution.pdf Graphic file (type pdf)
 <use ../figures/fig5_backoff_distribution.pdf>
 )
 (./sections/zh/05_implementation.tex [10] [11])
-(./sections/zh/06_experiments.tex
+(./sections/zh/06_experiments.tex [12]
 Underfull \hbox (badness 10000) in paragraph at lines 28--28
 []\TU/lmr/m/n/10.95 §6.3 \TU/FandolSong-Regular(0)/m/n/10.95 与 原 始 \TU/lmr/m/n/
 10.95 phase3
  []
 
-[12]
+[13]
 File: ../figures/fig3_comparison_bars.pdf Graphic file (type pdf)
 <use ../figures/fig3_comparison_bars.pdf>
 File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 <use ../figures/fig4_ablation_bars.pdf>
-
-Overfull \hbox (25.47134pt too wide) in paragraph at lines 70--71
-[][][][][][][] [] [][][][][][] [] [][][][][][][][][][][][] [] [][][] [] [][]$[]
- \TU/FandolSong-Regular(0)/m/n/12 和 []$[][][][][][][][][][][] [] [][][][][][][]
- [] [][][][][][] [] [][][][][][] [] [][][][][][] []
- []
-
-[13] [14]
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
 
 Overfull \hbox (75.93733pt too wide) in paragraph at lines 80--81
 []\TU/FandolSong-Regular(0)/m/n/12 实 验 脚 本、| \TU/lmr/m/n/12 Docker Compose \TU/
-FandolSong-Regular(0)/m/n/12 配 置 与 原 始 \TU/lmr/m/n/12 JSON \TU/FandolSong-Regul
+FandolSong-Regular(0)/m/n/12 配 置 和 原 始 \TU/lmr/m/n/12 JSON \TU/FandolSong-Regul
 ar(0)/m/n/12 结 果 保 存 在 \TU/lmtt/m/n/12 experiments/ \TU/FandolSong-Regular(0)/m
 /n/12 及 \TU/lmr/m/n/12 phase3/phase4/phase5
  []
 
-[15]
+[14] [15] [16]
 File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
 <use ../figures/fig7_scale_bars.pdf>
- [16]
+ [17]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
- [17]) (./sections/zh/07_conclusion.tex) [18] (./main-zh.bbl [19]
+ [18]) (./sections/zh/07_conclusion.tex) [19] (./main-zh.bbl [20]
 Missing character: There is no 璘 (U+7498) in font [FandolSong-Regular.otf]/OT:l
 anguage=dflt;!
-[20] [21] [22]
+[21] [22] [23]
 Underfull \hbox (badness 1502) in paragraph at lines 265--269
 \TU/lmr/m/n/12 oriented and microservice architectures.  \TU/lmr/m/it/12 Journa
 l of Systems and Software\TU/lmr/m/n/12 ,
  []
 
-) [23] (./main-zh.aux)
+) [24] (./main-zh.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 17992 strings out of 474878
- 407763 string characters out of 5762516
+ 18016 strings out of 474878
+ 408760 string characters out of 5762516
  1951627 words of memory out of 5000000
- 39768 multiletter control sequences out of 15000+600000
- 566524 words of font info for 100 fonts, out of 8000000 for 9000
+ 39787 multiletter control sequences out of 15000+600000
+ 566532 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,15n,97p,1856b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,15n,97p,2369b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main-zh.pdf (23 pages).
+Output written on main-zh.pdf (24 pages).

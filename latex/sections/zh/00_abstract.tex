@@ -1,0 +1,18 @@
+% 摘要与关键词（共享内容，供 main-zh.tex 和 main-jos.tex 引用）
+% 修改摘要只需编辑此文件，两个入口文件自动同步。
+
+% ========== 中文摘要 ==========
+\newcommand{\AbstractContentZh}{%
+微服务架构下，日志来源高度分散、格式各异、总量庞大，给节点资源、网络带宽和集中存储都带来了很大压力。本文提出一种分布式定向日志采集框架与原型组件，核心思路是``只采必要日志''。框架分为三层：网关预筛选、节点定向采集和中心二次过滤。日志中心根据网关流量日志动态生成关注清单，驱动各节点按清单定向采集应用日志。节点侧采用固定缓存块算法和压力感知指数退避机制，在资源受限时保障传输可靠性。三层之间通过定向策略三次转换算法保持策略语义一致。原型基于 Go 语言和 Grafana Loki 实现，应用日志采用 Apache Combined 风格并与网关 URL 对齐。实验在 WSL/Docker 八节点集群上进行对比测试（180\,s、并发 50、每模式重复 3 次），并补充了十六/三十二节点规模复核、策略仿真消融、基于真实分布的多进程模拟与算法微基准测试。结果显示，定向采集将 Loki 入库量控制在 72 条，而同架构全量基线为 4388$\pm$1 条，降幅达 98.4\%（该降幅包含定向过滤与发射频率差异的联合效果；多进程同频模拟表明策略过滤的独立降幅为 67.8\%）。清空统计后的规模复核中，十六节点 Loki 入库为 48.0$\pm$5.2 条/轮，三十二节点稳定在 99.0$\pm$0.0 条/轮。Agent 平均 CPU 与内存分别降低 37.5\% 和 2.0\%（绝对值均较低）。端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通。关注清单生成算法在 5000 条日志上耗时约 15\,ms，指数退避机制通过 \texttt{agent/pkg/retry/backoff\_test.go} 全部单元测试。%
+}
+
+% ========== 英文摘要 ==========
+\newcommand{\AbstractContentEn}{%
+Microservice architectures scatter log sources across many independently deployed services, each emitting logs in heterogeneous formats whose aggregate volume grows linearly with request concurrency. The resulting overhead on node CPU, network bandwidth, and centralized storage motivates a shift from full-volume collection to selective, traffic-aware ingestion. This paper proposes a distributed directed log collection framework whose guiding principle is to ``collect only what matters.'' The framework comprises three layers: gateway pre-filtering, node-side directed collection, and center-side secondary filtering. A log center dynamically generates an attention list from gateway traffic logs (URLs, status codes, response latencies) and distributes it to each node, which then collects only the application logs matching the list. Fixed-size cache blocks and pressure-aware exponential backoff maintain transmission reliability under resource constraints, while a triple strategy transformation keeps policy semantics consistent across all three layers. A prototype built with Go and Grafana Loki is evaluated on a WSL/Docker cluster. In eight-node comparison experiments (180\,s, concurrency 50, three repeats per mode), directed collection reduces Loki-ingested logs to 72 entries versus 4388$\pm$1 for the same-architecture full-collection baseline (98.4\% reduction, combining directed filtering and emission-rate differences; a same-frequency multi-process simulation isolates a 67.8\% independent reduction from policy filtering alone). Scale validations after counter reset show 48.0$\pm$5.2 ingested entries per round at 16 nodes and a stable 99.0$\pm$0.0 at 32 nodes. Mean agent CPU and memory overhead decrease by 37.5\% and 2.0\%, respectively, with absolute values remaining below 0.1\%. The end-to-end pipeline, from Nginx shared memory through agent gRPC upload, Redis caching, to attention-list generation, is verified in cluster experiments. Attention-list generation completes in approximately 15\,ms on 5000 log entries, and the exponential backoff module passes all unit tests in \texttt{agent/pkg/retry/backoff\_test.go}. These results suggest that gateway-driven directed collection can substantially reduce log ingestion volume at the collection front end without modifying application code.%
+}
+
+% ========== 中文关键词 ==========
+\newcommand{\KeywordsZh}{微服务;分布式日志采集;定向过滤;动态策略;指数退避;Grafana Loki}
+
+% ========== 英文关键词 ==========
+\newcommand{\KeywordsEn}{microservice; distributed directed log collection; attention list; dynamic policy; exponential backoff; Grafana Loki}

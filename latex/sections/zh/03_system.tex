@@ -2,9 +2,9 @@
 \section{系统总体设计}
 
 \subsection{架构概述}
-系统由\textbf{日志节点采集器（Agent）}与\textbf{日志中心（Center）}组成。Agent 分为网关节点实例与微服务节点实例：前者通过 OpenResty Lua 采集 HTTP 流量日志；后者采集应用访问日志。Center 负责接收 Agent 上传、生成关注清单、下发规则、执行二次过滤并写入 Loki。图~\ref{fig:arch} 给出总体架构。
+系统由两个核心角色组成：\textbf{日志节点采集器（Agent）}和\textbf{日志中心（Center）}。Agent 有两种部署形态——网关节点实例和微服务节点实例。网关实例通过 OpenResty Lua 采集 HTTP 流量日志，微服务实例负责采集应用访问日志。Center 的职责包括：接收 Agent 上传的日志、生成关注清单、下发规则、执行二次过滤，最终将结果写入 Loki。总体架构见图~\ref{fig:arch}。
 
-从能力边界看，本文框架可抽象为\textbf{网关预筛选、节点定向采集、中心二次过滤}三层，如表~\ref{tab:framework_layers} 所示。三层分别对应运行时流量感知、本地日志减量与中心入库控制，输入/输出均可独立审计，也便于与 AIOps 平台的数据采集能力对接。
+从能力边界来看，整个框架可以分为三层：\textbf{网关预筛选、节点定向采集、中心二次过滤}，如表~\ref{tab:framework_layers} 所示。三层分别负责运行时流量感知、本地日志减量和中心入库控制，每层的输入输出都可以独立审计，也方便与 AIOps 平台的数据采集能力对接。
 
 \begin{table*}[htbp]
   \centering
@@ -32,14 +32,14 @@
 \end{figure}
 
 \subsection{工作流程}
-系统按以下步骤运行：
+系统的运行过程分为以下五个步骤：
 \begin{enumerate}
   \item 网关在 \texttt{log\_by\_lua} 阶段采集 URL、状态码、响应时延等字段，写入共享内存缓冲区；
-  \item 网关 Agent 周期性拉取流量日志并 gRPC 上传至 Center，Center 缓存于 Redis；
-  \item Center 对流量日志执行高价值过滤与 URL 聚类，生成 Top-$K$ 关注清单并 gRPC 下发；
-  \item 微服务 Agent 按清单匹配本地应用日志，写入固定缓存块，异步压缩上传；
-  \item Center 二次过滤、去重后批量推送至 Loki，供 Grafana 查询。
+  \item 网关 Agent 定期从缓冲区拉取流量日志，通过 gRPC 上传到 Center，Center 将其缓存到 Redis；
+  \item Center 对流量日志做高价值过滤和 URL 聚类，生成 Top-$K$ 关注清单，再通过 gRPC 下发给各节点；
+  \item 微服务 Agent 拿到清单后，匹配本地应用日志，命中的日志写入固定缓存块，异步压缩上传；
+  \item Center 做二次过滤和去重，最后批量推送到 Loki，供 Grafana 查询使用。
 \end{enumerate}
 
 \subsection{部署模式}
-\textbf{Sidecar 模式}：Agent 与业务容器共享网络命名空间（\texttt{network\_mode: service:*}），适用于 Kubernetes 或 Docker Compose。\textbf{混合开发模式}：基础设施容器化，Center/Agent 本地调试。原型部署于 WSL2，网关映射端口 8088（规避 Windows IIS 占用 80 端口）。
+\textbf{Sidecar 模式}：Agent 与业务容器共享网络命名空间（\texttt{network\_mode: service:*}），适用于 Kubernetes 或 Docker Compose 环境。\textbf{混合开发模式}：基础设施跑在容器里，Center 和 Agent 在本地调试。原型部署在 WSL2 上，网关映射端口 8088（避开 Windows IIS 占用的 80 端口）。

@@ -2,32 +2,32 @@
 \section{相关工作}
 
 \subsection{集中式日志栈}
-ELK/EFK 以 Elasticsearch 为核心，检索能力强但索引成本高。国内外日志管理综述均指出，大规模软件系统日志在采集、传输、存储、解析和查询阶段都会引入显著成本\cite{liao2016logs,limingshu2019logmgmt,he2020logsurvey,chen2020loganomaly}。现有降低成本的方法主要包括日志压缩、日志模式挖掘、模板解析、云日志低成本存储和离线数据集构建\cite{liu2019logzip,zhu2020loghub,wei2023cloudlogstorage,khan2022logtemplate}。这些工作对入库后的压缩、解析和数据治理具有价值，但多数默认日志已经被采集到中心端；本文关注的是日志进入中心前的\textbf{采集前端定向减量}。
+ELK/EFK 以 Elasticsearch 为核心，检索能力强，但索引成本高昂。多项日志管理综述指出，大规模系统的日志在采集、传输、存储、解析和查询各阶段均会产生显著开销\cite{liao2016logs,limingshu2019logmgmt,he2020logsurvey,chen2020loganomaly}。为此，已有研究提出日志压缩、模式挖掘、模板解析、云端低成本存储和离线数据集构建等方法\cite{liu2019logzip,zhu2020loghub,wei2023cloudlogstorage,khan2022logtemplate}。然而，上述工作大多聚焦于日志入库之后的压缩与治理，默认日志已被全量采集到中心端。与之不同，本文关注的是日志进入中心\textbf{之前}的\textbf{采集前端定向减量}。
 
 \subsection{采样与追踪关联}
-OpenTelemetry 尾部采样依赖分布式追踪上下文，在请求完成后决定是否保留关联 span 或关联日志\cite{otel_tail}。工业调研和云原生可观测性综述显示，追踪、指标和日志三类遥测数据在微服务排障中通常需要联合分析\cite{usman2022observability,maruf2022telemetry,moreschini2023microai}。国内研究围绕分布式追踪、调用链存储、服务依赖发现和微服务故障检测展开\cite{yang2020tracingsurvey,huang2023javatrace,you2021tracelogstorage,yuqingyang2022trace,zhang2024servicedep,wanglu2023microfault}。在根因定位方面，执行轨迹故障诊断、MicroRCA、多模态诊断和 RCA 综述分别从轨迹监测、拓扑依赖、多源信号和方法体系角度推进后端分析\cite{wang2017tracefault,wu2020microrca,zhang2023multimodal,wang2024rca}。与这些工作不同，本文不以已完整采集的 trace/log 数据为前提，而是用网关 access log 动态生成 URL 模式清单，在 Sidecar 层决定哪些应用日志需要上传。
+OpenTelemetry 尾部采样依赖分布式追踪上下文，在请求完成后决定是否保留相关 span 或日志\cite{otel_tail}。多项调研表明，追踪、指标和日志三类遥测数据在微服务排障中需要联合分析\cite{usman2022observability,maruf2022telemetry,moreschini2023microai}。国内研究则围绕分布式追踪、调用链存储、服务依赖发现与微服务故障检测等方向展开\cite{yang2020tracingsurvey,huang2023javatrace,you2021tracelogstorage,yuqingyang2022trace,zhang2024servicedep,wanglu2023microfault}。在根因定位方面，已有工作分别从轨迹监测、拓扑依赖、多源信号和方法体系等角度推进后端分析\cite{wang2017tracefault,wu2020microrca,zhang2023multimodal,wang2024rca}。与上述工作不同，本文不以已完整采集的 trace/log 数据为前提，而是利用网关 access log 动态生成 URL 模式清单，在 Sidecar 层即决定哪些应用日志需要上传。
 
 \subsection{边缘采集与可靠传输}
-边缘计算和云原生场景要求采集组件在低带宽、低资源和中心暂不可达时保持有界退化\cite{varghese2022edge,usman2022observability,liu2017microcontainer}。Service Mesh 研究表明 Sidecar 会带来额外延迟和资源开销，因此采集逻辑必须控制 CPU、内存和网络消耗\cite{zhu2023sidecar,soldani2023ebpf}。本文在 Sidecar 中引入固定上限缓存块与压力感知退避，并辅以 BoltDB 本地兜底，使节点侧采集在资源受限情况下保持可控。
+边缘计算和云原生场景对采集组件提出了严苛要求：在低带宽、低资源或中心暂时不可达时，组件需保持有界退化\cite{varghese2022edge,usman2022observability,liu2017microcontainer}。此外，Service Mesh 研究表明 Sidecar 自身也会引入额外延迟和资源消耗\cite{zhu2023sidecar,soldani2023ebpf}，因此采集逻辑必须严格控制 CPU、内存和网络占用。为此，本文在 Sidecar 中引入固定上限缓存块与压力感知退避机制，并辅以 BoltDB 本地兜底，确保节点侧采集在资源受限条件下依然可控。
 
 \subsection{AIOps 实践与标准化}
-包航宇等\cite{bao2023aiops}基于大规模企业调研总结智能运维实践现状，并提出 AIOps-OSA 能力建设框架。云平台 AIOps 综述、MLOps/AIOps 系统综述与微服务生命周期智能化研究进一步说明，生产系统需要将运行时数据、自动化分析和工程治理形成闭环\cite{cheng2023aiops,diaz2023mlopsaiops,moreschini2023microai}。本文聚焦其中\textbf{数据采集能力}的前端减量：通过网关流量驱动的关注清单，降低进入日志平台和后续算法模块的数据规模。
+包航宇等\cite{bao2023aiops}基于大规模企业调研，总结了智能运维的实践现状，并提出了 AIOps-OSA 能力建设框架。后续研究进一步表明，生产系统需要将运行时数据、自动化分析和工程治理形成闭环\cite{cheng2023aiops,diaz2023mlopsaiops,moreschini2023microai}。本文聚焦其中\textbf{数据采集能力}的前端减量环节：借助网关流量驱动的关注清单，从源头降低进入日志平台和后续分析模块的数据规模。
 
 \subsection{日志解析与故障诊断}
-贾统等\cite{jiatong2020logdiag}将研究重点放在日志收集之后的解析、异常检测、故障定位和知识提取等环节。日志解析方面，Logram、模板识别与大规模日志解析评测推动了非结构化日志到结构化事件的转换\cite{dai2020logram,khan2022logtemplate,jiang2023logparsing}。异常检测方面，CNN-text、LogFormer、机器学习综述、深度学习失效预测评估、融合学习时序异常检测与微服务性能异常检测展示了日志智能分析进展\cite{meiyudong2020logcnn,guo2024logformer,ali2025logml,hadadi2024logfailure,zhou2023fusionad,fang2024microperf,zhang2024reducing}。多变量日志异常检测与图式根因分析进一步扩展了故障诊断能力\cite{zhang2024multivariate,soldani2020graphrca}。与这些工作相比，本文关注\textbf{诊断前置条件}：在日志尚未大规模入库前完成定向减量，尽量保留错误、慢请求等高价值上下文。
+贾统等\cite{jiatong2020logdiag}聚焦日志收集之后的下游环节，系统梳理了日志解析、异常检测、故障定位和知识提取等技术。在日志解析方面，Logram、模板识别及大规模日志解析评测等工作推动了非结构化日志向结构化事件的转换\cite{dai2020logram,khan2022logtemplate,jiang2023logparsing}。在异常检测方面，CNN-text、LogFormer、机器学习综述、深度学习失效预测、融合学习时序检测以及微服务性能异常检测等研究展示了日志智能分析的最新进展\cite{meiyudong2020logcnn,guo2024logformer,ali2025logml,hadadi2024logfailure,zhou2023fusionad,fang2024microperf,zhang2024reducing}。此外，多变量日志异常检测与图式根因分析进一步扩展了故障诊断的能力边界\cite{zhang2024multivariate,soldani2020graphrca}。与上述工作相比，本文关注的是\textbf{诊断的前置条件}——在日志尚未大规模入库之前完成定向减量，同时尽量保留错误、慢请求等高价值上下文。
 
 \subsection{微服务工程与云原生生态}
-微服务涉及服务拆分、持续软件工程治理与运行时配置管理\cite{ding2020decomposition,jia2021loggingdecision,jamshidi2018microservices,seshagiri2022sok}。容器编排和微服务模式为 Sidecar 采集提供了部署基础\cite{burns2016patterns,burns2016borg,richardson2018microservices}。因此，本文在实验节明确区分原型验证、基于真实分布的多进程模拟验证与生产级证据，并将 Promtail 静态过滤作为同负载模拟基线，将 OpenTelemetry 和 eBPF 作为后续端到端部署基线。
+微服务架构涉及服务拆分、持续工程治理与运行时配置管理等多个方面\cite{ding2020decomposition,jia2021loggingdecision,jamshidi2018microservices,seshagiri2022sok}。容器编排和微服务设计模式为 Sidecar 部署提供了基础设施支撑\cite{burns2016patterns,burns2016borg,richardson2018microservices}。鉴于此，本文在实验中明确区分了三类证据：原型集群实测、基于真实分布的多进程模拟验证，以及生产级证据。在基线选取上，本文将 Promtail 静态过滤作为同负载模拟基线，将 OpenTelemetry 和 eBPF 列为后续端到端部署基线。
 
 \subsection{新兴采集技术与最接近先例}
-eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,yang2023nahida}。然而，eBPF 方案侧重\textbf{基础设施级}事件，对\textbf{应用级}日志的定向采集支持有限，且缺乏网关流量驱动的动态策略源。OpenTelemetry 尾部采样以\textbf{分布式追踪 span} 为单位，与本文以\textbf{URL 模式}为粒度的应用日志定向过滤存在互补关系。
+eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,yang2023nahida}。然而，eBPF 侧重\textbf{基础设施级}事件，对\textbf{应用级}日志的定向采集支持有限，且缺乏网关流量驱动的动态策略源。OpenTelemetry 尾部采样以\textbf{分布式追踪 span} 为单位做取舍，与本文以\textbf{URL 模式}为粒度的应用日志定向过滤构成互补关系。
 
-与本文最接近的工业实践包括：（1）Envoy 代理的 AccessLog 过滤器支持按路由或状态码配置日志输出策略，但仅作用于代理自身的 access log，不驱动下游微服务的应用日志采集；（2）Kong API 网关的 File-log/TCP-log 插件可按路由启用日志记录，但属于静态配置，不具备基于流量统计的动态 URL 模式生成能力；（3）OpenResty 生态的 \texttt{lua-resty-logger-socket} 等模块实现了 Lua 层的动态日志控制，但动态策略局限于网关节点自身，未形成跨节点的应用日志定向采集闭环。
+与本文最接近的工业实践有三类。其一，Envoy 代理的 AccessLog 过滤器支持按路由或状态码配置日志输出策略，但仅作用于代理自身的 access log，无法驱动下游微服务的应用日志采集。其二，Kong API 网关的 File-log/TCP-log 插件可按路由启用日志记录，但属于静态配置，不具备基于流量统计动态生成 URL 模式的能力。其三，OpenResty 生态的 \texttt{lua-resty-logger-socket} 等模块实现了 Lua 层的动态日志控制，但策略局限于网关节点自身，未形成跨节点的采集闭环。
 
-上述先例的共同特征是：日志过滤决策\textbf{局限于单一节点}（代理或网关），且多为\textbf{静态或手工配置}规则。本文的增量创新在于：以网关流量统计为输入、自动生成 Top-$K$ URL 模式清单、经 gRPC 下发至多个微服务节点驱动应用日志定向采集、最后由中心二次过滤保障语义一致——形成``网关流量 $\rightarrow$ 多节点应用日志动态清单 $\rightarrow$ 中心二次过滤''的\textbf{贯通闭环}。本文方案以规则驱动的轻量匹配替代 ML 推理，更适合边缘资源受限环境。
+上述先例存在两个共同局限：日志过滤决策\textbf{局限于单一节点}（代理或网关），且多依赖\textbf{静态或手工配置}规则。本文的增量创新在于：以网关流量统计为输入，自动生成 Top-$K$ URL 模式清单，经 gRPC 下发至多个微服务节点驱动应用日志定向采集，最后由中心二次过滤保障语义一致。这一流程形成了``网关流量 $\rightarrow$ 多节点应用日志动态清单 $\rightarrow$ 中心二次过滤''的\textbf{贯通闭环}，以规则驱动的轻量匹配替代 ML 推理，更适合边缘资源受限环境。
 
 \subsection{与代表性方案对比}
-表~\ref{tab:related_compare} 从策略输入、减量位置、日志削减证据、动态策略来源和 Sidecar 开销等维度对比本文与代表性方案。
+表~\ref{tab:related_compare} 从策略输入、减量位置、日志削减证据、动态策略来源和 Sidecar 开销等维度，将本文方案与代表性方案进行对比。
 
 \begin{table*}[htbp]
   \centering
@@ -53,7 +53,7 @@ eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,ya
 \end{table*}
 
 \subsection{本文定位}
-综上，包航宇等 AIOps 标准化研究解决平台能力建设问题\cite{bao2023aiops}，贾统等日志诊断综述解决后端分析方法体系问题\cite{jiatong2020logdiag}；二者均需要稳定、低成本且高价值的日志输入。本文定位为\textbf{AIOps 采集前端的定向减量技术}：将网关 access log 作为动态策略输入，下发至各微服务节点做应用日志定向采集，再由中心二次过滤后入库。通过关注清单、三次策略转换与可复现 Docker 原型，本文在采集阶段将入库量控制在百条量级$^*$，并与全量 Sidecar 架构进行对照实测（详见 §6.3 表~\ref{tab:compare}）。
+综上所述，包航宇等的 AIOps 标准化研究着力解决平台能力建设问题\cite{bao2023aiops}，贾统等的日志诊断综述着力解决后端分析方法体系问题\cite{jiatong2020logdiag}。二者均需要稳定、低成本且高价值的日志输入作为基础。本文定位为\textbf{AIOps 采集前端的定向减量技术}：将网关 access log 作为动态策略输入，下发至各微服务节点执行应用日志定向采集，再由中心二次过滤后入库。借助关注清单、三次策略转换与可复现的 Docker 原型，本文在采集阶段将入库量控制在百条量级$^*$，并与全量 Sidecar 架构进行了对照实测（详见 §6.3 表~\ref{tab:compare}）。
 
 \vspace{0.3em}
 \noindent{\small $^*$八节点、180\,s、$n{=}3$；全量基线发射频率（400\,ms）高于定向模式（2\,s），降幅为策略过滤与源配置联合效果；基于真实分布的多进程同频模拟表明，策略过滤独立降幅为 67.8\%（§6.3）。}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 14:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  11 JUN 2026 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,6 +801,7 @@ Package fontspec Info: Font family 'NotoSerifCJKSC(1)' created for font 'Noto
 (fontspec)             CJK SC/BI/OT:script=hani;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
+(./sections/zh/00_abstract.tex)
 
 Package fancyhdr Warning: \headheight is too small (35.2pt): 
 (fancyhdr)                Make it at least 35.69583pt, for example:
@@ -811,13 +812,8 @@ Package fancyhdr Warning: \headheight is too small (35.2pt):
 
 [1
 
-] (./sections/zh/01_intro.tex) (./sections/zh/02_related.tex [2]
-Overfull \hbox (6.55238pt too wide) in paragraph at lines 8--9
-\TU/NotoSerifCJKSC(0)/m/n/9 工 业 调 研 和 云 原 生 可 观 测 性 综 述 显 示，|  追 踪、|  指 标 和 日 志
- 三 类 遥 测 数 据 在 微 服 务 排 障 中 通 常 需 要 联 合 分 析$[]$。|
- []
-
-[3]) (./sections/zh/03_system.tex
+] (./sections/zh/01_intro.tex [2]) (./sections/zh/02_related.tex [3])
+(./sections/zh/03_system.tex [4]
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
 []\TU/NotoSerifCJKSC(0)/m/n/9.03374 高 价 值 流 量 日 志 与
  []
@@ -834,47 +830,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
 File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 <use ../figures/fig1_system_overview.pdf>
-[4] [5]) (./sections/zh/04_algorithms.tex
+) (./sections/zh/04_algorithms.tex
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 11.
 
-
-Underfull \vbox (badness 4492) has occurred while \output is active []
-
- [6]
+[5] [6]
 File: ../figures/fig2_triple_transform.pdf Graphic file (type pdf)
 <use ../figures/fig2_triple_transform.pdf>
-
-[7]
+ [7]
 File: ../figures/fig5_backoff_distribution.pdf Graphic file (type pdf)
 <use ../figures/fig5_backoff_distribution.pdf>
-) (./sections/zh/05_implementation.tex [8])
-(./sections/zh/06_experiments.tex
-Underfull \vbox (badness 6252) has occurred while \output is active []
+) (./sections/zh/05_implementation.tex
+Underfull \vbox (badness 1558) has occurred while \output is active []
 
- [9]
+ [8])
+(./sections/zh/06_experiments.tex [9]
 File: ../figures/fig3_comparison_bars.pdf Graphic file (type pdf)
 <use ../figures/fig3_comparison_bars.pdf>
 File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 <use ../figures/fig4_ablation_bars.pdf>
-
-Overfull \hbox (8.96481pt too wide) in paragraph at lines 70--71
-\TU/NotoSerifCJKSC(0)/m/n/9 规 则 拉 取  |（复 现 脚 本 见 [][]$[][][][][][][][][][][] []
- [][][][][][][] [] [][][][][][] [] [][][][][][][] [] [][]$[][]，|  原 始 结 果 见 [][
-]$[][][][][][][][][][][] [] [][][][][][][] [] [][][][][][] []
- []
-
+ [10] [11]
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
-[10] [11]
+
+Overfull \hbox (17.81197pt too wide) in paragraph at lines 80--81
+[][][][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][][][][] [] [][][][][
+][] [] [][][][]$[][] \TU/NotoSerifCJKSC(0)/m/n/9 和 [][]$[][][][][][][][][][][] 
+[] [][][][][][][] [] [][][][][][] [] [][][][][][] [] [][][][][][][][] [] [][][]
+[][][] []
+ []
+
+[12]
 File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
 <use ../figures/fig7_scale_bars.pdf>
- [12]
+ [13]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
- [13]) (./sections/zh/07_conclusion.tex [14]) (./main-jos.bbl
-[15] [16] [17]) [18] (./main-jos.aux)
+) (./sections/zh/07_conclusion.tex [14]) (./main-jos.bbl [15] [16]
+[17]) [18] (./main-jos.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -884,17 +878,14 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 19259 strings out of 474878
- 438930 string characters out of 5762516
- 1960627 words of memory out of 5000000
- 40971 multiletter control sequences out of 15000+600000
+ 19280 strings out of 474878
+ 439872 string characters out of 5762516
+ 1959627 words of memory out of 5000000
+ 40989 multiletter control sequences out of 15000+600000
  565364 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,15n,111p,2036b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,15n,111p,2370b,650s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main-jos.pdf (18 pages).

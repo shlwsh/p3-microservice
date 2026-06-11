@@ -33,10 +33,12 @@
 
 \rjmaketitle
 
+\input{sections/zh/00_abstract}
+
 \begin{rjabstract}
-针对微服务分布式系统中日志分散、格式异构与海量数据导致的节点资源消耗高、网络带宽占用大及集中存储压力大等问题，本文提出一种分布式定向日志采集框架与原型组件。该框架由网关预筛选、节点定向采集和中心二次过滤三层组成：日志中心基于网关流量日志动态生成关注清单，并驱动各节点按清单定向采集应用日志；节点侧采用固定缓存块算法与压力感知指数退避机制，在资源受限条件下保障传输可靠性；通过定向策略三次转换算法，贯通三层策略语义。本文基于 Go 语言与 Grafana Loki 完成原型实现，在 WSL/Docker 八节点集群上开展对比实验（180\,s、并发 50、每模式重复 3 次），并补充十六/三十二节点规模复核、策略仿真消融、基于真实分布的多进程模拟与算法微基准测试。应用日志采用 Apache Combined 风格并与网关 URL 对齐。实验结果表明，在八节点集群压测下，定向采集将 Loki 入库量控制在 72 条（同架构全量基线 4388$\pm$1 条，相对降幅 98.4\%，降幅含定向过滤与发射频率差异的联合效果；多进程同频模拟表明策略过滤独立降幅为 67.8\%）；清空统计后的规模复核中，十六节点网关流量日志增量为 6703.33$\pm$91.78 条、Loki 入库为 48.0$\pm$5.2 条，三十二节点网关流量日志增量为 6692.67$\pm$121.88 条、Loki 入库稳定为 99.0$\pm$0.0 条；Agent 平均 CPU 与内存相对降低 37.5\% 与 2.0\%（绝对值均较低）。端到端链路（Nginx 共享内存 $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ 关注清单生成）已实测打通；关注清单生成算法在 5000 条流量日志规模下耗时约 15\,ms；指数退避机制通过 \texttt{agent/pkg/retry/backoff\_test.go} 全部单元测试验证。
+\AbstractContentZh
 \end{rjabstract}
-\rjkeywords{微服务;分布式日志采集;定向过滤;动态策略;指数退避;Grafana Loki}
+\rjkeywords{\KeywordsZh}
 
 \begin{flushleft}
 \xiaowuhao
@@ -46,11 +48,11 @@
 \begin{flushleft}
 \xiaowuhao
 {\hei Abstract:}\hspace{1em}{\kai
-In microservice systems, dispersed and heterogeneous logs impose high overhead on node resources, network bandwidth, and centralized storage. This paper presents a distributed directed log collection framework and prototype component. The framework consists of three layers: gateway pre-filtering, node-side directed collection, and center-side secondary filtering. The log center dynamically generates attention lists from gateway traffic logs to drive directed application-log collection at each node. Node-side fixed-size cache blocks and pressure-aware exponential backoff ensure reliable transmission under resource constraints, while a triple strategy transformation preserves policy semantics across the three layers. A Go and Grafana Loki prototype is evaluated on an eight-node WSL/Docker cluster (180\,s load, concurrency 50, three repeats per mode), complemented by 16-node and 32-node scale validations, distribution-preserving multi-process simulations, and algorithm microbenchmarks. Directed collection limits Loki ingested logs to 72 entries versus 4388$\pm$1 under the same-architecture full-collection baseline (98.4\% relative reduction, combining directed filtering and emission-rate differences; same-frequency multi-process simulation shows a 67.8\% independent reduction from policy filtering). After clearing counters, the 16-node validation produces 6703.33$\pm$91.78 gateway traffic logs per 60\,s run while storing 48.0$\pm$5.2 logs in Loki; the 32-node validation produces 6692.67$\pm$121.88 gateway logs while storing 99.0$\pm$0.0 logs. Average agent CPU and memory decrease by 37.5\% and 2.0\% respectively (absolute values remain low). The end-to-end pipeline---Nginx shared memory $\rightarrow$ Agent gRPC $\rightarrow$ Redis $\rightarrow$ attention-list generation---is verified in production-like experiments; attention-list generation takes about 15\,ms on 5000 traffic logs; exponential backoff passes all tests in \texttt{agent/pkg/retry/backoff\_test.go}.
+\AbstractContentEn
 }
 
 \vspace{0.6em}
-{\hei Key words:}\hspace{1em}{\kai microservice; distributed directed log collection; attention list; dynamic policy; exponential backoff; Grafana Loki}
+{\hei Key words:}\hspace{1em}{\kai \KeywordsEn}
 \end{flushleft}
 
 % ---------- 正文（与计算机学报版共用章节源文件）----------

@@ -3,7 +3,15 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION="${1:-10}"
+# 自动检测 docs/ 下已有稿件的最大版本号，默认 +1
+if [[ -n "${1:-}" ]]; then
+  VERSION="$1"
+else
+  MAX_V=$(ls -1 "${ROOT}/docs/" 2>/dev/null \
+    | grep -oP '^v\K[0-9]+(?=-论文稿件-)' \
+    | sort -n | tail -1)
+  VERSION=$(( ${MAX_V:-0} + 1 ))
+fi
 TS="$(date +%Y%m%d-%H%M%S)"
 
 echo "编译 v${VERSION} @ ${TS}"

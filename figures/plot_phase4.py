@@ -13,8 +13,21 @@ ROOT = Path(__file__).resolve().parents[1]
 PHASE4 = ROOT / "experiments/results/phase4/phase4_latest.json"
 OUT = ROOT / "figures"
 
-plt.rcParams["font.sans-serif"] = ["SimHei", "DejaVu Sans", "Arial Unicode MS"]
-plt.rcParams["axes.unicode_minus"] = False
+def setup_cn():
+    from matplotlib import font_manager
+    font_paths = [
+        "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    ]
+    for fp in font_paths:
+        if Path(fp).exists():
+            font_manager.fontManager.addfont(fp)
+            prop = font_manager.FontProperties(fname=fp)
+            plt.rcParams["font.family"] = prop.get_name()
+            break
+    else:
+        plt.rcParams["font.sans-serif"] = ["WenQuanYi Micro Hei", "Noto Sans CJK SC", "DejaVu Sans"]
+    plt.rcParams["axes.unicode_minus"] = False
 
 
 def project_scale(measured: dict) -> dict:
@@ -110,6 +123,7 @@ def main():
     if not PHASE4.exists():
         print(f"[plot_phase4] skip: {PHASE4} not found")
         return
+    setup_cn()
     data = json.loads(PHASE4.read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
     plot_scale(data)
