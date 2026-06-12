@@ -1,8 +1,8 @@
 # 项目 Agent 技能
 
-本目录是 **p3-microservice** 仓库的 Agent 技能**源目录**（17 个手写技能 + 1 个 GitNexus 技能包链接 + 1 个共享资源目录）。Cursor 通过 `.cursor/skills/` 符号链接镜像本目录，实现自动发现与按需触发。
+本目录是 **p3-microservice** 仓库的 Agent 技能**源目录**（20 个手写技能 + 1 个 GitNexus 技能包链接 + 1 个共享资源目录）。Cursor 通过 `.cursor/skills/` 符号链接镜像本目录，实现自动发现与按需触发。
 
-**最后更新**：2026-06-10
+**最后更新**：2026-06-12
 
 ---
 
@@ -50,6 +50,14 @@ flowchart TB
     REV --> SH
   end
 
+  subgraph polish [中文润色与投稿]
+    CAP[chinese-academic-polish]
+    CLO[cover-letter-optimization]
+    DNC[doc-naming-convention]
+    CAP --> CLO
+    CLO --> DNC
+  end
+
   subgraph nature [Nature 学术写作套件]
     NAS[nature-academic-search]
     NC[nature-citation]
@@ -79,6 +87,7 @@ flowchart TB
     SHRD[core / journal-formats]
   end
 
+  REV --> CAP
   SHRD -.-> NW
   SHRD -.-> NP
 ```
@@ -86,6 +95,7 @@ flowchart TB
 | 分类 | 技能数 | 定位 |
 |------|--------|------|
 | **p3 论文投稿** | 4 | 面向本仓库中文 LaTeX 稿件、实验数据、JOS 投稿门禁 |
+| **中文润色与投稿** | 3 | 中文论文润色、投稿信撰写优化、文档版本化命名 |
 | **Nature 学术套件** | 10 | 通用高水平英文稿：检索、写作、润色、配图、审稿回复等 |
 | **开发工具** | 3 | Git 提交、技能脚手架、GitNexus MCP 安装 |
 | **共享资源** | 1 目录 | `_shared/`：多技能复用的定义与规范片段 |
@@ -114,6 +124,9 @@ flowchart TB
 | [makeskill](makeskill/SKILL.md) | 新建符合规范的项目技能脚手架 | 新建技能、创建 Skill |
 | [gitnexus-cursor-mcp-setup](gitnexus-cursor-mcp-setup/SKILL.md) | Linux/WSL 安装配置 GitNexus MCP | GitNexus MCP、代码智能 |
 | [gitnexus/](gitnexus/gitnexus-guide/SKILL.md) | 代码智能技能包（6 个子技能，链至 `.claude/skills/gitnexus/`） | gitnexus_impact、代码探索、重构 |
+| [chinese-academic-polish](chinese-academic-polish/SKILL.md) | 中文学术论文润色：去 AI 味、短句化、去模板 | 中文润色、去AI味、改大白话 |
+| [cover-letter-optimization](cover-letter-optimization/SKILL.md) | 投稿信撰写与优化（五段式、一页 A4、版本化输出） | 投稿信、cover letter、润色投稿信 |
+| [doc-naming-convention](doc-naming-convention/SKILL.md) | 文档版本化命名（方案、投稿附件、论文稿件） | 文档命名、版本号、投稿附件命名 |
 
 ---
 
@@ -138,6 +151,9 @@ flowchart TB
 | 智能 git commit + push | `mygit` | 需 `.env.mygit` |
 | 新建项目技能 | `makeskill` | 完成后跑 `link_cursor_skills.sh` |
 | 配置代码智能 MCP | `gitnexus-cursor-mcp-setup` | 配合 `.claude/skills/gitnexus/` |
+| 中文论文润色 / 去 AI 味 | `chinese-academic-polish` | 短句化、去模板、保学术 |
+| 写 / 优化投稿信 | `cover-letter-optimization` | 五段式、一页 A4、版本化 |
+| 文档输出到 docs/ 时统一命名 | `doc-naming-convention` | 版本号 + 时间戳 |
 
 ---
 
@@ -183,6 +199,9 @@ flowchart TB
          → reference-processing（扩引文 + C6 门禁 + 编译版本化 PDF）
          → paper1-multi-agent-review（投稿前审核）
          → 按评审改稿 → 再跑 reference-processing + 二评
+         → chinese-academic-polish（中文润色）
+         → cover-letter-optimization（撰写/优化投稿信）
+         → doc-naming-convention（版本化输出到 docs/）
          → paper1-study-handbook（同步学习手册）
 ```
 
@@ -300,18 +319,21 @@ Rules 指向 Skills，但不替代 Skills 内的详细步骤与脚本说明。
 | 2 | `reference-processing` | p3 | ✅ |
 | 3 | `paper1-multi-agent-review` | p3 | ✅ |
 | 4 | `paper1-study-handbook` | p3 | ✅ |
-| 5 | `nature-academic-search` | nature | ✅ |
-| 6 | `nature-citation` | nature | ✅ |
-| 7 | `nature-writing` | nature | ✅ |
-| 8 | `nature-polishing` | nature | ✅ |
-| 9 | `nature-reader` | nature | ✅ |
-| 10 | `nature-figure` | nature | ✅ |
-| 11 | `nature-data` | nature | ✅ |
-| 12 | `nature-reviewer` | nature | ✅ |
-| 13 | `nature-response` | nature | ✅ |
-| 14 | `nature-paper2ppt` | nature | ✅ |
-| 15 | `mygit` | dev | ✅ |
-| 16 | `makeskill` | dev | ✅ |
-| 17 | `gitnexus-cursor-mcp-setup` | dev | ✅ |
-| 18 | `gitnexus` | dev（链接包） | ✅（6 个子技能，源在 `.claude/skills/gitnexus/`） |
+| 5 | `chinese-academic-polish` | 润色 | ✅ |
+| 6 | `cover-letter-optimization` | 润色 | ✅ |
+| 7 | `doc-naming-convention` | 润色 | ✅ |
+| 8 | `nature-academic-search` | nature | ✅ |
+| 9 | `nature-citation` | nature | ✅ |
+| 10 | `nature-writing` | nature | ✅ |
+| 11 | `nature-polishing` | nature | ✅ |
+| 12 | `nature-reader` | nature | ✅ |
+| 13 | `nature-figure` | nature | ✅ |
+| 14 | `nature-data` | nature | ✅ |
+| 15 | `nature-reviewer` | nature | ✅ |
+| 16 | `nature-response` | nature | ✅ |
+| 17 | `nature-paper2ppt` | nature | ✅ |
+| 18 | `mygit` | dev | ✅ |
+| 19 | `makeskill` | dev | ✅ |
+| 20 | `gitnexus-cursor-mcp-setup` | dev | ✅ |
+| 21 | `gitnexus` | dev（链接包） | ✅（6 个子技能，源在 `.claude/skills/gitnexus/`） |
 | — | `_shared` | 共享 | ❌（非技能） |

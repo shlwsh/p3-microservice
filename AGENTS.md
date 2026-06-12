@@ -56,5 +56,7 @@ This project is indexed by GitNexus as **p3-microservice** (3904 symbols, 6971 r
 | 新建技能 | `.cursor/skills/makeskill/SKILL.md` |
 | GitNexus MCP 安装 | `.cursor/skills/gitnexus-cursor-mcp-setup/SKILL.md` |
 | 中文论文润色 / 去AI味 / 改大白话 | `.cursor/skills/chinese-academic-polish/SKILL.md` |
+| 投稿信撰写 / 优化 / 润色 | `.cursor/skills/cover-letter-optimization/SKILL.md` |
+| 文档版本化命名 / 投稿附件命名 | `.cursor/skills/doc-naming-convention/SKILL.md` |
 
 匹配上述场景时先读对应 `SKILL.md`；可用 `@技能名` 显式触发。索引见 `.cursor/rules/project-skills.mdc`。

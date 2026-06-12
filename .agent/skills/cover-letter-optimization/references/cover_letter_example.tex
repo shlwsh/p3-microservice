@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.2cm,bottom=2.2cm}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\pagestyle{empty}
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{2em}
+\ctexset{section/format=\normalsize\bfseries}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries 投稿信}
+\end{center}
+
+\vspace{0.3em}
+
+\noindent 尊敬的《软件学报》编辑：
+
+您好！我们向贵刊提交论文《\textbf{微服务架构下分布式定向日志采集组件的设计与实现}》，作者为石洪雷和赵涓涓（太原理工大学），通讯作者为石洪雷（\url{shihonglei0042@link.tyut.edu.cn}），敬请审阅。
+
+\textbf{研究背景}\quad 微服务架构下日志来源分散、格式各异，总量随并发请求线性增长。集群一旦达到数十节点以上，全量采集就会让节点资源、网络带宽和后端存储都吃紧，而且大量低价值日志会把真正有用的故障信息淹没。目前的研究大多关注日志入库之后的压缩和诊断，很少有人从采集前端出发、利用网关流量信号来动态驱动定向减量，这拖慢了整个 AIOps 数据链路的效率。
+
+\textbf{主要贡献}\quad 针对上述问题，本文提出了网关驱动的分布式定向日志采集框架，主要架构贡献包括：
+
+（1）\textbf{三层协同定向采集架构}。把日志减量从后端治理前移到采集前端，设计了网关预筛选、节点定向采集和中心二次过滤三层架构，以 Sidecar 模式部署，形成``流量感知—定向采集—语义一致入库''的完整闭环。
+
+（2）\textbf{动态关注清单生成机制}。以网关 access log（URL、状态码、响应时延）为输入，通过 URL 泛化和 Top-$K$ 筛选实时生成高价值 URL 模式清单，下发给各节点。采集策略跟着实际流量走，不需要手工配置，也不侵入业务代码。
+
+（3）\textbf{定向策略三次转换算法}。用统一的 URL 泛化函数和清单版本号，让同一份策略在三层之间保持语义一致，避免跨层漂移。这和 Envoy、Kong 等只在单个节点做日志过滤的做法有本质不同。
+
+（4）\textbf{资源受限可靠传输机制}。在 Sidecar 中引入固定缓存块和压力感知指数退避，辅以 BoltDB 本地兜底，保证内存占用和重试次数都有明确上界，适合边缘资源受限的部署环境。
+
+\textbf{实验验证}\quad 原型基于 Go 和 Grafana Loki 实现。八节点集群对比实验（180\,s、并发 50、重复 3 次）显示，定向采集把 Loki 入库量从 4388 条降到了 72 条（降幅 98.4\%，策略过滤独立贡献 67.8\%），Agent CPU 降低 37.5\%。十六/三十二节点规模复核验证了可扩展性；关闭关注清单后入库量增加 211.7\%，说明动态清单是减量的核心环节。全部实验脚本和原始数据均可复现。
+
+\textbf{期刊契合}\quad 本文属于贵刊重点关注的分布式系统与云原生架构方向，涉及微服务可观测性和智能运维数据采集，与《软件学报》的学术定位契合。
+
+\textbf{声明}\quad 本文为原创成果，未在任何期刊或会议正式发表，也未一稿多投。所有作者均同意投稿并对研究内容负责。感谢编辑和审稿专家在百忙之中审阅本文。
+
+\vspace{0.8em}
+
+\noindent 此致敬礼
+
+\vspace{1em}
+
+\noindent\begin{tabular}{@{}ll}
+通讯作者： & 石洪雷\quad 太原理工大学\quad \url{shihonglei0042@link.tyut.edu.cn} \\
+日\hspace{2em}期： & 2026 年 6 月 12 日
+\end{tabular}
+
+\end{document}
