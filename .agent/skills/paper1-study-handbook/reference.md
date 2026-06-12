@@ -37,10 +37,10 @@
 | Agent CPU | 0.05±0.01% vs 0.08±0.02%，降低 37.5% | 同上 |
 | Agent 内存 | 95.6±4.2 MB vs 97.5±1.7 MB，降低 2.0% | 同上 |
 | 关注清单 | 16 个 URL 模式 | 同上 |
-| 微基准 | 5000 条输入，0.5 ms | `experiments/results/phase1/phase1_latest.json` |
-| 最新文稿 | v6 JOS/zh，20260607-090350 | `docs/v6-论文稿件-*.pdf` |
-| 正文引用 | 73 篇；中文 30、英文 43 | `docs/20260607-090350-参考文献扩展与归档报告.md` |
-| 文献归档 | PDF 21、快照 52、失败 0 | `data/papers/cited_papers_manifest.json` |
+| 微基准 | L0 为 5000 条输入，0.5 ms；当前 v9 稿件写约 15 ms，需后续统一 | `experiments/results/phase1/phase1_latest.json`、`docs/v4-论文稿件.md` |
+| 最新文稿 | v9 JOS/zh，20260609-151144 | `docs/v9-论文稿件-*.pdf` |
+| 正文引用 | 51 篇；中文/国内约 21，英文/其它约 30 | `latex/references.bib`、`docs/20260609-102500-参考文献精简至51篇报告.md` |
+| 文献归档 | ok=51、snapshot=0、paywall=0、failed=0、doi_valid=51 | `data/papers/cited_papers_manifest.json` |
 
 ## 必须同步的状态
 
