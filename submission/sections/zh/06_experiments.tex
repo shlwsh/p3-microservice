@@ -12,8 +12,7 @@
 \begin{table*}[htbp]
   \centering
   \small
-  \caption{研究问题、指标与证据映射}
-  \label{tab:rq_mapping}
+  \caption{研究问题、指标与证据映射}\label{tab:rq_mapping}
   \resizebox{\textwidth}{!}{%
   \begin{tabular}{p{1.2cm}p{5.2cm}p{4.2cm}p{4.0cm}}
     \toprule
@@ -39,8 +38,7 @@
 
 \begin{table}[htbp]
   \centering
-  \caption{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}
-  \label{tab:compare}
+  \caption{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}\label{tab:compare}
   \begin{tabular}{lccc}
     \toprule
     指标 & 定向采集 & 全量采集 & 降低比例 \\
@@ -56,24 +54,21 @@
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{fig3_comparison_bars.pdf}
-  \caption{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}
-  \label{fig:compare}
+  \caption{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}\label{fig:compare}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{fig4_ablation_bars.pdf}
-  \caption{消融实验结果（\textbf{策略仿真}，非集群实测）}
-  \label{fig:ablation}
+  \caption{消融实验结果（\textbf{策略仿真}，非集群实测）}\label{fig:ablation}
 \end{figure}
 
-对于 RQ3，端到端链路已在集群中实测打通：Nginx 共享内存 $\rightarrow$ \allowbreak Agent gRPC $\rightarrow$ \allowbreak Redis $\rightarrow$ \allowbreak 关注清单生成 $\rightarrow$ \allowbreak Agent 规则拉取。对于 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过全部单元测试。上述实验的复现脚本、原始结果 JSON 及单元测试代码均保存在项目仓库\footnote{实验脚本与原始数据见仓库 \texttt{experiments/} 目录；退避单元测试见 \texttt{agent/pkg/retry/} 目录。}中。
+对于 RQ3，端到端链路已在集群中实测打通：Nginx 共享内存 $\rightarrow$ \allowbreak{} Agent gRPC $\rightarrow$ \allowbreak{} Redis $\rightarrow$ \allowbreak{} 关注清单生成 $\rightarrow$ \allowbreak{} Agent 规则拉取。对于 RQ4，关注清单生成在 5000 条日志上耗时约 15\,ms（图~\ref{fig:attention}）；指数退避模块通过全部单元测试。上述实验的复现脚本、原始结果 JSON 及单元测试代码均保存在项目仓库\footnote{实验脚本与原始数据见仓库 \texttt{experiments/} 目录；退避单元测试见 \texttt{agent/pkg/retry/} 目录。}中。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{fig6_attention_bench.pdf}
-  \caption{关注清单生成算法微基准}
-  \label{fig:attention}
+  \caption{关注清单生成算法微基准}\label{fig:attention}
 \end{figure}
 
 \subsection{可复现性与效度威胁}
@@ -93,8 +88,7 @@
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.95\textwidth]{fig7_scale_bars.pdf}
-  \caption{多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf{非实测}）}
-  \label{fig:scale}
+  \caption{多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf{非实测}）}\label{fig:scale}
 \end{figure}
 
 \textbf{漏报定义与度量。}本文区分两类指标。第一类是\textbf{规则级漏报}——关注清单是否覆盖了所有满足定向策略条件（响应时延 $>T$ 或状态码 $\in E$）的 URL 模式。第二类是\textbf{探针即时命中率}——某一时刻向指定服务发送探针请求后，对应的应用日志是否在 Agent 批处理窗口内被立即采集并上传。在稳态混合负载下，关注清单稳定覆盖了 \texttt{/status/500}、\texttt{/delay/1} 等泛化模式（八节点 16 条、十六节点 32 条），\textbf{规则级}漏报率为 0。需要指出：这个结论成立的前提是合成负载与当前清单配置（Top-$K{=}50$、固定 URL 集合）。生产环境中 URL 模式的长尾分布、窗口大小和 Top-$K$ 参数都可能影响覆盖率。生产迹风格混合负载（60\% 正常 / 20\% 5xx / 12\% 慢请求 / 8\% 其他，90\,s、十六节点）共发送 3.6$\times10^4$ 次请求，定向入库 77 条，验证了减量能力。逐探针实验的即时命中率受 Agent 2\,s 批处理窗口影响，反映的是\textbf{批处理延迟对采集时效性的影响}，不等同于规则级漏报。
@@ -107,12 +101,10 @@
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.85\textwidth]{fig8_baseline_bars.pdf}
-  \caption{工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}
-  \label{fig:baseline}
+  \caption{工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}\label{fig:baseline}
 \end{figure}
 
-\subsection{剩余局限与后续工作}
-\label{sec:future}
+\subsection{剩余局限与后续工作}\label{sec:future}
 经过四期实验，本文已补充了 8/16/32 节点规模矩阵、规则级漏报验证、端到端延迟和工业基线估算。五期多进程模拟进一步补齐了同频率发射对照、Promtail 静态过滤对照和系统级组件消融方面的缺失环节，为基于模拟评估的理论界限提供了可追溯的依据。后续主要工作方向如下：
 
 \textbf{近期/中期工作：}（1）在 Kubernetes 环境开展 64 节点云原生实测，替代当前基于 32 节点复核结果的趋势外推，并评估 Top-$K$ 参数对长尾 URL 覆盖率的影响；（2）引入 DeathStarBench、Alibaba 生产迹等真实微服务负载，验证 URL 模式长尾分布下的动态关注清单覆盖率和召回性能；（3）构建完整的商业成本量化模型，把相对日志减量直接转化为存储和网络带宽的绝对费用节约估算。

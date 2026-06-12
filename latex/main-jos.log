@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  12 JUN 2026 15:15
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.6.10)  12 JUN 2026 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -828,22 +828,25 @@ Package hyperref Warning: Ignoring empty anchor on input line 35.
 (./sections/zh/00_abstract.tex) [1
 
 ] (./sections/zh/01_intro.tex)
-(./sections/zh/02_related.tex [2]
+(./sections/zh/02_related.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3])
 (./sections/zh/03_system.tex
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
 []\TU/NotoSerifCJKSC(0)/m/n/9.03374 高 价 值 流 量 日 志 与
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
 []\TU/NotoSerifCJKSC(0)/m/n/9.03374 关 注 清 单、|  本 地
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
 \TU/lmr/m/n/9.03374 Apache Combined
  []
 
@@ -859,7 +862,7 @@ File: ../figures/fig2_triple_transform.pdf Graphic file (type pdf)
 File: ../figures/fig5_backoff_distribution.pdf Graphic file (type pdf)
 <use ../figures/fig5_backoff_distribution.pdf>
 ) (./sections/zh/05_implementation.tex [6]
-Overfull \hbox (0.8878pt too wide) in paragraph at lines 29--30
+Overfull \hbox (0.8878pt too wide) in paragraph at lines 28--29
 []\TU/NotoSerifCJKSC(0)/m/n/9 节 点 侧 的 匹 配 器 把 \TU/lmr/m/n/9 URL \TU/NotoSerifCJ
 KSC(0)/m/n/9 模 式 编 译 为 前 缀\TU/lmr/m/n/9 /\TU/NotoSerifCJKSC(0)/m/n/9 通 配 匹 配 规 
 则，|  按 服 务 名 分 桶。|  匹 配 单 条 日 志 的 复 杂 度 近 似 为 $\OML/cmm/m/it/9 O\OT1/cmr/m/n/9 
@@ -874,7 +877,7 @@ File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
 
-Overfull \hbox (4.41231pt too wide) in paragraph at lines 84--85
+Overfull \hbox (4.41231pt too wide) in paragraph at lines 79--80
 []\TU/NotoSerifCJKSC(0)/b/n/9 基 线 效 度\TU/NotoSerifCJKSC(0)/m/n/9 ：|  本 文 已 给 出 
 同 架 构 全 量 实 测 基 线、| \TU/lmr/m/n/9 Promtail \TU/NotoSerifCJKSC(0)/m/n/9 静 态 过 滤 
 的 同 负 载 模 拟 复 现，|  以 及 \TU/lmr/m/n/9 OpenTelemetry/eBPF
