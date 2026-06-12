@@ -4,15 +4,18 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%加载类
 \LoadClass[twoside, UTF8]{ctexart}  % twoside可以设计奇偶不一样的页眉
+\linespread{1.0}  % 覆盖 ctexart 默认的 1.3 倍行距，改为单倍行距
 
 %%%%%%%%%%%%%%%%%%%%%%%%%加载包
 \RequirePackage{geometry}           % 定制页边距
+% 2025 Word模板精确参数: 页面 18.40×26.00cm
+% 边距 L=1.45 R=1.45 T=1.00 B=2.20cm  页眉距 1.30cm
 \geometry{
-  a4paper,
-  top=2.5cm, bottom=2.5cm,
-  left=2.0cm, right=2.0cm,
-  headheight=36pt,
-  headsep=0.5cm,
+  paperwidth=18.40cm, paperheight=26.00cm,
+  left=1.45cm, right=1.45cm,
+  top=1.00cm, bottom=2.20cm,
+  headheight=30pt,
+  headsep=0.3cm,
   footskip=1.0cm
 }
 \RequirePackage{fancyhdr}           % 设置页眉页脚
@@ -23,6 +26,7 @@
 \RequirePackage{enumitem}           % 设置enumerate/itemize等的item距离
 \RequirePackage{booktabs}           % 设置可以使用三线表
 \RequirePackage{amsmath}            % 设置可以引用数学公式
+\RequirePackage[font=small,labelsep=space,skip=3pt]{caption}  % 控制图表标题与图表间距
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%设置字体
@@ -34,19 +38,19 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%定义字号
-\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
-\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
-\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
-\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
-\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
-\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
-\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
-\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
-\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
-\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
-\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
-\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%定义字号 (baselineskip ≈ 1.2×字号)
+\newcommand{\chuhao}{\fontsize{42pt}{50pt}\selectfont}
+\newcommand{\xiaochuhao}{\fontsize{36pt}{44pt}\selectfont}
+\newcommand{\yihao}{\fontsize{28pt}{34pt}\selectfont}
+\newcommand{\erhao}{\fontsize{21pt}{25pt}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{18pt}{22pt}\selectfont}
+\newcommand{\sanhao}{\fontsize{15.75pt}{19pt}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{17pt}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{15pt}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{13pt}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{12pt}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.875pt}{10pt}\selectfont}
+\newcommand{\qihao}{\fontsize{5.25pt}{7pt}\selectfont}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%定义一些变量
@@ -64,19 +68,19 @@
 
 \newcommand{\rjmaketitle}{%
 	\begin{flushleft}
-	    ~\par\vspace{1em}
+	    ~\par\vspace{0.6em}
 		{\sihao\hei\@rjtitle}\\
-		\vspace{8pt}
+		\vspace{6pt}
 		{\xiaosihao\fs{\@rjauthor}}\\
-		\vspace{12pt}
+		\vspace{8pt}
 		{\zihao{8}\song\@rjinfor}
 	\end{flushleft}}
 
-\newcommand{\rjkeywords}[1]{\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\vspace{0.6em}}
+\newcommand{\rjkeywords}[1]{\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\vspace{0.4em}}
 
 % 中图法分类号（2025 模板新增位置：关键词下方）
 \newcommand{\rjcategory}[1]{%
-	\par\xiaowuhao {\hei 中图法分类号:}\hspace{1em}{\song #1}\vspace{1.5em}}
+	\par\xiaowuhao {\hei 中图法分类号:}\hspace{1em}{\song #1}\vspace{1.0em}}
 
 % 基金项目（2025 模板尾部）
 \newcommand{\rjfunding}[1]{%
@@ -90,8 +94,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%定义环境
 
 \newenvironment{rjabstract}{
-%	 \setlength{\baselineskip}{20pt}  %设置行间距
-	 \renewcommand{\baselinestretch}{1.0}  % 设置行间距为单倍
+	 \renewcommand{\baselinestretch}{1.0}  % 摘要区单倍行距
 	 \begin{flushleft}\xiaowuhao {\hei 摘\hspace{2em}要:} \kai}
 {\end{flushleft}\xiaowuhao}
 
@@ -102,14 +105,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%重新定义一下内置命令，例如section/subsection等命令
 % \@startsection{name}{level}{indent}{beforskip}{afterskip}
+% 2025 模板: Heading 1 = 10.5pt(五号)黑体, space_before=8pt, space_after=8pt
 \renewcommand\section{\@startsection{section}{1}{\z@}%
 	{8pt}%
 	{8pt}%
 	{\heiti\wuhao}}
 
+% 2025 模板: Heading 2 = 9pt(小五号)黑体, space_before=1.2pt, space_after=1.2pt
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-	{4.5pt}%
-	{4.5pt}%
+	{1.2pt}%
+	{1.2pt}%
 	{\heiti\xiaowuhao}}
 
 \renewcommand{\thesection}{\arabic{section}}
@@ -135,6 +140,12 @@
 \newcommand{\rjhead}[1]{%
 	\fancyhead[LO]{\ifthenelse{\value{page}=1}{\setlength{\lineskip}{0pt}\liuhao\song 软件学报ISSN 1000-9825, CODEN RUXUEW\\Journal of Software, [doi: 10.13328/j.cnki.jos.000000]\\©中国科学院软件研究所版权所有.}{\xiaowuhao\kai #1}}}
 
-\setlength{\headheight}{36pt}
-\linespread{1.25}  % 约 1.5 倍行距（五号 10.5pt × 1.5 ≈ 15.75pt），匹配 2025 Word 模板
+\setlength{\headheight}{30pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%正文排版参数
+% 2025 模板: Normal 字号 9pt (小五号), 样式1 正文段落无额外行距
+% 正文默认小五号、单倍行距（与 Word 模板一致）
+\renewcommand{\normalsize}{\fontsize{9pt}{13pt}\selectfont}  % 9pt字号, 13pt行距 (≈ Word 单倍行距 + CJK 补偿)
+\setlength{\parindent}{2em}  % 段首缩进两字符 (≈18pt at 9pt)
+\setlength{\parskip}{0pt}    % 段间距为0 (模板无额外段间距)
 \setlist{nosep}    %设置item之间的间距

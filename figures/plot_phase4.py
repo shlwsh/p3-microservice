@@ -82,7 +82,7 @@ def plot_scale(data: dict):
     axes[2].set_title("Center CPU (%)")
     axes[2].set_xlabel("节点数")
 
-    fig.suptitle("多规模扩展实验（灰色为 32/64 外推）", fontsize=11)
+
     fig.tight_layout()
     fig.savefig(OUT / "fig7_scale_bars.pdf", bbox_inches="tight")
     fig.savefig(OUT / "fig7_scale_bars.png", dpi=150, bbox_inches="tight")
@@ -112,7 +112,7 @@ def plot_baselines(data: dict):
     ax.set_xticklabels(names, fontsize=9)
     ax.set_ylabel("Loki 入库条数")
     ax2.set_ylabel("CPU (%)")
-    ax.set_title("工业基线对照（同负载口径）")
+
     fig.tight_layout()
     fig.savefig(OUT / "fig8_baseline_bars.pdf", bbox_inches="tight")
     fig.savefig(OUT / "fig8_baseline_bars.png", dpi=150, bbox_inches="tight")

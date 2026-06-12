@@ -25,30 +25,29 @@ Guilherme Vale, Filipe~Figueiredo Correia, Eduardo~Martins Guerra, Thatiane
 \newblock {\em arXiv preprint arXiv:2201.03598}, 2022.
 
 \bibitem{feng2020microservice}
-冯志勇, 徐砚伟, 薛霄, and 陈世展.
-\newblock 微服务技术发展的现状与展望 [current status and prospects
-  of microservice technology development].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 57(5):1103--1122, 2020.
+Zhiyong Feng, Yanwei Xu, Xiao Xue, and Shizhan Chen.
+\newblock Current status and prospects of microservice technology development.
+\newblock {\em Journal of Computer Research and Development}, 57(5):1103--1122,
+  2020.
 
 \bibitem{wuhuayao2020microdev}
-吴化尧 and 邓文俊.
-\newblock 面向微服务软件开发方法研究进展 [research progress on
-  microservice-oriented software development methods].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 57(3):525--541, 2020.
+Huayao Wu and Wenjun Deng.
+\newblock Research progress on microservice-oriented software development
+  methods.
+\newblock {\em Journal of Computer Research and Development}, 57(3):525--541,
+  2020.
 
 \bibitem{liao2016logs}
-廖湘科, 李姗姗, 董威, 贾周阳, 刘晓东, and 周书林.
-\newblock 大规模软件系统日志研究综述 [a survey on logs in
-  large-scale software systems].
-\newblock {\em 软件学报 [Journal of Software]}, 27(8):1934--1947, 2016.
+Xiangke Liao, Shanshan Li, Wei Dong, Zhouyang Jia, Xiaodong Liu, and Shulin
+  Zhou.
+\newblock A survey on logs in large-scale software systems.
+\newblock {\em Journal of Software}, 27(8):1934--1947, 2016.
 
 \bibitem{limingshu2019logmgmt}
-李明树, 张艳, 王涛, and 刘俊.
-\newblock 大规模分布式系统日志管理技术综述 [a survey on log
-  management technologies for large-scale distributed systems].
-\newblock {\em 软件学报 [Journal of Software]}, 30(7):1959--1979, 2019.
+Mingshu Li, Yan Zhang, Tao Wang, and Jun Liu.
+\newblock A survey on log management technologies for large-scale distributed
+  systems.
+\newblock {\em Journal of Software}, 30(7):1959--1979, 2019.
 
 \bibitem{he2020logsurvey}
 Shilin He, Pinjia He, Zhuangbin Chen, Tianyi Yang, Yuxin Su, and Michael~R.
@@ -63,24 +62,22 @@ Muhammad Usman, Simone Ferlin, Anna Brunstrom, and Javid Taheri.
 \newblock {\em IEEE Access}, 10:86904--86919, 2022.
 
 \bibitem{bao2023aiops}
-包航宇, 殷康璘, 曹立, 李世宁, et~al.
-\newblock 智能运维的实践: 现状与标准化 [practice of aiops: Status
-  quo and standardization].
-\newblock {\em 软件学报 [Journal of Software]}, 34(9):4069--4095, 2023.
+Hangyu Bao, Kanglin Yin, Li~Cao, Shining Li, et~al.
+\newblock Practice of aiops: Status quo and standardization.
+\newblock {\em Journal of Software}, 34(9):4069--4095, 2023.
 
 \bibitem{jiatong2020logdiag}
-贾统, 李影, and 吴中海.
-\newblock 基于日志数据的分布式软件系统故障诊断综述 [a
-  survey on fault diagnosis of distributed software systems based on log data].
-\newblock {\em 软件学报 [Journal of Software]}, 31(7):1997--2018, 2020.
+Tong Jia, Ying Li, and Zhonghai Wu.
+\newblock A survey on fault diagnosis of distributed software systems based on
+  log data.
+\newblock {\em Journal of Software}, 31(7):1997--2018, 2020.
 
 \bibitem{chen2020loganomaly}
-陈彦宁, 张广艳, and 陈康.
-\newblock 面向云数据中心多语法日志通用异常检测机制 [a
-  universal anomaly detection mechanism for multi-syntax logs in cloud data
-  centers].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 57(9):1844--1856, 2020.
+Yanning Chen, Guangyan Zhang, and Kang Chen.
+\newblock A universal anomaly detection mechanism for multi-syntax logs in
+  cloud data centers.
+\newblock {\em Journal of Computer Research and Development}, 57(9):1844--1856,
+  2020.
 
 \bibitem{liu2019logzip}
 Jinyang Liu, Jieming Zhu, Shilin He, Pinjia He, Zibin Zheng, and Michael~R.
@@ -97,11 +94,10 @@ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, and Michael~R. Lyu.
 \newblock {\em arXiv preprint arXiv:2008.06448}, 2020.
 
 \bibitem{wei2023cloudlogstorage}
-魏钧宇, 张广艳, and 陈军超.
-\newblock 数据模式感知的低成本云日志存储系统 [data
-  schema-aware low-cost cloud log storage system].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 60(11):2442--2452, 2023.
+Junyu Wei, Guangyan Zhang, and Junchao Chen.
+\newblock Data schema-aware low-cost cloud log storage system.
+\newblock {\em Journal of Computer Research and Development},
+  60(11):2442--2452, 2023.
 
 \bibitem{khan2022logtemplate}
 Zhihan Jiang, Jinyang Liu, Junjie Huang, Yichen Li, and Michael~R. Lyu.
@@ -125,50 +121,45 @@ Sergio Moreschini, Davide Taibi, Valentina Lenarduzzi, and Claus Pahl.
 \newblock {\em arXiv preprint arXiv:2305.16092}, 2023.
 
 \bibitem{yang2020tracingsurvey}
-杨勇, 李影, and 吴中海.
-\newblock 分布式追踪技术综述 [a survey on distributed tracing
-  technologies].
-\newblock {\em 软件学报 [Journal of Software]}, 31(7):2019--2039, 2020.
+Yong Yang, Ying Li, and Zhonghai Wu.
+\newblock A survey on distributed tracing technologies.
+\newblock {\em Journal of Software}, 31(7):2019--2039, 2020.
 
 \bibitem{huang2023javatrace}
-黄梓程, 陈鹏飞, 余广坝, and 陈泓仰.
-\newblock 面向 java 微服务系统的透明请求追踪及采样方法
-  [transparent request tracing and sampling method for java microservice
-  systems].
-\newblock {\em 软件学报 [Journal of Software]}, 34(7):3167--3187, 2023.
+Zicheng Huang, Pengfei Chen, Guangba Yu, and Hongyang Chen.
+\newblock Transparent request tracing and sampling method for java microservice
+  systems.
+\newblock {\em Journal of Software}, 34(7):3167--3187, 2023.
 
 \bibitem{you2021tracelogstorage}
-尤勇, 汪浩, 任天, 顾胜晖, and 孙佳林.
-\newblock 一种监控系统的链路跟踪型日志数据的存储设计 [a
-  storage design of link-tracing log data for monitoring systems].
-\newblock {\em 软件学报 [Journal of Software]}, 32(5):1302--1321, 2021.
+Yong You, Hao Wang, Tian Ren, Shenghui Gu, and Jialin Sun.
+\newblock A storage design of link-tracing log data for monitoring systems.
+\newblock {\em Journal of Software}, 32(5):1302--1321, 2021.
 
 \bibitem{yuqingyang2022trace}
-于庆洋, 白晓颖, 李明杰, 李奇原, 刘涛, 刘泽胤, and 裴丹.
-\newblock
-  基于调用链控制流分析的大型微服务系统性能建模与异常定位
-  [performance modeling and anomaly localization for large-scale microservice
-  systems based on call chain control flow analysis].
-\newblock {\em 软件学报 [Journal of Software]}, 33(5):1849--1864, 2022.
+Qingyang Yu, Xiaoying Bai, Mingjie Li, Qiyuan Li, Tao Liu, Zeyin Liu, and Dan
+  Pei.
+\newblock Performance modeling and anomaly localization for large-scale
+  microservice systems based on call chain control flow analysis.
+\newblock {\em Journal of Software}, 33(5):1849--1864, 2022.
 
 \bibitem{zhang2024servicedep}
-张齐勋, 吴一凡, 杨勇, 贾统, 李影, and 吴中海.
-\newblock 微服务系统服务依赖发现技术综述 [a survey on service
-  dependency discovery technologies in microservice systems].
-\newblock {\em 软件学报 [Journal of Software]}, 35(1):118--135, 2024.
+Qixun Zhang, Yifan Wu, Yong Yang, Tong Jia, Ying Li, and Zhonghai Wu.
+\newblock A survey on service dependency discovery technologies in microservice
+  systems.
+\newblock {\em Journal of Software}, 35(1):118--135, 2024.
 
 \bibitem{wanglu2023microfault}
-王璐, 姜宇轩, 李青山, 霍其恩, 王展, 谢生龙, and 歹杰.
-\newblock 微服务故障检测研究综述 [a survey on microservice fault
-  detection].
-\newblock {\em 计算机学报 [Chinese Journal of Computers]},
-  46(11):2342--2373, 2023.
+Lu~Wang, Yuxuan Jiang, Qingshan Li, Qien Huo, Zhan Wang, Shenglong Xie, and Jie
+  Dai.
+\newblock A survey on microservice fault detection.
+\newblock {\em Chinese Journal of Computers}, 46(11):2342--2373, 2023.
 
 \bibitem{wang2017tracefault}
-王智宇, 王涛, 张文博, 陈宁江, and 左春.
-\newblock 一种基于执行轨迹监测的微服务故障诊断方法 [a
-  microservice fault diagnosis method based on execution trace monitoring].
-\newblock {\em 软件学报 [Journal of Software]}, 28(6):1435--1454, 2017.
+Zhiyu Wang, Tao Wang, Wenbo Zhang, Ningjiang Chen, and Chun Zuo.
+\newblock A microservice fault diagnosis method based on execution trace
+  monitoring.
+\newblock {\em Journal of Software}, 28(6):1435--1454, 2017.
 
 \bibitem{wu2020microrca}
 Li~Wu, Johan Tordsson, Erik Elmroth, and Odej Kao.
@@ -195,12 +186,11 @@ Benjamin Varghese, Nikolaos Antonopoulos, and Rajkumar Buyya.
 \newblock {\em ACM Computing Surveys}, 55(3):1--35, 2022.
 
 \bibitem{liu2017microcontainer}
-刘敏 and 周傲英.
-\newblock 面向微服务架构的容器级弹性资源供给方法
-  [container-level elastic resource provisioning method for microservice
-  architecture].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 54(5):957--967, 2017.
+Min Liu and Aoying Zhou.
+\newblock Container-level elastic resource provisioning method for microservice
+  architecture.
+\newblock {\em Journal of Computer Research and Development}, 54(5):957--967,
+  2017.
 
 \bibitem{zhu2023sidecar}
 Yuxin Zhang, Bowen Li, Xin Peng, Qilin Xiang, and Xuanzhe Liu.
@@ -240,12 +230,10 @@ Zhihan Jiang, Jinyang Liu, Junjie Huang, Yichen Li, Yintong Huo, et~al.
 \newblock {\em arXiv preprint arXiv:2308.10828}, 2023.
 
 \bibitem{meiyudong2020logcnn}
-梅御东, 陈旭, 孙毓忠, et~al.
-\newblock 一种基于日志信息和 {CNN-text}
-  的软件系统异常检测方法 [a software system anomaly detection method
-  based on log information and {CNN-text}].
-\newblock {\em 计算机学报 [Chinese Journal of Computers]}, 43(2):524--544,
-  2020.
+Yudong Mei, Xu~Chen, Yuzhong Sun, et~al.
+\newblock A software system anomaly detection method based on log information
+  and {CNN-text}.
+\newblock {\em Chinese Journal of Computers}, 43(2):524--544, 2020.
 
 \bibitem{guo2024logformer}
 Hongcheng Guo, Jian Yang, Jiaheng Liu, Jiaqi Bai, Boyang Wang, et~al.
@@ -267,19 +255,18 @@ Fatemeh Hadadi, Joshua~H. Dawes, Donghwan Shin, Domenico Bianculli, and Lionel
 \newblock {\em Empirical Software Engineering}, 2024.
 
 \bibitem{zhou2023fusionad}
-周小晖, 王意洁, 徐鸿祚, and 刘铭宇.
-\newblock 基于融合学习的无监督多维时间序列异常检测
-  [unsupervised multivariate time series anomaly detection based on fusion
-  learning].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 60(3):496--508, 2023.
+Xiaohui Zhou, Yijie Wang, Hongzuo Xu, and Mingyu Liu.
+\newblock Unsupervised multivariate time series anomaly detection based on
+  fusion learning.
+\newblock {\em Journal of Computer Research and Development}, 60(3):496--508,
+  2023.
 
 \bibitem{fang2024microperf}
-方浩天, 李春花, 王清, and 周可.
-\newblock 一种基于深度学习的微服务性能异常检测方法 [a deep
-  learning-based microservice performance anomaly detection method].
-\newblock {\em 计算机研究与发展 [Journal of Computer Research and
-  Development]}, 61(3):600--613, 2024.
+Haotian Fang, Chunhua Li, Qing Wang, and Ke~Zhou.
+\newblock A deep learning-based microservice performance anomaly detection
+  method.
+\newblock {\em Journal of Computer Research and Development}, 61(3):600--613,
+  2024.
 
 \bibitem{zhang2024reducing}
 Lingzhe Zhang, Tong Jia, Kangjin Wang, Mengxi Jia, Yong Yang, and Ying Li.
@@ -301,17 +288,15 @@ Jacopo Soldani and Antonio Brogi.
 \newblock {\em Journal of Systems and Software}, 159:110432, 2020.
 
 \bibitem{ding2020decomposition}
-丁丹, 彭鑫, 郭晓峰, 张健, and 吴毅坚.
-\newblock 场景驱动且自底向上的单体系统微服务拆分方法
-  [scenario-driven and bottom-up microservice decomposition method for
-  monolithic systems].
-\newblock {\em 软件学报 [Journal of Software]}, 31(11):3461--3480, 2020.
+Dan Ding, Xin Peng, Xiaofeng Guo, Jian Zhang, and Yijian Wu.
+\newblock Scenario-driven and bottom-up microservice decomposition method for
+  monolithic systems.
+\newblock {\em Journal of Software}, 31(11):3461--3480, 2020.
 
 \bibitem{jia2021loggingdecision}
-贾统, 李影, 张齐勋, and 吴中海.
-\newblock 基于程序层次树的日志打印位置决策方法 [logging
-  position decision method based on program hierarchical tree].
-\newblock {\em 软件学报 [Journal of Software]}, 32(9):2713--2728, 2021.
+Tong Jia, Ying Li, Qixun Zhang, and Zhonghai Wu.
+\newblock Logging position decision method based on program hierarchical tree.
+\newblock {\em Journal of Software}, 32(9):2713--2728, 2021.
 
 \bibitem{seshagiri2022sok}
 Vishwanath Seshagiri, Darby Huye, Lan Liu, Avani Wildani, and Raja~R.

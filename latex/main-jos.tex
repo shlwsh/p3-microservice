@@ -32,6 +32,7 @@
 \begin{document}
 
 \rjmaketitle
+\let\thefootnote\relax\footnotetext{\xiaowuhao\song 收稿时间: XXXX-XX-XX; 修改时间: XXXX-XX-XX; 采用时间: XXXX-XX-XX}
 
 \input{sections/zh/00_abstract}
 
@@ -52,14 +53,14 @@
 
 % ---------- 英文标题/作者/机构（2025 模板格式）----------
 \begin{flushleft}
-\xiaosihao\textbf{Design and Implementation of a Distributed Directed Log Collection Component Under Microservice Architecture}
+{\wuhao\textbf{Design and Implementation of a Distributed Directed Log Collection Component Under Microservice Architecture}}
 
-\vspace{0.3em}
-\xiaowuhao
-SHI Hong-Lei, ~ZHAO Juan-Juan
+\vspace{5pt}
+{\xiaowuhao
+SHI Hong-Lei, ~ZHAO Juan-Juan}
 
-\vspace{0.3em}
-{\zihao{8}\song
+\vspace{5pt}
+{\fontsize{7.5pt}{12pt}\selectfont\song
 (College of Computer Science and Technology, Taiyuan University of Technology, Taiyuan 030024, China)}
 \end{flushleft}
 
@@ -120,22 +121,25 @@ SHI Hong-Lei, ~ZHAO Juan-Juan
 \end{description}
 }
 
-% ---------- 作者简介（2025 模板：纯文本格式）----------
+% ---------- 作者简介（2025 模板：纯文本格式，六号字悬挂缩进）----------
 \vspace{0.5em}
-\noindent{\xiaowuhao\hei 作者简介}
+\noindent{\xiaowuhao\textbf{\hei 作者简介}}
 
-\noindent{\xiaowuhao\song
-石洪雷，博士，CCF专业会员，主要研究领域为微服务架构开发、智能体系统构建、智能运维与智能机器人应用开发。E-mail: \url{shihonglei0042@link.tyut.edu.cn}
-
-赵涓涓，博士，教授，博士生导师，CCF杰出会员，主要研究领域为智能信息处理、模式识别、情感计算、图像处理。E-mail: \url{zh_juanjuan@126.com}
+\begingroup
+\fontsize{7.5pt}{11.5pt}\selectfont
+\begin{list}{}{%
+  \leftmargin=2em
+  \itemindent=-2em
+  \labelwidth=0pt
+  \labelsep=0pt
+  \parsep=0pt
+  \itemsep=4pt
+  \topsep=0pt
 }
+\item {\hei 石洪雷}，博士，CCF专业会员，主要研究领域为微服务架构开发、智能体系统构建、智能运维与智能机器人应用开发。E-mail: \url{shihonglei0042@link.tyut.edu.cn}
+\item {\hei 赵涓涓}，博士，教授，博士生导师，CCF杰出会员，主要研究领域为智能信息处理、模式识别、情感计算、图像处理。E-mail: \url{zh_juanjuan@126.com}
+\end{list}
+\endgroup
 
-% ---------- 基金项目（2025 模板格式）----------
-\vspace{0.5em}
-\rjfunding{（待填写具体基金名称和编号）}
-
-% ---------- 收稿时间（2025 模板格式）----------
-\vspace{0.3em}
-\rjdates{收稿时间: XXXX-XX-XX; 修改时间: XXXX-XX-XX; 采用时间: XXXX-XX-XX}
 
 \end{document}

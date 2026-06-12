@@ -85,7 +85,7 @@ def fig1_system_overview():
             mx, my = (src[0] + dst[0]) / 2, (src[1] + dst[1]) / 2
             ax.text(mx, my + 0.15, label, ha="center", fontsize=9, color="#546E7A")
 
-    ax.set_title("图1  分布式定向日志采集系统总体架构", fontsize=14, fontweight="bold", pad=12)
+
     save(fig, "fig1_system_overview")
 
 
@@ -110,7 +110,7 @@ def fig2_triple_transform():
             ax.annotate("", xy=(stages[i + 1][0], 2.1), xytext=(x + 1.8, 2.1),
                         arrowprops=dict(arrowstyle="->", lw=2, color="#0D47A1"))
 
-    ax.text(5, 3.3, "图2  定向策略三次转换算法流程", ha="center", fontsize=14, fontweight="bold")
+
     save(fig, "fig2_triple_transform")
 
 
@@ -131,7 +131,7 @@ def fig3_comparison(data: dict):
     b2 = ax.bar(x + w / 2, full, w, label="全量采集", color="#E64A19", alpha=0.88)
     ax.set_ylabel("数值")
     note = "实测" if data.get("phase") == "phase2_measured" else "首期仿真"
-    ax.set_title(f"图3  定向采集与全量采集资源消耗对比（{note}）")
+
     ax.set_xticks(x)
     ax.set_xticklabels(metrics)
     ax.legend()
@@ -162,7 +162,7 @@ def fig4_ablation(data: dict):
     axes[2].set_title("丢失率 (%)")
     axes[2].tick_params(axis="x", rotation=25)
 
-    fig.suptitle("图4  消融实验结果（首期仿真）", fontsize=14, fontweight="bold")
+
     fig.tight_layout()
     save(fig, "fig4_ablation_bars")
 
@@ -181,7 +181,7 @@ def fig5_backoff(data: dict):
     ax.axhline(30000, color="#C62828", ls="--", lw=1.2, label="上限 30s")
     ax.set_xlabel("重试次数")
     ax.set_ylabel("延迟 (ms)")
-    ax.set_title("图5  指数退避重试延迟分布")
+
     ax.set_yscale("log")
     ax.legend()
     ax.grid(True, alpha=0.3)
@@ -198,7 +198,7 @@ def fig6_attention_bench(data: dict):
     fig, ax = plt.subplots(figsize=(7, 4.5))
     bars = ax.bar(labels, values, color=["#5C6BC0", "#FFA726", "#66BB6A", "#26C6DA"], alpha=0.9)
     ax.set_ylabel("数量")
-    ax.set_title(f"图6  关注清单生成算法微基准（耗时 {bench['elapsed_ms']} ms）")
+
     for bar in bars:
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(),
                 str(int(bar.get_height())), ha="center", va="bottom")
