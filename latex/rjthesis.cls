@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{rjthesis}[2019/11/13 Software journal paper]
+\ProvidesClass{rjthesis}[2025/06/12 Software journal paper (2025 template)]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%加载类
@@ -7,6 +7,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%加载包
 \RequirePackage{geometry}           % 定制页边距
+\geometry{
+  a4paper,
+  top=2.5cm, bottom=2.5cm,
+  left=2.0cm, right=2.0cm,
+  headheight=36pt,
+  headsep=0.5cm,
+  footskip=1.0cm
+}
 \RequirePackage{fancyhdr}           % 设置页眉页脚
 \RequirePackage{xeCJK}              % 引入中文支持
 \RequirePackage{CJKnumb}            % 引入中文支持
@@ -64,7 +72,19 @@
 		{\zihao{8}\song\@rjinfor}
 	\end{flushleft}}
 
-\newcommand{\rjkeywords}[1]{\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\vspace{2em}}
+\newcommand{\rjkeywords}[1]{\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\vspace{0.6em}}
+
+% 中图法分类号（2025 模板新增位置：关键词下方）
+\newcommand{\rjcategory}[1]{%
+	\par\xiaowuhao {\hei 中图法分类号:}\hspace{1em}{\song #1}\vspace{1.5em}}
+
+% 基金项目（2025 模板尾部）
+\newcommand{\rjfunding}[1]{%
+	\par\noindent{\xiaowuhao\song {\hei 基金项目:}\hspace{0.5em}#1}}
+
+% 收稿/修改/采用时间（2025 模板最末行）
+\newcommand{\rjdates}[1]{%
+	\par\noindent{\xiaowuhao\song #1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%定义环境
@@ -87,7 +107,7 @@
 	{8pt}%
 	{\heiti\wuhao}}
 
-\renewcommand\subsection{\@startsection{subsection}{1}{\z@}%
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
 	{4.5pt}%
 	{4.5pt}%
 	{\heiti\xiaowuhao}}
@@ -116,5 +136,5 @@
 	\fancyhead[LO]{\ifthenelse{\value{page}=1}{\setlength{\lineskip}{0pt}\liuhao\song 软件学报ISSN 1000-9825, CODEN RUXUEW\\Journal of Software, [doi: 10.13328/j.cnki.jos.000000]\\©中国科学院软件研究所版权所有.}{\xiaowuhao\kai #1}}}
 
 \setlength{\headheight}{36pt}
-\setlength{\linespread}{1}  % 设置文本行间距为单倍
+\linespread{1.25}  % 约 1.5 倍行距（五号 10.5pt × 1.5 ≈ 15.75pt），匹配 2025 Word 模板
 \setlist{nosep}    %设置item之间的间距

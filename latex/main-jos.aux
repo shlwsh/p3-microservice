@@ -5,9 +5,9 @@
 \providecommand \oddpage@label [2]{}
 \citation{burns2016patterns,burns2016borg,jamshidi2018microservices,richardson2018microservices,feng2020microservice,wuhuayao2020microdev}
 \citation{liao2016logs,limingshu2019logmgmt,he2020logsurvey,usman2022observability}
+\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{2}{section.1}\protected@file@percent }
 \citation{bao2023aiops}
 \citation{jiatong2020logdiag}
-\@writefile{toc}{\contentsline {section}{\numberline {1}引言}{2}{section.1}\protected@file@percent }
 \citation{liao2016logs,limingshu2019logmgmt,he2020logsurvey,chen2020loganomaly}
 \citation{liu2019logzip,zhu2020loghub,wei2023cloudlogstorage,khan2022logtemplate}
 \citation{otel_tail}
@@ -16,21 +16,23 @@
 \citation{wang2017tracefault,wu2020microrca,zhang2023multimodal,wang2024rca}
 \citation{varghese2022edge,usman2022observability,liu2017microcontainer}
 \citation{zhu2023sidecar,soldani2023ebpf}
+\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{4}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}集中式日志栈}{4}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}采样与追踪关联}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}边缘采集与可靠传输}{4}{subsection.2.3}\protected@file@percent }
 \citation{bao2023aiops}
 \citation{cheng2023aiops,diaz2023mlopsaiops,moreschini2023microai}
 \citation{jiatong2020logdiag}
 \citation{dai2020logram,khan2022logtemplate,jiang2023logparsing}
 \citation{meiyudong2020logcnn,guo2024logformer,ali2025logml,hadadi2024logfailure,zhou2023fusionad,fang2024microperf,zhang2024reducing}
 \citation{zhang2024multivariate,soldani2020graphrca}
-\@writefile{toc}{\contentsline {section}{\numberline {2}相关工作}{3}{section.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}集中式日志栈}{3}{subsection.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}采样与追踪关联}{3}{subsection.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}边缘采集与可靠传输}{3}{subsection.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}AIOps 实践与标准化}{3}{subsection.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}日志解析与故障诊断}{3}{subsection.2.5}\protected@file@percent }
 \citation{ding2020decomposition,jia2021loggingdecision,jamshidi2018microservices,seshagiri2022sok}
 \citation{burns2016patterns,burns2016borg,richardson2018microservices}
 \citation{soldani2023ebpf,yang2023nahida}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}AIOps 实践与标准化}{5}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}日志解析与故障诊断}{5}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}微服务工程与云原生生态}{5}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}新兴采集技术与最接近先例}{5}{subsection.2.7}\protected@file@percent }
 \citation{otel_tail}
 \citation{soldani2023ebpf,yang2023nahida}
 \citation{bao2023aiops}
@@ -38,68 +40,66 @@
 \citation{yuqingyang2022trace}
 \citation{bao2023aiops}
 \citation{jiatong2020logdiag}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}微服务工程与云原生生态}{4}{subsection.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}新兴采集技术与最接近先例}{4}{subsection.2.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}与代表性方案对比}{4}{subsection.2.8}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 与代表性日志采集/可观测性方案对比}}{4}{table.1}\protected@file@percent }
-\newlabel{tab:related_compare}{{1}{4}{与代表性日志采集/可观测性方案对比}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}本文定位}{4}{subsection.2.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3}系统总体设计}{5}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}架构概述}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 分布式定向日志采集框架的三层输入/输出}}{5}{table.2}\protected@file@percent }
-\newlabel{tab:framework_layers}{{2}{5}{分布式定向日志采集框架的三层输入/输出}{table.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}工作流程}{5}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}部署模式}{5}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}关键算法}{5}{section.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 分布式定向日志采集系统总体架构}}{6}{figure.1}\protected@file@percent }
-\newlabel{fig:arch}{{1}{6}{分布式定向日志采集系统总体架构}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}关注清单动态生成}{7}{subsection.4.1}\protected@file@percent }
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces 关注清单动态生成}}{7}{algocf.1}\protected@file@percent }
-\newlabel{alg:attention}{{1}{7}{关注清单动态生成}{algocf.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}固定缓存块}{7}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}定向策略三次转换}{7}{subsection.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 定向策略三次转换算法流程}}{8}{figure.2}\protected@file@percent }
-\newlabel{fig:transform}{{2}{8}{定向策略三次转换算法流程}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}压力感知指数退避}{8}{subsection.4.4}\protected@file@percent }
-\newlabel{eq:backoff}{{1}{8}{压力感知指数退避}{equation.4.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}系统实现}{8}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}技术选型}{8}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}模块划分}{8}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 指数退避重试延迟分布}}{9}{figure.3}\protected@file@percent }
-\newlabel{fig:backoff}{{3}{9}{指数退避重试延迟分布}{figure.3}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 技术选型}}{9}{table.3}\protected@file@percent }
-\newlabel{tab:tech}{{3}{9}{技术选型}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}关键数据结构与匹配实现}{10}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}部署配置}{10}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}生产部署与标准化接口}{10}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}实验与分析}{10}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}环境与方法}{10}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}研究问题与指标}{10}{subsection.6.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 研究问题、指标与证据映射}}{11}{table.4}\protected@file@percent }
-\newlabel{tab:rq_mapping}{{4}{11}{研究问题、指标与证据映射}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}实验结果}{11}{subsection.6.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}}{11}{table.5}\protected@file@percent }
-\newlabel{tab:compare}{{5}{11}{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}{table.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}}{12}{figure.4}\protected@file@percent }
-\newlabel{fig:compare}{{4}{12}{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 消融实验结果（\textbf  {策略仿真}，非集群实测）}}{12}{figure.5}\protected@file@percent }
-\newlabel{fig:ablation}{{5}{12}{消融实验结果（\textbf {策略仿真}，非集群实测）}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 关注清单生成算法微基准}}{13}{figure.6}\protected@file@percent }
-\newlabel{fig:attention}{{6}{13}{关注清单生成算法微基准}{figure.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}可复现性与效度威胁}{13}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}与代表性方案对比}{6}{subsection.2.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 与代表性日志采集/可观测性方案对比}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:related_compare}{{1}{6}{与代表性日志采集/可观测性方案对比}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}本文定位}{6}{subsection.2.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}系统总体设计}{6}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}架构概述}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 分布式定向日志采集框架的三层输入/输出}}{7}{table.2}\protected@file@percent }
+\newlabel{tab:framework_layers}{{2}{7}{分布式定向日志采集框架的三层输入/输出}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces 分布式定向日志采集系统总体架构}}{7}{figure.1}\protected@file@percent }
+\newlabel{fig:arch}{{1}{7}{分布式定向日志采集系统总体架构}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}工作流程}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}部署模式}{8}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}关键算法}{8}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}关注清单动态生成}{8}{subsection.4.1}\protected@file@percent }
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces 关注清单动态生成}}{8}{algocf.1}\protected@file@percent }
+\newlabel{alg:attention}{{1}{8}{关注清单动态生成}{algocf.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}固定缓存块}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}定向策略三次转换}{9}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}压力感知指数退避}{9}{subsection.4.4}\protected@file@percent }
+\newlabel{eq:backoff}{{1}{9}{压力感知指数退避}{equation.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces 定向策略三次转换算法流程}}{10}{figure.2}\protected@file@percent }
+\newlabel{fig:transform}{{2}{10}{定向策略三次转换算法流程}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 指数退避重试延迟分布}}{10}{figure.3}\protected@file@percent }
+\newlabel{fig:backoff}{{3}{10}{指数退避重试延迟分布}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces 技术选型}}{11}{table.3}\protected@file@percent }
+\newlabel{tab:tech}{{3}{11}{技术选型}{table.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}系统实现}{11}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}技术选型}{11}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}模块划分}{11}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}关键数据结构与匹配实现}{11}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}部署配置}{11}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}生产部署与标准化接口}{12}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}实验与分析}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}环境与方法}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}研究问题与指标}{12}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces 研究问题、指标与证据映射}}{13}{table.4}\protected@file@percent }
+\newlabel{tab:rq_mapping}{{4}{13}{研究问题、指标与证据映射}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}实验结果}{13}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}}{14}{table.5}\protected@file@percent }
+\newlabel{tab:compare}{{5}{14}{定向采集与全量采集资源对比（八节点，180\,s，$n{=}3$ 实测）}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces 定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}}{14}{figure.4}\protected@file@percent }
+\newlabel{fig:compare}{{4}{14}{定向采集与全量采集资源消耗对比（八节点，180\,s，$n{=}3$ 实测）}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces 消融实验结果（\textbf  {策略仿真}，非集群实测）}}{14}{figure.5}\protected@file@percent }
+\newlabel{fig:ablation}{{5}{14}{消融实验结果（\textbf {策略仿真}，非集群实测）}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces 关注清单生成算法微基准}}{15}{figure.6}\protected@file@percent }
+\newlabel{fig:attention}{{6}{15}{关注清单生成算法微基准}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}可复现性与效度威胁}{15}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}规模扩展与质量指标}{16}{subsection.6.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf  {非实测}）}}{16}{figure.7}\protected@file@percent }
+\newlabel{fig:scale}{{7}{16}{多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf {非实测}）}{figure.7}{}}
 \citation{otel_tail}
 \citation{soldani2023ebpf}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}规模扩展与质量指标}{14}{subsection.6.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf  {非实测}）}}{14}{figure.7}\protected@file@percent }
-\newlabel{fig:scale}{{7}{14}{多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，\textbf {非实测}）}{figure.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}工业基线对照}{14}{subsection.6.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}}{15}{figure.8}\protected@file@percent }
-\newlabel{fig:baseline}{{8}{15}{工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}剩余局限与后续工作}{15}{subsection.6.7}\protected@file@percent }
-\newlabel{sec:future}{{6.7}{15}{剩余局限与后续工作}{subsection.6.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}结束语}{15}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}工业基线对照}{17}{subsection.6.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces 工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}}{17}{figure.8}\protected@file@percent }
+\newlabel{fig:baseline}{{8}{17}{工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}剩余局限与后续工作}{17}{subsection.6.7}\protected@file@percent }
+\newlabel{sec:future}{{6.7}{17}{剩余局限与后续工作}{subsection.6.7}{}}
 \bibstyle{unsrt}
 \bibdata{references}
+\@writefile{toc}{\contentsline {section}{\numberline {7}结束语}{18}{section.7}\protected@file@percent }
 \bibcite{burns2016patterns}{{1}{}{{}}{{}}}
 \bibcite{burns2016borg}{{2}{}{{}}{{}}}
 \bibcite{jamshidi2018microservices}{{3}{}{{}}{{}}}
@@ -152,4 +152,4 @@
 \bibcite{seshagiri2022sok}{{50}{}{{}}{{}}}
 \bibcite{yang2023nahida}{{51}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{19}
+\gdef \@abspage@last{25}
