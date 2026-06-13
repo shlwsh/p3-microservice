@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  13 JUN 2026 12:31
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2026.5.30)  13 JUN 2026 19:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,25 +865,25 @@ File: ../figures/fig1_system_overview.pdf Graphic file (type pdf)
 [4]) (./sections/zh/04_algorithms.tex [5]
 File: ../figures/fig2_triple_transform.pdf Graphic file (type pdf)
 <use ../figures/fig2_triple_transform.pdf>
+ [6]
 File: ../figures/fig5_backoff_distribution.pdf Graphic file (type pdf)
 <use ../figures/fig5_backoff_distribution.pdf>
- [6])
+)
 (./sections/zh/05_implementation.tex [7]) (./sections/zh/06_experiments.tex
+[8]
 File: ../figures/fig3_comparison_bars.pdf Graphic file (type pdf)
 <use ../figures/fig3_comparison_bars.pdf>
-
-[8]
 File: ../figures/fig4_ablation_bars.pdf Graphic file (type pdf)
 <use ../figures/fig4_ablation_bars.pdf>
+ [9]
 File: ../figures/fig6_attention_bench.pdf Graphic file (type pdf)
 <use ../figures/fig6_attention_bench.pdf>
- [9]
+ [10]
 File: ../figures/fig7_scale_bars.pdf Graphic file (type pdf)
 <use ../figures/fig7_scale_bars.pdf>
- [10]
 File: ../figures/fig8_baseline_bars.pdf Graphic file (type pdf)
 <use ../figures/fig8_baseline_bars.pdf>
- [11]) (./sections/zh/07_conclusion.tex) (./main-jos.bbl [12]
+ [11]) (./sections/zh/07_conclusion.tex) [12] (./main-jos.bbl
 [13] [14])
 
 Package fontspec Info: Could not resolve font "Droid Sans Fallback/BI" (it
@@ -917,12 +917,12 @@ L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20660 strings out of 476415
- 468051 string characters out of 5792682
+ 20659 strings out of 476415
+ 468043 string characters out of 5792682
  1970627 words of memory out of 5000000
- 42268 multiletter control sequences out of 15000+600000
+ 42267 multiletter control sequences out of 15000+600000
  568547 words of font info for 135 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 107i,15n,111p,2120b,692s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,15n,111p,2120b,636s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main-jos.pdf (16 pages).

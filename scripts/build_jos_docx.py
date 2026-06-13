@@ -943,6 +943,41 @@ class DocxBuilder:
             + "</w:p>"
         )
 
+    def add_kept_paragraph(
+        self,
+        text: str,
+        style: str = "JOSBody",
+        align: str | None = None,
+        *,
+        keep_next: bool = False,
+        keep_lines: bool = False,
+    ) -> None:
+        if not text:
+            return
+        text = fix_display_text(text)
+        ppr = [f'<w:pStyle w:val="{style}"/>']
+        if keep_next:
+            ppr.append("<w:keepNext/>")
+        if keep_lines:
+            ppr.append("<w:keepLines/>")
+        if align:
+            ppr.append(f'<w:jc w:val="{align}"/>')
+        enable_superscript = not style.startswith("JOSReference")
+        enable_subscript = style == "JOSCode" or bool(re.search(r"\b[A-Za-z]_[A-Za-z0-9]+", text))
+        if style == "JOSCode":
+            text = clean_formula_display_text(text)
+        self.parts.append(
+            "<w:p><w:pPr>"
+            + "".join(ppr)
+            + "</w:pPr>"
+            + inline_runs_xml(
+                text,
+                enable_superscript=enable_superscript,
+                enable_subscript=enable_subscript,
+            )
+            + "</w:p>"
+        )
+
     def add_tabbed_paragraph(self, left: str, right: str, style: str = "JOSMasthead") -> None:
         self.parts.append(
             "<w:p><w:pPr>"
@@ -964,16 +999,20 @@ class DocxBuilder:
         max_cols = max(len(r) for r in rows)
         cell_width = max(1, int(self.text_width_twips / max_cols))
         table_rows = []
+        row_count = len(rows)
         for row_idx, row in enumerate(rows):
             cells = []
             for cell in row + [""] * (max_cols - len(row)):
                 cell = fix_display_text(cell)
+                ppr = '<w:pStyle w:val="JOSTableText"/><w:keepLines/>'
+                if row_idx < row_count - 1:
+                    ppr += "<w:keepNext/>"
                 cells.append(
                     f'<w:tc><w:tcPr><w:tcW w:w="{cell_width}" w:type="dxa"/></w:tcPr>'
-                    f'<w:p><w:pPr><w:pStyle w:val="JOSTableText"/></w:pPr>'
+                    f"<w:p><w:pPr>{ppr}</w:pPr>"
                     f"{table_inline_runs_xml(cell, bold=row_idx == 0)}</w:p></w:tc>"
                 )
-            table_rows.append("<w:tr>" + "".join(cells) + "</w:tr>")
+            table_rows.append("<w:tr><w:trPr><w:cantSplit/></w:trPr>" + "".join(cells) + "</w:tr>")
         self.parts.append(
             '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/>'
             '<w:tblBorders><w:top w:val="single" w:sz="6" w:space="0" w:color="000000"/>'
@@ -1005,7 +1044,7 @@ class DocxBuilder:
         docpr = self.next_docpr
         self.next_docpr += 1
         drawing = f"""
-<w:p><w:pPr><w:pStyle w:val="JOSImage"/><w:jc w:val="center"/></w:pPr><w:r><w:drawing>
+<w:p><w:pPr><w:pStyle w:val="JOSImage"/><w:keepNext/><w:keepLines/><w:jc w:val="center"/></w:pPr><w:r><w:drawing>
 <wp:inline distT="0" distB="0" distL="0" distR="0">
 <wp:extent cx="{cx}" cy="{cy}"/><wp:effectExtent l="0" t="0" r="0" b="0"/>
 <wp:docPr id="{docpr}" name="{xml(path.stem)}"/><wp:cNvGraphicFramePr/>
@@ -1192,15 +1231,18 @@ def page_field_xml() -> str:
     )
 
 
-def header_xml(text: str, align: str, page_side: str) -> str:
-    if page_side == "left":
-        runs = f'{page_field_xml()}<w:r><w:t xml:space="preserve"> | {xml(text)}</w:t></w:r>'
-    else:
-        runs = f'<w:r><w:t xml:space="preserve">{xml(text)} | </w:t></w:r>{page_field_xml()}'
+def header_xml(text: str, text_width_twips: int) -> str:
+    runs = (
+        f'<w:r><w:t xml:space="preserve">{xml(text)}</w:t></w:r>'
+        "<w:r><w:tab/></w:r>"
+        f"{page_field_xml()}"
+    )
     return (
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
         '<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
-        f'<w:p><w:pPr><w:pStyle w:val="JOSMasthead"/><w:jc w:val="{align}"/></w:pPr>'
+        '<w:p><w:pPr><w:pStyle w:val="JOSMasthead"/>'
+        f'<w:tabs><w:tab w:val="right" w:pos="{text_width_twips}"/></w:tabs>'
+        "</w:pPr>"
         f"{runs}</w:p></w:hdr>"
     )
 
@@ -1256,8 +1298,8 @@ def write_docx(builder: DocxBuilder, output: Path, manuscript: Manuscript, profi
         running_header = manuscript.running_header or derived_running_header(manuscript)
         first_footer = manuscript.first_footer_text or profile.first_footer_text
         zf.writestr("word/header0.xml", first_header_xml(builder.text_width_twips, profile.first_header_rows))
-        zf.writestr("word/header1.xml", header_xml(running_header, "right", "right"))
-        zf.writestr("word/header2.xml", header_xml(profile.even_header_text, "left", "left"))
+        zf.writestr("word/header1.xml", header_xml(running_header, builder.text_width_twips))
+        zf.writestr("word/header2.xml", header_xml(profile.even_header_text, builder.text_width_twips))
         zf.writestr("word/footer1.xml", footer_xml(first_footer, profile.first_footer_indent_twips))
         zf.writestr("word/footer2.xml", footer_xml())
         zf.writestr("word/footer3.xml", footer_xml())
@@ -1346,15 +1388,26 @@ def populate(builder: DocxBuilder, ms: Manuscript, profile: DocxProfile = JOS_PR
             builder.add_paragraph(block.text, "JOSBody")
         elif block.kind == "table":
             if block.caption:
-                builder.add_paragraph(block.caption, "JOSCaption", "center")
+                builder.add_kept_paragraph(block.caption, "JOSCaption", "center", keep_next=True, keep_lines=True)
             builder.add_table(block.rows)
         elif block.kind == "figure":
             builder.add_image(block.image_path, block.width_factor, block.caption)
             builder.add_paragraph(block.caption, "JOSCaption", "center")
         elif block.kind == "algorithm":
-            builder.add_paragraph(block.caption, "JOSCaption", "center")
-            for line in block.lines:
-                builder.add_paragraph(line, "JOSCode")
+            builder.add_kept_paragraph(
+                block.caption,
+                "JOSCaption",
+                "center",
+                keep_next=bool(block.lines),
+                keep_lines=True,
+            )
+            for idx, line in enumerate(block.lines):
+                builder.add_kept_paragraph(
+                    line,
+                    "JOSCode",
+                    keep_next=idx < len(block.lines) - 1,
+                    keep_lines=True,
+                )
         elif block.kind == "equation":
             suffix = f"    {block.caption}" if block.caption else ""
             builder.add_paragraph(f"{block.text}{suffix}", "JOSCode", "center")

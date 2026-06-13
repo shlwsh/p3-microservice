@@ -283,6 +283,79 @@ def masthead_tab_count(root: ET.Element, docx: Path | None = None) -> int:
     return count
 
 
+def pagination_keep_stats(root: ET.Element) -> dict[str, int]:
+    paras = root.findall(".//w:body/w:p", NS)
+    table_caption_total = 0
+    table_caption_keep = 0
+    image_total = 0
+    image_keep = 0
+    algorithm_caption_total = 0
+    algorithm_caption_keep = 0
+    algorithm_code_total = 0
+    algorithm_code_keep_lines = 0
+    algorithm_code_keep_next_expected = 0
+    algorithm_code_keep_next = 0
+
+    for idx, para in enumerate(paras):
+        style_id = paragraph_style(para)
+        text = text_of(para)
+        keep_next = para.find("w:pPr/w:keepNext", NS) is not None
+        keep_lines = para.find("w:pPr/w:keepLines", NS) is not None
+        if style_id == "JOSCaption" and re.match(r"^表\s*\d+", text):
+            table_caption_total += 1
+            table_caption_keep += int(keep_next)
+        if style_id == "JOSImage":
+            image_total += 1
+            image_keep += int(keep_next)
+        if style_id == "JOSCaption" and text.startswith("算法"):
+            algorithm_caption_total += 1
+            algorithm_caption_keep += int(keep_next)
+            code_indices = []
+            for next_idx in range(idx + 1, len(paras)):
+                if paragraph_style(paras[next_idx]) != "JOSCode":
+                    break
+                code_indices.append(next_idx)
+            for pos, code_idx in enumerate(code_indices):
+                code_para = paras[code_idx]
+                algorithm_code_total += 1
+                algorithm_code_keep_lines += int(code_para.find("w:pPr/w:keepLines", NS) is not None)
+                if pos < len(code_indices) - 1:
+                    algorithm_code_keep_next_expected += 1
+                    algorithm_code_keep_next += int(code_para.find("w:pPr/w:keepNext", NS) is not None)
+
+    table_rows = root.findall(".//w:tr", NS)
+    return {
+        "table_rows": len(table_rows),
+        "table_rows_cant_split": sum(1 for tr in table_rows if tr.find("w:trPr/w:cantSplit", NS) is not None),
+        "table_caption_total": table_caption_total,
+        "table_caption_keep": table_caption_keep,
+        "image_total": image_total,
+        "image_keep": image_keep,
+        "algorithm_caption_total": algorithm_caption_total,
+        "algorithm_caption_keep": algorithm_caption_keep,
+        "algorithm_code_total": algorithm_code_total,
+        "algorithm_code_keep_lines": algorithm_code_keep_lines,
+        "algorithm_code_keep_next_expected": algorithm_code_keep_next_expected,
+        "algorithm_code_keep_next": algorithm_code_keep_next,
+    }
+
+
+def split_header_stats(docx: Path) -> dict[str, int]:
+    tabbed_headers = 0
+    compact_separator_headers = 0
+    with zipfile.ZipFile(docx) as zf:
+        for name in ["word/header1.xml", "word/header2.xml"]:
+            root = ET.fromstring(zf.read(name))
+            if root.find(".//w:tabs/w:tab", NS) is not None and root.find(".//w:r/w:tab", NS) is not None:
+                tabbed_headers += 1
+            if " | " in text_of(root):
+                compact_separator_headers += 1
+    return {
+        "tabbed_headers": tabbed_headers,
+        "compact_separator_headers": compact_separator_headers,
+    }
+
+
 def reference_indent(docx: Path) -> dict[str, str]:
     styles = read_docx_xml(docx, "word/styles.xml")
     st = styles.find(".//w:style[@w:styleId='JOSReference']", NS)
@@ -469,6 +542,8 @@ def main() -> int:
     )
     pdf_header_hits = sum(1 for marker in header_markers if normalize(marker) in normalized_pdf_text)
     masthead_tabs = masthead_tab_count(doc_root, docx)
+    keep_stats = pagination_keep_stats(doc_root)
+    header_split = split_header_stats(docx)
     actual_margins = page_setup.get("margins_twips", {})
     expected_margins = expected_page["margins_twips"]
     allowed_footers = {expected_margins.get("footer"), args.allowed_footer}
@@ -566,10 +641,52 @@ def main() -> int:
             "ok": docx_header_hits == 2 and pdf_header_hits == 2,
         },
         {
+            "name": "页眉标题页码左右分开",
+            "actual": f"制表位 {header_split['tabbed_headers']}/2；紧挤分隔符 {header_split['compact_separator_headers']}",
+            "expected": "制表位 2/2；紧挤分隔符 0",
+            "ok": header_split["tabbed_headers"] == 2 and header_split["compact_separator_headers"] == 0,
+        },
+        {
             "name": "首页期刊信息右对齐制表位",
             "actual": masthead_tabs,
             "expected": 3,
             "ok": masthead_tabs == 3,
+        },
+        {
+            "name": "表格行禁止跨页拆分",
+            "actual": f"{keep_stats['table_rows_cant_split']}/{keep_stats['table_rows']}",
+            "expected": f"{keep_stats['table_rows']}/{keep_stats['table_rows']}",
+            "ok": keep_stats["table_rows"] > 0
+            and keep_stats["table_rows_cant_split"] == keep_stats["table_rows"],
+        },
+        {
+            "name": "表题与表格同页",
+            "actual": f"{keep_stats['table_caption_keep']}/{keep_stats['table_caption_total']}",
+            "expected": f"{keep_stats['table_caption_total']}/{keep_stats['table_caption_total']}",
+            "ok": keep_stats["table_caption_total"] > 0
+            and keep_stats["table_caption_keep"] == keep_stats["table_caption_total"],
+        },
+        {
+            "name": "图片与图题同页",
+            "actual": f"{keep_stats['image_keep']}/{keep_stats['image_total']}",
+            "expected": f"{keep_stats['image_total']}/{keep_stats['image_total']}",
+            "ok": keep_stats["image_total"] > 0
+            and keep_stats["image_keep"] == keep_stats["image_total"],
+        },
+        {
+            "name": "算法清单同页保持",
+            "actual": (
+                f"标题 {keep_stats['algorithm_caption_keep']}/{keep_stats['algorithm_caption_total']}；"
+                f"代码 keepLines {keep_stats['algorithm_code_keep_lines']}/{keep_stats['algorithm_code_total']}；"
+                f"代码 keepNext {keep_stats['algorithm_code_keep_next']}/{keep_stats['algorithm_code_keep_next_expected']}"
+            ),
+            "expected": "全部符合",
+            "ok": keep_stats["algorithm_caption_total"] > 0
+            and keep_stats["algorithm_caption_keep"] == keep_stats["algorithm_caption_total"]
+            and keep_stats["algorithm_code_total"] > 0
+            and keep_stats["algorithm_code_keep_lines"] == keep_stats["algorithm_code_total"]
+            and keep_stats["algorithm_code_keep_next"]
+            == keep_stats["algorithm_code_keep_next_expected"],
         },
         {
             "name": "参考文献悬挂缩进",

@@ -7,7 +7,7 @@
 \textbf{输入}：时间窗口内网关流量日志集合 $L=\{l_1,\ldots,l_N\}$；定向策略 $S$（响应时延阈值 $T$、错误码集合 $E$）。\\
 \textbf{输出}：关注清单 $A=\{(p_i,w_i)\}$，$p_i$ 为泛化 URL 模式，$w_i$ 为权重。
 
-\begin{algorithm}[htbp]
+\begin{algorithm}[H]
 \caption{关注清单动态生成}\label{alg:attention}
 \KwIn{流量日志集合 $L$，策略 $S=(T,E,K,\mathrm{TTL})$}
 \KwOut{关注清单 $A$}
