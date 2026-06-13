@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build a JOS-format DOCX directly from the LaTeX manuscript.
+"""Build a DOCX directly from the LaTeX manuscript using a template profile.
 
 The old pipeline asked Pandoc to infer a heavily customized rjthesis document.
 That lost front matter and several custom environments.  This generator keeps
-the conversion deterministic: it parses the known manuscript structure and
-writes WordprocessingML using the format values extracted under docs/format.
+the conversion deterministic: it parses the manuscript structure and writes
+WordprocessingML using format values extracted under docs/format plus a small
+profile for template-specific headers, footers, and front-matter spacing.
 """
 
 from __future__ import annotations
@@ -67,10 +68,42 @@ class Manuscript:
     institute_en: str
     abstract_en: str
     keywords_en: str
+    running_header: str
+    first_footer_text: str
     blocks: list[Block]
     references: list[str]
     cn_references: list[str]
     author_bio: list[str]
+
+
+@dataclass(frozen=True)
+class DocxProfile:
+    first_header_rows: tuple[tuple[str, str], ...]
+    even_header_text: str
+    first_footer_text: str
+    first_footer_indent_twips: int = 330
+    footer_distance_twips: int = 1260
+    after_institute_twips: int = 300
+    before_citation_twips: int = 300
+    before_english_title_twips: int = 220
+    before_english_abstract_twips: int = 340
+    citation_wrap_units: float = 52.0
+    zh_abstract_label: str = "摘   要:"
+    zh_keywords_label: str = "关键词:"
+    category_label: str = "中图法分类号:"
+    en_abstract_label: str = "Abstract:"
+    en_keywords_label: str = "Key words:"
+
+
+JOS_PROFILE = DocxProfile(
+    first_header_rows=(
+        ("软件学报 ISSN 1000-9825, CODEN RUXUEW", "E-mail: jos@iscas.ac.cn"),
+        ("Journal of Software, [doi: 10.13328/j.cnki.jos.000000]", "http://www.jos.org.cn"),
+        ("© 中国科学院软件研究所版权所有.", "Tel: +86-10-62562563"),
+    ),
+    even_header_text="Journal of Software 软件学报",
+    first_footer_text="收稿时间: XXXX-XX-XX; 修改时间: XXXX-XX-XX; 采用时间: XXXX-XX-XX",
+)
 
 
 def xml(text: str) -> str:
@@ -761,6 +794,68 @@ def extract_line_with(main_tex: str, needle: str, cite_map: dict[str, int], labe
     return ""
 
 
+def normalize_inline_text(text: str) -> str:
+    text = text.replace("\n", " ")
+    text = text.replace("~", " ")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+def normalize_institute_line(text: str) -> str:
+    text = normalize_inline_text(text)
+    text = re.sub(r"([\u4e00-\u9fff])\s+([\u4e00-\u9fff]+)\s+([0-9]{6})", r"\1\2 \3", text)
+    return text
+
+
+def extract_command_text(tex: str, command: str, cite_map: dict[str, int], label_map: dict[str, str]) -> str:
+    value = command_arg(tex, command)
+    if not value:
+        return ""
+    return normalize_inline_text(latex_to_text(value[0], cite_map, label_map))
+
+
+def extract_footnote_text(tex: str, cite_map: dict[str, int], label_map: dict[str, str]) -> str:
+    value = command_arg(tex, "footnotetext")
+    if not value:
+        return ""
+    text = re.sub(r"\\(?:xiaowuhao|song|kai|hei)\b(?:\{\})?", "", value[0])
+    return normalize_inline_text(latex_to_text(text, cite_map, label_map))
+
+
+def extract_english_front_matter(tex: str, cite_map: dict[str, int], label_map: dict[str, str]) -> tuple[str, str, str]:
+    marker = "% ---------- 英文标题/作者/机构"
+    start = tex.find(marker)
+    block = tex[start:] if start >= 0 else tex
+    next_marker = block.find("% ---------- 英文摘要")
+    if next_marker >= 0:
+        block = block[:next_marker]
+
+    title_arg = command_arg(block, "textbf")
+    title = latex_to_text(title_arg[0], cite_map, label_map) if title_arg else ""
+
+    authors = ""
+    author_match = re.search(r"\\vspace\{[^}]+\}\s*\{\\xiaowuhao\s*(.*?)\}", block, re.DOTALL)
+    if author_match:
+        authors = latex_to_text(author_match.group(1), cite_map, label_map)
+
+    institute = ""
+    institute_match = re.search(r"\([^()]*?(?:China|中国)[^()]*?\)", block, re.DOTALL)
+    if institute_match:
+        institute = latex_to_text(institute_match.group(0), cite_map, label_map)
+
+    return tuple(normalize_inline_text(x) for x in (title, authors, institute))
+
+
+def first_author_name(authors: str) -> str:
+    first = re.split(r"[,，;；]", authors, maxsplit=1)[0]
+    return re.sub(r"\s+", "", first).strip()
+
+
+def derived_running_header(ms: Manuscript) -> str:
+    author = first_author_name(ms.authors_zh)
+    return f"{author} 等: {ms.title_zh}" if author and ms.title_zh else ms.title_zh
+
+
 def build_manuscript(root: Path) -> Manuscript:
     main_tex = read_text(root / "latex/main-jos.tex")
     expanded = expand_inputs(main_tex, root / "latex")
@@ -774,11 +869,14 @@ def build_manuscript(root: Path) -> Manuscript:
     info = command_arg(main_tex, "rjinfor")
     institute_lines = []
     if info:
-        institute_lines = [latex_to_text(x, cite_map, label_map) for x in re.split(r"\\\\", info[0]) if x.strip()]
+        institute_lines = [
+            normalize_institute_line(latex_to_text(x, cite_map, label_map))
+            for x in re.split(r"\\\\", info[0])
+            if x.strip()
+        ]
 
-    title_en_match = re.search(r"\\textbf\{(Gateway-[^}]+)\}", main_tex)
-    title_en = title_en_match.group(1) if title_en_match else "Gateway-Traffic-Driven Microservice Directed Log Collection Framework"
-    institute_en_match = re.search(r"\(College of Computer Science and Technology,.*?China\)", main_tex, re.DOTALL)
+    title_en, authors_en, institute_en = extract_english_front_matter(main_tex, cite_map, label_map)
+    running_header = extract_command_text(main_tex, "rjhead", cite_map, label_map)
 
     return Manuscript(
         title_zh=latex_to_text(title[0], cite_map, label_map) if title else "",
@@ -786,14 +884,16 @@ def build_manuscript(root: Path) -> Manuscript:
         institute_lines=institute_lines,
         abstract_zh=latex_to_text(macros.get("AbstractContentZh", ""), cite_map, label_map),
         keywords_zh=latex_to_text(macros.get("KeywordsZh", ""), cite_map, label_map),
-        category="TP311",
+        category=extract_command_text(main_tex, "rjcategory", cite_map, label_map),
         citation_zh=extract_line_with(main_tex, "中文引用格式", cite_map, label_map),
         citation_en=extract_line_with(main_tex, "英文引用格式", cite_map, label_map),
-        title_en=latex_to_text(title_en, cite_map, label_map),
-        authors_en="SHI Hong-Lei, ZHAO Juan-Juan",
-        institute_en=latex_to_text(institute_en_match.group(0), cite_map, label_map) if institute_en_match else "",
+        title_en=title_en,
+        authors_en=authors_en,
+        institute_en=institute_en,
         abstract_en=latex_to_text(macros.get("AbstractContentEn", ""), cite_map, label_map),
         keywords_en=latex_to_text(macros.get("KeywordsEn", ""), cite_map, label_map),
+        running_header=running_header,
+        first_footer_text=extract_footnote_text(main_tex, cite_map, label_map),
         blocks=parse_sections(root, cite_map, label_map),
         references=references,
         cn_references=extract_cn_references(expanded, cite_map, label_map),
@@ -802,13 +902,14 @@ def build_manuscript(root: Path) -> Manuscript:
 
 
 class DocxBuilder:
-    def __init__(self, format_data: dict, title: str):
+    def __init__(self, format_data: dict, title: str, profile: DocxProfile = JOS_PROFILE):
         page = format_data["page_setup"]
         self.paper = page["paper_twips"]
         self.margins = page["margins_twips"]
         self.columns = page.get("columns", {"space": "720", "num": "1"})
         self.text_width_cm = page["paper_cm"]["width"] - page["margins_cm"]["left"] - page["margins_cm"]["right"]
         self.title = title
+        self.profile = profile
         self.parts: list[str] = []
         self.image_rels: list[tuple[str, str]] = []
         self.media: list[tuple[Path, str]] = []
@@ -853,6 +954,9 @@ class DocxBuilder:
             f'<w:r><w:t xml:space="preserve">{xml(right)}</w:t></w:r>'
             "</w:p>"
         )
+
+    def add_spacer(self, height_twips: int) -> None:
+        self.parts.append(f'<w:p><w:pPr><w:spacing w:line="{height_twips}" w:lineRule="exact"/></w:pPr></w:p>')
 
     def add_table(self, rows: list[list[str]]) -> None:
         if not rows:
@@ -919,7 +1023,8 @@ class DocxBuilder:
 
     def document_xml(self) -> str:
         sect = (
-            '<w:sectPr><w:headerReference w:type="default" r:id="rId3"/>'
+            '<w:sectPr><w:headerReference w:type="first" r:id="rId8"/>'
+            '<w:headerReference w:type="default" r:id="rId3"/>'
             '<w:headerReference w:type="even" r:id="rId4"/>'
             '<w:footerReference w:type="first" r:id="rId5"/>'
             '<w:footerReference w:type="default" r:id="rId6"/>'
@@ -928,7 +1033,7 @@ class DocxBuilder:
             f'<w:pgSz w:w="{self.paper["w"]}" w:h="{self.paper["h"]}"/>'
             f'<w:pgMar w:top="{self.margins["top"]}" w:right="{self.margins["right"]}" '
             f'w:bottom="{self.margins["bottom"]}" w:left="{self.margins["left"]}" '
-            f'w:header="{self.margins["header"]}" w:footer="{self.margins["footer"]}" '
+            f'w:header="{self.margins["header"]}" w:footer="{self.profile.footer_distance_twips}" '
             f'w:gutter="{self.margins.get("gutter", "0")}"/>'
             f'<w:cols w:space="{self.columns.get("space", "720")}" w:num="{self.columns.get("num", "1")}"/>'
             "</w:sectPr>"
@@ -955,6 +1060,7 @@ class DocxBuilder:
             '<Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/>',
             '<Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer2.xml"/>',
             '<Relationship Id="rId7" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer3.xml"/>',
+            '<Relationship Id="rId8" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header0.xml"/>',
         ]
         rels.extend(
             f'<Relationship Id="{rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{target}"/>'
@@ -1011,10 +1117,12 @@ def styles_xml() -> str:
         style("JOSAuthorZh", "JOS Chinese author from sample style 65", 12, "仿宋_GB2312", jc="center", before=120, after=120),
         style("JOSInstituteZh", "JOS institute from sample style 66", 8, "宋体", jc="center", line=220),
         style("JOSAbstractZh", "JOS abstract from sample style 117", 9, "楷体_GB2312", jc="both", line=240),
+        style("JOSAbstractEn", "JOS English abstract from sample first page", 10, "宋体", jc="left", line=240),
         style("JOSKeywords", "JOS keywords from sample style 118", 9, "宋体", left=430, hanging=430, line=240),
-        style("JOSCitation", "JOS citation from sample style 121", 8, "宋体", jc="both", line=220),
-        style("JOSEnglishTitle", "JOS English title from sample style 120", 10.5, "黑体", bold=True, before=120, after=100),
+        style("JOSCitation", "JOS citation from sample style 121", 9, "宋体", jc="both", line=220),
+        style("JOSEnglishTitle", "JOS English title from sample style 120", 12, "黑体", bold=True, before=120, after=100),
         style("JOSBody", "JOS body from sample style 145", 9, "宋体", jc="both", first_line=420, line=260),
+        style("JOSBodyNoIndent", "JOS body without first-line indent", 9, "宋体", jc="both", line=260),
         style("JOSHeading1", "JOS heading 1 from sample style 213", 10.5, "黑体", bold=True, before=160, after=160),
         style("JOSHeading2", "JOS heading 2 from sample style 215", 9, "黑体", bold=True, before=25, after=25),
         style("JOSHeading3", "JOS heading 3 from sample style 217", 9, "黑体", bold=True, before=20, after=20),
@@ -1038,6 +1146,7 @@ def content_types_xml() -> str:
         ("word/document.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"),
         ("word/styles.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"),
         ("word/settings.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"),
+        ("word/header0.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"),
         ("word/header1.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"),
         ("word/header2.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"),
         ("word/footer1.xml", "application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"),
@@ -1096,14 +1205,46 @@ def header_xml(text: str, align: str, page_side: str) -> str:
     )
 
 
-def footer_xml() -> str:
+def first_header_xml(text_width_twips: int, rows: Iterable[tuple[str, str]]) -> str:
+    paras = []
+    for left, right in rows:
+        paras.append(
+            "<w:p><w:pPr>"
+            '<w:pStyle w:val="JOSMasthead"/>'
+            f'<w:tabs><w:tab w:val="right" w:pos="{text_width_twips}"/></w:tabs>'
+            "</w:pPr>"
+            f'<w:r><w:t xml:space="preserve">{xml(left)}</w:t></w:r>'
+            "<w:r><w:tab/></w:r>"
+            f'<w:r><w:t xml:space="preserve">{xml(right)}</w:t></w:r>'
+            "</w:p>"
+        )
     return (
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
-        '<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p/></w:ftr>'
+        '<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        + "".join(paras)
+        + "</w:hdr>"
     )
 
 
-def write_docx(builder: DocxBuilder, output: Path) -> None:
+def footer_xml(text: str = "", indent_twips: int = 0) -> str:
+    if text:
+        body = (
+            '<w:p><w:pPr><w:pStyle w:val="JOSMasthead"/><w:jc w:val="left"/>'
+            f'<w:ind w:left="{indent_twips}"/>'
+            '<w:pBdr><w:top w:val="single" w:sz="4" w:space="1" w:color="auto"/></w:pBdr>'
+            "</w:pPr>"
+            f'<w:r><w:t xml:space="preserve">{xml(text)}</w:t></w:r></w:p>'
+        )
+    else:
+        body = "<w:p/>"
+    return (
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        '<w:ftr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+        f"{body}</w:ftr>"
+    )
+
+
+def write_docx(builder: DocxBuilder, output: Path, manuscript: Manuscript, profile: DocxProfile = JOS_PROFILE) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         zf.writestr("[Content_Types].xml", content_types_xml())
@@ -1112,33 +1253,90 @@ def write_docx(builder: DocxBuilder, output: Path) -> None:
         zf.writestr("word/_rels/document.xml.rels", builder.rels_xml())
         zf.writestr("word/styles.xml", styles_xml())
         zf.writestr("word/settings.xml", settings_xml())
-        zf.writestr("word/header1.xml", header_xml("石洪雷 等: 网关流量驱动的微服务定向日志采集框架", "right", "right"))
-        zf.writestr("word/header2.xml", header_xml("Journal of Software 软件学报", "left", "left"))
-        zf.writestr("word/footer1.xml", footer_xml())
+        running_header = manuscript.running_header or derived_running_header(manuscript)
+        first_footer = manuscript.first_footer_text or profile.first_footer_text
+        zf.writestr("word/header0.xml", first_header_xml(builder.text_width_twips, profile.first_header_rows))
+        zf.writestr("word/header1.xml", header_xml(running_header, "right", "right"))
+        zf.writestr("word/header2.xml", header_xml(profile.even_header_text, "left", "left"))
+        zf.writestr("word/footer1.xml", footer_xml(first_footer, profile.first_footer_indent_twips))
         zf.writestr("word/footer2.xml", footer_xml())
         zf.writestr("word/footer3.xml", footer_xml())
         for src, arcname in builder.media:
             zf.write(src, arcname)
 
 
-def populate(builder: DocxBuilder, ms: Manuscript) -> None:
-    builder.add_tabbed_paragraph("软件学报ISSN 1000-9825, CODEN RUXUEW", "E-mail: jos@iscas.ac.cn")
-    builder.add_tabbed_paragraph("Journal of Software, [doi: 10.13328/j.cnki.jos.000000]", "http://www.jos.org.cn")
-    builder.add_tabbed_paragraph("©中国科学院软件研究所版权所有.", "Tel: +86-10-62562563")
-    builder.add_paragraph(ms.title_zh, "JOSTitleZh", "center")
-    builder.add_paragraph(ms.authors_zh, "JOSAuthorZh", "center")
+def spaced_keywords(text: str) -> str:
+    return re.sub(r";\s*", "; ", text).strip()
+
+
+def token_width_units(token: str) -> float:
+    total = 0.0
+    for ch in token:
+        code = ord(ch)
+        if ch.isspace():
+            total += 0.35
+        elif 0x4E00 <= code <= 0x9FFF:
+            total += 1.0
+        elif ch.isupper():
+            total += 0.62
+        elif ch.islower() or ch.isdigit():
+            total += 0.52
+        elif ch in "-/.":
+            total += 0.28
+        else:
+            total += 0.35
+    return total
+
+
+def wrap_text_units(text: str, max_units: float) -> list[str]:
+    tokens = re.findall(r"https?://\S+|\s+|[A-Za-z0-9]+(?:[-/][A-Za-z0-9]+)*|[\u4e00-\u9fff]|.", text)
+    lines: list[str] = []
+    current: list[str] = []
+    width = 0.0
+    for token in tokens:
+        if token.isspace():
+            token = " "
+        token_width = token_width_units(token)
+        if current and width + token_width > max_units:
+            lines.append("".join(current).strip())
+            current = []
+            width = 0.0
+            token = token.lstrip()
+            token_width = token_width_units(token)
+        if token or current:
+            current.append(token)
+            width += token_width
+    if current:
+        lines.append("".join(current).strip())
+    return [line for line in lines if line]
+
+
+def split_citation_text(text: str, max_units: float) -> list[str]:
+    text = text.strip()
+    return wrap_text_units(text, max_units) if text else []
+
+
+def populate(builder: DocxBuilder, ms: Manuscript, profile: DocxProfile = JOS_PROFILE) -> None:
+    builder.add_paragraph(ms.title_zh, "JOSTitleZh", "left")
+    builder.add_paragraph(ms.authors_zh, "JOSAuthorZh", "left")
     for line in ms.institute_lines:
-        builder.add_paragraph(line, "JOSInstituteZh", "center")
-    builder.add_paragraph(f"摘  要: {ms.abstract_zh}", "JOSAbstractZh")
-    builder.add_paragraph(f"关键词: {ms.keywords_zh}", "JOSKeywords")
-    builder.add_paragraph(f"中图法分类号: {ms.category}", "JOSBody")
-    builder.add_paragraph(ms.citation_zh, "JOSCitation")
-    builder.add_paragraph(ms.citation_en, "JOSCitation")
+        builder.add_paragraph(normalize_institute_line(line), "JOSInstituteZh", "left")
+    builder.add_spacer(profile.after_institute_twips)
+    builder.add_paragraph(f"{profile.zh_abstract_label} {ms.abstract_zh}", "JOSAbstractZh")
+    builder.add_paragraph(f"{profile.zh_keywords_label} {spaced_keywords(ms.keywords_zh)}", "JOSKeywords")
+    builder.add_paragraph(f"{profile.category_label} {ms.category}", "JOSBodyNoIndent")
+    builder.add_spacer(profile.before_citation_twips)
+    for line in split_citation_text(ms.citation_zh, profile.citation_wrap_units):
+        builder.add_paragraph(line, "JOSCitation")
+    for line in split_citation_text(ms.citation_en, profile.citation_wrap_units):
+        builder.add_paragraph(line, "JOSCitation")
+    builder.add_spacer(profile.before_english_title_twips)
     builder.add_paragraph(ms.title_en, "JOSEnglishTitle")
     builder.add_paragraph(ms.authors_en, "JOSCitation")
     builder.add_paragraph(ms.institute_en, "JOSCitation")
-    builder.add_paragraph(f"Abstract: {ms.abstract_en}", "JOSAbstractZh")
-    builder.add_paragraph(f"Key words: {ms.keywords_en}", "JOSKeywords")
+    builder.add_spacer(profile.before_english_abstract_twips)
+    builder.add_paragraph(f"{profile.en_abstract_label}   {ms.abstract_en}", "JOSAbstractEn")
+    builder.add_paragraph(f"{profile.en_keywords_label} {spaced_keywords(ms.keywords_en)}", "JOSKeywords")
 
     for block in ms.blocks:
         if block.kind == "heading":
@@ -1191,9 +1389,10 @@ def main() -> int:
         format_data = json.load(f)
 
     manuscript = build_manuscript(root)
-    builder = DocxBuilder(format_data, manuscript.title_zh)
-    populate(builder, manuscript)
-    write_docx(builder, output)
+    profile = JOS_PROFILE
+    builder = DocxBuilder(format_data, manuscript.title_zh, profile)
+    populate(builder, manuscript, profile)
+    write_docx(builder, output, manuscript, profile)
     print(f"DOCX written: {output}")
     print(f"paragraph_blocks={len(builder.parts)} images={len(builder.media)} references={len(manuscript.references)}")
     return 0

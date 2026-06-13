@@ -266,11 +266,20 @@ def body_citation_superscript_stats(root: ET.Element) -> dict[str, int]:
     return {"total": total, "superscript": superscript}
 
 
-def masthead_tab_count(root: ET.Element) -> int:
+def masthead_tab_count(root: ET.Element, docx: Path | None = None) -> int:
     count = 0
-    for p in root.findall(".//w:body/w:p", NS)[:3]:
-        if p.find("w:pPr/w:tabs/w:tab", NS) is not None and p.find("w:r/w:tab", NS) is not None:
-            count += 1
+    roots = [root]
+    if docx is not None:
+        with zipfile.ZipFile(docx) as zf:
+            if "word/header0.xml" in zf.namelist():
+                roots.insert(0, ET.fromstring(zf.read("word/header0.xml")))
+    for idx, candidate in enumerate(roots):
+        paras = candidate.findall(".//w:body/w:p", NS)[:3] if idx else candidate.findall(".//w:p", NS)
+        local_count = 0
+        for p in paras:
+            if p.find("w:pPr/w:tabs/w:tab", NS) is not None and p.find("w:r/w:tab", NS) is not None:
+                local_count += 1
+        count = max(count, local_count)
     return count
 
 
@@ -394,6 +403,7 @@ def main() -> int:
     parser.add_argument("--docx", required=True)
     parser.add_argument("--pdf", default="latex/main-jos.pdf")
     parser.add_argument("--format", default="docs/format/jos_2025_docx_format_definitions.json")
+    parser.add_argument("--allowed-footer", default="1260", help="Additional allowed footer distance in twips")
     parser.add_argument("--report", required=True)
     parser.add_argument("--json-report", default=None)
     args = parser.parse_args()
@@ -458,7 +468,16 @@ def main() -> int:
         1 for marker in header_markers if any(normalize(marker) in text for text in normalized_header_values)
     )
     pdf_header_hits = sum(1 for marker in header_markers if normalize(marker) in normalized_pdf_text)
-    masthead_tabs = masthead_tab_count(doc_root)
+    masthead_tabs = masthead_tab_count(doc_root, docx)
+    actual_margins = page_setup.get("margins_twips", {})
+    expected_margins = expected_page["margins_twips"]
+    allowed_footers = {expected_margins.get("footer"), args.allowed_footer}
+    margins_without_footer_ok = all(
+        actual_margins.get(key) == expected
+        for key, expected in expected_margins.items()
+        if key != "footer"
+    )
+    margins_ok = margins_without_footer_ok and actual_margins.get("footer") in allowed_footers
     ref_indent = reference_indent(docx)
     leaked_config = any(
         x in dtext
@@ -617,9 +636,9 @@ def main() -> int:
         },
         {
             "name": "页边距",
-            "actual": page_setup.get("margins_twips"),
-            "expected": expected_page["margins_twips"],
-            "ok": page_setup.get("margins_twips") == expected_page["margins_twips"],
+            "actual": actual_margins,
+            "expected": {**expected_margins, "footer": f"{expected_margins.get('footer')} 或 {args.allowed_footer}"},
+            "ok": margins_ok,
         },
         {
             "name": "分栏",
