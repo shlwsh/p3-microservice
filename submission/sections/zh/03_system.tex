@@ -5,8 +5,7 @@
 本文框架采用\textbf{三层协同定向采集架构}，由两个核心角色组成：\textbf{日志节点采集器（Agent）}和\textbf{日志中心（Center）}。Agent 有两种部署形态——网关节点实例和微服务节点实例。网关实例通过 OpenResty Lua 采集 HTTP 流量日志，微服务实例负责采集应用访问日志。Center 的职责包括：接收 Agent 上传的日志、生成关注清单、下发规则、执行二次过滤，最终将结果写入 Loki。总体架构见图~\ref{fig:arch}。
 
 从能力边界来看，整个框架可以分为三层：\textbf{网关预筛选、节点定向采集、中心二次过滤}，如表~\ref{tab:framework_layers} 所示。三层分别负责运行时流量感知、本地日志减量和中心入库控制，每层的输入输出都可以独立审计，也方便与 AIOps 平台的数据采集能力对接。
-
-\begin{table*}[htbp]
+\begin{table}[H]
   \centering
   \small
   \caption{分布式定向日志采集框架的三层输入/输出}\label{tab:framework_layers}
@@ -21,14 +20,12 @@
     \bottomrule
   \end{tabular}%
   }
-\end{table*}
-
-\begin{figure}[htbp]
+\end{table}
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.95\textwidth]{fig1_system_overview.pdf}
   \caption{分布式定向日志采集系统总体架构}\label{fig:arch}
 \end{figure}
-
 \subsection{工作流程}
 系统的运行过程分为以下五个步骤：
 \begin{enumerate}

@@ -28,8 +28,7 @@ eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,ya
 
 \subsection{与代表性方案对比}
 表~\ref{tab:related_compare} 从策略输入、减量位置、日志削减证据、动态策略来源和 Sidecar 开销等维度，将本文方案与代表性方案进行对比。
-
-\begin{table*}[htbp]
+\begin{table}[H]
   \centering
   \small
   \caption{与代表性日志采集/可观测性方案对比}\label{tab:related_compare}
@@ -49,8 +48,7 @@ eBPF 技术使内核级日志与事件采集成为可能\cite{soldani2023ebpf,ya
     \bottomrule
   \end{tabular}%
   }
-\end{table*}
-
+\end{table}
 \subsection{本文定位}
 从上述分析可以看出，包航宇等的 AIOps 标准化研究着力解决平台能力建设问题\cite{bao2023aiops}，贾统等的日志诊断综述着力解决后端分析方法体系问题\cite{jiatong2020logdiag}。二者都需要稳定、低成本且高价值的日志输入作为基础。本文定位为\textbf{AIOps 采集前端的定向减量技术}：将网关 access log 作为动态策略输入，下发至各微服务节点执行应用日志定向采集，再由中心二次过滤后入库。借助关注清单、三次策略转换与可复现的 Docker 原型，本文在采集阶段将入库量控制在百条量级$^*$，并与全量 Sidecar 架构进行了对照实测（详见 §6.3 表~\ref{tab:compare}）。
 

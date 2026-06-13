@@ -18,15 +18,21 @@ RESULTS_FILE = ROOT / "experiments" / "results" / "phase1" / "phase1_latest.json
 def setup_cn():
     from matplotlib import font_manager
     font_paths = [
+        "/usr/share/fonts/truetype/arphic/uming.ttc",
+        "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
         "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
     ]
+    cn_font_name = None
     for fp in font_paths:
         if Path(fp).exists():
             font_manager.fontManager.addfont(fp)
             prop = font_manager.FontProperties(fname=fp)
-            plt.rcParams["font.family"] = prop.get_name()
+            cn_font_name = prop.get_name()
             break
+    if cn_font_name:
+        plt.rcParams["font.family"] = "sans-serif"
+        plt.rcParams["font.sans-serif"] = [cn_font_name] + plt.rcParams.get("font.sans-serif", [])
     plt.rcParams.update({
         "axes.unicode_minus": False,
         "figure.dpi": 150,
@@ -59,7 +65,7 @@ def fig1_system_overview():
         (0.5, 3.8, 2.2, 1.2, "网关节点\nOpenResty + Agent", "#E3F2FD"),
         (3.8, 3.8, 2.2, 1.2, "微服务节点\nApp + Agent", "#E8F5E9"),
         (7.1, 3.8, 2.2, 1.2, "微服务节点\nApp + Agent", "#E8F5E9"),
-        (3.8, 1.2, 2.4, 1.4, "日志中心 Center\n策略生成 + 二次过滤", "#FFF3E0"),
+        (3.8, 1.5, 2.4, 1.4, "日志中心 Center\n策略生成 + 二次过滤", "#FFF3E0"),
         (0.8, 0.2, 1.8, 0.9, "Redis\n流量缓存", "#FCE4EC"),
         (4.1, 0.2, 1.8, 0.9, "Loki\n日志存储", "#F3E5F5"),
         (7.2, 0.2, 1.8, 0.9, "Grafana\n可视化", "#E0F7FA"),
@@ -69,21 +75,28 @@ def fig1_system_overview():
                                     facecolor=color, edgecolor="#455A64", linewidth=1.2))
         ax.text(x + w / 2, y + h / 2, text, ha="center", va="center", fontsize=10)
 
+    # --- 顶部三个节点之间的水平箭头 ---
     arrows = [
-        ((2.7, 4.4), (3.8, 4.4), "流量"),
-        ((6.0, 4.4), (7.1, 4.4), ""),
-        ((5.0, 3.8), (5.0, 2.6), "gRPC 上传"),
-        ((1.7, 3.8), (4.5, 2.6), "流量日志"),
-        ((5.0, 1.2), (5.0, 1.1), ""),
-        ((4.5, 0.65), (2.6, 0.65), ""),
-        ((6.5, 0.65), (8.1, 0.65), ""),
+        ((2.7, 4.4), (3.8, 4.4), "流量"),           # 网关 → 微服务1
+        ((6.0, 4.4), (7.1, 4.4), ""),                # 微服务1 → 微服务2
+    ]
+    # --- 节点到 Center 的垂直/斜向箭头 ---
+    arrows += [
+        ((4.9, 3.8), (4.9, 2.9), "gRPC 上传"),       # 微服务1 底部中心 → Center 顶部
+        ((1.6, 3.8), (4.2, 2.9), "流量日志"),         # 网关底部中心 → Center 左上
+    ]
+    # --- Center 到底部存储的箭头 ---
+    arrows += [
+        ((5.0, 1.5), (5.0, 1.1), ""),                # Center → Loki
+        ((4.1, 0.65), (2.6, 0.65), ""),              # Loki → Redis
+        ((5.9, 0.65), (7.2, 0.65), ""),              # Loki → Grafana（查询方向）
     ]
     for src, dst, label in arrows:
         ax.annotate("", xy=dst, xytext=src,
                     arrowprops=dict(arrowstyle="->", color="#37474F", lw=1.5))
         if label:
             mx, my = (src[0] + dst[0]) / 2, (src[1] + dst[1]) / 2
-            ax.text(mx, my + 0.15, label, ha="center", fontsize=9, color="#546E7A")
+            ax.text(mx, my + 0.18, label, ha="center", fontsize=9, color="#546E7A")
 
 
     save(fig, "fig1_system_overview")
@@ -91,23 +104,26 @@ def fig1_system_overview():
 
 def fig2_triple_transform():
     """图2 定向策略三次转换流程"""
-    fig, ax = plt.subplots(figsize=(10, 4.5))
+    fig, ax = plt.subplots(figsize=(10, 2.4))
     ax.set_xlim(0, 10)
-    ax.set_ylim(0, 4)
+    ax.set_ylim(0, 2.0)
     ax.axis("off")
 
+    box_h = 1.2
+    box_y = 0.4  # 垂直居中: (2.0 - 1.2) / 2 = 0.4
     stages = [
-        (0.3, 1.5, "定向策略\n(阈值T, 错误码)", "#BBDEFB"),
-        (2.5, 1.5, "第一次转换\n网关采集规则", "#90CAF9"),
-        (4.7, 1.5, "第二次转换\n关注清单→Agent规则", "#64B5F6"),
-        (6.9, 1.5, "第三次转换\n存储规则→Loki", "#42A5F5"),
+        (0.3, box_y, "定向策略\n(阈值T, 错误码)", "#BBDEFB"),
+        (2.5, box_y, "第一次转换\n网关采集规则", "#90CAF9"),
+        (4.7, box_y, "第二次转换\n关注清单→Agent规则", "#64B5F6"),
+        (6.9, box_y, "第三次转换\n存储规则→Loki", "#42A5F5"),
     ]
+    arrow_y = box_y + box_h / 2  # 箭头在方块垂直中心
     for i, (x, y, text, color) in enumerate(stages):
-        ax.add_patch(FancyBboxPatch((x, y), 1.8, 1.2, boxstyle="round,pad=0.04",
+        ax.add_patch(FancyBboxPatch((x, y), 1.8, box_h, boxstyle="round,pad=0.04",
                                     facecolor=color, edgecolor="#1565C0"))
-        ax.text(x + 0.9, y + 0.6, text, ha="center", va="center", fontsize=9)
+        ax.text(x + 0.9, y + box_h / 2, text, ha="center", va="center", fontsize=9)
         if i < len(stages) - 1:
-            ax.annotate("", xy=(stages[i + 1][0], 2.1), xytext=(x + 1.8, 2.1),
+            ax.annotate("", xy=(stages[i + 1][0], arrow_y), xytext=(x + 1.8, arrow_y),
                         arrowprops=dict(arrowstyle="->", lw=2, color="#0D47A1"))
 
 

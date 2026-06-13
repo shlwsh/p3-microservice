@@ -10,11 +10,12 @@
 \RequirePackage{geometry}           % 定制页边距
 % 2025 Word模板精确参数: 页面 18.40×26.00cm
 % 边距 L=1.45 R=1.45 T=1.00 B=2.20cm  页眉距 1.30cm
+% 首页 masthead 是 Word 正文段落，不作为 first-page header 处理。
 \geometry{
   paperwidth=18.40cm, paperheight=26.00cm,
   left=1.45cm, right=1.45cm,
   top=1.00cm, bottom=2.20cm,
-  headheight=30pt,
+  headheight=13pt,
   headsep=0.3cm,
   footskip=1.0cm
 }
@@ -68,7 +69,21 @@
 
 \newcommand{\rjmaketitle}{%
 	\begin{flushleft}
-	    ~\par\vspace{0.6em}
+	    {\liuhao\song
+	    \noindent
+	    \begin{minipage}[t]{0.62\textwidth}
+	    软件学报ISSN 1000-9825, CODEN RUXUEW\\
+	    Journal of Software, [doi: 10.13328/j.cnki.jos.000000]\\
+	    ©中国科学院软件研究所版权所有.
+	    \end{minipage}\hfill
+	    \begin{minipage}[t]{0.32\textwidth}
+	    \raggedleft
+	    E-mail: jos@iscas.ac.cn\\
+	    http://www.jos.org.cn\\
+	    Tel: +86-10-62562563
+	    \end{minipage}
+	    \par}
+	    \vspace{0.6em}
 		{\sihao\hei\@rjtitle}\\
 		\vspace{6pt}
 		{\xiaosihao\fs{\@rjauthor}}\\
@@ -76,11 +91,12 @@
 		{\zihao{8}\song\@rjinfor}
 	\end{flushleft}}
 
-\newcommand{\rjkeywords}[1]{\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\vspace{0.4em}}
+\newcommand{\rjkeywords}[1]{%
+	\par\noindent\xiaowuhao {\hei 关键词:}\hspace{1em}{\kai#1}\par\vspace{0.4em}}
 
 % 中图法分类号（2025 模板新增位置：关键词下方）
 \newcommand{\rjcategory}[1]{%
-	\par\xiaowuhao {\hei 中图法分类号:}\hspace{1em}{\song #1}\vspace{1.0em}}
+	\par\noindent\xiaowuhao {\hei 中图法分类号:}\hspace{1em}{\song #1}\par\vspace{1.0em}}
 
 % 基金项目（2025 模板尾部）
 \newcommand{\rjfunding}[1]{%
@@ -130,17 +146,18 @@
 \fancyhf{}                            % 清除页眉页脚
 %\fancyhead[LO]{\kai\xiaowuhao 陈翔 等:静态软件缺陷预测方法研究}
 %\fancyhead[RO]{\thepage}   % 设置奇数页右边页眉
-\fancyhead[RE]{\xiaowuhao\textit{\xiaowuhao Journal of Software} {\kai 软件学报}}  
+\fancyhead[RE]{\xiaowuhao\textit{\xiaowuhao Journal of Software} {\kai 软件学报}}
 \fancyhead[LE]{\thepage}              % 设置偶数页左边页眉
 \renewcommand{\headrulewidth}{0pt}    % 去掉下划线
 
 %\newcommand{\rjhead}[1]{\fancyhead[LO]{\xiaowuhao\kai #1}}
-% 设置首页跟其他页面不一样
-\fancyhead[RO]{\ifthenelse{\value{page}=1}{\setlength{\lineskip}{5pt}\liuhao\song E-mail: jos@iscas.ac.cn\\http://www.jos.org.cn\\Tel: +86-10-62562563}{\thepage}}
+% 首页 masthead 按 2025 Word 样例作为正文开头内容排入 \rjmaketitle；
+% 页眉仅用于第 2 页及以后。
+\fancyhead[RO]{\ifthenelse{\value{page}=1}{}{\thepage}}
 \newcommand{\rjhead}[1]{%
-	\fancyhead[LO]{\ifthenelse{\value{page}=1}{\setlength{\lineskip}{0pt}\liuhao\song 软件学报ISSN 1000-9825, CODEN RUXUEW\\Journal of Software, [doi: 10.13328/j.cnki.jos.000000]\\©中国科学院软件研究所版权所有.}{\xiaowuhao\kai #1}}}
+	\fancyhead[LO]{\ifthenelse{\value{page}=1}{}{\xiaowuhao\kai #1}}}
 
-\setlength{\headheight}{30pt}
+\setlength{\headheight}{13pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%正文排版参数
 % 2025 模板: Normal 字号 9pt (小五号), 样式1 正文段落无额外行距

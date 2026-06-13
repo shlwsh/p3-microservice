@@ -1,0 +1,525 @@
+{
+  "docx": "/home/ros/work/p3-microservice/docs/to-docx/v61-论文稿件-jos-20260613-124012.docx",
+  "pdf": "/home/ros/work/p3-microservice/latex/main-jos.pdf",
+  "passed": false,
+  "checks": [
+    {
+      "name": "表格对象数",
+      "actual": 6,
+      "expected": ">=5",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "图片数",
+      "actual": 8,
+      "expected": 8,
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "图题与图片一一对应",
+      "actual": "8/8",
+      "expected": "8/8",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "图片段落非固定行距样式",
+      "actual": "8/8",
+      "expected": "8/8",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "编号表题数",
+      "actual": 6,
+      "expected": 6,
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "表格中间竖线",
+      "actual": "6/6",
+      "expected": "6/6",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "表格左右开口",
+      "actual": "6/6",
+      "expected": "6/6",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "表格单元格直接字体",
+      "actual": "156/156",
+      "expected": "156/156",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "表头加粗正文常规",
+      "actual": "表头 25/25；正文 131/131",
+      "expected": "全部符合",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "页眉页码字段",
+      "actual": 2,
+      "expected": 2,
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "页眉内容",
+      "actual": {
+        "word/header1.xml": "石洪雷 等:分布式定向日志采集组件 | 1",
+        "word/header2.xml": "1 | Journal of Software 软件学报"
+      },
+      "expected": {
+        "word/header1.xml": "石洪雷 等:分布式定向日志采集组件",
+        "word/header2.xml": "Journal of Software 软件学报"
+      },
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "页眉与 main-jos.pdf 对照",
+      "actual": "DOCX 2/2；PDF 1/2",
+      "expected": "DOCX 2/2；PDF 2/2",
+      "ok": false,
+      "status": "失败"
+    },
+    {
+      "name": "首页期刊信息右对齐制表位",
+      "actual": 3,
+      "expected": 3,
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "参考文献悬挂缩进",
+      "actual": {
+        "left": "420",
+        "hanging": "420"
+      },
+      "expected": {
+        "left": "420",
+        "hanging": "420"
+      },
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "LaTeX 环境参数泄漏",
+      "actual": "无",
+      "expected": "无",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "正文数字引用上标",
+      "actual": "30/30",
+      "expected": "30/30",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "Word 上标 run 数",
+      "actual": 38,
+      "expected": ">0",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "上标源码残留",
+      "actual": "无",
+      "expected": "无",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "公式段落识别",
+      "actual": 1,
+      "expected": ">=1",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "公式上标 run",
+      "actual": 2,
+      "expected": ">0",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "公式下标 run",
+      "actual": 4,
+      "expected": ">0",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "公式 LaTeX 残留",
+      "actual": "无",
+      "expected": "无",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "参考文献条目数",
+      "actual": 72,
+      "expected": ">=51",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "DOCX/PDF 字符比例",
+      "actual": "0.970",
+      "expected": ">=0.75",
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "页面尺寸",
+      "actual": {
+        "w": "10433",
+        "h": "14742"
+      },
+      "expected": {
+        "w": "10433",
+        "h": "14742"
+      },
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "页边距",
+      "actual": {
+        "top": "567",
+        "right": "822",
+        "bottom": "1247",
+        "left": "822",
+        "header": "737",
+        "footer": "567",
+        "gutter": "0"
+      },
+      "expected": {
+        "top": "567",
+        "right": "822",
+        "bottom": "1247",
+        "left": "822",
+        "header": "737",
+        "footer": "567",
+        "gutter": "0"
+      },
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "分栏",
+      "actual": {
+        "space": "720",
+        "num": "1"
+      },
+      "expected": {
+        "space": "720",
+        "num": "1"
+      },
+      "ok": true,
+      "status": "通过"
+    },
+    {
+      "name": "关键标记覆盖",
+      "actual": "22/22",
+      "expected": "22/22",
+      "ok": true,
+      "status": "通过"
+    }
+  ],
+  "marker_coverage": [
+    {
+      "marker": "网关流量驱动的微服务定向日志采集框架",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "摘  要",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "关键词",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "Abstract",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "Key words",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "1 引言",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "2 相关工作",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "3 系统总体设计",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "4 关键算法",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "5 系统实现",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "6 实验与分析",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "7 结束语",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "表 1",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "表 5",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "图 1",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "图 8",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "算法 1",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "References",
+      "in_docx": true,
+      "in_pdf": false
+    },
+    {
+      "marker": "附中文参考文献",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "作者简介",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "shihonglei0042@link.tyut.edu.cn",
+      "in_docx": true,
+      "in_pdf": true
+    },
+    {
+      "marker": "zh_juanjuan@126.com",
+      "in_docx": true,
+      "in_pdf": true
+    }
+  ],
+  "page_setup": {
+    "paper_twips": {
+      "w": "10433",
+      "h": "14742"
+    },
+    "margins_twips": {
+      "top": "567",
+      "right": "822",
+      "bottom": "1247",
+      "left": "822",
+      "header": "737",
+      "footer": "567",
+      "gutter": "0"
+    },
+    "columns": {
+      "space": "720",
+      "num": "1"
+    }
+  },
+  "figures": [
+    {
+      "index": 1,
+      "paragraph": 58,
+      "style": "JOSImage",
+      "name": "fig1_system_overview",
+      "cx_cm": 14.72,
+      "cy_cm": 8.93,
+      "caption": "图 1  分布式定向日志采集系统总体架构"
+    },
+    {
+      "index": 2,
+      "paragraph": 95,
+      "style": "JOSImage",
+      "name": "fig2_triple_transform",
+      "cx_cm": 14.26,
+      "cy_cm": 3.67,
+      "caption": "图 2  定向策略三次转换算法流程"
+    },
+    {
+      "index": 3,
+      "paragraph": 101,
+      "style": "JOSImage",
+      "name": "fig5_backoff_distribution",
+      "cx_cm": 11.62,
+      "cy_cm": 7.73,
+      "caption": "图 3  指数退避重试延迟分布"
+    },
+    {
+      "index": 4,
+      "paragraph": 129,
+      "style": "JOSImage",
+      "name": "fig3_comparison_bars",
+      "cx_cm": 13.18,
+      "cy_cm": 8.38,
+      "caption": "图 4  定向采集与全量采集资源消耗对比（八节点，180 s，n=3 实测）"
+    },
+    {
+      "index": 5,
+      "paragraph": 134,
+      "style": "JOSImage",
+      "name": "fig4_ablation_bars",
+      "cx_cm": 14.72,
+      "cy_cm": 4.82,
+      "caption": "图 5  消融实验结果（策略仿真，非集群实测）"
+    },
+    {
+      "index": 6,
+      "paragraph": 137,
+      "style": "JOSImage",
+      "name": "fig6_attention_bench",
+      "cx_cm": 13.18,
+      "cy_cm": 8.27,
+      "caption": "图 6  关注清单生成算法微基准"
+    },
+    {
+      "index": 7,
+      "paragraph": 147,
+      "style": "JOSImage",
+      "name": "fig7_scale_bars",
+      "cx_cm": 14.72,
+      "cy_cm": 4.56,
+      "caption": "图 7  多规模扩展实验（绿色/实线：8/16/32 节点集群实测；灰色/虚线：64 节点线性外推，非实测）"
+    },
+    {
+      "index": 8,
+      "paragraph": 153,
+      "style": "JOSImage",
+      "name": "fig8_baseline_bars",
+      "cx_cm": 13.18,
+      "cy_cm": 6.51,
+      "caption": "图 8  工业基线趋势对比（P3 定向采集为集群实测；Promtail 为同负载多进程规则复现；OTel/eBPF 为同负载估算，柱形样式区分证据等级）"
+    }
+  ],
+  "table_captions": [
+    "表 1  与代表性日志采集/可观测性方案对比",
+    "表 2  分布式定向日志采集框架的三层输入/输出",
+    "表 3  定向策略三次转换阶段说明",
+    "表 4  技术选型",
+    "表 5  研究问题、指标与证据映射",
+    "表 6  定向采集与全量采集资源对比（八节点，180 s，n=3 实测）"
+  ],
+  "table_borders": [
+    {
+      "index": 1,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    },
+    {
+      "index": 2,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    },
+    {
+      "index": 3,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    },
+    {
+      "index": 4,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    },
+    {
+      "index": 5,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    },
+    {
+      "index": 6,
+      "top": "single",
+      "bottom": "single",
+      "left": "nil",
+      "right": "nil",
+      "insideH": "single",
+      "insideV": "single"
+    }
+  ],
+  "formulas": [
+    {
+      "paragraph": 99,
+      "text": "dn = min(dmax, d0ρn + rand(0, d0ρnξ)). (1)",
+      "superscripts": 2,
+      "subscripts": 4,
+      "has_latex_residue": false
+    }
+  ],
+  "docx_chars": 28769,
+  "pdf_chars": 29647,
+  "char_ratio": 0.970384861874726,
+  "paragraphs": 246
+}

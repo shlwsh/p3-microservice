@@ -16,15 +16,21 @@ OUT = ROOT / "figures"
 def setup_cn():
     from matplotlib import font_manager
     font_paths = [
+        "/usr/share/fonts/truetype/arphic/uming.ttc",
+        "/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
         "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
     ]
+    cn_font_name = None
     for fp in font_paths:
         if Path(fp).exists():
             font_manager.fontManager.addfont(fp)
             prop = font_manager.FontProperties(fname=fp)
-            plt.rcParams["font.family"] = prop.get_name()
+            cn_font_name = prop.get_name()
             break
+    if cn_font_name:
+        plt.rcParams["font.family"] = "sans-serif"
+        plt.rcParams["font.sans-serif"] = [cn_font_name] + plt.rcParams.get("font.sans-serif", [])
     else:
         plt.rcParams["font.sans-serif"] = ["WenQuanYi Micro Hei", "Noto Sans CJK SC", "DejaVu Sans"]
     plt.rcParams["axes.unicode_minus"] = False
