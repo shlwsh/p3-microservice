@@ -51,6 +51,8 @@ class Block:
     image_path: Path | None = None
     width_factor: float = 0.9
     lines: list[str] = field(default_factory=list)
+    algorithm_io: list[tuple[str, str]] = field(default_factory=list)
+    algorithm_rows: list[dict[str, object]] = field(default_factory=list)
 
 
 @dataclass
@@ -612,29 +614,186 @@ def maybe_convert_pdf(pdf_path: Path, png_path: Path) -> None:
     )
 
 
+def command_args_at(text: str, pos: int, command: str, argc: int) -> tuple[list[str], int] | None:
+    token = f"\\{command}"
+    if not text.startswith(token, pos):
+        return None
+    args: list[str] = []
+    cur = pos + len(token)
+    for _ in range(argc):
+        while cur < len(text) and text[cur].isspace():
+            cur += 1
+        if cur >= len(text) or text[cur] != "{":
+            return None
+        end = find_matching_brace(text, cur)
+        args.append(text[cur + 1 : end])
+        cur = end + 1
+    return args, cur
+
+
+def strip_algorithm_metadata(env_text: str) -> str:
+    text = env_text
+    for command in ["caption", "label", "KwIn", "KwOut"]:
+        start = 0
+        while True:
+            arg = command_arg(text, command, start)
+            if not arg:
+                break
+            _, begin, end = arg
+            text = text[:begin] + "\n" + text[end:]
+            start = begin
+    return text
+
+
+def algorithm_statement_text(raw: str, cite_map: dict[str, int], label_map: dict[str, str]) -> tuple[str, str]:
+    raw = raw.strip()
+    has_semicolon = r"\;" in raw
+    comment = ""
+    tcp = command_arg(raw, "tcp*")
+    if tcp:
+        comment = latex_to_text(tcp[0], cite_map, label_map)
+        raw = raw[: tcp[1]] + raw[tcp[2] :]
+    raw = raw.replace(r"\;", " ")
+    raw = normalize_inline_text(raw)
+    text = latex_to_text(raw, cite_map, label_map)
+    if has_semicolon and text and not text.endswith(";"):
+        text += ";"
+    return text, comment
+
+
+def parse_algorithm_rows(
+    source: str,
+    cite_map: dict[str, int],
+    label_map: dict[str, str],
+    *,
+    pos: int = 0,
+    indent: int = 0,
+    active_guides: tuple[int, ...] = (),
+    counter: list[int] | None = None,
+) -> tuple[list[dict[str, object]], int]:
+    if counter is None:
+        counter = [0]
+    rows: list[dict[str, object]] = []
+    cur = pos
+    statement_start = cur
+
+    def emit_statement(raw: str) -> None:
+        text, comment = algorithm_statement_text(raw, cite_map, label_map)
+        if not text:
+            return
+        counter[0] += 1
+        rows.append(
+            {
+                "line_no": counter[0],
+                "indent": indent,
+                "guides": list(active_guides),
+                "end_guides": [],
+                "code": text,
+                "comment": comment,
+            }
+        )
+
+    while cur < len(source):
+        if source[cur] == "}":
+            emit_statement(source[statement_start:cur])
+            return rows, cur + 1
+        if source.startswith(r"\ForEach", cur) or source.startswith(r"\If", cur):
+            emit_statement(source[statement_start:cur])
+            command = "ForEach" if source.startswith(r"\ForEach", cur) else "If"
+            parsed = command_args_at(source, cur, command, 2)
+            if not parsed:
+                cur += 1
+                continue
+            args, end = parsed
+            condition = latex_to_text(args[0], cite_map, label_map)
+            code = f"foreach {condition} do" if command == "ForEach" else f"if {condition} then"
+            counter[0] += 1
+            rows.append(
+                {
+                    "line_no": counter[0],
+                    "indent": indent,
+                    "guides": list(active_guides),
+                    "end_guides": [],
+                    "code": code,
+                    "comment": "",
+                    "keyword": command,
+                }
+            )
+            child_rows, _ = parse_algorithm_rows(
+                args[1],
+                cite_map,
+                label_map,
+                indent=indent + 1,
+                active_guides=active_guides + (indent,),
+                counter=counter,
+            )
+            if child_rows:
+                child_rows[-1].setdefault("end_guides", [])
+                child_rows[-1]["end_guides"].append(indent)
+            rows.extend(child_rows)
+            cur = end
+            statement_start = cur
+            continue
+        if source.startswith(r"\Return", cur):
+            emit_statement(source[statement_start:cur])
+            parsed = command_args_at(source, cur, "Return", 1)
+            if parsed:
+                args, end = parsed
+                tail = source[end : source.find("\n", end) if "\n" in source[end:] else len(source)]
+                has_semicolon = r"\;" in tail
+                text = f"return {latex_to_text(args[0], cite_map, label_map)}"
+                if has_semicolon:
+                    text += ";"
+                    end += tail.find(r"\;") + 2
+                counter[0] += 1
+                rows.append(
+                    {
+                        "line_no": counter[0],
+                        "indent": indent,
+                        "guides": list(active_guides),
+                        "end_guides": [],
+                        "code": text,
+                        "comment": "",
+                        "keyword": "Return",
+                    }
+                )
+                cur = end
+                statement_start = cur
+                continue
+        if source.startswith(r"\;", cur):
+            emit_statement(source[statement_start : cur + 2])
+            cur += 2
+            statement_start = cur
+            continue
+        cur += 1
+    emit_statement(source[statement_start:])
+    return rows, cur
+
+
 def parse_algorithm(env_text: str, cite_map: dict[str, int], label_map: dict[str, str]) -> Block:
     caption_arg = command_arg(env_text, "caption")
     caption = latex_to_text(caption_arg[0], cite_map, label_map) if caption_arg else "算法"
     label_match = re.search(r"\\label\{([^}]+)\}", env_text)
     label = label_match.group(1) if label_match else ""
-    lines: list[str] = []
-    for raw in env_text.splitlines():
-        line = raw.strip()
-        if not line or line.startswith(r"\caption") or line.startswith(r"\label"):
-            continue
-        line = replace_command_arg(line, "KwIn", lambda s: f"输入: {s}")
-        line = replace_command_arg(line, "KwOut", lambda s: f"输出: {s}")
-        line = replace_command_arg(line, "Return", lambda s: f"return {s}")
-        line = replace_command_arg(line, "tcp*", lambda s: f" // {s}")
-        line = re.sub(r"\\ForEach\{(.+?)\}\{", r"for each \1 do", line)
-        line = re.sub(r"\\If\{(.+?)\}\{", r"if \1 then", line)
-        line = line.replace(r"\;", "").strip()
-        if line in {"}", "};"}:
-            continue
-        cleaned = latex_to_text(line, cite_map, label_map)
-        if cleaned and cleaned not in {"", "}"}:
-            lines.append(cleaned)
-    return Block(kind="algorithm", caption=caption, label=label, lines=lines)
+    algorithm_io: list[tuple[str, str]] = []
+    for command, label_text in [("KwIn", "Input"), ("KwOut", "Output")]:
+        arg = command_arg(env_text, command)
+        if arg:
+            algorithm_io.append((label_text, latex_to_text(arg[0], cite_map, label_map)))
+    body = strip_algorithm_metadata(env_text)
+    rows, _ = parse_algorithm_rows(body, cite_map, label_map)
+    legacy_lines = [
+        *(f"{label}: {text}" for label, text in algorithm_io),
+        *(str(row["code"]) for row in rows),
+    ]
+    return Block(
+        kind="algorithm",
+        caption=caption,
+        label=label,
+        lines=legacy_lines,
+        algorithm_io=algorithm_io,
+        algorithm_rows=rows,
+    )
 
 
 def parse_equation(env_text: str, label_map: dict[str, str]) -> Block:
